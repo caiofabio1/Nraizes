@@ -460,28 +460,39 @@ function nraizes_homepage_schema() {
  * e desativa feeds de comentários para evitar URLs zumbis.
  */
 
-// 1. Remove bloqueio do robots.txt nativo do WordPress para feeds
-add_filter('robots_txt', 'nraizes_optimize_robots_txt', 20, 2);
+// 1. Otimiza o robots.txt para permitir que o Google rastreie os feeds (e veja o noindex/redirect)
+add_filter('robots_txt', 'nraizes_optimize_robots_txt', 9999, 2); // Prioridade máxima
 function nraizes_optimize_robots_txt($output, $public) {
-    // Remove as linhas de bloqueio de feed para que o Google possa ler o 'noindex'
-    $output = str_replace("Disallow: /*/feed/\n", "", $output);
-    $output = str_replace("Disallow: /feed/\n", "", $output);
+    // Remove linhas de Disallow para feeds usando regex (pega variações de quebra de linha)
+    $output = preg_replace('/Disallow:.*\/feed\/(\r?\n)?/i', '', $output);
+    
+    // Adiciona Allow explícito para garantir que o Google possa rastrear e processar o noindex
+    $output .= "\nAllow: /feed/\n";
+    $output .= "Allow: /*/feed/\n";
+    
     return $output;
 }
 
 // 2. Desativa links de feeds no cabeçalho
-function nraizes_disable_feed_links() {
+add_action('wp_head', 'nraizes_remove_feed_links', 1);
+function nraizes_remove_feed_links() {
     remove_action('wp_head', 'feed_links', 2);
     remove_action('wp_head', 'feed_links_extra', 3);
 }
-add_action('init', 'nraizes_disable_feed_links');
 
-// 3. Redireciona feeds de comentários para o post/produto original
-// Isso ajuda o Google a entender que o feed não deve ser indexado separadamente
-add_action('template_redirect', 'nraizes_redirect_comment_feeds');
+// 3. Redireciona feeds de comentários e outros para o conteúdo original
+add_action('template_redirect', 'nraizes_redirect_comment_feeds', 5);
 function nraizes_redirect_comment_feeds() {
-    if (is_feed() && (is_single() || is_singular())) {
-        wp_redirect(get_permalink(), 301);
-        exit;
+    if (is_feed()) {
+        if (is_singular()) {
+            wp_redirect(get_permalink(), 301);
+            exit;
+        } elseif (is_tax() || is_category() || is_tag()) {
+            wp_redirect(get_term_link(get_queried_object()), 301);
+            exit;
+        } else {
+            wp_redirect(home_url(), 301);
+            exit;
+        }
     }
 }
