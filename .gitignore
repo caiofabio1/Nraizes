@@ -1,0 +1,43 @@
+# WordPress
+wp-config.php
+wp-content/debug.log
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/backups/
+wp-content/updraft/
+wp-content/blogs.dir/
+wp-content/upgrade-temp-backup/
+
+# Temas e plugins de terceiros (instalar via painel)
+wp-content/themes/organium/
+wp-content/themes/twentytwentyfour/
+wp-content/plugins/
+
+# Ambiente
+.env
+.env.local
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+
+# Credenciais (NUNCA versionar!)
+.credentials/
+
+# Node (se usar build tools)
+node_modules/
+package-lock.json
+
+# Análise local
+analise_projeto.md
