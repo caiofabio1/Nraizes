@@ -5,39 +5,49 @@ on:
     branches:
       - main
     paths:
-      - 'wp-content/themes/organium-child/**'
+      - "wp-content/themes/organium-child/**"
   workflow_dispatch:
 
 jobs:
   deploy:
     name: Deploy via SFTP
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
+      - name: Install LFTP
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Debug - Check secrets are set
+        run: |
+          if [ -z "${{ secrets.SFTP_HOST }}" ]; then
+            echo "❌ SFTP_HOST secret is not set!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.SFTP_USER }}" ]; then
+            echo "❌ SFTP_USER secret is not set!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.SFTP_PASSWORD }}" ]; then
+            echo "❌ SFTP_PASSWORD secret is not set!"
+            exit 1
+          fi
+          echo "✅ All secrets are configured"
 
       - name: Deploy child theme via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          protocol: sftp
-          port: 22
-          local-dir: ./wp-content/themes/organium-child/
-          server-dir: /html/wp-content/themes/organium-child/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.DS_Store
-            **/Thumbs.db
+        run: |
+          lftp -u "${{ secrets.SFTP_USER }},${{ secrets.SFTP_PASSWORD }}" sftp://${{ secrets.SFTP_HOST }} << EOF
+          set sftp:auto-confirm yes
+          set ssl:verify-certificate no
+          cd /html/wp-content/themes/organium-child
+          lcd wp-content/themes/organium-child
+          mirror --reverse --delete --verbose --exclude-glob .git* --exclude-glob .DS_Store
+          bye
+          EOF
 
       - name: Deployment Summary
         run: |
           echo "✅ Deploy completed successfully!"
           echo "📁 Files deployed to: /html/wp-content/themes/organium-child/"
-          echo "🌐 Server: ${{ secrets.SFTP_HOST }}"
