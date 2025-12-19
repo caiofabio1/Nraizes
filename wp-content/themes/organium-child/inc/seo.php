@@ -197,6 +197,44 @@ function nraizes_homepage_schema() {
 }
 
 // ============================================
+// DYNAMIC META DESCRIPTIONS
+// ============================================
+
+add_action('wp_head', 'nraizes_meta_descriptions', 1);
+function nraizes_meta_descriptions() {
+    // Skip if Yoast or other SEO plugin handles this
+    if (defined('WPSEO_VERSION') || defined('RANK_MATH_VERSION')) return;
+    
+    $description = '';
+    
+    if (is_product()) {
+        global $product;
+        $desc = $product->get_short_description() ?: $product->get_description();
+        $description = wp_strip_all_tags($desc);
+    } elseif (is_product_category()) {
+        $term = get_queried_object();
+        if ($term && !empty($term->description)) {
+            $description = wp_strip_all_tags($term->description);
+        } else {
+            $description = 'Confira os melhores produtos de ' . $term->name . ' na Novas Raízes. Entrega rápida e garantia de qualidade.';
+        }
+    } elseif (is_shop()) {
+        $description = 'Loja de Produtos Naturais, Fórmulas Chinesas e Suplementos. Qualidade garantida e entrega para todo Brasil.';
+    } elseif (is_front_page()) {
+        $description = 'Novas Raízes - Sua loja de produtos naturais, fórmulas chinesas e suplementos de alta qualidade.';
+    }
+    
+    if (!empty($description)) {
+        // Trim to 160 characters
+        $description = mb_substr(preg_replace('/\s+/', ' ', trim($description)), 0, 157);
+        if (mb_strlen($description) === 157) {
+            $description .= '...';
+        }
+        echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+    }
+}
+
+// ============================================
 // ROBOTS.TXT OPTIMIZATION
 // ============================================
 
