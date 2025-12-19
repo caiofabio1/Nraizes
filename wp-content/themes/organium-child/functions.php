@@ -237,3 +237,169 @@ function nraizes_custom_mobile_styles() {
     </style>
     <?php
 }
+
+// ============================================
+// SEO IMPROVEMENTS
+// ============================================
+
+/**
+ * MELHORIA 7: Corrigir H1 em páginas de produto
+ * Muda o título do produto de H2 para H1
+ */
+add_filter('woocommerce_product_loop_title_classes', function() { return 'woocommerce-loop-product__title'; });
+
+// Força H1 no título do produto individual
+add_action('woocommerce_single_product_summary', 'nraizes_product_h1_title', 4);
+function nraizes_product_h1_title() {
+    if (!is_product()) return;
+    global $product;
+    ?>
+    <h1 class="product_title entry-title" style="display:none;"><?php echo esc_html($product->get_name()); ?></h1>
+    <?php
+}
+
+/**
+ * MELHORIA 8: Schema JSON-LD para Produtos
+ * Habilita Rich Snippets (preço, disponibilidade) no Google
+ */
+add_action('wp_head', 'nraizes_product_schema');
+function nraizes_product_schema() {
+    if (!is_product()) return;
+    
+    global $product;
+    
+    // Pega a imagem do produto
+    $image = wp_get_attachment_url($product->get_image_id());
+    if (!$image) {
+        $image = wc_placeholder_img_src();
+    }
+    
+    // Disponibilidade
+    $availability = $product->is_in_stock() 
+        ? 'https://schema.org/InStock' 
+        : 'https://schema.org/OutOfStock';
+    
+    // Monta o schema
+    $schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'Product',
+        'name' => $product->get_name(),
+        'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()),
+        'image' => $image,
+        'sku' => $product->get_sku() ?: $product->get_id(),
+        'brand' => array(
+            '@type' => 'Brand',
+            'name' => 'Novas Raízes'
+        ),
+        'offers' => array(
+            '@type' => 'Offer',
+            'url' => get_permalink($product->get_id()),
+            'priceCurrency' => 'BRL',
+            'price' => $product->get_price(),
+            'availability' => $availability,
+            'seller' => array(
+                '@type' => 'Organization',
+                'name' => 'Novas Raízes'
+            )
+        )
+    );
+    
+    // Adiciona rating se existir
+    $rating_count = $product->get_rating_count();
+    if ($rating_count > 0) {
+        $schema['aggregateRating'] = array(
+            '@type' => 'AggregateRating',
+            'ratingValue' => $product->get_average_rating(),
+            'reviewCount' => $rating_count
+        );
+    }
+    
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * MELHORIA 9: Breadcrumbs com Schema
+ * Adiciona navegação estruturada com JSON-LD
+ */
+add_action('woocommerce_before_single_product', 'nraizes_breadcrumbs_schema', 5);
+function nraizes_breadcrumbs_schema() {
+    if (!is_product()) return;
+    
+    global $product;
+    
+    // Pega as categorias do produto
+    $terms = get_the_terms($product->get_id(), 'product_cat');
+    $category = !empty($terms) ? $terms[0] : null;
+    
+    $breadcrumbs = array(
+        array(
+            '@type' => 'ListItem',
+            'position' => 1,
+            'name' => 'Início',
+            'item' => home_url()
+        ),
+        array(
+            '@type' => 'ListItem',
+            'position' => 2,
+            'name' => 'Loja',
+            'item' => wc_get_page_permalink('shop')
+        )
+    );
+    
+    $position = 3;
+    
+    if ($category) {
+        $breadcrumbs[] = array(
+            '@type' => 'ListItem',
+            'position' => $position,
+            'name' => $category->name,
+            'item' => get_term_link($category)
+        );
+        $position++;
+    }
+    
+    $breadcrumbs[] = array(
+        '@type' => 'ListItem',
+        'position' => $position,
+        'name' => $product->get_name()
+    );
+    
+    $schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => $breadcrumbs
+    );
+    
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+    
+    // Exibe breadcrumbs visualmente
+    ?>
+    <nav class="nraizes-breadcrumb" style="font-size:14px; margin-bottom:20px; color:#666;">
+        <a href="<?php echo home_url(); ?>" style="color:#888; text-decoration:none;">Início</a>
+        <span style="margin:0 8px;">›</span>
+        <a href="<?php echo wc_get_page_permalink('shop'); ?>" style="color:#888; text-decoration:none;">Loja</a>
+        <?php if ($category): ?>
+        <span style="margin:0 8px;">›</span>
+        <a href="<?php echo get_term_link($category); ?>" style="color:#888; text-decoration:none;"><?php echo esc_html($category->name); ?></a>
+        <?php endif; ?>
+        <span style="margin:0 8px;">›</span>
+        <span style="color:#333;"><?php echo esc_html($product->get_name()); ?></span>
+    </nav>
+    <?php
+}
+
+/**
+ * MELHORIA 10: H1 para páginas de arquivo/loja
+ * Adiciona H1 nas páginas de categoria e loja
+ */
+add_action('woocommerce_before_shop_loop', 'nraizes_archive_h1', 5);
+function nraizes_archive_h1() {
+    if (is_shop()) {
+        echo '<h1 class="page-title" style="display:none;">Loja - Produtos Naturais e Fórmulas Chinesas</h1>';
+    } elseif (is_product_category()) {
+        $term = get_queried_object();
+        if ($term) {
+            echo '<h1 class="page-title" style="display:none;">' . esc_html($term->name) . ' - Novas Raízes</h1>';
+        }
+    }
+}
