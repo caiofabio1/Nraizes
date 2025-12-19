@@ -409,9 +409,10 @@ function nraizes_archive_h1() {
  * MELHORIA 11: Schema Organization e WebSite para Homepage
  * Adiciona dados estruturados da empresa e habilita Sitelinks Search Box
  */
-add_action('wp_head', 'nraizes_homepage_schema');
+add_action('wp_head', 'nraizes_homepage_schema', 1); // Priority 1 = early execution
 function nraizes_homepage_schema() {
-    if (!is_front_page()) return;
+    // Detecta homepage usando ambas as funções
+    if (!is_front_page() && !is_home()) return;
     
     // Schema Organization
     $organization = array(
