@@ -453,3 +453,35 @@ function nraizes_homepage_schema() {
     
     echo '<script type="application/ld+json">' . wp_json_encode($website, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
 }
+
+/**
+ * MELHORIA 12: Correção "Bloqueado pelo robots.txt" e Desativar Feeds Inúteis
+ * Remove o bloqueio de feeds no robots.txt para o Google ler o 'noindex'
+ * e desativa feeds de comentários para evitar URLs zumbis.
+ */
+
+// 1. Remove bloqueio do robots.txt nativo do WordPress para feeds
+add_filter('robots_txt', 'nraizes_optimize_robots_txt', 20, 2);
+function nraizes_optimize_robots_txt($output, $public) {
+    // Remove as linhas de bloqueio de feed para que o Google possa ler o 'noindex'
+    $output = str_replace("Disallow: /*/feed/\n", "", $output);
+    $output = str_replace("Disallow: /feed/\n", "", $output);
+    return $output;
+}
+
+// 2. Desativa links de feeds no cabeçalho
+function nraizes_disable_feed_links() {
+    remove_action('wp_head', 'feed_links', 2);
+    remove_action('wp_head', 'feed_links_extra', 3);
+}
+add_action('init', 'nraizes_disable_feed_links');
+
+// 3. Redireciona feeds de comentários para o post/produto original
+// Isso ajuda o Google a entender que o feed não deve ser indexado separadamente
+add_action('template_redirect', 'nraizes_redirect_comment_feeds');
+function nraizes_redirect_comment_feeds() {
+    if (is_feed() && (is_single() || is_singular())) {
+        wp_redirect(get_permalink(), 301);
+        exit;
+    }
+}
