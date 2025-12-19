@@ -284,7 +284,7 @@ function nraizes_product_schema() {
         '@context' => 'https://schema.org',
         '@type' => 'Product',
         'name' => $product->get_name(),
-        'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()),
+        'description' => preg_replace('/\s+/', ' ', trim(wp_strip_all_tags($product->get_short_description() ?: $product->get_description()))),
         'image' => $image,
         'sku' => $product->get_sku() ?: $product->get_id(),
         'brand' => array(
@@ -361,7 +361,8 @@ function nraizes_breadcrumbs_schema() {
     $breadcrumbs[] = array(
         '@type' => 'ListItem',
         'position' => $position,
-        'name' => $product->get_name()
+        'name' => $product->get_name(),
+        'item' => get_permalink($product->get_id())
     );
     
     $schema = array(
