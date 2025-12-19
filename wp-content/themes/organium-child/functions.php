@@ -404,3 +404,51 @@ function nraizes_archive_h1() {
         }
     }
 }
+
+/**
+ * MELHORIA 11: Schema Organization e WebSite para Homepage
+ * Adiciona dados estruturados da empresa e habilita Sitelinks Search Box
+ */
+add_action('wp_head', 'nraizes_homepage_schema');
+function nraizes_homepage_schema() {
+    if (!is_front_page()) return;
+    
+    // Schema Organization
+    $organization = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
+        'name' => 'Novas Raízes',
+        'alternateName' => 'Mivegan',
+        'url' => home_url(),
+        'logo' => get_site_icon_url() ?: home_url('/wp-content/uploads/logo.png'),
+        'description' => 'Loja de Produtos Naturais, Fórmulas Chinesas e Suplementos de alta qualidade.',
+        'contactPoint' => array(
+            '@type' => 'ContactPoint',
+            'contactType' => 'customer service',
+            'availableLanguage' => 'Portuguese'
+        ),
+        'sameAs' => array(
+            'https://www.instagram.com/mivegan.br/'
+        )
+    );
+    
+    echo '<script type="application/ld+json">' . wp_json_encode($organization, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+    
+    // Schema WebSite com SearchAction
+    $website = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'WebSite',
+        'name' => 'Novas Raízes',
+        'url' => home_url(),
+        'potentialAction' => array(
+            '@type' => 'SearchAction',
+            'target' => array(
+                '@type' => 'EntryPoint',
+                'urlTemplate' => home_url('/?s={search_term_string}')
+            ),
+            'query-input' => 'required name=search_term_string'
+        )
+    );
+    
+    echo '<script type="application/ld+json">' . wp_json_encode($website, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
