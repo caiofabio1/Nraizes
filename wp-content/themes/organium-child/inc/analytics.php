@@ -146,3 +146,138 @@ function nraizes_ga4_purchase($order_id) {
     // Mark as tracked
     update_post_meta($order_id, '_ga4_tracked', true);
 }
+
+// ============================================
+// CUSTOM GA4 EVENTS
+// ============================================
+
+/**
+ * Track view_cart event
+ */
+add_action('woocommerce_before_cart', 'nraizes_ga4_view_cart');
+function nraizes_ga4_view_cart() {
+    $cart = WC()->cart;
+    $items = array();
+    
+    foreach ($cart->get_cart() as $item) {
+        $product = $item['data'];
+        $items[] = array(
+            'item_id' => $product->get_sku() ?: $product->get_id(),
+            'item_name' => $product->get_name(),
+            'price' => $product->get_price(),
+            'quantity' => $item['quantity']
+        );
+    }
+    ?>
+    <script>
+        gtag('event', 'view_cart', {
+            currency: 'BRL',
+            value: <?php echo $cart->get_total('edit'); ?>,
+            items: <?php echo wp_json_encode($items); ?>
+        });
+    </script>
+    <?php
+}
+
+/**
+ * Track search_product event
+ */
+add_action('wp_footer', 'nraizes_ga4_search_tracking');
+function nraizes_ga4_search_tracking() {
+    if (!is_search() || !isset($_GET['s'])) return;
+    
+    global $wp_query;
+    $search_term = sanitize_text_field($_GET['s']);
+    $results_count = $wp_query->found_posts;
+    ?>
+    <script>
+        gtag('event', 'search_product', {
+            search_term: '<?php echo esc_js($search_term); ?>',
+            results_count: <?php echo intval($results_count); ?>
+        });
+    </script>
+    <?php
+}
+
+/**
+ * Track contact_whatsapp clicks
+ */
+add_action('wp_footer', 'nraizes_ga4_whatsapp_tracking');
+function nraizes_ga4_whatsapp_tracking() {
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+            // Track WhatsApp clicks (common selectors)
+            $('a[href*="wa.me"], a[href*="whatsapp"], .whatsapp-button, .whatsapp-link, [class*="whatsapp"]').on('click', function() {
+                gtag('event', 'contact_whatsapp', {
+                    page_location: window.location.href,
+                    page_title: document.title,
+                    link_url: $(this).attr('href') || 'unknown'
+                });
+            });
+        });
+    </script>
+    <?php
+}
+
+/**
+ * Track scroll depth (25%, 50%, 75%, 100%)
+ */
+add_action('wp_footer', 'nraizes_ga4_scroll_depth');
+function nraizes_ga4_scroll_depth() {
+    if (!is_product() && !is_singular('post')) return;
+    ?>
+    <script>
+        (function() {
+            var scrollMarkers = [25, 50, 75, 100];
+            var markersSent = {};
+            
+            window.addEventListener('scroll', function() {
+                var scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+                
+                scrollMarkers.forEach(function(marker) {
+                    if (scrollPercent >= marker && !markersSent[marker]) {
+                        markersSent[marker] = true;
+                        gtag('event', 'scroll_depth', {
+                            percent_scrolled: marker,
+                            page_location: window.location.href
+                        });
+                    }
+                });
+            });
+        })();
+    </script>
+    <?php
+}
+
+/**
+ * Track add_shipping_info and add_payment_info on checkout
+ */
+add_action('wp_footer', 'nraizes_ga4_checkout_steps');
+function nraizes_ga4_checkout_steps() {
+    if (!is_checkout()) return;
+    ?>
+    <script>
+        jQuery(document).ready(function($) {
+            // Track shipping method selection
+            $(document.body).on('change', 'input[name^="shipping_method"]', function() {
+                var shippingMethod = $(this).val();
+                gtag('event', 'add_shipping_info', {
+                    currency: 'BRL',
+                    shipping_tier: shippingMethod
+                });
+            });
+            
+            // Track payment method selection
+            $(document.body).on('change', 'input[name="payment_method"]', function() {
+                var paymentMethod = $(this).val();
+                gtag('event', 'add_payment_info', {
+                    currency: 'BRL',
+                    payment_type: paymentMethod
+                });
+            });
+        });
+    </script>
+    <?php
+}
+

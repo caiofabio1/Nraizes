@@ -6,6 +6,58 @@
  */
 
 // ============================================
+// HELPER FUNCTIONS
+// ============================================
+
+/**
+ * Get product brand from various sources
+ * Must be defined early as it's used by multiple functions
+ */
+function nraizes_get_product_brand($product) {
+    if (!$product || !is_object($product)) return '';
+    
+    $product_id = $product->get_id();
+    
+    // Try taxonomy 'product_brand' (common plugin)
+    $brands = get_the_terms($product_id, 'product_brand');
+    if (!empty($brands) && !is_wp_error($brands)) {
+        return strtolower($brands[0]->name);
+    }
+    
+    // Try attribute 'pa_marca'
+    $marca = $product->get_attribute('pa_marca');
+    if (!empty($marca)) {
+        return strtolower($marca);
+    }
+    
+    // Try to detect from product name
+    $name = strtolower($product->get_name());
+    $known_brands = array('taimin', 'avatim', 'slim body', 'mivegan');
+    foreach ($known_brands as $brand) {
+        if (strpos($name, $brand) !== false) {
+            return $brand;
+        }
+    }
+    
+    // Try to detect from categories
+    $categories = get_the_terms($product_id, 'product_cat');
+    if (!empty($categories) && !is_wp_error($categories)) {
+        foreach ($categories as $cat) {
+            $cat_name = strtolower($cat->name);
+            if (in_array($cat_name, $known_brands)) {
+                return $cat_name;
+            }
+            // Check for Chinese formulas category
+            if (strpos($cat_name, 'fórmula') !== false || strpos($cat_name, 'formula') !== false || strpos($cat_name, 'chinesa') !== false) {
+                return 'formulas_chinesas';
+            }
+        }
+    }
+    
+    return '';
+}
+
+// ============================================
 // H1 FIXES
 // ============================================
 
@@ -22,6 +74,67 @@ function nraizes_product_h1_title() {
  * Archive pages: Ensure page title is shown (theme may hide it)
  */
 add_filter('woocommerce_show_page_title', '__return_true');
+
+// ============================================
+// OPTIMIZED TITLE TAGS
+// ============================================
+
+/**
+ * Optimize document title for better CTR
+ * Format: [Nome] [Marca] | [Benefício] - Novas Raízes
+ */
+add_filter('document_title_parts', 'nraizes_optimize_title_tags', 10, 1);
+function nraizes_optimize_title_tags($title_parts) {
+    
+    if (is_product()) {
+        global $product;
+        $brand = nraizes_get_product_brand($product);
+        $name = $product->get_name();
+        
+        // Remove brand from name if already present to avoid duplication
+        $brand_upper = ucfirst($brand);
+        $clean_name = trim(str_ireplace(array($brand, $brand_upper), '', $name));
+        
+        switch ($brand) {
+            case 'taimin':
+                $title_parts['title'] = "{$clean_name} Taimin | Fitoterapia Chinesa";
+                break;
+            case 'avatim':
+                $title_parts['title'] = "{$clean_name} Avatim | Aromas Naturais";
+                break;
+            case 'formulas_chinesas':
+                $title_parts['title'] = "{$name} | Fórmula Chinesa Tradicional";
+                break;
+            case 'slim body':
+                $title_parts['title'] = "{$clean_name} | Emagrecimento Natural";
+                break;
+            default:
+                $title_parts['title'] = "{$name} | Produto Natural";
+        }
+        $title_parts['site'] = 'Novas Raízes';
+        
+    } elseif (is_tax('product_brand') || (is_archive() && strpos($_SERVER['REQUEST_URI'], '/marca/') !== false)) {
+        $term = get_queried_object();
+        if ($term) {
+            $title_parts['title'] = "Produtos {$term->name} | Loja Oficial";
+            $title_parts['site'] = 'Novas Raízes';
+        }
+        
+    } elseif (is_product_category()) {
+        $term = get_queried_object();
+        if ($term) {
+            $count = $term->count;
+            $title_parts['title'] = "{$term->name} | {$count} Produtos Selecionados";
+            $title_parts['site'] = 'Novas Raízes';
+        }
+        
+    } elseif (is_shop()) {
+        $title_parts['title'] = 'Loja | Produtos Naturais e Fórmulas Chinesas';
+        $title_parts['site'] = 'Novas Raízes';
+    }
+    
+    return $title_parts;
+}
 
 // ============================================
 // SCHEMA MARKUP (JSON-LD)
@@ -197,38 +310,91 @@ function nraizes_homepage_schema() {
 }
 
 // ============================================
-// DYNAMIC META DESCRIPTIONS
+// DYNAMIC META DESCRIPTIONS (Enhanced)
 // ============================================
 
+/**
+ * Generate meta description based on brand/category
+ */
 add_action('wp_head', 'nraizes_meta_descriptions', 1);
 function nraizes_meta_descriptions() {
-    // Skip if Yoast or other SEO plugin handles this
     if (defined('WPSEO_VERSION') || defined('RANK_MATH_VERSION')) return;
     
     $description = '';
     
     if (is_product()) {
         global $product;
-        $desc = $product->get_short_description() ?: $product->get_description();
-        $description = wp_strip_all_tags($desc);
+        $brand = nraizes_get_product_brand($product);
+        $name = $product->get_name();
+        $short_desc = wp_strip_all_tags($product->get_short_description());
+        
+        switch ($brand) {
+            case 'taimin':
+                $description = "{$name} Taimin | Fitoterapia Chinesa Original. Entrega rápida para todo Brasil. ✓ Loja especializada ✓ Frete grátis +R$500";
+                break;
+                
+            case 'avatim':
+                $description = "{$name} Avatim | Ingredientes naturais brasileiros. Aromas exclusivos. Compre na Novas Raízes com entrega garantida.";
+                break;
+                
+            case 'formulas_chinesas':
+                // Extract indication from short description if available
+                $indication = !empty($short_desc) ? mb_substr($short_desc, 0, 50) : 'saúde e bem-estar';
+                $description = "{$name} - Fórmula tradicional chinesa para {$indication}. ✓ Autêntico ✓ Certificado ✓ Frete Grátis +R$500";
+                break;
+                
+            case 'slim body':
+                $description = "{$name} Slim Body | Emagrecimento natural e saudável. Resultados comprovados. Compre online na Novas Raízes.";
+                break;
+                
+            default:
+                // Generic with short description
+                if (!empty($short_desc)) {
+                    $description = "{$name} - " . mb_substr($short_desc, 0, 100) . ". Compre na Novas Raízes.";
+                } else {
+                    $description = "{$name} | Produto natural de alta qualidade. Frete grátis acima de R$500. Entrega para todo Brasil.";
+                }
+        }
+        
+    } elseif (is_tax('product_brand') || (is_archive() && strpos($_SERVER['REQUEST_URI'], '/marca/') !== false)) {
+        // Brand archive pages (e.g., /marca/taimin/, /marca/avatim/)
+        $term = get_queried_object();
+        $brand_name = $term ? $term->name : '';
+        $brand_slug = $term ? strtolower($term->slug) : '';
+        
+        switch ($brand_slug) {
+            case 'taimin':
+                $description = "Produtos Taimin | Fitoterapia Chinesa Original na Novas Raízes. Fórmulas tradicionais com qualidade certificada. Frete grátis +R$500.";
+                break;
+            case 'avatim':
+                $description = "Produtos Avatim | Cosméticos e aromas com ingredientes naturais brasileiros. Loja oficial Novas Raízes. Entrega rápida.";
+                break;
+            default:
+                $description = "Produtos {$brand_name} | Loja oficial na Novas Raízes. Qualidade garantida e entrega para todo Brasil. Frete grátis +R$500.";
+        }
+        
     } elseif (is_product_category()) {
         $term = get_queried_object();
-        if ($term && !empty($term->description)) {
+        $cat_name = $term ? $term->name : '';
+        
+        if (!empty($term->description)) {
             $description = wp_strip_all_tags($term->description);
         } else {
-            $description = 'Confira os melhores produtos de ' . $term->name . ' na Novas Raízes. Entrega rápida e garantia de qualidade.';
+            $description = "{$cat_name} | Produtos selecionados na Novas Raízes. Qualidade garantida, entrega rápida e frete grátis acima de R$500.";
         }
+        
     } elseif (is_shop()) {
-        $description = 'Loja de Produtos Naturais, Fórmulas Chinesas e Suplementos. Qualidade garantida e entrega para todo Brasil.';
+        $description = 'Loja de Produtos Naturais, Fórmulas Chinesas e Suplementos. Marcas: Taimin, Avatim e mais. Frete grátis +R$500. Entrega todo Brasil.';
+        
     } elseif (is_front_page()) {
-        $description = 'Novas Raízes - Sua loja de produtos naturais, fórmulas chinesas e suplementos de alta qualidade.';
+        $description = 'Novas Raízes - Sua loja de produtos naturais, fórmulas chinesas (Taimin) e cosméticos (Avatim). Qualidade garantida e frete grátis.';
     }
     
     if (!empty($description)) {
         // Trim to 160 characters
-        $description = mb_substr(preg_replace('/\s+/', ' ', trim($description)), 0, 157);
-        if (mb_strlen($description) === 157) {
-            $description .= '...';
+        $description = preg_replace('/\s+/', ' ', trim($description));
+        if (mb_strlen($description) > 160) {
+            $description = mb_substr($description, 0, 157) . '...';
         }
         echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
     }

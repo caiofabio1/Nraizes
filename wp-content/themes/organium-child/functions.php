@@ -15,4 +15,5 @@ require_once get_stylesheet_directory() . '/inc/cro.php';
 require_once get_stylesheet_directory() . '/inc/mobile.php';
 require_once get_stylesheet_directory() . '/inc/performance.php';
 require_once get_stylesheet_directory() . '/inc/analytics.php';
+require_once get_stylesheet_directory() . '/inc/cache.php';
 
