@@ -18,3 +18,12 @@ require_once get_stylesheet_directory() . '/inc/analytics.php';
 
 // DISABLED: Query cache causing category page issues
 // require_once get_stylesheet_directory() . '/inc/cache.php';
+
+// TEMPORARY: Category description updater - DELETE after running once
+add_action('admin_init', function() {
+    if (isset($_GET['nraizes_update_categories']) && current_user_can('manage_options')) {
+        define('NRAIZES_UPDATE_CATEGORIES', true);
+        require_once get_stylesheet_directory() . '/update-categories.php';
+        exit;
+    }
+});
