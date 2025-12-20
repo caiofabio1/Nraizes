@@ -18,3 +18,6 @@ function enqueue_theme_styles() {
 // ============================================
 // Adicione suas customizações abaixo
 // ============================================
+
+// InfinitePay Gateway com suporte HPOS
+require_once get_stylesheet_directory() . '/wc-infinitepay-hpos.php';
