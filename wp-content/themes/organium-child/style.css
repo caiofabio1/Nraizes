@@ -12,6 +12,42 @@
 */
 
 /* ==========================================================================
+   H1 Title Fixes (Product Pages)
+   ========================================================================== */
+/* Main H1 title - properly sized */
+.single-product h1.product_title {
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Hide duplicate title that theme adds */
+.single-product .entry-title:not(.product_title),
+.single-product .product-title:not(.product_title) {
+    display: none !important;
+}
+
+/* Archive page titles */
+.woocommerce-products-header h1.page-title,
+.woocommerce-products-header h1.woocommerce-products-header__title {
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .single-product h1.product_title {
+        font-size: 22px;
+    }
+
+    .woocommerce-products-header h1 {
+        font-size: 26px;
+    }
+}
+
+/* ==========================================================================
    Trust Badges (Checkout)
    ========================================================================== */
 .nraizes-trust-badges {
@@ -36,7 +72,7 @@
     margin-bottom: 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .nraizes-shipping-bar--progress {
@@ -108,6 +144,7 @@
    Mobile Enhancements
    ========================================================================== */
 @media (max-width: 768px) {
+
     /* Fixed "Add to Cart" button on mobile */
     .single-product .single_add_to_cart_button {
         position: fixed !important;
@@ -120,9 +157,9 @@
         padding: 18px !important;
         font-size: 16px !important;
         font-weight: bold !important;
-        box-shadow: 0 -4px 12px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
     }
-    
+
     .single-product .product,
     .single-product .site-content {
         padding-bottom: 80px !important;
