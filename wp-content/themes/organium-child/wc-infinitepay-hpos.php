@@ -18,10 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Check if WooCommerce is active
-if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-    return;
-}
+// Note: WooCommerce check is done in wc_infinitepay_link_init() function
 
 // Define plugin constants
 define('WC_INFINITEPAY_LINK_VERSION', '2.4.0');
