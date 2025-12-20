@@ -3,27 +3,18 @@
  * Organium Child Theme Functions
  * 
  * @package Organium-Child
- * @version 2.1.0
+ * @version 1.1.0
  */
 
-// Load modular components
-require_once get_stylesheet_directory() . '/inc/setup.php';
-require_once get_stylesheet_directory() . '/inc/security.php';
-require_once get_stylesheet_directory() . '/inc/seo.php';
-require_once get_stylesheet_directory() . '/inc/checkout.php';
-require_once get_stylesheet_directory() . '/inc/cro.php';
-require_once get_stylesheet_directory() . '/inc/mobile.php';
-require_once get_stylesheet_directory() . '/inc/performance.php';
-require_once get_stylesheet_directory() . '/inc/analytics.php';
-
-// DISABLED: Query cache causing category page issues
-// require_once get_stylesheet_directory() . '/inc/cache.php';
-
-// TEMPORARY: Category description updater - DELETE after running once
-add_action('admin_init', function() {
-    if (isset($_GET['nraizes_update_categories']) && current_user_can('manage_options')) {
-        define('NRAIZES_UPDATE_CATEGORIES', true);
-        require_once get_stylesheet_directory() . '/update-categories.php';
-        exit;
+add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
+function enqueue_theme_styles() {
+    if (class_exists('WooCommerce')) {
+        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style', 'organium-woocommerce') );
+    } else {
+        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style') );
     }
-});
+}
+
+// ============================================
+// Adicione suas customizações abaixo
+// ============================================
