@@ -17,17 +17,16 @@
  */
 
 // ============================================
-// H1 FIXES
+// H1 FIXES - DESABILITADO
+// O tema Organium já exibe o título como H1 corretamente
+// O código abaixo estava causando duplicação visual
 // ============================================
 
-/**
- * Single Product: Replace default title with visible H1
- */
-remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
-add_action('woocommerce_single_product_summary', 'nraizes_product_h1_title', 5);
-function nraizes_product_h1_title() {
-    the_title('<h1 class="product_title entry-title">', '</h1>');
-}
+// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+// add_action('woocommerce_single_product_summary', 'nraizes_product_h1_title', 5);
+// function nraizes_product_h1_title() {
+//     the_title('<h1 class="product_title entry-title">', '</h1>');
+// }
 
 /**
  * Archive pages: Ensure page title is shown (theme may hide it)
