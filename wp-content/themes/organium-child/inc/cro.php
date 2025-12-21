@@ -13,9 +13,69 @@ add_filter('woocommerce_cross_sells_columns', function() { return 4; });
 
 /**
  * Garantir que cross-sells sejam exibidos no carrinho
- * O tema Organium pode ter removido este hook
+ * Usa múltiplos métodos para garantir compatibilidade com Elementor
  */
 add_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 15);
+add_action('woocommerce_after_cart', 'nraizes_inject_crosssells_fallback', 10);
+
+/**
+ * Fallback: Injetar cross-sells se o tema não renderizar
+ */
+function nraizes_inject_crosssells_fallback() {
+    // Verificar se já foi renderizado
+    if (did_action('woocommerce_cross_sell_display') > 0) {
+        return;
+    }
+    
+    // Obter produtos do carrinho
+    $cart_items = WC()->cart->get_cart();
+    $cross_sell_ids = array();
+    
+    foreach ($cart_items as $cart_item) {
+        $product = $cart_item['data'];
+        $product_cross_sells = $product->get_cross_sell_ids();
+        $cross_sell_ids = array_merge($cross_sell_ids, $product_cross_sells);
+    }
+    
+    // Se não há cross-sells configurados, usar produtos da mesma categoria
+    if (empty($cross_sell_ids)) {
+        foreach ($cart_items as $cart_item) {
+            $product_id = $cart_item['product_id'];
+            $category_products = nraizes_get_same_category_products($product_id);
+            $cross_sell_ids = array_merge($cross_sell_ids, $category_products);
+        }
+    }
+    
+    // Remover duplicatas e produtos já no carrinho
+    $cart_product_ids = array_map(function($item) { return $item['product_id']; }, $cart_items);
+    $cross_sell_ids = array_diff(array_unique($cross_sell_ids), $cart_product_ids);
+    
+    if (empty($cross_sell_ids)) return;
+    
+    // Limitar a 4 produtos
+    $cross_sell_ids = array_slice($cross_sell_ids, 0, 4);
+    
+    // Renderizar seção
+    echo '<div class="nraizes-cart-crosssells" style="margin-top: 2rem;">';
+    echo '<h2>Você também pode gostar</h2>';
+    echo '<ul class="products columns-4">';
+    
+    foreach ($cross_sell_ids as $product_id) {
+        $product = wc_get_product($product_id);
+        if (!$product) continue;
+        
+        echo '<li class="product">';
+        echo '<a href="' . esc_url($product->get_permalink()) . '">';
+        echo $product->get_image('woocommerce_thumbnail');
+        echo '<h2 class="woocommerce-loop-product__title">' . esc_html($product->get_name()) . '</h2>';
+        echo '<span class="price">' . $product->get_price_html() . '</span>';
+        echo '</a>';
+        echo '</li>';
+    }
+    
+    echo '</ul>';
+    echo '</div>';
+}
 
 /**
  * Adicionar seção de produtos relacionados na página do produto
