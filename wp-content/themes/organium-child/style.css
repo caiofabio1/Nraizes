@@ -15,3 +15,26 @@
 ------------------------------------------------------- */
 
 /* CI/CD Test - Deploy triggered: 2025-12-19 */
+
+/* ============================================
+   PRODUTO - TÍTULO
+   ============================================ */
+
+/* Reduzir tamanho do título do produto */
+.single-product .product_title,
+.single-product h1.product_title {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+/* Esconder título duplicado (segundo H1 na página) */
+.single-product .summary h1.product_title~h1 {
+    display: none !important;
+}
+
+/* Se houver outro elemento de título duplicado */
+.single-product .entry-title+.product_title,
+.single-product .product_title+.entry-title {
+    display: none !important;
+}
