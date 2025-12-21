@@ -12,6 +12,57 @@ add_filter('woocommerce_cross_sells_total', function() { return 4; });
 add_filter('woocommerce_cross_sells_columns', function() { return 4; });
 
 /**
+ * Garantir que cross-sells sejam exibidos no carrinho
+ * O tema Organium pode ter removido este hook
+ */
+add_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 15);
+
+/**
+ * Adicionar seção de produtos relacionados na página do produto
+ */
+add_action('woocommerce_after_single_product_summary', 'nraizes_smart_related_products', 15);
+function nraizes_smart_related_products() {
+    global $product;
+    
+    if (!$product) return;
+    
+    $related_ids = nraizes_get_frequently_bought_together($product->get_id());
+    
+    if (empty($related_ids)) {
+        $related_ids = nraizes_get_same_category_products($product->get_id());
+    }
+    
+    if (empty($related_ids)) return;
+    
+    $args = array(
+        'post_type'      => 'product',
+        'posts_per_page' => 4,
+        'post__in'       => $related_ids,
+        'orderby'        => 'post__in',
+    );
+    
+    $products = new WP_Query($args);
+    
+    if (!$products->have_posts()) return;
+    
+    echo '<section class="related products nraizes-smart-related">';
+    echo '<h2>Clientes também compraram</h2>';
+    
+    woocommerce_product_loop_start();
+    
+    while ($products->have_posts()) {
+        $products->the_post();
+        wc_get_template_part('content', 'product');
+    }
+    
+    woocommerce_product_loop_end();
+    
+    echo '</section>';
+    
+    wp_reset_postdata();
+}
+
+/**
  * Smart cross-sells based on purchase history
  */
 add_filter('woocommerce_product_crosssell_ids', 'nraizes_smart_crosssells', 10, 2);
