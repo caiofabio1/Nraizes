@@ -37,3 +37,8 @@ require_once get_stylesheet_directory() . '/inc/cro.php';
 // ============================================
 // Adicione suas customizações abaixo
 // ============================================
+
+// Ferramentas de Admin (disponível em Ferramentas > Novas Raízes)
+if (is_admin()) {
+    require_once get_stylesheet_directory() . '/inc/admin-tools.php';
+}
