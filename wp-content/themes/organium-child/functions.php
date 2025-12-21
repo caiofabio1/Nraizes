@@ -16,5 +16,24 @@ function enqueue_theme_styles() {
 }
 
 // ============================================
+// Carregar módulos de otimização
+// ============================================
+
+// Segurança e Performance
+require_once get_stylesheet_directory() . '/inc/security.php';
+require_once get_stylesheet_directory() . '/inc/performance.php';
+require_once get_stylesheet_directory() . '/inc/cache.php';
+
+// SEO (complementar ao Yoast)
+require_once get_stylesheet_directory() . '/inc/seo.php';
+
+// Checkout e Conversão
+require_once get_stylesheet_directory() . '/inc/checkout.php';
+require_once get_stylesheet_directory() . '/inc/cro.php';
+
+// Analytics: DESABILITADO - usando GTM4WP para tracking
+// require_once get_stylesheet_directory() . '/inc/analytics.php';
+
+// ============================================
 // Adicione suas customizações abaixo
 // ============================================
