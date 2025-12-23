@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "wordpress-source.wordpress-core",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github"
+  ]
+}
