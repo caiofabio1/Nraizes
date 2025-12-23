@@ -45,10 +45,15 @@ function nraizes_free_shipping_bar() {
         $percent = ($current / $min_amount) * 100;
         ?>
         <div class="nraizes-shipping-bar nraizes-shipping-bar--progress">
-            <p>
+            <p id="nraizes-free-shipping-msg">
                 🚚 Faltam <strong>R$ <?php echo number_format($remaining, 2, ',', '.'); ?></strong> para <strong>FRETE GRÁTIS!</strong>
             </p>
-            <div class="nraizes-shipping-bar__track">
+            <div class="nraizes-shipping-bar__track"
+                 role="progressbar"
+                 aria-valuenow="<?php echo esc_attr(round(min($percent, 100))); ?>"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-labelledby="nraizes-free-shipping-msg">
                 <div class="nraizes-shipping-bar__fill" style="width:<?php echo min($percent, 100); ?>%;"></div>
             </div>
         </div>
