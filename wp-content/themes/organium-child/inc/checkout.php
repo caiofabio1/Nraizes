@@ -47,12 +47,13 @@ function nraizes_get_free_shipping_html() {
     }
 
     $min_amount = 500;
-    $current = WC()->cart->subtotal;
+    $current = (float) WC()->cart->subtotal;
     $remaining = $min_amount - $current;
     
     ob_start();
     ?>
     <div id="nraizes-free-shipping-bar-wrapper">
+        <!-- Debug: Current: <?php echo $current; ?> | Min: <?php echo $min_amount; ?> | Remaining: <?php echo $remaining; ?> -->
         <?php if ($remaining > 0) :
             $percent = ($current / $min_amount) * 100;
             ?>
