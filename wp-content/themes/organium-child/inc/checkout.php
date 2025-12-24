@@ -40,36 +40,52 @@ function nraizes_add_trust_badges() {
 }
 
 /**
- * Auto-select Free Shipping if available
+ * Ensure Free Shipping is available and dominant when threshold is met
  */
-add_action( 'woocommerce_before_cart', 'nraizes_auto_select_free_shipping' );
-function nraizes_auto_select_free_shipping() {
-    if ( ! WC()->cart || WC()->cart->is_empty() ) {
-        return;
-    }
+add_filter( 'woocommerce_package_rates', 'nraizes_manage_shipping_rates', 100, 2 );
+function nraizes_manage_shipping_rates( $rates, $package ) {
+    if ( ! WC()->cart ) return $rates;
 
-    // Iterate through packages stored in session which contain calculated rates
-    $packages = WC()->shipping->get_packages();
-    if ( empty( $packages ) ) {
-        return;
-    }
+    $min_amount = 500;
+    // Get numeric total (float) to avoid string casting issues
+    $current_total = (float) WC()->cart->get_cart_contents_total();
 
-    foreach ( $packages as $i => $package ) {
-        if ( ! isset( $package['rates'] ) ) {
-            continue;
-        }
+    if ( $current_total >= $min_amount ) {
+        $free_shipping_rate = null;
+        $local_pickup_rate = null;
 
-        foreach ( $package['rates'] as $rate_id => $rate ) {
+        // Find existing rates
+        foreach ( $rates as $rate_id => $rate ) {
             if ( 'free_shipping' === $rate->method_id ) {
-                $chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
-                if ( isset( $chosen_methods[ $i ] ) && $chosen_methods[ $i ] !== $rate_id ) {
-                    $chosen_methods[ $i ] = $rate_id;
-                    WC()->session->set( 'chosen_shipping_methods', $chosen_methods );
-                }
-                break;
+                $free_shipping_rate = $rate;
+            }
+            if ( 'local_pickup' === $rate->method_id ) {
+                $local_pickup_rate = $rate;
             }
         }
+
+        // If free shipping not found, create it programmatically
+        if ( ! $free_shipping_rate ) {
+            $free_shipping_rate = new WC_Shipping_Rate(
+                'free_shipping:forced',
+                'Frete Grátis',
+                0,
+                array(),
+                'free_shipping'
+            );
+        }
+
+        // Reset rates to only contain Free Shipping (and optionally Local Pickup)
+        // This forces WooCommerce to select Free Shipping as it's the cheapest/only valid option
+        $rates = array();
+        $rates[$free_shipping_rate->id] = $free_shipping_rate;
+
+        if ( $local_pickup_rate ) {
+            $rates[$local_pickup_rate->id] = $local_pickup_rate;
+        }
     }
+
+    return $rates;
 }
 
 /**
