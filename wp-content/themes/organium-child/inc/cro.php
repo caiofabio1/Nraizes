@@ -199,6 +199,13 @@ function nraizes_get_frequently_bought_together($product_id) {
  * Fallback: get products from same category
  */
 function nraizes_get_same_category_products($product_id) {
+    // Check cache first to avoid DB hits
+    $cache_key = 'nraizes_same_cat_' . $product_id;
+    $cached = get_transient($cache_key);
+    if ($cached !== false) {
+        return $cached;
+    }
+
     $terms = get_the_terms($product_id, 'product_cat');
     
     if (empty($terms) || is_wp_error($terms)) {
@@ -207,12 +214,15 @@ function nraizes_get_same_category_products($product_id) {
     
     $category_ids = wp_list_pluck($terms, 'term_id');
     
+    // Optimization: Fetch IDs only, limit pool to 50, shuffle in PHP
+    // Avoids ORDER BY RAND() which is slow on large datasets
     $args = array(
         'post_type'      => 'product',
-        'posts_per_page' => 8,
+        'posts_per_page' => 50,
         'post_status'    => 'publish',
         'post__not_in'   => array($product_id),
-        'orderby'        => 'rand',
+        'fields'         => 'ids',
+        'no_found_rows'  => true,
         'tax_query'      => array(
             array(
                 'taxonomy' => 'product_cat',
@@ -222,6 +232,17 @@ function nraizes_get_same_category_products($product_id) {
         ),
     );
     
-    $products = get_posts($args);
-    return !empty($products) ? wp_list_pluck($products, 'ID') : array();
+    $product_ids = get_posts($args);
+
+    if (empty($product_ids)) {
+        set_transient($cache_key, array(), HOUR_IN_SECONDS);
+        return array();
+    }
+
+    shuffle($product_ids);
+    $final_ids = array_slice($product_ids, 0, 8);
+
+    set_transient($cache_key, $final_ids, HOUR_IN_SECONDS);
+
+    return $final_ids;
 }
