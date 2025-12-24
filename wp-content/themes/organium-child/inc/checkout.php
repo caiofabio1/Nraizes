@@ -6,7 +6,7 @@
  */
 
 /**
- * Simplify checkout fields
+ * Simplify checkout fields and optimize order
  */
 add_filter('woocommerce_checkout_fields', 'nraizes_simplify_checkout');
 function nraizes_simplify_checkout($fields) {
@@ -14,13 +14,21 @@ function nraizes_simplify_checkout($fields) {
     unset($fields['billing']['billing_address_2']);
     unset($fields['shipping']['shipping_company']);
     unset($fields['shipping']['shipping_address_2']);
+
+    // Move email to top for better capture
+    if (isset($fields['billing']['billing_email'])) {
+        $fields['billing']['billing_email']['priority'] = 1;
+    }
+
     return $fields;
 }
 
 /**
- * Trust badges before payment
+ * Trust badges before payment and in cart
  */
 add_action('woocommerce_review_order_before_payment', 'nraizes_add_trust_badges');
+add_action('woocommerce_proceed_to_checkout', 'nraizes_add_trust_badges', 20);
+
 function nraizes_add_trust_badges() {
     ?>
     <div class="nraizes-trust-badges">
@@ -29,6 +37,39 @@ function nraizes_add_trust_badges() {
         <span>✅ Satisfação Garantida</span>
     </div>
     <?php
+}
+
+/**
+ * Auto-select Free Shipping if available
+ */
+add_action( 'woocommerce_before_cart', 'nraizes_auto_select_free_shipping' );
+function nraizes_auto_select_free_shipping() {
+    if ( ! WC()->cart || WC()->cart->is_empty() ) {
+        return;
+    }
+
+    // Iterate through packages stored in session which contain calculated rates
+    $packages = WC()->shipping->get_packages();
+    if ( empty( $packages ) ) {
+        return;
+    }
+
+    foreach ( $packages as $i => $package ) {
+        if ( ! isset( $package['rates'] ) ) {
+            continue;
+        }
+
+        foreach ( $package['rates'] as $rate_id => $rate ) {
+            if ( 'free_shipping' === $rate->method_id ) {
+                $chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+                if ( isset( $chosen_methods[ $i ] ) && $chosen_methods[ $i ] !== $rate_id ) {
+                    $chosen_methods[ $i ] = $rate_id;
+                    WC()->session->set( 'chosen_shipping_methods', $chosen_methods );
+                }
+                break;
+            }
+        }
+    }
 }
 
 /**
@@ -47,13 +88,13 @@ function nraizes_get_free_shipping_html() {
     }
 
     $min_amount = 500;
-    $current = (float) WC()->cart->subtotal;
+    // Use get_cart_contents_total for a reliable numeric subtotal
+    $current = (float) WC()->cart->get_cart_contents_total();
     $remaining = $min_amount - $current;
     
     ob_start();
     ?>
     <div id="nraizes-free-shipping-bar-wrapper">
-        <!-- Debug: Current: <?php echo $current; ?> | Min: <?php echo $min_amount; ?> | Remaining: <?php echo $remaining; ?> -->
         <?php if ($remaining > 0) :
             $percent = ($current / $min_amount) * 100;
             ?>
