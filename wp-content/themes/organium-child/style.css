@@ -38,3 +38,24 @@
 .single-product .product_title+.entry-title {
     display: none !important;
 }
+/* ============================================
+   CARRINHO - SUGESTÕES (CROSS-SELLS)
+   ============================================ */
+@media (max-width: 767px) {
+    .nraizes-cart-crosssells .products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .nraizes-cart-crosssells .products .product {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Limitar a 2 produtos no mobile para melhor visualização */
+    .nraizes-cart-crosssells .products .product:nth-child(n+3) {
+        display: none;
+    }
+}
