@@ -42,3 +42,12 @@ package-lock.json
 
 # Análise local
 analise_projeto.md
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+client_secret_*.json
+
+
