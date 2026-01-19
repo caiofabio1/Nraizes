@@ -38,3 +38,31 @@
 .single-product .product_title+.entry-title {
     display: none !important;
 }
+/* ============================================
+   CART & CHECKOUT - MOBILE UX
+   ============================================ */
+
+/* Badges on Cart */
+.woocommerce-cart .nraizes-trust-badges {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+.woocommerce-cart .nraizes-trust-badges span {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+    /* Limit cross-sells on mobile to 2 items */
+    .nraizes-cart-crosssells ul.products li.product:nth-child(n+3) {
+        display: none !important;
+    }
+
+    /* Trust badges stacking on mobile */
+    .nraizes-trust-badges span {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
