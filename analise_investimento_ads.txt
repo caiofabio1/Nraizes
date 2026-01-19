@@ -1,0 +1,53 @@
+ANÁLISE DE PROJEÇÃO DE INVESTIMENTO (GOOGLE ANALYTICS)
+Período Analisado: Últimos 90 dias
+
+1. RAIO-X DO TRÁFEGO PAGO
+--------------------------------------------------
+Investimento (Ads):     R$ 1.727,58 (Total 90d)
+Receita Gerada (Ads):   R$ 4.630,00 (Estimada baseada no ROAS)
+ROAS Atual:             2.68 (Retorno de R$ 2,68 para cada R$ 1,00)
+CPC Médio:              R$ 1,67
+Taxa de Conversão Pago: 2,79% (Muito superior à média do site 0,01%)
+Ticket Médio (Pago):    R$ 165,56
+
+2. ANÁLISE DE SEGURANÇA (O Ponto Crítico)
+--------------------------------------------------
+Com base na sua Margem Bruta de 35,43% (calculada anteriormente):
+
+> ROAS Mínimo para "Empatar" (Breakeven) = 1 / 0,3543 = 2,82
+
+🚨 SITUAÇÃO ATUAL:
+Seu ROAS de 2.68 está LEVEMENTE ABAIXO do ponto de equilíbrio de 2.82.
+Isso significa que, considerando o custo do produto + imposto + ads, a venda pelo tráfego pago está tecnicamente zerada ou gerando um micro-prejuízo operacional.
+
+Matemática Real de uma Venda de R$ 165,00 (Ticket Médio):
+- Receita:          + R$ 165,00
+- Custo Produto:    - R$ 106,54 (64,57%)
+- Custo Ads (CPC):  - R$  61,56 (R$ 165 / 2.68)
+------------------------------------
+= Resultado Líquido: - R$ 3,10 (Prejuízo)
+
+3. PROJEÇÃO PARA CRESCIMENTO SEGURO
+--------------------------------------------------
+Para escalar com segurança, precisamos subir o ROAS para acima de 3.0 ou aumentar a Margem (Ticket Médio).
+
+META 1: Atingir Faturamento de R$ 63.334,00 (Sua meta de custos)
+- Gap de Faturamento: ~R$ 60.000,00 (considerando base atual baixa).
+
+CENÁRIO A (Manter ROAS 2.68 - ARRISCADO ⚠️)
+- Investimento Necessário: ~R$ 22.400,00 / mês
+- Resultado: Vai girar caixa, mas não vai sobrar lucro para pagar fixos.
+
+CENÁRIO B (Otimizar para ROAS 3.5 - RECOMENDADO ✅)
+- Investimento Necessário: ~R$ 17.150,00 / mês
+- Lucro Bruto Operacional: ~R$ 11.000,00 (Contribuição para custos fixos).
+
+4. PLANO DE AÇÃO IMEDIATO
+--------------------------------------------------
+1. Aumentar Ticket Médio: Criar Kits/Bundles de R$ 200+ (Se o ticket for R$ 200, o ROAS sobe naturalmente mantendo o mesmo CPA).
+2. Revisar Campanhas: Parar anúncios com ROAS < 2.5 imediatamente.
+3. Focar em "Produtos Estrela": Anunciar apenas produtos onde a margem é > 40% (permitindo ROAS menor).
+
+CONCLUSÃO:
+Não aumente o investimento agressivamente hoje. Primeiro, otimize o ROAS de 2.68 para 3.0+.
+Sugestão de teste: Invista R$ 2.000,00 focados APENAS em produtos de margem alta para validar o ROAS > 3.0.

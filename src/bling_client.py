@@ -4,9 +4,15 @@ import time
 from typing import Dict, Any, Optional
 from dotenv import load_dotenv
 
+from logger import get_api_logger
+
 # Load tokens from .credentials/bling_api_tokens.env
-cred_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.credentials', 'bling_api_tokens.env')
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+cred_path = os.path.join(PROJECT_ROOT, '.credentials', 'bling_api_tokens.env')
 load_dotenv(cred_path)
+
+# Initialize logger
+_api_logger = get_api_logger('bling')
 
 class BlingClient:
     def __init__(self):
@@ -19,76 +25,106 @@ class BlingClient:
         })
 
     def _request(self, method: str, url: str, **kwargs) -> Any:
+        """Execute an HTTP request with automatic token refresh on 401."""
+        start_time = time.time()
+        _api_logger.log_request(method, url, kwargs.get('params'))
+
         try:
             response = self.session.request(method, url, **kwargs)
-            
+            response_time_ms = (time.time() - start_time) * 1000
+
             # Handle Token expiration
             if response.status_code == 401:
-                print("⚠️ Token expirado. Tentando renovar...")
+                _api_logger.logger.warning("Token expired, attempting refresh...")
                 if self.refresh_token():
                     # Update header with new token
                     self.session.headers.update({"Authorization": f"Bearer {self.access_token}"})
                     # Retry request
                     response = self.session.request(method, url, **kwargs)
+                    response_time_ms = (time.time() - start_time) * 1000
                 else:
-                    raise Exception("Unauthorized - Failed to refresh token")
-            
+                    _api_logger.log_error(Exception("Failed to refresh token"), "token_refresh")
+                    raise requests.exceptions.HTTPError("Unauthorized - Failed to refresh token")
+
+            _api_logger.log_response(response.status_code, url, response_time_ms)
             response.raise_for_status()
+
             if response.status_code == 204:
                 return None
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"API Request Failed: {e}")
+
+        except requests.exceptions.Timeout as e:
+            _api_logger.log_error(e, f"Timeout on {method} {url}")
+            raise
+        except requests.exceptions.ConnectionError as e:
+            _api_logger.log_error(e, f"Connection error on {method} {url}")
+            raise
+        except requests.exceptions.HTTPError as e:
+            _api_logger.log_error(e, f"HTTP error on {method} {url}")
             if e.response is not None:
-                print(f"Response: {e.response.text}")
+                _api_logger.logger.error(f"Response body: {e.response.text[:500]}")
+            raise
+        except requests.exceptions.RequestException as e:
+            _api_logger.log_error(e, f"Request failed: {method} {url}")
             raise
 
-    def refresh_token(self):
-        """Refreshes the OAuth token"""
-        refresh_token = os.getenv("REFRESH_TOKEN")
+    def refresh_token(self) -> bool:
+        """
+        Refresh the OAuth token using the refresh token.
+
+        Returns:
+            True if refresh was successful, False otherwise.
+        """
+        refresh_token_value = os.getenv("REFRESH_TOKEN")
         client_id = os.getenv("CLIENT_ID")
         client_secret = os.getenv("CLIENT_SECRET")
-        
+
         url = "https://www.bling.com.br/Api/v3/oauth/token"
         payload = {
             "grant_type": "refresh_token",
-            "refresh_token": refresh_token
+            "refresh_token": refresh_token_value
         }
-        
+
         try:
             response = requests.post(url, data=payload, auth=(client_id, client_secret))
+
             if response.status_code == 200:
                 tokens = response.json()
                 new_access = tokens.get('access_token')
                 new_refresh = tokens.get('refresh_token')
-                
+
                 # Update env file
-                with open(cred_path, 'r') as f:
+                with open(cred_path, 'r', encoding='utf-8') as f:
                     content = f.read()
-                
-                # Simple string replacement might be risky if values are substrings, but standard for this env file
-                # Better to regex or precise replace if possible, but keeping it simple for now as per previous script
+
                 current_access = self.access_token
-                current_refresh = refresh_token
-                
-                # We need to read the file again or just overwrite lines if we parse it.
-                # Let's use the same logic as the test script which seemed to work for writing
+                current_refresh = refresh_token_value
+
                 content = content.replace(f"ACCESS_TOKEN={current_access}", f"ACCESS_TOKEN={new_access}")
                 content = content.replace(f"REFRESH_TOKEN={current_refresh}", f"REFRESH_TOKEN={new_refresh}")
-                 
-                with open(cred_path, 'w') as f:
+
+                with open(cred_path, 'w', encoding='utf-8') as f:
                     f.write(content)
-                
+
                 # Update instance variables
                 self.access_token = new_access
                 os.environ["ACCESS_TOKEN"] = new_access
                 os.environ["REFRESH_TOKEN"] = new_refresh
+
+                _api_logger.log_token_refresh(True)
                 return True
             else:
-                print(f"Failed to refresh token: {response.text}")
+                _api_logger.logger.error(f"Token refresh failed: HTTP {response.status_code} - {response.text[:200]}")
+                _api_logger.log_token_refresh(False)
                 return False
-        except Exception as e:
-            print(f"Error refreshing token: {e}")
+
+        except requests.exceptions.RequestException as e:
+            _api_logger.log_error(e, "Token refresh request failed")
+            _api_logger.log_token_refresh(False)
+            return False
+        except IOError as e:
+            _api_logger.log_error(e, "Failed to update credentials file")
+            _api_logger.log_token_refresh(False)
             return False
 
     def get_estoques_saldos_id_deposito(self, idDeposito: str, **kwargs) -> Any:
@@ -159,6 +195,32 @@ class BlingClient:
         body: Payload to send
         """
         url = f"{self.base_url}/produtos"
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self._request('POST', url, params=params, json=body)
+
+    # =========================================================================
+    # CONTATOS (Suppliers/Customers)
+    # =========================================================================
+
+    def get_contatos(self, **kwargs) -> Any:
+        """
+        Obtém contatos paginados.
+        
+        pagina (query)
+        limite (query)
+        criterio (query): 1=Ultimos, 2=Ativos, 3=Inativos, 4=Excluidos, 5=Todos
+        tipoPessoa (query): F=Fisica, J=Juridica, E=Estrangeiro
+        numeroDocumento (query): CPF ou CNPJ
+        """
+        url = f"{self.base_url}/contatos"
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self._request('GET', url, params=params)
+
+    def post_contatos(self, body: Dict[str, Any], **kwargs) -> Any:
+        """
+        Cria um contato.
+        """
+        url = f"{self.base_url}/contatos"
         params = {k: v for k, v in kwargs.items() if v is not None}
         return self._request('POST', url, params=params, json=body)
 
@@ -234,6 +296,18 @@ class BlingClient:
         url = f"{self.base_url}/produtos/situacoes"
         params = {k: v for k, v in kwargs.items() if v is not None}
         return self._request('POST', url, params=params, json=body)
+
+    def get_depositos(self, **kwargs) -> Any:
+        """
+        Obtém depósitos paginados.
+        
+        pagina (query)
+        limite (query)
+        situacao (query): A=Ativo, I=Inativo
+        """
+        url = f"{self.base_url}/depositos"
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self._request('GET', url, params=params)
 
     # =========================================================================
     # PRODUTOS - LOJAS (Multi-Store Management)

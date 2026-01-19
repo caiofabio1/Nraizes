@@ -1,0 +1,22 @@
+ANÁLISE ESTRATÉGICA DE MATRIZ (VOLUME x MARGEM)
+Base de Dados: Google Analytics (90d) + Bling (Custos)
+================================================================================
+
+1. ESTRELAS (⭐⭐⭐⭐⭐): Alto Volume + Alta Margem
+ESTRATÉGIA: ESCALAR ADS AGRESSIVAMENTE. Estes são seus vencedores.
+Volume > 10 | Margem > 40.0%
+--------------------------------------------------------------------------------
+Produto                                  | Vendas | Margem   |  Ação Sugerida
+
+2. OPORTUNIDADES (💎): Baixo Volume + Alta Margem
+ESTRATÉGIA: TESTAR CRIATIVOS. Eles dão lucro, mas ninguém vê. Precisam de tráfego.
+--------------------------------------------------------------------------------
+Desodorante Roll-on Cristal Líquido | Ro | 1      | 44.4   % | 📢 Criar Anúncio
+
+3. VACAS LEITEIRAS (🐮): Alto Volume + Baixa Margem
+ESTRATÉGIA: OTIMIZAR/BUNDLE. Vendem sozinhos, mas lucro baixo. Criar Kits com 'Estrelas' ou 'Oportunidades'.
+--------------------------------------------------------------------------------
+
+4. ABACAXIS (🍍): Baixo Volume + Baixa Margem
+ESTRATÉGIA: LIMPEZA. Não gaste energia ou ads aqui.
+--------------------------------------------------------------------------------
