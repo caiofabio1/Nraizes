@@ -1,0 +1,59 @@
+RELAÓRIO FINANCEIRO (Out/2025 - Dez/2025)
+
+1. RESULTADO CONSOLIDADO DO PERÍODO
+--------------------------------------------------
+Receita (Valor Total):  R$ 247.279,18
+Custos (Valor Custo):   R$ 159.657,91
+Lucro Bruto:            R$  87.621,27
+Ticket Médio:           R$     222,97
+
+2. MARGEM MÉDIA
+--------------------------------------------------
+Margem sobre a Venda (Margem Bruta Real): 35,43%
+Markup sobre o Custo:                     54,88%
+
+3. EVOLUÇÃO MENSAL
+--------------------------------------------------
+Mês       | Vendas | Receita        | Lucro        | Margem
+Out/2025  | 456    | R$ 96.830,60   | R$ 33.984,68 | 35,10%
+Nov/2025  | 368    | R$ 82.542,65   | R$ 29.220,30 | 35,40%
+Dez/2025  | 285    | R$ 67.905,93   | R$ 24.416,29 | 35,96%
+
+4. ALERTAS E PONTOS DE ATENÇÃO
+--------------------------------------------------
+- Descontos Totais: R$ 15.255,55 (~5,81% da receita bruta estimada).
+- Clientes Não Identificados ("Consumidor"): 7,1% da receita, com margem menor (24,59%).
+- Vendas com Prejuízo: 41 vendas (somando R$ -2.487,55).
+- "A Combinar": 49% do faturamento lançado assim (Risco de controle).
+
+5. PLANEJAMENTO PRÓXIMO MÊS (Zero-Base)
+--------------------------------------------------
+Custos Fixos Estimados:
+- Vinicius:      R$ 2.476,00
+- Luccas:        R$ 2.288,00
+- Improv3:       R$   358,55
+- Claro:         R$    84,89
+- Michelle:      R$ 6.000,00
+- Caio:          R$ 3.000,00
+- Sabesp:        R$   153,96
+- J3:            R$   324,75
+- Contabilidade: R$ 1.160,00
+- Empréstimo:    R$ 4.400,26
+- Correios:      R$ 2.192,93
+----------------------------
+TOTAL CUSTOS:    R$ 22.439,34
+
+META DE FATURAMENTO:
+Considerando Margem Média de 35,43%:
+NECESSÁRIO: R$ 63.334,29
+
+Metas Diárias:
+- 30 dias:       R$ 2.111,14 / dia
+- 26 dias úteis: R$ 2.435,93 / dia
+
+--------------------------------------------------
+RESUMO PARA WHATSAPP
+--------------------------------------------------
+Custos fixos estimados do próximo mês (total R$ 22.439,34): Vinicius R$ 2.476, Luccas R$ 2.288, Improv3 R$ 358,55, Claro R$ 84,89, Michelle R$ 6.000, Caio R$ 3.000, Sabesp R$ 153,96, J3 R$ 324,75, Contabilidade R$ 1.160, Empréstimo R$ 4.400,26, Correios R$ 2.192,93.
+
+Com a margem bruta média do relatório (35,43%), precisamos faturar cerca de R$ 63.334,29 no mês para cobrir esses custos (≈ R$ 2.111/dia ou R$ 2.436/dia útil).

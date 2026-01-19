@@ -1,0 +1,22 @@
+RELATÓRIO DE PRODUTOS ESTRELA (FOCO EM ADS)
+============================================================
+Critério: Margem Bruta > 40% ou Ticket > R$ 150 (com margem > 30%)
+
+PRODUTOS COM MAIOR MARGEM (> 40%) - Top 30
+--------------------------------------------------------------------------------
+Produto                                  | Preço      | Custo      | Margem % | Lucro R$  
+--------------------------------------------------------------------------------
+Japecanga Pct 100g                       | R$ 10.80   | R$ 4.50    | 58.33 % | R$ 6.30   
+Alcachofra Folha / 100g                  | R$ 17.64   | R$ 7.35    | 58.33 % | R$ 10.29  
+Quebra Pedra Pct / 100g                  | R$ 20.88   | R$ 8.70    | 58.33 % | R$ 12.18  
+Assa Peixe Folha Pct / 100g              | R$ 6.84    | R$ 2.85    | 58.33 % | R$ 3.99   
+Tilia Flor / 100g                        | R$ 93.60   | R$ 39.00   | 58.33 % | R$ 54.60  
+Jalapa Casca Pct / 100g                  | R$ 13.68   | R$ 5.70    | 58.33 % | R$ 7.98   
+Pimenta De Macaco Pct / 100g             | R$ 14.58   | R$ 6.08    | 58.30 % | R$ 8.50   
+
+============================================================
+PRODUTOS HIGH TICKET (> R$ 150) - Top 20
+(Ideais para subir ROAS com poucas vendas)
+--------------------------------------------------------------------------------
+Produto                                  | Preço      | Custo      | Margem % | Lucro R$  
+--------------------------------------------------------------------------------
