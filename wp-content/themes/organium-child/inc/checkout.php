@@ -37,8 +37,13 @@ function nraizes_add_trust_badges() {
 add_action('woocommerce_before_cart', 'nraizes_free_shipping_bar');
 add_action('woocommerce_before_checkout_form', 'nraizes_free_shipping_bar');
 function nraizes_free_shipping_bar() {
+    if (!WC()->cart) {
+        return;
+    }
+
     $min_amount = 500;
-    $current = WC()->cart->subtotal;
+    // Fix: Use get_cart_contents_total() to get numeric value, not formatted string
+    $current = WC()->cart->get_cart_contents_total();
     $remaining = $min_amount - $current;
     
     if ($remaining > 0) {
