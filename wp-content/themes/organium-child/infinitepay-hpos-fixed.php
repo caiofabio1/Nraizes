@@ -305,6 +305,20 @@ function wc_infinitepay_webhook_handler(WP_REST_Request $request) {
 		return new WP_REST_Response(array('success' => true), 200);
 	}
 
+	// Security: Verify payment status directly with InfinitePay
+	$settings = get_option('woocommerce_infinitepay_hpos_settings', array());
+	$handle   = isset($settings['handle']) ? $settings['handle'] : '';
+
+	if (empty($handle)) {
+		return new WP_REST_Response(array('success' => false, 'message' => 'Configuration error'), 500);
+	}
+
+	$verification = wc_infinitepay_payment_check($handle, (string)$order->get_id(), $tx, $slug);
+
+	if (!$verification['ok'] || !$verification['paid']) {
+		return new WP_REST_Response(array('success' => false, 'message' => 'Payment verification failed'), 403);
+	}
+
 	$order->payment_complete($tx);
 	$order->update_meta_data('_infinitepay_slug', $slug);
 	$order->update_meta_data('_infinitepay_receipt_url', $receipt);
