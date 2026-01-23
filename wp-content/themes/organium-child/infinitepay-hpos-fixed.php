@@ -305,6 +305,16 @@ function wc_infinitepay_webhook_handler(WP_REST_Request $request) {
 		return new WP_REST_Response(array('success' => true), 200);
 	}
 
+	// SEGURANÇA: Verificar status real na API InfinitePay antes de aprovar
+	$settings = get_option('woocommerce_infinitepay_hpos_settings');
+	$handle = isset($settings['handle']) ? $settings['handle'] : '';
+
+	$check = wc_infinitepay_payment_check($handle, $order_nsu, $tx, $slug);
+	if (!$check['ok'] || !$check['paid']) {
+		$order->add_order_note('⚠️ Tentativa de webhook falhou na verificação API: ' . $tx);
+		return new WP_REST_Response(array('success' => false, 'error' => 'Payment check failed'), 400);
+	}
+
 	$order->payment_complete($tx);
 	$order->update_meta_data('_infinitepay_slug', $slug);
 	$order->update_meta_data('_infinitepay_receipt_url', $receipt);
