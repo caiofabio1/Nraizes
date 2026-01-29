@@ -310,17 +310,17 @@ echo "   ATUALIZAÇÃO DE TAGS DE PRODUTOS\n";
 echo "============================================\n\n";
 
 echo "📊 RESUMO:\n";
-echo "  ✅ Atualizados: " . count($result['updated']) . "\n";
-echo "  ⏭️  MTC (sem tags): " . count($result['skipped_mtc']) . "\n";
-echo "  ❔ Sem matches: " . count($result['no_tags']) . "\n";
-echo "  ❌ Erros: " . count($result['errors']) . "\n\n";
+echo "  ✅ Atualizados: " . esc_html(count($result['updated'])) . "\n";
+echo "  ⏭️  MTC (sem tags): " . esc_html(count($result['skipped_mtc'])) . "\n";
+echo "  ❔ Sem matches: " . esc_html(count($result['no_tags'])) . "\n";
+echo "  ❌ Erros: " . esc_html(count($result['errors'])) . "\n\n";
 
 if (!empty($result['updated'])) {
     echo "✅ PRODUTOS ATUALIZADOS:\n";
     echo "----------------------------------------\n";
     foreach ($result['updated'] as $item) {
-        echo "  • " . $item['name'] . "\n";
-        echo "    Tags: " . implode(', ', $item['tags']) . "\n\n";
+        echo "  • " . esc_html($item['name']) . "\n";
+        echo "    Tags: " . esc_html(implode(', ', $item['tags'])) . "\n\n";
     }
 }
 
@@ -328,7 +328,7 @@ if (!empty($result['errors'])) {
     echo "\n❌ ERROS:\n";
     echo "----------------------------------------\n";
     foreach ($result['errors'] as $error) {
-        echo "  • {$error}\n";
+        echo "  • " . esc_html($error) . "\n";
     }
 }
 
