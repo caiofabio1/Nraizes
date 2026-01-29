@@ -130,7 +130,7 @@ function nraizes_admin_tools_page() {
             <div class="card" style="padding: 20px; margin-top: 20px;">
                 <h2>Prévia das Tags</h2>
                 <pre style="background: #f5f5f5; padding: 15px; overflow: auto; max-height: 500px;">
-                    <?php print_r($results); ?>
+                    <?php echo esc_html(print_r($results, true)); ?>
                 </pre>
             </div>
         <?php endif; ?>

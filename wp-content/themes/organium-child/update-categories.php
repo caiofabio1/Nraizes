@@ -98,14 +98,14 @@ echo "Categorias atualizadas: " . count($result['updated']) . "/" . $result['tot
 if (!empty($result['updated'])) {
     echo "✅ Atualizadas:\n";
     foreach ($result['updated'] as $slug) {
-        echo "  - {$slug}\n";
+        echo "  - " . esc_html($slug) . "\n";
     }
 }
 
 if (!empty($result['errors'])) {
     echo "\n❌ Erros:\n";
     foreach ($result['errors'] as $error) {
-        echo "  - {$error}\n";
+        echo "  - " . esc_html($error) . "\n";
     }
 }
 echo '</pre>';
