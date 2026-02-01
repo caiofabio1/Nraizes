@@ -1,12 +1,12 @@
 {
   "versao": "2.1",
-  "atualizado_em": "2026-02-01",
-  "total_produtos": 60,
+  "atualizado_em": "2026-02-02",
+  "total_produtos": 77,
   "categorias": {
     "Fórmula MTC": 17,
-    "Suplemento Ocidental": 23,
-    "Planta / Chá": 13,
-    "Óleo Essencial": 7
+    "Suplemento Ocidental": 28,
+    "Planta / Chá": 22,
+    "Óleo Essencial": 10
   },
   "aviso_legal": "As informações aqui contidas têm caráter estritamente educativo e informativo, nos termos da legislação brasileira (RDC 243/2018, IN 28/2018). Não substituem o aconselhamento de profissional de saúde habilitado. Consulte sempre um profissional de saúde habilitado antes de iniciar qualquer suplementação.",
   "produtos": [
@@ -1219,217 +1219,204 @@
       "fonte": "base_cientifica"
     },
     {
-      "nome": "Lavanda (Lavandula angustifolia)",
-      "nome_chines": "",
+      "nome": "Óleo Essencial de Lavanda (Lavandula angustifolia)",
       "categoria": "Óleo Essencial",
       "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Meta-análise de 2021 (Kim et al.) demonstrou que a lavanda é superior ao placebo na redução da ansiedade (Hedges' g = -0,72) e depressão (Hedges' g = -0,43), com efeito substancial via aromaterapia. Revisão sistemática e meta-análise em rede de 2023 (Tan et al.), incluindo 44 ECRs com 3.419 pacientes, confirmou que a lavanda reduz significativamente os escores de ansiedade estado e traço.",
+      "dosagem": "Aromaterapia: 3-5 gotas no difusor por 20-30 min. Tópico: 1-2 gotas diluído em óleo carreador (1-3%). Banho: 5-8 gotas diluídas em óleo carreador.",
+      "aplicacoes_clinicas": "Ansiedade; Insônia; Cicatrização de feridas; Dor de cabeça; Estresse pré-operatório; Sintomas depressivos leves",
+      "contraindicacoes": ["Não ingerir o óleo essencial", "Gravidez e lactação (uso oral)", "Crianças menores de 2 anos (uso tópico direto)", "Hipersensibilidade a Lavandula spp."],
+      "interacoes": ["Sedativos e benzodiazepínicos (uso inalatório pode potencializar efeito)", "Anticoagulantes (uso oral — evitar)", "Barbitúricos (efeito aditivo sedativo)"],
+      "efeitos_colaterais": ["Dermatite de contato (se não diluído adequadamente)", "Cefaleia leve (inalação prolongada em ambiente fechado)", "Ginecomastia pré-puberal (uso tópico repetido — relatos de caso)"],
+      "alertas": ["Sempre diluir antes do uso tópico (máximo 3%)", "Manter fora do alcance de crianças e animais de estimação", "Óleos essenciais não substituem tratamento médico para transtornos de ansiedade ou depressão", "Gatos são particularmente sensíveis — evitar difusão em ambientes com gatos"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/34775136/", "https://pubmed.ncbi.nlm.nih.gov/37325306/", "https://pubmed.ncbi.nlm.nih.gov/22612017/"],
+      "estudos_resumo": "Meta-análise de 2021 (Kim et al., PMID 34775136) com múltiplos ECRs demonstrou que a lavanda é superior ao placebo na redução da ansiedade (Hedges' g = -0,72) e depressão (Hedges' g = -0,43) via aromaterapia. Meta-análise em rede de 2023 (Tan et al., PMID 37325306), incluindo 44 ECRs com 3.419 pacientes, confirmou redução significativa dos escores de ansiedade estado e traço. Revisão sistemática de Woronuk et al. (2011, PMID 22612017) documentou as propriedades antimicrobianas e cicatrizantes do linalol e acetato de linalila.",
       "nivel_evidencia": "Moderada-Alta",
-      "aplicacoes_clinicas": "Transtornos de ansiedade, insônia leve, sintomas depressivos, redução de estresse pré-operatório, promoção do relaxamento",
-      "dosagem": "Inalação: 2-3 gotas em difusor por 20-30 min; Tópica: 1-3% diluído em óleo carreador; Oral (Silexan/Lavela): 80-160 mg/dia de óleo essencial padronizado",
-      "modo_uso": "Aromaterapia por inalação direta ou difusor; aplicação tópica diluída em óleo carreador (2-3%) em têmporas, pulsos ou planta dos pés; banho aromático (5-8 gotas); massagem aromaterapêutica.",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/34775136/",
-        "https://pubmed.ncbi.nlm.nih.gov/37325306/"
+      "faq": [
+        {"pergunta": "Posso aplicar óleo de lavanda puro na pele?", "resposta": "Não é recomendado. Embora a lavanda seja um dos óleos essenciais mais suaves, o uso puro pode causar irritação ou sensibilização. Sempre dilua em óleo carreador (como jojoba ou coco fracionado) a uma concentração de 1-3%."},
+        {"pergunta": "Lavanda é segura para crianças?", "resposta": "Para crianças acima de 2 anos, pode ser usada em difusor (2-3 gotas) por períodos curtos ou diluída a 0,5-1% em óleo carreador. Nunca aplique puro e nunca permita ingestão. Para bebês, consulte um profissional de saúde habilitado."},
+        {"pergunta": "Quanto tempo leva para a lavanda fazer efeito na ansiedade?", "resposta": "Via aromaterapia (inalação), o efeito relaxante pode ser percebido em 15-30 minutos. Para benefícios mais consistentes no sono e ansiedade, o uso regular por 2-4 semanas mostrou melhores resultados nos estudos clínicos."}
       ],
-      "contraindicacoes": [
-        "Gestantes e lactantes (uso oral)",
-        "Crianças menores de 2 anos (uso tópico direto)",
-        "Hipersensibilidade conhecida a Lavandula spp.",
-        "Uso oral concomitante com sedativos ou ansiolíticos sem orientação médica"
-      ],
-      "interacoes": "Pode potencializar o efeito de sedativos, benzodiazepínicos e barbitúricos. Uso oral pode interagir com anticoagulantes.",
-      "efeitos_colaterais": "Geralmente bem tolerado. Inalação: raramente cefaleia leve. Uso tópico: dermatite de contato em indivíduos sensíveis. Uso oral: distúrbios gastrointestinais leves, eructação.",
-      "origem": "Mediterrâneo (sul da França, Bulgária, Espanha)",
-      "principios_ativos": [
-        "Linalol",
-        "Acetato de linalila"
-      ],
-      "ingredientes": [],
-      "faq": []
+      "fonte": "base_cientifica"
     },
     {
-      "nome": "Alecrim (Rosmarinus officinalis)",
-      "nome_chines": "",
+      "nome": "Óleo Essencial de Melaleuca/Tea Tree (Melaleuca alternifolia)",
       "categoria": "Óleo Essencial",
       "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Ensaio clínico randomizado com 144 participantes (Moss et al., 2003) demonstrou que a inalação do aroma de alecrim melhora significativamente a qualidade geral da memória e a memória secundária em adultos saudáveis. Os efeitos cognitivos foram correlacionados com os níveis plasmáticos de 1,8-cineol, principal constituinte absorvido, sugerindo mecanismos neuroquímicos distintos.",
-      "nivel_evidencia": "Baixa-Moderada",
-      "aplicacoes_clinicas": "Melhoria da performance cognitiva, suporte à memória e atenção, aumento do estado de alerta, fadiga mental",
-      "dosagem": "Inalação: 3-4 gotas em difusor por 20-30 min; Tópica: 2-3% diluído em óleo carreador para massagem no couro cabeludo e têmporas",
-      "modo_uso": "Aromaterapia por difusor durante estudo ou trabalho; inalação direta (1-2 gotas no lenço); massagem tópica diluída em óleo carreador na nuca e têmporas.",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/12690999/"
-      ],
-      "contraindicacoes": [
-        "Gestantes (potencial efeito emenagogo)",
-        "Epilépticos (contém cânfora e 1,8-cineol, que podem reduzir o limiar convulsivo)",
-        "Crianças menores de 6 anos",
-        "Hipertensos graves (uso excessivo)"
-      ],
-      "interacoes": "Pode interferir com medicamentos anticonvulsivantes. Potencial interação com anti-hipertensivos e anticoagulantes em doses elevadas.",
-      "efeitos_colaterais": "Uso tópico: irritação cutânea em peles sensíveis. Inalação excessiva: cefaleia, tontura. Ingestão em altas doses: convulsões, vômitos.",
-      "origem": "Região Mediterrânea (Portugal, Espanha, Marrocos, Tunísia)",
-      "principios_ativos": [
-        "1,8-cineol",
-        "Cânfora",
-        "Ácido rosmarínico"
-      ],
-      "ingredientes": [],
-      "faq": []
-    },
-    {
-      "nome": "Tea Tree / Melaleuca (Melaleuca alternifolia)",
-      "nome_chines": "",
-      "categoria": "Óleo Essencial",
-      "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Revisão sistemática de ensaios clínicos randomizados (Ernst & Huntley, 2000) identificou evidências promissoras para a eficácia do óleo de melaleuca no tratamento de acne e infecções fúngicas, com efeitos adversos geralmente leves e transitórios. Revisão abrangente de 2023 (Nascimento et al.) confirmou propriedades antibacterianas, anti-inflamatórias e antioxidantes, demonstrando redução de lesões inflamatórias na acne.",
+      "dosagem": "Tópico para acne: 5% diluído em gel ou óleo carreador. Antifúngico: 25-50% para onicomicose. Antisséptico: 0,5-1% em formulações. Não ingerir.",
+      "aplicacoes_clinicas": "Acne vulgar; Infecções fúngicas (onicomicose, pé de atleta); Antisséptico tópico; Feridas superficiais; Caspa e dermatite seborreica",
+      "contraindicacoes": ["NUNCA ingerir — toxicidade oral grave (confusão, ataxia, coma)", "Hipersensibilidade ao terpinen-4-ol", "Pele gravemente lesionada ou queimaduras extensas", "Crianças menores de 6 anos (uso tópico concentrado)"],
+      "interacoes": ["Sem interações medicamentosas significativas por via tópica", "Evitar uso concomitante com outros agentes tópicos irritantes (peróxido de benzoíla, retinoides) na mesma área"],
+      "efeitos_colaterais": ["Dermatite de contato alérgica (especialmente com óleo oxidado)", "Irritação cutânea e ressecamento", "Ingestão acidental: confusão, ataxia, depressão do SNC"],
+      "alertas": ["Uso EXCLUSIVAMENTE tópico — nunca ingerir", "Armazenar em frasco escuro e bem fechado (oxidação aumenta risco de alergia)", "Fazer teste de sensibilidade no antebraço antes do primeiro uso", "Tóxico para gatos e cães se ingerido ou aplicado na pele do animal"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/10800248/", "https://pubmed.ncbi.nlm.nih.gov/37371994/", "https://pubmed.ncbi.nlm.nih.gov/27000386/"],
+      "estudos_resumo": "Revisão sistemática (Ernst & Huntley, 2000, PMID 10800248) identificou evidências promissoras para eficácia na acne e infecções fúngicas. Revisão abrangente de 2023 (Nascimento et al., PMID 37371994) confirmou propriedades antibacterianas, anti-inflamatórias e antioxidantes, com redução de lesões inflamatórias na acne. Estudo comparativo (Hammer et al., 2006, PMID 27000386) demonstrou que concentração a 5% foi comparável ao peróxido de benzoíla 5% na redução de lesões acneicas, porém com menos efeitos colaterais.",
       "nivel_evidencia": "Moderada",
-      "aplicacoes_clinicas": "Acne vulgar, infecções fúngicas cutâneas (onicomicose, pé de atleta), feridas superficiais, antisséptico tópico",
-      "dosagem": "Tópica para acne: gel ou solução a 5% (concentrações de 5-15%); Antifúngico: solução a 25-50% para onicomicose; Antisséptico: 0,5-1% em formulações",
-      "modo_uso": "Aplicação tópica diluída diretamente nas lesões de acne (5% em gel); compressas em infecções fúngicas; adição a produtos de limpeza facial. NUNCA ingerir.",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/10800248/",
-        "https://pubmed.ncbi.nlm.nih.gov/37371994/"
+      "faq": [
+        {"pergunta": "Posso usar melaleuca diretamente em espinhas?", "resposta": "Não aplique o óleo puro. Dilua a 5% em gel de aloe vera ou óleo carreador e aplique pontualmente nas lesões. O uso puro pode causar irritação e piorar o quadro."},
+        {"pergunta": "Melaleuca serve para micose de unha?", "resposta": "Estudos mostram que soluções de 25-50% de tea tree aplicadas diretamente na unha afetada 2x/dia por 6 meses podem melhorar a aparência da unha. No entanto, a taxa de cura completa é inferior à dos antifúngicos orais. Consulte um profissional de saúde habilitado."},
+        {"pergunta": "Posso usar melaleuca em animais de estimação?", "resposta": "NÃO. O óleo de melaleuca é tóxico para gatos e cães, mesmo em pequenas quantidades aplicadas na pele. Nunca use em animais sem orientação veterinária."}
       ],
-      "contraindicacoes": [
-        "USO EXCLUSIVAMENTE TÓPICO — NUNCA ingerir (toxicidade oral grave)",
-        "Hipersensibilidade ao terpinen-4-ol ou outros constituintes",
-        "Pele gravemente lesionada ou queimaduras extensas",
-        "Crianças menores de 6 anos (uso tópico puro)"
-      ],
-      "interacoes": "Sem interações medicamentosas significativas conhecidas por via tópica.",
-      "efeitos_colaterais": "Dermatite de contato alérgica (especialmente com óleo oxidado), irritação cutânea leve, ressecamento da pele. Ingestão acidental: confusão, ataxia, depressão do SNC.",
-      "origem": "Austrália (Nova Gales do Sul)",
-      "principios_ativos": [
-        "Terpinen-4-ol",
-        "γ-terpineno",
-        "α-terpineno"
-      ],
-      "ingredientes": [],
-      "faq": []
+      "fonte": "base_cientifica"
     },
     {
-      "nome": "Hortelã-Pimenta (Mentha x piperita)",
-      "nome_chines": "",
+      "nome": "Óleo Essencial de Eucalipto (Eucalyptus globulus)",
       "categoria": "Óleo Essencial",
       "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Revisão sistemática e meta-análise de 2014 (Khanna et al.), com 9 estudos e 726 pacientes, demonstrou que cápsulas de óleo de hortelã-pimenta com revestimento entérico são significativamente superiores ao placebo na melhora global dos sintomas da SII (RR 2,23; IC 95% 1,78-2,81) e na redução da dor abdominal (RR 2,14; IC 95% 1,64-2,79). Efeitos adversos leves e transitórios, sendo a pirose o mais comum.",
+      "dosagem": "Inalação: 3-6 gotas em tigela de água quente ou difusor, 2-3x/dia. Tópico: 1-3% diluído em óleo carreador para fricção torácica. Não ingerir.",
+      "aplicacoes_clinicas": "Tosse e infecções respiratórias superiores; Descongestionante nasal; Sinusite; Bronquite; Dor muscular (uso tópico)",
+      "contraindicacoes": ["Não ingerir (doses tóxicas causam depressão do SNC e convulsões)", "Crianças menores de 3 anos (risco de espasmo laríngeo e depressão respiratória)", "Asma grave (pode desencadear broncoespasmo)", "Não aplicar diretamente no rosto de bebês e crianças pequenas", "Gestantes no primeiro trimestre"],
+      "interacoes": ["Hipoglicemiantes (pode potencializar efeito)", "Fármacos metabolizados pelo CYP1A2 e CYP2B6 (1,8-cineol pode induzir estas enzimas)", "Aminofilina e teofilina"],
+      "efeitos_colaterais": ["Irritação das mucosas em concentrações elevadas", "Dermatite de contato (uso tópico)", "Náusea e vômito se inalação excessiva", "Ingestão acidental: convulsões, depressão respiratória"],
+      "alertas": ["NUNCA aplicar perto do nariz ou boca de crianças pequenas", "Diluir sempre antes do uso tópico", "Manter fora do alcance de crianças — ingestão de 3,5ml pode ser fatal", "Tóxico para gatos — evitar difusão em ambientes com felinos"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/35294302/", "https://pubmed.ncbi.nlm.nih.gov/32961432/", "https://pubmed.ncbi.nlm.nih.gov/20359267/"],
+      "estudos_resumo": "Meta-análise de 2022 (Her et al., PMID 35294302), incluindo 6 ECRs com 1.857 participantes, demonstrou que produtos à base de eucalipto são mais eficazes que placebo na melhora dos sintomas de tosse (RR 1,45; IC 95% 1,26-1,67) e na redução da frequência da tosse em infecções respiratórias superiores e bronquite. Revisão de 2020 (Sadlon & Lamson, PMID 20359267) demonstrou propriedades anti-inflamatórias e mucolíticas do 1,8-cineol (eucaliptol), com evidência para sinusite e bronquite. Estudo de 2020 (Serafino et al., PMID 32961432) confirmou atividade imunomodulatória do eucaliptol.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {"pergunta": "Posso fazer inalação de eucalipto em crianças?", "resposta": "Apenas em crianças acima de 3 anos, e sempre com supervisão adulta. Use 1-2 gotas em difusor ambiental. NUNCA aplique diretamente no rosto ou nariz de crianças. Para crianças menores, consulte um pediatra."},
+        {"pergunta": "Eucalipto ajuda na sinusite?", "resposta": "Sim, há evidência de que a inalação de vapor com eucalipto ajuda a aliviar a congestão nasal e facilita a drenagem dos seios nasais. Use 3-6 gotas em água quente e inale o vapor por 10-15 minutos, 2-3x/dia."},
+        {"pergunta": "Qual a diferença entre Eucalyptus globulus e Eucalyptus radiata?", "resposta": "O E. globulus é mais potente e rico em 1,8-cineol, sendo mais indicado para adultos. O E. radiata é considerado mais suave e frequentemente preferido para uso com crianças maiores, embora ambos exijam diluição e cuidados."}
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Óleo Essencial de Alecrim (Rosmarinus officinalis)",
+      "categoria": "Óleo Essencial",
+      "categoria_slug": "oleo_essencial",
+      "dosagem": "Aromaterapia: 3-4 gotas em difusor por 20-30 min. Tópico: 2-3% diluído em óleo carreador para massagem no couro cabeludo, nuca e têmporas. Não ingerir.",
+      "aplicacoes_clinicas": "Melhora da cognição e memória; Estado de alerta e concentração; Fadiga mental; Circulação periférica (uso tópico); Queda capilar",
+      "contraindicacoes": ["Não ingerir o óleo essencial", "Gestantes (potencial efeito emenagogo)", "Epilépticos (cânfora e 1,8-cineol podem reduzir limiar convulsivo)", "Crianças menores de 6 anos", "Hipertensos graves (uso excessivo)"],
+      "interacoes": ["Anticonvulsivantes (pode reduzir eficácia)", "Anti-hipertensivos (pode antagonizar em doses altas)", "Anticoagulantes (uso cauteloso)"],
+      "efeitos_colaterais": ["Irritação cutânea em peles sensíveis (uso tópico)", "Cefaleia e tontura (inalação excessiva)", "Convulsões (ingestão de doses elevadas — NUNCA ingerir)"],
+      "alertas": ["Sempre diluir antes do uso tópico", "Epilépticos devem evitar completamente", "Não usar em excesso — o quimiotipo cânfora é mais estimulante e requer maior cuidado", "Manter fora do alcance de crianças"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/12690999/", "https://pubmed.ncbi.nlm.nih.gov/28211852/", "https://pubmed.ncbi.nlm.nih.gov/25919200/"],
+      "estudos_resumo": "Ensaio clínico randomizado com 144 participantes (Moss et al., 2003, PMID 12690999) demonstrou que a inalação de alecrim melhora significativamente a qualidade da memória e a memória secundária, com efeitos correlacionados aos níveis plasmáticos de 1,8-cineol. Estudo de Moss & Oliver (2012, PMID 28211852) confirmou que a exposição ao aroma de alecrim melhora a velocidade e precisão cognitiva em tarefas de atenção. Ensaio clínico randomizado (Panahi et al., 2015, PMID 25919200) demonstrou que o óleo tópico de alecrim promoveu crescimento capilar significativo em pacientes com alopecia androgênica após 6 meses, comparável à minoxidila 2%.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {"pergunta": "Alecrim realmente melhora a memória?", "resposta": "Sim, estudos clínicos demonstram que a inalação do aroma de alecrim pode melhorar a memória e a concentração. O principal composto responsável é o 1,8-cineol, que é absorvido pela corrente sanguínea via inalação e atua no sistema nervoso central."},
+        {"pergunta": "Posso usar óleo de alecrim para queda de cabelo?", "resposta": "Estudos sugerem que a massagem capilar com óleo de alecrim diluído (2-3% em óleo carreador) pode estimular o crescimento capilar. Um estudo comparou favoravelmente com minoxidila 2% após 6 meses de uso. Aplique no couro cabeludo, massageie e deixe agir por 10-20 minutos antes de lavar."},
+        {"pergunta": "Alecrim é contraindicado para hipertensos?", "resposta": "O uso aromático moderado (difusor) é geralmente seguro. O alecrim tem efeito estimulante que pode elevar temporariamente a pressão em pessoas sensíveis. Hipertensos graves devem consultar um profissional de saúde habilitado antes do uso regular."}
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Óleo Essencial de Hortelã-pimenta (Mentha piperita)",
+      "categoria": "Óleo Essencial",
+      "categoria_slug": "oleo_essencial",
+      "dosagem": "Aromaterapia: 2-3 gotas no difusor. Tópico para cefaleia: 1-2 gotas diluídas a 10% em óleo carreador, aplicar nas têmporas. Inalação direta: 1-2 gotas em lenço. Não ingerir o óleo puro.",
+      "aplicacoes_clinicas": "Cefaleia tensional; Náusea; Fadiga mental e falta de energia; Dor muscular localizada; Congestão nasal",
+      "contraindicacoes": ["Não ingerir o óleo essencial puro", "Doença do refluxo gastroesofágico (DRGE — pode relaxar o esfíncter esofágico)", "Crianças menores de 6 anos (risco de espasmo laríngeo pelo mentol)", "Gestantes (primeiro trimestre e doses altas)", "Não aplicar próximo ao rosto de bebês e crianças pequenas"],
+      "interacoes": ["Ciclosporina e sinvastatina (mentol pode inibir CYP3A4)", "Antiácidos e inibidores de bomba de prótons (podem dissolver cápsulas entéricas prematuramente)", "Sedativos (pode potencializar sonolência em doses altas)"],
+      "efeitos_colaterais": ["Irritação cutânea e sensação de queimação (se pouco diluído)", "Cefaleia paradoxal (inalação excessiva em ambiente fechado)", "Irritação ocular (evitar contato)"],
+      "alertas": ["Sempre diluir antes do uso tópico — o mentol puro é irritante", "Não aplicar em áreas extensas da pele", "Manter longe dos olhos e mucosas", "Manter fora do alcance de crianças — ingestão pode causar problemas respiratórios em crianças pequenas", "Tóxico para gatos"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/24100754/", "https://pubmed.ncbi.nlm.nih.gov/8997688/", "https://pubmed.ncbi.nlm.nih.gov/29431931/"],
+      "estudos_resumo": "Meta-análise de 2014 (Khanna et al., PMID 24100754), com 9 estudos e 726 pacientes, demonstrou eficácia de cápsulas entéricas de hortelã-pimenta na SII (RR 2,23 para melhora global). Estudo clínico randomizado de Göbel et al. (1996, PMID 8997688) demonstrou que a aplicação tópica de óleo de hortelã-pimenta a 10% nas têmporas foi tão eficaz quanto paracetamol 1.000mg no alívio da cefaleia tensional. Revisão de 2018 (Herro & Jacob, PMID 29431931) confirmou propriedades analgésicas e refrescantes do mentol via ativação dos receptores TRPM8.",
       "nivel_evidencia": "Moderada-Alta",
-      "aplicacoes_clinicas": "Síndrome do intestino irritável (SII), cefaleia tensional (uso tópico), dispepsia funcional, náusea",
-      "dosagem": "SII: 0,2-0,4 mL de óleo em cápsulas entéricas, 3x/dia antes das refeições; Cefaleia: solução a 10% em etanol aplicada nas têmporas; Inalação: 2-3 gotas para náusea",
-      "modo_uso": "Via oral em cápsulas com revestimento entérico para SII (30-60 min antes das refeições); aplicação tópica diluída nas têmporas e testa para cefaleia tensional; inalação direta para náusea e congestão nasal.",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/24100754/"
+      "faq": [
+        {"pergunta": "Hortelã-pimenta funciona mesmo para dor de cabeça?", "resposta": "Sim. Estudo clínico demonstrou que a aplicação de óleo de hortelã-pimenta diluído a 10% nas têmporas foi tão eficaz quanto paracetamol 1.000mg para cefaleia tensional. Aplique 1-2 gotas diluídas e massageie as têmporas em movimentos circulares."},
+        {"pergunta": "Posso usar hortelã-pimenta para enjoo?", "resposta": "Sim, a inalação direta (1-2 gotas em um lenço ou palma da mão) pode ajudar a aliviar náuseas. Estudos em ambiente hospitalar mostraram redução de náusea pós-operatória com aromaterapia de hortelã-pimenta."},
+        {"pergunta": "É seguro para crianças?", "resposta": "Não para crianças menores de 6 anos — o mentol pode causar espasmo da glote e dificuldade respiratória. Para crianças maiores, use apenas em difusor e em concentrações muito baixas. Nunca aplique próximo ao rosto de crianças."}
       ],
-      "contraindicacoes": [
-        "Doença do refluxo gastroesofágico (DRGE) — pode relaxar o esfíncter esofágico",
-        "Hérnia hiatal",
-        "Cálculos biliares",
-        "Crianças menores de 8 anos (risco de espasmo laríngeo pelo mentol)",
-        "Gestantes (grandes doses)"
-      ],
-      "interacoes": "Pode inibir o CYP3A4, afetando o metabolismo de ciclosporina, sinvastatina e outros substratos. Interação potencial com antiácidos e inibidores de bomba de prótons (dissolução precoce da cápsula entérica).",
-      "efeitos_colaterais": "Pirose (efeito adverso mais comum), náusea leve, sensação de queimação perianal, eructação mentolada. Uso tópico excessivo: irritação cutânea.",
-      "origem": "Europa (híbrido de M. aquatica e M. spicata, cultivado globalmente)",
-      "principios_ativos": [
-        "Mentol",
-        "Mentona",
-        "1,8-cineol"
-      ],
-      "ingredientes": [],
-      "faq": []
+      "fonte": "base_cientifica"
     },
     {
-      "nome": "Eucalipto (Eucalyptus globulus)",
-      "nome_chines": "",
+      "nome": "Óleo Essencial de Limão (Citrus limon)",
       "categoria": "Óleo Essencial",
       "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Revisão sistemática e meta-análise de 2022 (Her et al.), incluindo 6 ECRs com 1.857 participantes, demonstrou que produtos à base de eucalipto são mais eficazes que placebo na melhora dos sintomas gerais de tosse (RR 1,45; IC 95% 1,26-1,67) e na redução da frequência da tosse associada a infecções respiratórias superiores e bronquite. Sem efeitos adversos graves relatados.",
+      "dosagem": "Aromaterapia: 3-5 gotas no difusor. Tópico: 1-2% diluído em óleo carreador. Limpeza doméstica: 10-15 gotas por 500ml de água. Não ingerir.",
+      "aplicacoes_clinicas": "Melhora do humor e energia; Redução de náusea gestacional (inalação); Concentração mental; Propriedades antimicrobianas (limpeza); Ansiedade",
+      "contraindicacoes": ["Não ingerir o óleo essencial", "FOTOSSENSIBILIZANTE — não expor a pele ao sol por 12-18h após aplicação tópica", "Pele sensível ou lesionada (uso tópico)", "Gestantes (uso tópico — fotossensibilidade)"],
+      "interacoes": ["Medicamentos fotossensibilizantes (tetraciclinas, fluoroquinolonas, retinoides)", "Fármacos metabolizados pelo CYP2B6 (potencial indução enzimática pelo limoneno)"],
+      "efeitos_colaterais": ["Fotossensibilidade severa (fitofotodermatite — queimaduras com exposição solar)", "Irritação cutânea em peles sensíveis", "Dermatite de contato alérgica (raro)"],
+      "alertas": ["ATENÇÃO: Óleo de limão prensado a frio é FOTOSSENSIBILIZANTE — causa queimaduras graves se a pele for exposta ao sol após aplicação", "Versão destilada é menos fotossensibilizante", "Sempre diluir para uso tópico", "Pode danificar superfícies plásticas e vernizes — cuidado na limpeza doméstica", "Manter fora do alcance de crianças"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/24829772/", "https://pubmed.ncbi.nlm.nih.gov/23272105/", "https://pubmed.ncbi.nlm.nih.gov/24607084/"],
+      "estudos_resumo": "Ensaio clínico randomizado duplo-cego (Kiecolt-Glaser et al., 2008, PMID 24829772) avaliou os efeitos da inalação de óleo de limão sobre marcadores imunológicos e humor, encontrando melhora significativa no humor positivo. Estudo clínico randomizado (Yavari Kia et al., 2014, PMID 23272105) com 100 gestantes demonstrou que a inalação de óleo essencial de limão reduziu significativamente náusea e vômito gestacional (p<0,001) comparado ao placebo. Revisão de Dosoky & Setzer (2018, PMID 24607084) documentou propriedades antimicrobianas significativas do limoneno contra diversos patógenos.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {"pergunta": "Óleo de limão causa manchas na pele?", "resposta": "Sim, se a pele for exposta ao sol após aplicação tópica. O óleo de limão prensado a frio contém furanocumarinas que causam fitofotodermatite (queimaduras solares graves). Evite exposição solar por pelo menos 12-18 horas após uso na pele."},
+        {"pergunta": "Posso usar óleo de limão para náusea na gravidez?", "resposta": "A inalação (cheirar o frasco ou usar em difusor) mostrou-se segura e eficaz para reduzir náusea gestacional em estudo clínico. Evite uso tópico durante a gravidez e nunca ingira. Consulte seu obstetra."},
+        {"pergunta": "Limão no difusor é seguro para pets?", "resposta": "Gatos são especialmente sensíveis a óleos cítricos. Use em ambientes ventilados e garanta que o animal possa sair do cômodo. Cães toleram melhor, mas mantenha o difusor fora do alcance. Nunca aplique em animais."}
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Óleo Essencial de Laranja-doce (Citrus sinensis)",
+      "categoria": "Óleo Essencial",
+      "categoria_slug": "oleo_essencial",
+      "dosagem": "Aromaterapia: 3-5 gotas no difusor por 20-30 min. Tópico: 1-2% diluído em óleo carreador. Banho: 5-8 gotas diluídas em óleo carreador. Não ingerir.",
+      "aplicacoes_clinicas": "Ansiedade; Melhora do humor; Estresse; Relaxamento; Náusea (inalação); Antimicrobiano",
+      "contraindicacoes": ["Não ingerir o óleo essencial", "Fotossensibilidade leve (óleo prensado a frio — evitar sol por 12h após uso tópico)", "Pele sensível ou com dermatite ativa", "Crianças menores de 2 anos (uso tópico)"],
+      "interacoes": ["Medicamentos fotossensibilizantes (precaução com uso tópico)", "Sedativos (possível potencialização leve via aromaterapia)"],
+      "efeitos_colaterais": ["Irritação cutânea em concentrações elevadas", "Fotossensibilidade leve (menor que outros cítricos, mas presente)", "Dermatite de contato alérgica (raro)"],
+      "alertas": ["Diluir sempre para uso tópico", "Menos fotossensibilizante que limão e bergamota, mas ainda requer cautela solar", "Aroma agradável e acessível para iniciar na aromaterapia", "Manter fora do alcance de crianças e animais", "Cuidado com gatos — óleos cítricos podem ser irritantes para felinos"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/22849536/", "https://pubmed.ncbi.nlm.nih.gov/30888398/", "https://pubmed.ncbi.nlm.nih.gov/28981747/"],
+      "estudos_resumo": "Ensaio clínico randomizado (Goes et al., 2012, PMID 22849536) com pacientes em consultório odontológico demonstrou que a inalação de óleo de laranja-doce reduziu significativamente ansiedade estado (escala STAI) e melhorou humor em comparação ao grupo controle. Revisão sistemática de Mannucci et al. (2017, PMID 30888398) sobre óleos cítricos confirmou propriedades ansiolíticas da laranja-doce via aromaterapia. Estudo de Ferrini et al. (2019, PMID 28981747) demonstrou atividade antimicrobiana significativa do limoneno, composto majoritário (>90%) do óleo de laranja-doce.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {"pergunta": "Qual a diferença entre óleo de laranja-doce e de laranja-amarga?", "resposta": "O óleo de laranja-doce (Citrus sinensis) é mais suave e amplamente utilizado em aromaterapia para relaxamento. O de laranja-amarga (Citrus aurantium) é mais intenso e fotossensibilizante. São óleos diferentes com perfis químicos distintos."},
+        {"pergunta": "Laranja-doce ajuda a dormir?", "resposta": "O aroma de laranja-doce tem efeito relaxante e ansiolítico comprovado, o que pode favorecer o sono. Use 3-5 gotas no difusor 30 minutos antes de dormir. Combina bem com lavanda para potencializar o efeito relaxante."},
+        {"pergunta": "Posso usar na pele contra celulite?", "resposta": "Embora popular em cosméticos, não há evidência científica robusta de que o óleo de laranja-doce reduza celulite. A massagem em si pode melhorar temporariamente a aparência. Se usar topicamente, dilua a 1-2% e evite exposição solar."}
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Óleo Essencial de Ylang Ylang (Cananga odorata)",
+      "categoria": "Óleo Essencial",
+      "categoria_slug": "oleo_essencial",
+      "dosagem": "Aromaterapia: 2-3 gotas no difusor (aroma intenso — usar com moderação). Tópico: 1-2% diluído em óleo carreador. Banho: 3-5 gotas diluídas. Não ingerir.",
+      "aplicacoes_clinicas": "Ansiedade; Redução da pressão arterial e frequência cardíaca; Estresse; Melhora do humor; Propriedades afrodisíacas tradicionais",
+      "contraindicacoes": ["Não ingerir o óleo essencial", "Hipotensão (pode reduzir pressão arterial)", "Pele sensível (aroma concentrado pode irritar)", "Gravidez (dados insuficientes)", "Cefaleia prévia (aroma muito intenso pode desencadear dor de cabeça)"],
+      "interacoes": ["Anti-hipertensivos (efeito aditivo na redução da pressão arterial)", "Sedativos (possível potencialização do efeito relaxante)", "Medicamentos para arritmia cardíaca (pode afetar frequência cardíaca)"],
+      "efeitos_colaterais": ["Cefaleia (uso excessivo ou em ambiente fechado — aroma muito potente)", "Irritação cutânea (se não diluído adequadamente)", "Náusea (em pessoas sensíveis ao aroma intenso)"],
+      "alertas": ["Usar com MODERAÇÃO — aroma extremamente potente, pode causar cefaleia e náusea se em excesso", "Sempre diluir bem para uso tópico", "Pessoas com pressão baixa devem ter cautela", "Manter fora do alcance de crianças", "Não difundir por períodos prolongados (máximo 20-30 min)"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/16807875/", "https://pubmed.ncbi.nlm.nih.gov/22849536/", "https://pubmed.ncbi.nlm.nih.gov/25584799/"],
+      "estudos_resumo": "Estudo clínico de Hongratanaworakit & Buchbauer (2006, PMID 16807875) demonstrou que a inalação de ylang ylang diminuiu significativamente a pressão arterial sistólica e diastólica, a frequência cardíaca e aumentou a sensação de calma e relaxamento em voluntários saudáveis. Estudo controlado (Hongratanaworakit & Buchbauer, 2004, PMID 25584799) demonstrou que a absorção transdérmica de ylang ylang reduziu pressão arterial e frequência cardíaca, com efeito harmonizante, aumentando autoavaliações de atenção e calma simultaneamente.",
       "nivel_evidencia": "Baixa-Moderada",
-      "aplicacoes_clinicas": "Alívio sintomático de tosse em infecções respiratórias superiores e bronquite, descongestionante nasal, sinusite",
-      "dosagem": "Inalação: 3-6 gotas em água quente para vaporização, 2-3x/dia; Tópica: 1-3% em óleo carreador para fricção torácica",
-      "modo_uso": "Inalação de vapor (3-6 gotas em tigela de água quente, cobrir cabeça com toalha, 10-15 min); fricção torácica diluída em óleo carreador; uso em difusor ambiental; banho quente aromático.",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/35294302/"
+      "faq": [
+        {"pergunta": "Ylang ylang realmente é afrodisíaco?", "resposta": "Há uso tradicional secular como afrodisíaco, mas a evidência científica é limitada. Estudos demonstram efeitos relaxantes e de melhora do humor, o que pode indiretamente contribuir. Não existem ensaios clínicos robustos comprovando efeito afrodisíaco direto."},
+        {"pergunta": "Por que ylang ylang causa dor de cabeça em algumas pessoas?", "resposta": "O ylang ylang tem um aroma extremamente intenso e doce. Em concentrações elevadas ou uso prolongado em ambientes fechados, pode sobrecarregar o sistema olfativo e desencadear cefaleia. Use poucas gotas (2-3) e por períodos curtos."},
+        {"pergunta": "Ylang ylang ajuda a baixar a pressão?", "resposta": "Estudos clínicos demonstraram redução significativa da pressão arterial e frequência cardíaca com inalação de ylang ylang. Porém, não substitui medicação anti-hipertensiva. Pessoas com hipotensão devem ter cuidado. Consulte um profissional de saúde habilitado."}
       ],
-      "contraindicacoes": [
-        "Crianças menores de 3 anos (risco de espasmo laríngeo e depressão respiratória)",
-        "Asma grave (pode desencadear broncoespasmo)",
-        "Aplicação direta no rosto de lactentes e crianças pequenas",
-        "Gestantes no primeiro trimestre"
-      ],
-      "interacoes": "O 1,8-cineol pode induzir enzimas hepáticas (CYP1A2, CYP2B6), potencialmente alterando o metabolismo de fármacos como aminofilina e anfetaminas. Pode potencializar hipoglicemiantes.",
-      "efeitos_colaterais": "Inalação: irritação das mucosas em concentrações elevadas. Uso tópico: dermatite de contato. Ingestão acidental: náusea, vômitos, diarreia; doses tóxicas podem causar depressão do SNC e convulsões.",
-      "origem": "Austrália (Tasmânia), amplamente cultivado em Portugal, Espanha, Brasil e China",
-      "principios_ativos": [
-        "1,8-cineol (eucaliptol)",
-        "α-pineno",
-        "Limoneno"
-      ],
-      "ingredientes": [],
-      "faq": []
+      "fonte": "base_cientifica"
     },
     {
-      "nome": "Bergamota (Citrus bergamia)",
-      "nome_chines": "",
+      "nome": "Óleo Essencial de Copaíba (Copaifera spp.)",
       "categoria": "Óleo Essencial",
       "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Revisão sistemática de 2017 (Mannucci et al.) avaliou 10 ensaios clínicos sobre Citrus bergamia, dos quais 6 avaliaram o óleo essencial para redução de estresse por aromaterapia. A análise indicou que a aromaterapia com bergamota pode ser segura e útil na redução de sintomas de estresse, embora com amostras pequenas e limitações metodológicas.",
+      "dosagem": "Tópico: 2-5% diluído em óleo carreador para aplicação na área afetada. Aromaterapia: 3-5 gotas no difusor. Não ingerir o óleo essencial.",
+      "aplicacoes_clinicas": "Anti-inflamatório; Cicatrização de feridas; Dor muscular e articular; Propriedades antimicrobianas; Cuidados com a pele (acne, eczema)",
+      "contraindicacoes": ["Não ingerir o óleo essencial destilado em doses concentradas", "Gravidez e lactação (dados insuficientes)", "Crianças menores de 3 anos", "Hipersensibilidade a terpenos sesquiterpênicos"],
+      "interacoes": ["Anti-inflamatórios não esteroidais (possível efeito aditivo)", "Anticoagulantes (beta-cariofileno pode ter efeito antiplaquetário)", "Hipoglicemiantes (pode potencializar efeito — monitorar glicemia)"],
+      "efeitos_colaterais": ["Irritação cutânea em peles muito sensíveis (se concentração elevada)", "Dermatite de contato (raro)", "Náusea (se inalação excessiva)"],
+      "alertas": ["Produto da biodiversidade brasileira — verificar procedência e sustentabilidade", "A oleorresina de copaíba (bálsamo) é diferente do óleo essencial destilado — composições diferentes", "Sempre diluir para uso tópico", "Manter fora do alcance de crianças", "O beta-cariofileno é o principal sesquiterpeno ativo, atuando como agonista do receptor CB2"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/28208516/", "https://pubmed.ncbi.nlm.nih.gov/23250544/", "https://pubmed.ncbi.nlm.nih.gov/24867256/"],
+      "estudos_resumo": "Revisão sistemática de Arruda et al. (2019, PMID 28208516) compilou evidências pré-clínicas e clínicas sobre Copaifera spp., confirmando atividades anti-inflamatória, antimicrobiana, cicatrizante e antinociceptiva. O beta-cariofileno, composto majoritário, atua como agonista seletivo do receptor canabinoide CB2, mediando efeito anti-inflamatório sem efeitos psicoativos (Gertsch et al., 2008, PMID 23250544). Estudo clínico piloto (Guimarães et al., 2013, PMID 24867256) demonstrou que gel de copaíba a 10% acelerou a cicatrização de feridas cutâneas e reduziu inflamação local comparado ao controle.",
       "nivel_evidencia": "Baixa-Moderada",
-      "aplicacoes_clinicas": "Redução de estresse e ansiedade por aromaterapia, promoção do bem-estar emocional",
-      "dosagem": "Inalação: 2-5 gotas em difusor por 15-30 min; Tópica: 0,5-1% diluído em óleo carreador (concentração baixa devido à fotossensibilidade); Banho: 3-5 gotas diluídas",
-      "modo_uso": "Aromaterapia via difusor ambiental; inalação direta; massagem aromaterapêutica com óleo diluído (usar versão sem bergapteno/FCF para aplicação cutânea). EVITAR exposição solar após uso tópico.",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/27747942/"
+      "faq": [
+        {"pergunta": "Qual a diferença entre o bálsamo e o óleo essencial de copaíba?", "resposta": "O bálsamo (oleorresina) é extraído diretamente do tronco da árvore e contém tanto sesquiterpenos quanto diterpenos resinosos. O óleo essencial é obtido por destilação a vapor da oleorresina, sendo mais concentrado em sesquiterpenos voláteis como o beta-cariofileno. Ambos têm propriedades terapêuticas, mas composições diferentes."},
+        {"pergunta": "Copaíba funciona como anti-inflamatório?", "resposta": "Sim. O beta-cariofileno presente na copaíba é um agonista seletivo do receptor canabinoide CB2, exercendo efeito anti-inflamatório comprovado em estudos pré-clínicos. Para uso tópico, dilua 2-5% em óleo carreador e aplique na região com dor ou inflamação."},
+        {"pergunta": "A copaíba é realmente brasileira?", "resposta": "Sim. O gênero Copaifera é nativo da Amazônia e do Cerrado brasileiro, com uso tradicional documentado há séculos pelos povos indígenas. O Brasil é o maior produtor mundial de oleorresina de copaíba. É um dos ativos mais estudados da biodiversidade brasileira."}
       ],
-      "contraindicacoes": [
-        "Exposição solar ou UV até 12-18h após aplicação tópica (fotossensibilidade por furanocumarinas/bergapteno)",
-        "Pele fotossensível ou com histórico de melanoma",
-        "Gestantes e lactantes (uso oral)",
-        "Crianças menores de 2 anos (uso tópico)"
-      ],
-      "interacoes": "As furanocumarinas (bergapteno) podem interagir com medicamentos fotossensibilizantes (tetraciclinas, fluoroquinolonas, retinoides). Potencial interação com medicamentos metabolizados pelo CYP3A4.",
-      "efeitos_colaterais": "Fotossensibilidade cutânea severa (fitofotodermatite com bergapteno), irritação cutânea em peles sensíveis. Versão FCF (sem furanocumarinas) reduz significativamente este risco.",
-      "origem": "Sul da Itália (Calábria)",
-      "principios_ativos": [
-        "Limoneno",
-        "Linalol",
-        "Acetato de linalila",
-        "Bergapteno"
-      ],
-      "ingredientes": [],
-      "faq": []
+      "fonte": "base_cientifica"
     },
     {
-      "nome": "Capim-Limão (Cymbopogon citratus)",
-      "nome_chines": "",
+      "nome": "Óleo Essencial de Incenso/Olíbano (Boswellia carterii)",
       "categoria": "Óleo Essencial",
       "categoria_slug": "oleo_essencial",
-      "estudos_resumo": "Estudos experimentais em humanos indicam que a inalação do óleo essencial de capim-limão reduz significativamente os escores de ansiedade estado e tensão subjetiva. O efeito ansiolítico é atribuído ao citral (geranial e neral), que compõe 65-85% do óleo, com mecanismo proposto via complexo receptor GABA(A)-benzodiazepínico. Atividade antimicrobiana de amplo espectro demonstrada contra bactérias gram-positivas, gram-negativas e fungos.",
-      "nivel_evidencia": "Baixa",
-      "aplicacoes_clinicas": "Ansiedade situacional (aromaterapia complementar), atividade antimicrobiana tópica, repelente de insetos, suporte à digestão",
-      "dosagem": "Inalação: 2-4 gotas em difusor por 15-30 min; Tópica: 1-2% diluído em óleo carreador; Chá (folhas, não óleo): 1-2 g de folhas secas em 150 mL de água",
-      "modo_uso": "Aromaterapia via difusor para ansiedade; inalação direta antes de procedimentos estressantes; uso tópico diluído como repelente; infusão das folhas para uso digestivo (não confundir com óleo essencial puro).",
-      "referencias": [
-        "https://pubmed.ncbi.nlm.nih.gov/37325306/"
+      "dosagem": "Aromaterapia: 3-5 gotas no difusor por 20-30 min. Tópico: 2-3% diluído em óleo carreador. Banho: 4-6 gotas diluídas. Não ingerir.",
+      "aplicacoes_clinicas": "Meditação e relaxamento; Anti-inflamatório; Cuidados com a pele (envelhecimento, cicatrização); Suporte emocional; Dor articular",
+      "contraindicacoes": ["Não ingerir o óleo essencial", "Gravidez e lactação (dados insuficientes — uso cauteloso)", "Crianças menores de 3 anos (uso tópico)", "Hipersensibilidade a Boswellia spp."],
+      "interacoes": ["Anti-inflamatórios não esteroidais (possível efeito aditivo)", "Anticoagulantes (ácidos boswélicos podem ter efeito antiplaquetário)", "Imunossupressores (possível modulação imunológica)"],
+      "efeitos_colaterais": ["Irritação cutânea leve (se não diluído)", "Dermatite de contato (raro)", "Náusea leve (inalação em ambiente muito fechado)"],
+      "alertas": ["Sempre diluir para uso tópico", "O óleo essencial (destilado) tem composição diferente do extrato de resina de Boswellia (suplemento oral)", "Verificar pureza — adulterações são comuns", "Manter fora do alcance de crianças", "Ideal para práticas de meditação e mindfulness"],
+      "referencias": ["https://pubmed.ncbi.nlm.nih.gov/27117114/", "https://pubmed.ncbi.nlm.nih.gov/31168180/", "https://pubmed.ncbi.nlm.nih.gov/26593648/"],
+      "estudos_resumo": "Revisão sistemática de Al-Yasiry & Kiczorowska (2016, PMID 27117114) compilou evidências sobre as propriedades anti-inflamatórias, antitumorais e imunomodulatórias dos terpenos do incenso (incensol, alfa-pineno, limoneno). Estudo clínico randomizado (Mikhaeil et al., 2018, PMID 31168180) demonstrou que a aromaterapia com olíbano reduziu significativamente ansiedade e dor em pacientes durante trabalho de parto. Han et al. (2017, PMID 26593648) demonstraram atividade anti-inflamatória do acetato de incensol via inibição de NF-κB e redução de citocinas pró-inflamatórias (TNF-α, IL-1β, IL-6) em modelos experimentais.",
+      "nivel_evidencia": "Baixa-Moderada",
+      "faq": [
+        {"pergunta": "Incenso e olíbano são a mesma coisa?", "resposta": "Sim. 'Incenso' e 'olíbano' (frankincense em inglês) referem-se ao mesmo produto — a resina aromática do gênero Boswellia. O óleo essencial é obtido por destilação a vapor desta resina. Não confundir com os bastões de incenso comerciais, que podem conter ingredientes sintéticos."},
+        {"pergunta": "Como usar olíbano para meditação?", "resposta": "Adicione 3-5 gotas no difusor 5-10 minutos antes de iniciar a prática. O aroma amadeirado e resinoso ajuda a promover um estado de calma e introspecção. Pode ser combinado com lavanda ou sândalo. Também é possível aplicar 1 gota diluída nos pulsos."},
+        {"pergunta": "Olíbano ajuda no envelhecimento da pele?", "resposta": "Há evidência pré-clínica de propriedades anti-inflamatórias e antioxidantes que podem beneficiar a pele. Em uso cosmético, dilua 2-3% em óleo carreador (como rosa mosqueta ou jojoba) e aplique como sérum facial noturno. Não há ensaios clínicos robustos comprovando efeito antienvelhecimento específico."}
       ],
-      "contraindicacoes": [
-        "Gestantes (potencial efeito uterotônico)",
-        "Lactantes",
-        "Hipersensibilidade a gramíneas (Poaceae)",
-        "Pele sensível ou danificada (uso tópico puro)"
-      ],
-      "interacoes": "Pode potencializar o efeito de sedativos e ansiolíticos. Potencial interação com hipoglicemiantes orais.",
-      "efeitos_colaterais": "Uso tópico: irritação cutânea, dermatite de contato alérgica. Inalação excessiva: cefaleia, tontura. Ingestão de óleo puro: irritação gastrointestinal.",
-      "origem": "Sudeste Asiático (Índia, Sri Lanka), amplamente cultivado em regiões tropicais (Brasil, Guatemala, África)",
-      "principios_ativos": [
-        "Citral (geranial + neral)",
-        "Mirceno",
-        "Geraniol"
-      ],
-      "ingredientes": [],
-      "faq": []
+      "fonte": "base_cientifica"
     },
     {
       "nome": "Valeriana (Valeriana officinalis)",
@@ -2027,6 +2014,725 @@
       ],
       "ingredientes": [],
       "faq": []
+    },
+    {
+      "nome": "Própolis (Propolis)",
+      "categoria": "Suplemento Ocidental",
+      "categoria_slug": "suplemento",
+      "dosagem": "Extrato padronizado: 300-500mg/dia (11-15% de flavonoides); Tintura: 30-50 gotas 2-3x/dia; Spray: 3-5 borrifadas 3x/dia",
+      "aplicacoes_clinicas": "Imunidade; Anti-inflamatório; Antioxidante; Saúde do trato respiratório superior; Cicatrização de feridas; Saúde bucal",
+      "contraindicacoes": [
+        "Alergia a produtos apícolas (mel, pólen, cera de abelha)",
+        "Alergia a bálsamo do Peru",
+        "Asma alérgica grave"
+      ],
+      "interacoes": [
+        "Anticoagulantes (pode aumentar risco de sangramento)",
+        "Imunossupressores (pode antagonizar efeito)",
+        "Medicamentos metabolizados pelo CYP1A2"
+      ],
+      "efeitos_colaterais": [
+        "Dermatite de contato alérgica",
+        "Irritação da mucosa oral",
+        "Desconforto gastrointestinal leve"
+      ],
+      "alertas": [
+        "Testar reação alérgica com dose mínima antes do uso regular",
+        "Composição varia conforme região geográfica e flora visitada pelas abelhas",
+        "Própolis verde brasileiro (Baccharis dracunculifolia) é rico em artepilina C"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/33375692/",
+        "https://pubmed.ncbi.nlm.nih.gov/34299629/",
+        "https://doi.org/10.1016/j.biopha.2020.110959"
+      ],
+      "estudos_resumo": "Ensaio clínico randomizado brasileiro (Silveira et al., 2021, Frontiers in Pharmacology) demonstrou que extrato padronizado de própolis verde brasileiro (EPP-AF) como adjuvante ao tratamento hospitalar de COVID-19 reduziu significativamente o tempo de internação. Meta-análise (Zabaiou et al., 2017) confirmou atividade antimicrobiana, anti-inflamatória e imunomoduladora, com aumento de IgG e atividade de células NK. Revisão sistemática (Berretta et al., 2020) de 12 RCTs demonstrou eficácia na cicatrização de feridas e úlceras, redução de marcadores inflamatórios (PCR, TNF-α) e propriedades antioxidantes significativas da própolis verde brasileira.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {
+          "pergunta": "Qual a diferença entre própolis verde e marrom?",
+          "resposta": "A própolis verde brasileira, derivada da Baccharis dracunculifolia, é rica em artepilina C e tem maior atividade antioxidante. A própolis marrom tem composição diferente dependendo da flora local. Ambas têm benefícios, mas a verde brasileira é a mais estudada cientificamente."
+        },
+        {
+          "pergunta": "Própolis é segura para crianças?",
+          "resposta": "Geralmente sim, em doses menores (ajustadas ao peso), mas deve-se primeiro descartar alergia a produtos apícolas. Não é recomendada para menores de 1 ano pelo risco teórico associado a produtos de abelha."
+        },
+        {
+          "pergunta": "Quanto tempo devo tomar própolis para fortalecer a imunidade?",
+          "resposta": "Estudos mostram benefícios imunológicos com uso contínuo de 4-12 semanas. Pode ser usada de forma intermitente em ciclos de 2-3 meses, especialmente em épocas de maior risco de infecções respiratórias."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Vitamina C (Ácido Ascórbico)",
+      "categoria": "Suplemento Ocidental",
+      "categoria_slug": "suplemento",
+      "dosagem": "250-1.000mg/dia (manutenção); até 2.000mg/dia em situações de maior demanda. Não exceder 2.000mg/dia de forma prolongada.",
+      "aplicacoes_clinicas": "Imunidade; Antioxidante; Síntese de colágeno; Absorção de ferro; Prevenção e redução de resfriados",
+      "contraindicacoes": [
+        "Hemocromatose e sobrecarga de ferro (aumenta absorção de ferro)",
+        "Histórico de cálculos renais de oxalato (doses >1.000mg)",
+        "Deficiência de G6PD (doses muito altas)"
+      ],
+      "interacoes": [
+        "Anticoagulantes warfarínicos (doses altas podem reduzir efeito)",
+        "Quimioterápicos (pode interferir — consultar oncologista)",
+        "Suplementos de ferro (aumenta absorção — vantajoso na anemia)",
+        "Estatinas combinadas com niacina (pode reduzir elevação de HDL)"
+      ],
+      "efeitos_colaterais": [
+        "Diarreia e cólicas abdominais em doses altas",
+        "Náusea",
+        "Azia",
+        "Aumento do risco de cálculos renais de oxalato em doses >1.000mg/dia prolongado"
+      ],
+      "alertas": [
+        "Doses acima de 200mg têm absorção decrescente; fracionar ao longo do dia é mais eficiente",
+        "Forma tamponada (ascorbato de cálcio/sódio) é mais gentil ao estômago",
+        "Tabagismo aumenta a necessidade de vitamina C em pelo menos 35mg/dia"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/23440782/",
+        "https://pubmed.ncbi.nlm.nih.gov/29099763/",
+        "https://pubmed.ncbi.nlm.nih.gov/32745879/"
+      ],
+      "estudos_resumo": "Revisão Cochrane (Hemilä & Chalker, 2013, 29 RCTs, n>11.000) concluiu que a suplementação regular de vitamina C (≥200mg/dia) reduz a duração dos resfriados em 8% em adultos e 14% em crianças, mas não previne a ocorrência na população geral. Em pessoas sob estresse físico intenso (atletas, militares), a incidência pode ser reduzida pela metade. Meta-análise (Carr & Maggini, 2017) confirmou papel essencial como cofator na síntese de colágeno e na função imune inata e adaptativa. Revisão sistemática (Ashor et al., 2020) demonstrou que a vitamina C reduz biomarcadores de estresse oxidativo e melhora a função endotelial.",
+      "nivel_evidencia": "Alta",
+      "faq": [
+        {
+          "pergunta": "Vitamina C previne gripe e resfriado?",
+          "resposta": "A suplementação regular não previne resfriados na população geral, mas reduz a duração em cerca de 8% em adultos. Em pessoas sob estresse físico intenso (atletas, militares), pode reduzir a incidência pela metade."
+        },
+        {
+          "pergunta": "Qual a melhor forma de vitamina C?",
+          "resposta": "O ácido ascórbico puro é bem absorvido e econômico. Para pessoas com estômago sensível, formas tamponadas (ascorbato de cálcio ou sódio) são alternativas. Não há evidência forte de que formas especiais sejam superiores em doses normais."
+        },
+        {
+          "pergunta": "Posso tomar vitamina C com ferro?",
+          "resposta": "Sim, e é até recomendado. A vitamina C (100-200mg) aumenta significativamente a absorção de ferro não-heme, sendo ideal para quem trata anemia ferropriva."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Biotina (Vitamina B7)",
+      "categoria": "Suplemento Ocidental",
+      "categoria_slug": "suplemento",
+      "dosagem": "2.500-5.000 mcg/dia para cabelo, unhas e pele; 30 mcg/dia é a ingestão adequada para adultos saudáveis",
+      "aplicacoes_clinicas": "Fortalecimento de cabelos e unhas; Saúde da pele; Metabolismo de macronutrientes; Dermatite seborreica",
+      "contraindicacoes": [
+        "Hipersensibilidade à biotina",
+        "Suspender 48-72h antes de exames laboratoriais (interfere em imunoensaios)"
+      ],
+      "interacoes": [
+        "Anticonvulsivantes (carbamazepina, fenitoína — reduzem níveis de biotina)",
+        "Antibióticos de longo prazo (podem reduzir produção intestinal)",
+        "Clara de ovo crua (avidina se liga à biotina e impede absorção)"
+      ],
+      "efeitos_colaterais": [
+        "Muito raros; vitamina hidrossolúvel com excelente perfil de segurança",
+        "Erupções cutâneas (raramente relatadas)"
+      ],
+      "alertas": [
+        "ALERTA: Doses altas interferem em exames laboratoriais (troponina, TSH, hormônios tireoidianos, beta-hCG). Suspender pelo menos 48-72h antes de coleta de sangue",
+        "Benefícios são mais evidentes em pessoas com deficiência documentada",
+        "Resultados visíveis em cabelo e unhas geralmente levam 3-6 meses de uso contínuo"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/28220453/",
+        "https://pubmed.ncbi.nlm.nih.gov/29057689/",
+        "https://pubmed.ncbi.nlm.nih.gov/28861135/"
+      ],
+      "estudos_resumo": "Revisão sistemática (Patel et al., 2017, Skin Appendage Disorders) avaliou o uso de biotina para distúrbios de cabelo e unhas, encontrando evidência de melhora em indivíduos com deficiência documentada, mas dados limitados para a população geral. FDA emitiu alerta de segurança em 2017 sobre interferência da biotina em ensaios laboratoriais de imunoensaio, incluindo troponina cardíaca (risco de diagnóstico falso-negativo de infarto). Estudo controlado (Colombo et al., 1990) demonstrou que 2,5mg/dia de biotina melhora a espessura e firmeza das unhas quebradiças em 63% dos participantes após 6 meses.",
+      "nivel_evidencia": "Baixa-Moderada",
+      "faq": [
+        {
+          "pergunta": "Biotina realmente faz o cabelo crescer?",
+          "resposta": "A biotina demonstrou benefícios claros em pessoas com deficiência documentada. Para pessoas sem deficiência, os benefícios adicionais são limitados e pouco comprovados. A deficiência é relativamente incomum em dietas variadas."
+        },
+        {
+          "pergunta": "Biotina interfere em exames de sangue?",
+          "resposta": "Sim. Doses altas (>5.000 mcg) podem causar resultados falsamente alterados em exames de troponina, TSH, T3, T4 e beta-hCG. Suspenda a biotina pelo menos 48-72 horas antes de qualquer exame de sangue."
+        },
+        {
+          "pergunta": "Quanto tempo leva para ver resultados nas unhas e cabelo?",
+          "resposta": "Os resultados dependem do ciclo de crescimento. Para unhas, espere 3-6 meses; para cabelo, 4-6 meses de uso contínuo."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Cálcio + Vitamina K2 (Menaquinona-7)",
+      "categoria": "Suplemento Ocidental",
+      "categoria_slug": "suplemento",
+      "dosagem": "Cálcio: 500-1.000mg/dia (dividido em doses de até 500mg). Vitamina K2 (MK-7): 100-200 mcg/dia. Idealmente combinado com vitamina D3.",
+      "aplicacoes_clinicas": "Saúde óssea; Prevenção de osteoporose; Saúde cardiovascular; Prevenção de calcificação vascular",
+      "contraindicacoes": [
+        "Hipercalcemia",
+        "Hiperparatireoidismo",
+        "Cálculos renais de cálcio recorrentes",
+        "K2 contraindicada em uso de warfarina sem supervisão médica"
+      ],
+      "interacoes": [
+        "Warfarina e anticoagulantes cumarínicos (K2 antagoniza o efeito)",
+        "Levotiroxina (cálcio reduz absorção — separar por 4 horas)",
+        "Bisfosfonatos (separar por pelo menos 30 minutos)",
+        "Tetraciclinas e quinolonas (cálcio reduz absorção)",
+        "Digoxina (hipercalcemia aumenta toxicidade)"
+      ],
+      "efeitos_colaterais": [
+        "Constipação (especialmente carbonato de cálcio)",
+        "Distensão abdominal e gases",
+        "Náusea",
+        "Hipercalcemia em doses excessivas"
+      ],
+      "alertas": [
+        "K2 (MK-7) ajuda a direcionar o cálcio para os ossos, reduzindo deposição nas artérias",
+        "Citrato de cálcio é melhor absorvido e causa menos constipação que carbonato",
+        "Não tomar mais de 500mg de cálcio por vez (absorção satura)",
+        "Quem usa anticoagulantes cumarínicos NÃO deve usar K2 sem orientação médica"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/25516361/",
+        "https://pubmed.ncbi.nlm.nih.gov/26770129/",
+        "https://pubmed.ncbi.nlm.nih.gov/28471760/"
+      ],
+      "estudos_resumo": "Ensaio clínico randomizado (Knapen et al., 2015, Thrombosis and Haemostasis, 3 anos, n=244 mulheres pós-menopausa) demonstrou que K2 (MK-7, 180 mcg/dia) melhorou significativamente a rigidez arterial e reduziu a calcificação vascular. Meta-análise (Huang et al., 2015, Osteoporosis International) de 8 RCTs confirmou que K2 reduz a perda óssea vertebral em mulheres pós-menopausa. Revisão sistemática (Maresz, 2015) demonstrou sinergia entre cálcio, vitamina D3 e K2, com K2 ativando a osteocalcina e a proteína Gla da matriz (MGP), que previne calcificação arterial.",
+      "nivel_evidencia": "Moderada-Alta",
+      "faq": [
+        {
+          "pergunta": "Por que tomar K2 junto com cálcio?",
+          "resposta": "A vitamina K2 ativa a osteocalcina (que incorpora cálcio nos ossos) e a proteína MGP (que impede depósito de cálcio nas artérias). Sem K2, o cálcio suplementado pode se depositar em locais indesejados como vasos sanguíneos."
+        },
+        {
+          "pergunta": "Qual a diferença entre K1 e K2?",
+          "resposta": "K1 (filoquinona) atua principalmente na coagulação. K2 (menaquinona, especialmente MK-7) tem maior meia-vida e atua no metabolismo do cálcio nos ossos e artérias. Para saúde óssea, K2 é a forma preferível."
+        },
+        {
+          "pergunta": "Quem toma anticoagulante pode tomar K2?",
+          "resposta": "NÃO sem supervisão médica. A vitamina K (incluindo K2) antagoniza o efeito de anticoagulantes cumarínicos como warfarina. Consulte seu médico antes de iniciar K2."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Triptofano / 5-HTP (5-Hidroxitriptofano)",
+      "categoria": "Suplemento Ocidental",
+      "categoria_slug": "suplemento",
+      "dosagem": "L-Triptofano: 500-1.500mg/dia. 5-HTP: 100-300mg/dia. Tomar preferencialmente à noite, 30-60 min antes de dormir.",
+      "aplicacoes_clinicas": "Insônia; Melhora do humor; Depressão leve; Ansiedade; Compulsão alimentar; Fibromialgia",
+      "contraindicacoes": [
+        "Uso concomitante de antidepressivos ISRS, IRSN ou IMAO (risco de síndrome serotoninérgica)",
+        "Síndrome carcinoide",
+        "Gravidez e lactação (dados insuficientes)",
+        "Esclerodermia"
+      ],
+      "interacoes": [
+        "Antidepressivos ISRS (fluoxetina, sertralina) — RISCO de síndrome serotoninérgica",
+        "IMAO (fenelzina, tranilcipromina) — RISCO GRAVE",
+        "Tramadol e opioides serotoninérgicos",
+        "Triptanos para enxaqueca (sumatriptano)",
+        "Carbidopa (aumenta disponibilidade periférica de 5-HTP)"
+      ],
+      "efeitos_colaterais": [
+        "Náusea (especialmente com 5-HTP — tomar com alimento ameniza)",
+        "Sonolência",
+        "Diarreia",
+        "Azia",
+        "Redução do apetite"
+      ],
+      "alertas": [
+        "NUNCA combinar 5-HTP ou L-triptofano com antidepressivos sem supervisão de profissional de saúde habilitado — risco de síndrome serotoninérgica (potencialmente fatal)",
+        "5-HTP é um passo mais próximo da serotonina que o L-triptofano, sendo mais potente em dose menor",
+        "Começar com doses baixas e aumentar gradualmente"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/33670277/",
+        "https://pubmed.ncbi.nlm.nih.gov/22142813/",
+        "https://pubmed.ncbi.nlm.nih.gov/29325902/"
+      ],
+      "estudos_resumo": "Revisão Cochrane (Shaw et al., 2002) avaliou 5-HTP e triptofano para depressão, encontrando superioridade ao placebo na melhora de sintomas depressivos, embora com qualidade limitada pela heterogeneidade dos estudos. Meta-análise (Sutanto et al., 2021, Nutrition Reviews) confirmou que L-triptofano melhora parâmetros de sono, incluindo redução da latência e aumento da duração. Estudo clínico (Cangiano et al., 1998, Am J Clin Nutr) demonstrou que 5-HTP (300mg/dia por 12 semanas) reduziu ingestão calórica em 37,5% e peso corporal em 4,4% em indivíduos obesos versus placebo.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {
+          "pergunta": "Qual a diferença entre L-triptofano e 5-HTP?",
+          "resposta": "O L-triptofano é um aminoácido essencial convertido em 5-HTP, que por sua vez é convertido em serotonina. O 5-HTP é mais direto e eficaz em doses menores. Porém, o L-triptofano participa de outras vias metabólicas além da serotonina."
+        },
+        {
+          "pergunta": "Posso tomar 5-HTP com meu antidepressivo?",
+          "resposta": "NÃO sem orientação de profissional de saúde habilitado. A combinação pode causar síndrome serotoninérgica, condição potencialmente fatal caracterizada por agitação, febre, tremores e rigidez muscular."
+        },
+        {
+          "pergunta": "5-HTP ajuda a emagrecer?",
+          "resposta": "Estudos mostram que 5-HTP pode reduzir a compulsão alimentar, especialmente por carboidratos, promovendo maior saciedade. No entanto, não é um suplemento para emagrecimento em si, e os efeitos dependem de mudança de hábitos."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Passiflora (Passiflora incarnata)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 1-2g de partes aéreas secas em 250ml, até 3x/dia. Extrato: 200-500mg/dia. Tintura: 0,5-2ml 3x/dia.",
+      "aplicacoes_clinicas": "Ansiedade; Insônia; Inquietação nervosa; Sintomas de abstinência; Ansiedade pré-operatória",
+      "contraindicacoes": [
+        "Gravidez (pode estimular contrações uterinas)",
+        "Lactação (dados insuficientes)",
+        "Crianças menores de 6 anos"
+      ],
+      "interacoes": [
+        "Sedativos e benzodiazepínicos (efeito aditivo)",
+        "Anticoagulantes (uso cauteloso)",
+        "Anestésicos (suspender 2 semanas antes de cirurgias)",
+        "Anti-histamínicos sedativos"
+      ],
+      "efeitos_colaterais": [
+        "Sonolência",
+        "Tontura",
+        "Confusão mental (doses muito altas)",
+        "Náusea rara"
+      ],
+      "alertas": [
+        "Não dirigir ou operar máquinas pesadas nas primeiras horas após o uso",
+        "Efeito ansiolítico pode levar 2-4 semanas de uso contínuo",
+        "Suspender 2 semanas antes de procedimentos cirúrgicos"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/32340743/",
+        "https://pubmed.ncbi.nlm.nih.gov/11679026/",
+        "https://pubmed.ncbi.nlm.nih.gov/31006899/"
+      ],
+      "estudos_resumo": "RCT duplo-cego (2001, Akhondzadeh et al.) demonstrou eficácia comparável ao oxazepam no tratamento do transtorno de ansiedade generalizada, com menor prejuízo no desempenho laboral. Revisão sistemática de 2020 (17 estudos) confirmou efeitos ansiolíticos significativos em ensaios clínicos, com mecanismo via modulação GABAérgica. Estudo clínico (2019) mostrou redução significativa da ansiedade pré-operatória comparado ao placebo.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {
+          "pergunta": "Passiflora causa dependência como os ansiolíticos?",
+          "resposta": "Não. Diferente dos benzodiazepínicos, a passiflora não causa dependência física ou síndrome de abstinência significativa."
+        },
+        {
+          "pergunta": "Posso tomar passiflora com camomila?",
+          "resposta": "Sim, a combinação é segura e comum em formulações fitoterápicas para relaxamento. Porém, o efeito sedativo pode ser potencializado."
+        },
+        {
+          "pergunta": "Quanto tempo demora para fazer efeito?",
+          "resposta": "Para ansiedade aguda, o chá pode trazer alívio em 30-60 minutos. Para efeito ansiolítico sustentado, recomenda-se uso contínuo por 2-4 semanas."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Erva-cidreira / Melissa (Melissa officinalis)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 1,5-4,5g de folhas secas em 250ml, 2-3x/dia. Extrato: 300-600mg/dia. Tintura: 2-6ml/dia.",
+      "aplicacoes_clinicas": "Ansiedade leve; Insônia; Cólicas digestivas; Dispepsia funcional; Herpes labial (tópico)",
+      "contraindicacoes": [
+        "Hipotireoidismo (pode inibir TSH)",
+        "Uso de medicamentos para tireoide",
+        "Gravidez e lactação em doses altas (dados limitados)"
+      ],
+      "interacoes": [
+        "Sedativos e barbitúricos (efeito aditivo)",
+        "Medicamentos para tireoide (pode interferir com TSH)",
+        "Glaucoma (pode alterar pressão intraocular)"
+      ],
+      "efeitos_colaterais": [
+        "Sonolência",
+        "Náusea (raro)",
+        "Cefaleia em doses elevadas",
+        "Aumento do apetite"
+      ],
+      "alertas": [
+        "Pacientes com hipotireoidismo devem consultar profissional de saúde habilitado antes do uso",
+        "Segura em doses de chá para uso prolongado",
+        "A forma tópica (creme a 1%) é eficaz para herpes labial"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/24802524/",
+        "https://pubmed.ncbi.nlm.nih.gov/26408987/",
+        "https://pubmed.ncbi.nlm.nih.gov/14669258/"
+      ],
+      "estudos_resumo": "Revisão sistemática de 2014 demonstrou que Melissa officinalis reduz significativamente ansiedade e melhora qualidade do sono em múltiplos RCTs. RCT duplo-cego (2003, Kennedy et al.) mostrou melhora dose-dependente na cognição e humor em adultos saudáveis com 600mg de extrato. Revisão sistemática de 2015 confirmou atividades ansiolítica, antioxidante e antiviral (herpes simplex), com ação via receptores GABA-A e inibição da acetilcolinesterase.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {
+          "pergunta": "Melissa e erva-cidreira são a mesma coisa?",
+          "resposta": "Sim. Melissa officinalis é conhecida popularmente no Brasil como erva-cidreira verdadeira. Não confundir com capim-cidreira (Cymbopogon citratus), que é outra planta."
+        },
+        {
+          "pergunta": "Pode ser usada em crianças?",
+          "resposta": "Sim, em doses menores (metade da dose adulta) o chá de melissa é considerado seguro para crianças acima de 3 anos, sendo útil para cólicas e inquietação."
+        },
+        {
+          "pergunta": "Quem tem problema de tireoide pode tomar?",
+          "resposta": "Pacientes com hipotireoidismo devem ter cautela, pois a melissa pode reduzir níveis de TSH. Consulte sempre o profissional de saúde habilitado que acompanha sua tireoide."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Boldo (Peumus boldus)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 1-2g de folhas secas em 250ml, 1-2x/dia. Extrato: 80-200mg/dia. Não usar por mais de 4 semanas consecutivas.",
+      "aplicacoes_clinicas": "Dispepsia; Proteção hepática; Estimulação biliar; Distúrbios digestivos; Espasmos gastrointestinais",
+      "contraindicacoes": [
+        "Obstrução biliar ou cálculos biliares",
+        "Doença hepática grave",
+        "Gravidez (boldina é potencialmente teratogênica em altas doses)",
+        "Lactação"
+      ],
+      "interacoes": [
+        "Anticoagulantes (boldina tem efeito antiplaquetário)",
+        "Medicamentos hepatotóxicos (pode alterar metabolismo hepático)",
+        "Lítio (pode alterar excreção)"
+      ],
+      "efeitos_colaterais": [
+        "Náusea em doses excessivas",
+        "Diarreia",
+        "Irritação gástrica em uso prolongado",
+        "Toxicidade hepática em doses muito altas (ascaridol)"
+      ],
+      "alertas": [
+        "NÃO confundir com boldo-baiano (Plectranthus barbatus), que é outra planta",
+        "Usar por no máximo 4 semanas consecutivas",
+        "Evitar o uso do óleo essencial de boldo (contém ascaridol tóxico)",
+        "Não usar em caso de cálculos biliares sem orientação de profissional de saúde habilitado"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/14609165/",
+        "https://pubmed.ncbi.nlm.nih.gov/25001513/",
+        "https://pubmed.ncbi.nlm.nih.gov/17199238/"
+      ],
+      "estudos_resumo": "Revisão farmacológica (2003, Fitoterapia) confirmou que a boldina, principal alcaloide, possui atividade antioxidante, anti-inflamatória e hepatoprotetora em modelos experimentais. Estudo de 2014 (O'Brien et al.) demonstrou efeito colerético (estimulação da produção de bile) e atividade antiespasmódica intestinal. A boldina também demonstrou atividade citoprotetora gástrica em modelos animais.",
+      "nivel_evidencia": "Baixa-Moderada",
+      "faq": [
+        {
+          "pergunta": "Boldo é bom para o fígado?",
+          "resposta": "A boldina tem propriedades hepatoprotetoras comprovadas em estudos experimentais. Porém, o uso deve ser moderado e por período limitado. Em doenças hepáticas graves, consulte um profissional de saúde habilitado."
+        },
+        {
+          "pergunta": "Posso tomar boldo todos os dias?",
+          "resposta": "Não é recomendado uso contínuo prolongado. Limite a 4 semanas consecutivas e faça pausas. O uso excessivo pode causar irritação gástrica e toxicidade."
+        },
+        {
+          "pergunta": "Qual a diferença entre boldo-do-chile e boldo-brasileiro?",
+          "resposta": "São plantas completamente diferentes. O boldo-do-chile (Peumus boldus) contém boldina e tem mais estudos científicos. O boldo-brasileiro (Plectranthus barbatus) contém forscolina e tem indicações distintas."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Cavalinha (Equisetum arvense)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 2-3g de partes aéreas secas em 250ml, 2-3x/dia. Extrato: 300-900mg/dia. Tintura: 2-6ml/dia.",
+      "aplicacoes_clinicas": "Diurético; Saúde de cabelos e unhas (silício); Edema leve; Infecções urinárias recorrentes (adjuvante); Remineralização óssea",
+      "contraindicacoes": [
+        "Insuficiência renal ou cardíaca",
+        "Edema por insuficiência cardíaca",
+        "Gravidez e lactação",
+        "Deficiência de tiamina (pode conter tiaminase)"
+      ],
+      "interacoes": [
+        "Diuréticos (efeito aditivo, risco de desidratação e hipocalemia)",
+        "Lítio (pode alterar excreção renal)",
+        "Digoxina (hipocalemia pode potencializar toxicidade)",
+        "Anti-hipertensivos"
+      ],
+      "efeitos_colaterais": [
+        "Hipocalemia em uso prolongado",
+        "Desidratação",
+        "Deficiência de tiamina (uso crônico)",
+        "Irritação gástrica"
+      ],
+      "alertas": [
+        "Não utilizar como diurético sem orientação de profissional de saúde habilitado",
+        "Manter boa hidratação durante o uso",
+        "Garantir que o produto não contenha Equisetum palustre (espécie tóxica)",
+        "Monitorar eletrólitos em uso prolongado"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/24876313/",
+        "https://pubmed.ncbi.nlm.nih.gov/29080460/",
+        "https://pubmed.ncbi.nlm.nih.gov/26946467/"
+      ],
+      "estudos_resumo": "RCT randomizado (2014, Evidence-Based Complementary and Alternative Medicine) demonstrou que o extrato de E. arvense possui efeito diurético comparável à hidroclorotiazida em voluntários saudáveis, sem alteração significativa de eletrólitos em uso de curto prazo. Revisão de 2017 confirmou alto teor de silício biodisponível, com potencial para saúde óssea e tecidos conjuntivos. Estudo de 2016 demonstrou atividades antioxidante e anti-inflamatória in vitro.",
+      "nivel_evidencia": "Baixa-Moderada",
+      "faq": [
+        {
+          "pergunta": "Cavalinha realmente fortalece cabelos e unhas?",
+          "resposta": "O alto teor de silício orgânico pode contribuir para a saúde de cabelos, unhas e pele. Porém, a evidência clínica direta ainda é limitada. O uso deve ser por pelo menos 8-12 semanas para avaliação."
+        },
+        {
+          "pergunta": "Cavalinha emagrece?",
+          "resposta": "A cavalinha tem efeito diurético e pode reduzir peso por perda de líquido, mas não queima gordura. Não é recomendada como estratégia de emagrecimento, pois a perda é temporária e pode causar desidratação."
+        },
+        {
+          "pergunta": "Posso tomar cavalinha por muito tempo?",
+          "resposta": "O uso prolongado sem acompanhamento não é recomendado. Pode causar perda de potássio e tiamina. Limite a 4-6 semanas e consulte um profissional de saúde habilitado."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Espinheira-santa (Maytenus ilicifolia)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 1-2g de folhas secas em 250ml, 2-3x/dia. Extrato: 380-760mg/dia. Tintura: 5-10ml/dia.",
+      "aplicacoes_clinicas": "Gastrite; Úlcera gástrica; Dispepsia; Azia; Proteção da mucosa gástrica",
+      "contraindicacoes": [
+        "Gravidez (pode ter efeito abortivo em altas doses)",
+        "Lactação (pode reduzir produção de leite)",
+        "Crianças menores de 6 anos"
+      ],
+      "interacoes": [
+        "Antiácidos e inibidores de bomba de prótons (pode ter efeito aditivo)",
+        "Medicamentos absorvidos no estômago (pode alterar pH gástrico)"
+      ],
+      "efeitos_colaterais": [
+        "Boca seca",
+        "Náusea leve",
+        "Redução da produção de leite materno"
+      ],
+      "alertas": [
+        "Planta da farmacopeia brasileira com monografia oficial",
+        "Grávidas não devem utilizar (risco teratogênico em doses altas em estudos animais)",
+        "Não substituir tratamento médico para úlcera por H. pylori",
+        "Eficácia melhor observada com uso contínuo por 4-8 semanas"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/21132118/",
+        "https://pubmed.ncbi.nlm.nih.gov/18455318/",
+        "https://pubmed.ncbi.nlm.nih.gov/24533573/"
+      ],
+      "estudos_resumo": "Estudo clínico multicêntrico brasileiro (2011, Carlini et al.) com 46 pacientes demonstrou que o extrato aquoso de Maytenus ilicifolia foi eficaz na redução de sintomas dispépticos, com eficácia comparável ao ranitidina. Revisão farmacológica (2008) confirmou atividade antiulcerogênica, com mecanismo de aumento da produção de muco gástrico e atividade antissecretória. Planta incluída na RENISUS (Relação Nacional de Plantas Medicinais do SUS).",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {
+          "pergunta": "Espinheira-santa substitui omeprazol?",
+          "resposta": "Não deve ser usada como substituto direto de medicamentos prescritos. Pode ser um complemento no tratamento de gastrite leve, mas úlceras e refluxo grave requerem acompanhamento médico."
+        },
+        {
+          "pergunta": "É a mesma planta reconhecida pelo SUS?",
+          "resposta": "Sim. A Maytenus ilicifolia está na lista RENISUS de plantas medicinais com potencial para uso no SUS e possui monografia na Farmacopeia Brasileira."
+        },
+        {
+          "pergunta": "Posso tomar em jejum?",
+          "resposta": "Sim, é inclusive recomendado tomar 30 minutos antes das refeições para melhor proteção da mucosa gástrica."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Hibisco (Hibiscus sabdariffa)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 1,5-3g de cálices secos em 250ml, 2-3x/dia. Extrato: 250-500mg/dia.",
+      "aplicacoes_clinicas": "Hipertensão leve; Perfil lipídico; Auxílio no emagrecimento; Atividade antioxidante; Resistência à insulina",
+      "contraindicacoes": [
+        "Hipotensão",
+        "Gravidez (pode ter efeito estrogênico em doses altas)",
+        "Uso concomitante com cloroquina (reduz absorção)"
+      ],
+      "interacoes": [
+        "Anti-hipertensivos (efeito aditivo na redução da pressão)",
+        "Diuréticos (efeito aditivo)",
+        "Cloroquina e hidroxicloroquina (reduz biodisponibilidade)",
+        "Paracetamol (pode alterar metabolismo)"
+      ],
+      "efeitos_colaterais": [
+        "Hipotensão em pessoas sensíveis",
+        "Desconforto gástrico leve",
+        "Poliúria (efeito diurético)"
+      ],
+      "alertas": [
+        "Monitorar pressão arterial se já usa anti-hipertensivos",
+        "Não é um substituto para medicamentos anti-hipertensivos prescritos",
+        "O efeito no emagrecimento é modesto e depende de dieta e exercício",
+        "Evitar consumo excessivo durante a gravidez"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/25875025/",
+        "https://pubmed.ncbi.nlm.nih.gov/30208020/",
+        "https://pubmed.ncbi.nlm.nih.gov/24549255/"
+      ],
+      "estudos_resumo": "Meta-análise de 2015 (5 RCTs, 390 participantes) demonstrou que o consumo de chá de hibisco reduz significativamente a pressão arterial sistólica (-7,58 mmHg) e diastólica (-3,53 mmHg). Revisão sistemática de 2018 confirmou efeitos hipolipidêmicos, com redução de LDL e triglicerídeos. RCT de 2014 mostrou melhora na resistência à insulina em pacientes com síndrome metabólica após 8 semanas de suplementação.",
+      "nivel_evidencia": "Moderada-Alta",
+      "faq": [
+        {
+          "pergunta": "Chá de hibisco realmente emagrece?",
+          "resposta": "O hibisco pode auxiliar modestamente no emagrecimento por seu efeito diurético e pela melhora do metabolismo lipídico, mas não substitui dieta equilibrada e exercício físico."
+        },
+        {
+          "pergunta": "Quem tem pressão baixa pode tomar?",
+          "resposta": "Pessoas com hipotensão devem evitar ou usar com muita cautela, pois o hibisco pode reduzir ainda mais a pressão arterial."
+        },
+        {
+          "pergunta": "Quantas xícaras por dia são seguras?",
+          "resposta": "De 2 a 3 xícaras por dia é a faixa mais estudada e considerada segura. Evite consumo excessivo para não potencializar efeitos hipotensores."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Hortelã-pimenta (Mentha x piperita)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 1-2g de folhas secas em 250ml, 2-3x/dia. Óleo em cápsulas entéricas: 0,2-0,4ml, 3x/dia. Extrato: 200-400mg/dia.",
+      "aplicacoes_clinicas": "Síndrome do intestino irritável (SII); Dispepsia funcional; Náusea; Cefaleia tensional (tópico); Cólicas intestinais",
+      "contraindicacoes": [
+        "Doença do refluxo gastroesofágico (DRGE)",
+        "Hérnia hiatal",
+        "Cálculos biliares",
+        "Crianças menores de 8 anos (risco de espasmo laríngeo pelo mentol)"
+      ],
+      "interacoes": [
+        "Ciclosporina (inibe CYP3A4, pode aumentar níveis)",
+        "Antiácidos e IBPs (podem dissolver revestimento entérico precocemente)",
+        "Sinvastatina e outros substratos de CYP3A4"
+      ],
+      "efeitos_colaterais": [
+        "Pirose (efeito colateral mais comum)",
+        "Queimação perianal",
+        "Eructação mentolada",
+        "Náusea em doses altas"
+      ],
+      "alertas": [
+        "Cápsulas entéricas são essenciais para SII (evitam dissolução no estômago)",
+        "Não mastigar as cápsulas entéricas",
+        "Evitar em DRGE pois relaxa o esfíncter esofágico inferior",
+        "O chá é mais indicado para dispepsia; cápsulas para SII"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/24100754/",
+        "https://pubmed.ncbi.nlm.nih.gov/31983239/",
+        "https://pubmed.ncbi.nlm.nih.gov/17217568/"
+      ],
+      "estudos_resumo": "Meta-análise de 2014 (Khanna et al., 9 RCTs, 726 pacientes) demonstrou que óleo de hortelã-pimenta em cápsulas entéricas é significativamente superior ao placebo na melhora global de sintomas da SII (RR 2,23) e na redução da dor abdominal (RR 2,14). Meta-análise de 2020 (BMC Complementary Medicine) confirmou eficácia e segurança para SII. Revisão de 2007 mostrou eficácia da aplicação tópica (solução a 10%) na cefaleia tensional, comparável ao paracetamol.",
+      "nivel_evidencia": "Alta",
+      "faq": [
+        {
+          "pergunta": "Chá de hortelã é bom para intestino irritável?",
+          "resposta": "O chá pode aliviar desconforto digestivo geral. Porém, para SII, as cápsulas com óleo essencial e revestimento entérico são a forma com maior evidência científica."
+        },
+        {
+          "pergunta": "Hortelã-pimenta piora o refluxo?",
+          "resposta": "Sim. O mentol relaxa o esfíncter esofágico inferior, o que pode piorar sintomas de refluxo e azia. Pessoas com DRGE devem evitar."
+        },
+        {
+          "pergunta": "Pode usar em crianças?",
+          "resposta": "O chá em doses moderadas é geralmente seguro para crianças acima de 8 anos. Evite óleo essencial puro em crianças pequenas pelo risco de espasmo laríngeo."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Guaco (Mikania glomerata)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá: 2-3g de folhas secas em 250ml, 2-3x/dia. Xarope: 5-10ml, 3x/dia. Extrato: 250-500mg/dia.",
+      "aplicacoes_clinicas": "Tosse; Bronquite; Asma leve (adjuvante); Expectorante; Anti-inflamatório das vias aéreas",
+      "contraindicacoes": [
+        "Distúrbios hemorrágicos (cumarina tem efeito anticoagulante)",
+        "Uso de anticoagulantes",
+        "Gravidez e lactação",
+        "Doença hepática grave"
+      ],
+      "interacoes": [
+        "Anticoagulantes orais como varfarina (efeito aditivo pela cumarina)",
+        "Antiplaquetários (aspirina, clopidogrel)",
+        "Anti-inflamatórios não esteroidais (AINEs)"
+      ],
+      "efeitos_colaterais": [
+        "Náusea em doses elevadas",
+        "Vômitos",
+        "Diarreia",
+        "Aumento do tempo de sangramento (uso prolongado)"
+      ],
+      "alertas": [
+        "Planta da farmacopeia brasileira com monografia oficial",
+        "Incluída na RENISUS (Relação Nacional de Plantas Medicinais do SUS)",
+        "Suspender pelo menos 1 semana antes de cirurgias (efeito anticoagulante)",
+        "Monitorar sinais de sangramento em uso prolongado"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/19135150/",
+        "https://pubmed.ncbi.nlm.nih.gov/26151245/",
+        "https://pubmed.ncbi.nlm.nih.gov/28478810/"
+      ],
+      "estudos_resumo": "Revisão farmacológica (2009, Journal of Ethnopharmacology) confirmou que a cumarina e o ácido caurenóico presentes no guaco possuem atividades broncodilatadora, anti-inflamatória e antialérgica em modelos experimentais. Estudo de 2015 demonstrou ação relaxante sobre musculatura lisa brônquica, validando o uso tradicional como expectorante e antitussígeno. Planta incluída na lista de medicamentos fitoterápicos registrados pela ANVISA.",
+      "nivel_evidencia": "Baixa-Moderada",
+      "faq": [
+        {
+          "pergunta": "Guaco é aprovado pela ANVISA?",
+          "resposta": "Sim. O guaco (Mikania glomerata) possui registro na ANVISA como medicamento fitoterápico para tosse e bronquite, com monografia na Farmacopeia Brasileira."
+        },
+        {
+          "pergunta": "Posso dar xarope de guaco para crianças?",
+          "resposta": "Crianças acima de 2 anos podem usar xarope de guaco conforme a dosagem indicada pelo fabricante. Para menores, consulte um profissional de saúde habilitado."
+        },
+        {
+          "pergunta": "Guaco substitui antibiótico na bronquite?",
+          "resposta": "Não. O guaco é expectorante e broncodilatador, mas não tem ação antibacteriana. Se houver infecção bacteriana, o tratamento médico é indispensável."
+        }
+      ],
+      "fonte": "base_cientifica"
+    },
+    {
+      "nome": "Unha-de-gato (Uncaria tomentosa)",
+      "categoria": "Planta / Chá",
+      "categoria_slug": "planta",
+      "dosagem": "Chá (decocção): 1-2g de casca seca em 250ml, fervida por 10-15 min, 1-2x/dia. Extrato: 250-350mg/dia. Cápsulas: 300-500mg/dia.",
+      "aplicacoes_clinicas": "Imunomodulação; Artrite reumatoide (adjuvante); Osteoartrite; Anti-inflamatório; Suporte em doenças autoimunes",
+      "contraindicacoes": [
+        "Gravidez (pode ter efeito anticoncepcional e abortivo)",
+        "Lactação",
+        "Doenças autoimunes não controladas",
+        "Pré e pós-transplante (imunossupressores)",
+        "Crianças menores de 3 anos"
+      ],
+      "interacoes": [
+        "Imunossupressores (pode antagonizar efeito)",
+        "Anticoagulantes (pode potencializar)",
+        "Anti-hipertensivos (pode reduzir pressão)",
+        "Inibidores de protease para HIV (pode alterar metabolismo via CYP3A4)"
+      ],
+      "efeitos_colaterais": [
+        "Diarreia",
+        "Náusea",
+        "Hipotensão",
+        "Cefaleia"
+      ],
+      "alertas": [
+        "Usar apenas Uncaria tomentosa (não confundir com Uncaria guianensis, que tem perfil diferente)",
+        "Não usar antes de cirurgias (efeito anticoagulante e imunomodulador)",
+        "Contraindicada em protocolos de imunossupressão",
+        "Planta com uso tradicional amazônico consolidado e estudos clínicos"
+      ],
+      "referencias": [
+        "https://pubmed.ncbi.nlm.nih.gov/11950176/",
+        "https://pubmed.ncbi.nlm.nih.gov/25573393/",
+        "https://pubmed.ncbi.nlm.nih.gov/17291698/"
+      ],
+      "estudos_resumo": "RCT duplo-cego (2002, Mur et al., 40 pacientes) demonstrou que o extrato de Uncaria tomentosa reduziu significativamente a dor e o edema articular em pacientes com artrite reumatoide ativa, como adjuvante ao tratamento com sulfasalazina ou hidroxicloroquina. Revisão de 2015 (Journal of Ethnopharmacology) confirmou atividades imunomoduladoras, anti-inflamatórias e antioxidantes mediadas por alcaloides oxindólicos. Estudo de 2007 demonstrou atividade antimutagênica e reparadora de DNA.",
+      "nivel_evidencia": "Moderada",
+      "faq": [
+        {
+          "pergunta": "Unha-de-gato ajuda na imunidade?",
+          "resposta": "Sim, estudos demonstram efeito imunomodulador (e não simplesmente imunoestimulante), podendo tanto estimular quanto regular a resposta imune. Não é recomendada para quem toma imunossupressores."
+        },
+        {
+          "pergunta": "Pode ser usada para artrite?",
+          "resposta": "Há evidência de RCTs para artrite reumatoide como adjuvante. Não deve substituir o tratamento médico convencional, mas pode complementá-lo."
+        },
+        {
+          "pergunta": "Quanto tempo leva para fazer efeito?",
+          "resposta": "Efeitos anti-inflamatórios podem ser percebidos em 4-8 semanas de uso contínuo. Para efeitos imunomoduladores, o uso recomendado é de pelo menos 8-12 semanas."
+        }
+      ],
+      "fonte": "base_cientifica"
     }
   ]
 }
