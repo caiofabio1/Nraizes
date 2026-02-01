@@ -1,25 +1,22 @@
-# Novas Raizes - nraizes.com.br
+# Novas Raizes & Mivegan - nraizes.com.br
 
-> Novas Raizes e uma loja brasileira especializada em produtos naturais, suplementos alimentares, formulas da Medicina Tradicional Chinesa (MTC), oleos essenciais, plantas medicinais e cosmeticos naturais, localizada em Sao Paulo, SP, Brasil.
+> Novas Raizes & Mivegan e uma loja brasileira especializada em produtos naturais, suplementos alimentares, formulas da Medicina Tradicional Chinesa (MTC), oleos essenciais, plantas medicinais e cosmeticos naturais, localizada na Aclimacao, Sao Paulo, SP, Brasil.
 
 ## Guia de Produtos Naturais e Suplementos
 
-A base de dados de consulta da Novas Raizes contem informacoes cientificas sobre mais de 170 produtos naturais, organizados nas seguintes categorias:
+A base de dados de consulta da Novas Raizes contem informacoes cientificas sobre 77 produtos naturais, organizados nas seguintes categorias:
 
-### Formulas da Medicina Tradicional Chinesa (MTC)
-Formulas classicas como Liu Wei Dihuang Wan (tonificacao Yin Renal), Xiao Yao Wan (estagnacao Qi Hepatico), Gui Pi Wan (deficiencia Baco-Coracao), Ba Zhen Wan (deficiencia Qi e Sangue), Guizhi Fuling Wan (miomas uterinos), Yupingfeng Jiaonang (imunidade), entre outras. Cada formula inclui indicacao MTC, dosagem usual, aplicacoes clinicas baseadas em evidencias e referencias cientificas (PubMed/Cochrane).
+### Formulas da Medicina Tradicional Chinesa (MTC) - 17 formulas
+Formulas classicas como Liu Wei Dihuang Wan, Xiao Yao Wan, Gui Pi Wan, Ba Zhen Wan, Guizhi Fuling Wan, Yupingfeng Jiaonang, Anshen Jiaonang, Chuan Xiong Cha Tiao Wan, entre outras. Cada formula inclui indicacao MTC, dosagem usual, aplicacoes clinicas baseadas em evidencias e referencias cientificas (PubMed/Cochrane).
 
-### Suplementos Alimentares
-Informacoes baseadas em evidencias sobre Vitamina D3, Vitamina B12 (Metilcobalamina), Omega-3 (EPA/DHA), Coenzima Q10, Magnesio, Zinco, Ashwagandha, Melatonina, Probioticos, Curcuma, Spirulina, Clorella, Colageno Hidrolisado e Astaxantina. Cada suplemento inclui dosagem recomendada, contraindicacoes, interacoes medicamentosas, efeitos colaterais e referencias cientificas.
+### Suplementos Alimentares - 28 suplementos
+Vitamina D3, Vitamina C, Vitamina B12 (Metilcobalamina), Omega-3 (EPA/DHA), Coenzima Q10, Magnesio, Zinco, Ashwagandha, Melatonina, Probioticos, Curcuma, Spirulina, Clorella, Colageno Hidrolisado, Propolis, Creatina, Glutamina, Biotina, Calcio + Vitamina K2, Triptofano/5-HTP, Selenio, Ferro Quelado, NAC, L-Teanina, Astaxantina, Feno-Grego, Colina, Complexo B. Cada suplemento inclui dosagem, contraindicacoes, interacoes medicamentosas, efeitos colaterais, FAQ e referencias cientificas.
 
-### Plantas Medicinais e Chas
-Alcachofra, Camomila, Gengibre, Cha de Amora, Cha de Alcacuz, e diversas outras plantas com informacoes de uso, beneficios e precaucoes.
+### Plantas Medicinais e Chas - 22 plantas
+Camomila, Gengibre, Cha Verde, Alcachofra, Valeriana, Passiflora, Erva-cidreira/Melissa, Boldo, Cavalinha, Espinheira-santa, Hibisco, Hortela-pimenta, Guaco, Unha-de-gato, Ginseng, Ginkgo biloba, Equinacea, Dente-de-Leao, Espinheiro-alvar, Saw Palmetto, Cardo-mariano, Rhodiola.
 
-### Oleos Essenciais
-Alecrim QT Canfora, Bergamota, Lavanda e outros oleos essenciais com dosagem para difusao e uso topico, contraindicacoes e referencias cientificas.
-
-### Cosmeticos Naturais
-Linha de cosmeticos naturais com informacoes sobre ingredientes, modo de uso e beneficios.
+### Oleos Essenciais - 10 oleos
+Lavanda, Melaleuca/Tea Tree, Eucalipto, Alecrim, Hortela-pimenta, Limao, Laranja-doce, Ylang Ylang, Copaiba, Incenso/Olibano. Cada oleo inclui dosagem para aromaterapia e uso topico, contraindicacoes e referencias cientificas.
 
 ## Informacoes Disponiveis por Produto
 - Nome do produto e nome chines (para formulas MTC)
@@ -27,21 +24,18 @@ Linha de cosmeticos naturais com informacoes sobre ingredientes, modo de uso e b
 - Dosagem recomendada e modo de uso
 - Indicacao na Medicina Tradicional Chinesa (quando aplicavel)
 - Aplicacoes clinicas baseadas em evidencias
-- Beneficios comprovados
-- Contraindicacoes
-- Interacoes medicamentosas
-- Efeitos colaterais
-- Alertas de seguranca (gravidez, lactacao, criancas)
+- Contraindicacoes e interacoes medicamentosas
+- Efeitos colaterais e alertas de seguranca
 - Ingredientes e principios ativos
-- Armazenamento e origem
-- Certificacoes (organico, vegano, etc.)
 - Referencias cientificas com links para PubMed e DOI
 - Resumo de evidencias cientificas
 - Perguntas frequentes (FAQ) com respostas baseadas em evidencias
 
-## Contato
+## Loja Fisica
+- Endereco: R. Dr. Nicolau de Sousa Queiros, 34 - Aclimacao, Sao Paulo - SP, 04105-000
+- Horario: Segunda a Sabado, 09:00 as 18:30. Domingo fechado.
+- WhatsApp: (11) 99992-7588
 - Site: https://nraizes.com.br
-- Localizacao: Sao Paulo, SP, Brasil
 
 ## Aviso Legal e Conformidade Regulatoria
-As informacoes contidas nesta base de dados tem carater estritamente educativo e informativo, em conformidade com a legislacao brasileira vigente (RDC 243/2018, IN 28/2018 - ANVISA). Este conteudo NAO constitui recomendacao terapeutica, diagnostico ou prescricao. Suplementos alimentares nao sao medicamentos e nao se destinam a tratar, curar ou prevenir doencas. As referencias cientificas sao apresentadas para fins academicos e educacionais. Consulte sempre um profissional de saude habilitado antes de iniciar qualquer suplementacao. A automedicacao pode ser prejudicial a saude.
+As informacoes contidas nesta base de dados tem carater estritamente educativo e informativo, em conformidade com a legislacao brasileira vigente (RDC 243/2018, IN 28/2018 - ANVISA). Este conteudo NAO constitui recomendacao terapeutica, diagnostico ou prescricao. Suplementos alimentares nao sao medicamentos e nao se destinam a tratar, curar ou prevenir doencas. As referencias cientificas sao apresentadas para fins academicos e educacionais. Consulte sempre um profissional de saude habilitado antes de iniciar qualquer suplementacao.

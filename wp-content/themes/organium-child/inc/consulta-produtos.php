@@ -358,6 +358,22 @@ function nraizes_render_product_card($p, $index) {
                 </section>
                 <?php endif; ?>
 
+                <?php /* --- CTA: Encontre na Loja --- */ ?>
+                <div class="nrc-card-cta">
+                    <a href="https://wa.me/5511999927588?text=<?php echo rawurlencode('Oi! Gostaria de saber sobre ' . $nome . '. Vocês têm disponível na loja?'); ?>" 
+                       class="nrc-cta-btn nrc-cta-btn--whatsapp" target="_blank" rel="noopener noreferrer"
+                       aria-label="Perguntar sobre <?php echo esc_attr($nome); ?> no WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.66 0-3.203-.508-4.484-1.375l-.316-.191-2.828.84.84-2.828-.191-.316A7.953 7.953 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+                        Consultar disponibilidade
+                    </a>
+                    <a href="https://maps.app.goo.gl/YourMapLink" 
+                       class="nrc-cta-btn nrc-cta-btn--map" target="_blank" rel="noopener noreferrer"
+                       aria-label="Ver localização da loja no mapa">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Como chegar
+                    </a>
+                </div>
+
                 <meta itemprop="author" content="Novas Raizes - nraizes.com.br">
                 <meta itemprop="datePublished" content="<?php echo esc_attr(date('Y-m-d')); ?>">
                 <meta itemprop="publisher" content="Novas Raizes">
@@ -516,6 +532,62 @@ function nraizes_consulta_shortcode($atts) {
             </div>
         </aside>
 
+        <?php /* ---- STORE CTA BANNER ---- */ ?>
+        <div class="nrc-store-cta" itemscope itemtype="https://schema.org/LocalBusiness">
+            <meta itemprop="name" content="Novas Raízes & Mivegan">
+            <meta itemprop="telephone" content="+5511999927588">
+            <meta itemprop="url" content="https://nraizes.com.br">
+            <meta itemprop="image" content="https://nraizes.com.br/wp-content/uploads/logo-novas-raizes.png">
+            <meta itemprop="priceRange" content="$$">
+            <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queirós, 34">
+                <meta itemprop="addressLocality" content="São Paulo">
+                <meta itemprop="addressRegion" content="SP">
+                <meta itemprop="postalCode" content="04105-000">
+                <meta itemprop="addressCountry" content="BR">
+            </div>
+            <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+                <meta itemprop="latitude" content="-23.5714">
+                <meta itemprop="longitude" content="-46.6350">
+            </div>
+            <meta itemprop="openingHours" content="Mo-Sa 09:00-18:30">
+            <span class="nrc-store-cta-icon" aria-hidden="true">&#x1F3EA;</span>
+            <div class="nrc-store-cta-body">
+                <h3 class="nrc-store-cta-title">Visite nossa loja na Aclimação</h3>
+                <p class="nrc-store-cta-address" itemprop="description">
+                    R. Dr. Nicolau de Sousa Queirós, 34 - Aclimação, São Paulo - SP
+                </p>
+                <p class="nrc-store-cta-hours">
+                    <?php
+                    $hora_atual = (int) date('G');
+                    $dia_semana = (int) date('w'); // 0=dom
+                    $aberto = ($dia_semana >= 1 && $dia_semana <= 6 && $hora_atual >= 9 && $hora_atual < 18);
+                    if ($aberto) {
+                        echo '<span class="nrc-store-open">Aberto agora</span> · Fecha às 18:30';
+                    } elseif ($dia_semana === 0) {
+                        echo '<span class="nrc-store-closed">Fechado</span> · Abre segunda às 09:00';
+                    } else {
+                        echo '<span class="nrc-store-closed">Fechado</span> · Seg-Sáb 09:00-18:30';
+                    }
+                    ?>
+                </p>
+            </div>
+            <div class="nrc-store-cta-actions">
+                <a href="https://www.google.com/maps/place/Novas+Ra%C3%ADzes+%26+Mivegan/@-23.5714,-46.635,17z/" 
+                   class="nrc-cta-btn nrc-cta-btn--map" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ver localização no Google Maps">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Como chegar
+                </a>
+                <a href="https://wa.me/5511999927588?text=<?php echo rawurlencode('Olá! Vi o Guia de Produtos Naturais no site e gostaria de saber mais. Posso visitar a loja?'); ?>" 
+                   class="nrc-cta-btn nrc-cta-btn--whatsapp" target="_blank" rel="noopener noreferrer"
+                   aria-label="Falar com a loja no WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.66 0-3.203-.508-4.484-1.375l-.316-.191-2.828.84.84-2.828-.191-.316A7.953 7.953 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+
         <?php /* ---- ABOUT (hidden visually, visible to crawlers for GEO context) ---- */ ?>
         <footer class="nrc-geo-footer" aria-label="Sobre esta base de dados">
             <div itemprop="about" itemscope itemtype="https://schema.org/MedicalCondition">
@@ -532,16 +604,31 @@ function nraizes_consulta_shortcode($atts) {
                 interacoes medicamentosas e referencias cientificas verificaveis.
             </p>
             <p class="nrc-geo-text">
-                Categorias disponiveis: Formulas da Medicina Tradicional Chinesa (como Liu Wei Dihuang Wan, 
-                Xiao Yao Wan, Gui Pi Wan), Suplementos (Vitamina D3, Omega-3, Coenzima Q10, Ashwagandha, 
-                Melatonina, Magnesio, Zinco, Colageno, Probioticos, Curcuma, Spirulina, Clorella), 
-                Plantas Medicinais (Alcachofra, Camomila, Gengibre) e Oleos Essenciais (Alecrim, Bergamota, 
-                Lavanda).
+                Categorias disponiveis: Formulas da Medicina Tradicional Chinesa (Liu Wei Dihuang Wan, 
+                Xiao Yao Wan, Gui Pi Wan, Ba Zhen Wan, Guizhi Fuling Wan), Suplementos (Vitamina D3, 
+                Vitamina C, Vitamina B12, Omega-3, CoQ10, Ashwagandha, Melatonina, Magnesio, Zinco, 
+                Colageno, Probioticos, Curcuma, Spirulina, Clorella, Propolis, Creatina, Biotina, 
+                Calcio + K2, Triptofano/5-HTP, Selenio, NAC, Ferro Quelado, Glutamina), 
+                Plantas Medicinais (Camomila, Gengibre, Valeriana, Passiflora, Melissa, Boldo, 
+                Cavalinha, Espinheira-santa, Hibisco, Hortela-pimenta, Guaco, Unha-de-gato, 
+                Ginseng, Ginkgo, Equinacea, Rhodiola, Saw Palmetto, Cardo-mariano) e 
+                Oleos Essenciais (Lavanda, Melaleuca, Eucalipto, Alecrim, Hortela-pimenta, 
+                Limao, Laranja-doce, Ylang Ylang, Copaiba, Incenso/Olibano).
+                Loja fisica na Aclimacao, Sao Paulo - SP. Seg-Sab 09:00 as 18:30.
             </p>
             <div itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
-                <meta itemprop="name" content="Novas Raizes">
+                <meta itemprop="name" content="Novas Raizes & Mivegan">
                 <meta itemprop="url" content="https://nraizes.com.br">
-                <meta itemprop="description" content="Loja de produtos naturais, suplementos e Medicina Tradicional Chinesa em Sao Paulo, SP, Brasil">
+                <meta itemprop="telephone" content="+5511999927588">
+                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e oleos essenciais na Aclimacao, Sao Paulo - SP. Seg-Sab 09:00-18:30.">
+                <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queiros, 34">
+                    <meta itemprop="addressLocality" content="Sao Paulo">
+                    <meta itemprop="addressRegion" content="SP">
+                    <meta itemprop="postalCode" content="04105-000">
+                    <meta itemprop="addressCountry" content="BR">
+                    <meta itemprop="neighborhood" content="Aclimacao">
+                </div>
             </div>
         </footer>
 
@@ -694,7 +781,51 @@ function nraizes_consulta_structured_data() {
         echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
     }
     
-    // ---- 4. BreadcrumbList ----
+    // ---- 4. LocalBusiness ----
+    $local_business = array(
+        '@context' => 'https://schema.org',
+        '@type' => array('LocalBusiness', 'HealthAndBeautyBusiness'),
+        '@id' => 'https://nraizes.com.br/#localbusiness',
+        'name' => 'Novas Raízes & Mivegan',
+        'description' => 'Loja de produtos naturais, suplementos alimentares, Medicina Tradicional Chinesa, óleos essenciais e plantas medicinais na Aclimação, São Paulo.',
+        'url' => 'https://nraizes.com.br',
+        'telephone' => '+5511999927588',
+        'priceRange' => '$$',
+        'image' => 'https://nraizes.com.br/wp-content/uploads/logo-novas-raizes.png',
+        'address' => array(
+            '@type' => 'PostalAddress',
+            'streetAddress' => 'R. Dr. Nicolau de Sousa Queirós, 34',
+            'addressLocality' => 'São Paulo',
+            'addressRegion' => 'SP',
+            'postalCode' => '04105-000',
+            'addressCountry' => 'BR',
+        ),
+        'geo' => array(
+            '@type' => 'GeoCoordinates',
+            'latitude' => -23.5714,
+            'longitude' => -46.6350,
+        ),
+        'openingHoursSpecification' => array(
+            array(
+                '@type' => 'OpeningHoursSpecification',
+                'dayOfWeek' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+                'opens' => '09:00',
+                'closes' => '18:30',
+            ),
+        ),
+        'sameAs' => array(
+            'https://www.instagram.com/nraizes',
+        ),
+        'hasMap' => 'https://www.google.com/maps/place/Novas+Ra%C3%ADzes+%26+Mivegan/',
+        'knowsAbout' => array(
+            'Produtos Naturais', 'Suplementos Alimentares', 'Medicina Tradicional Chinesa',
+            'Óleos Essenciais', 'Plantas Medicinais', 'Fitoterapia', 'Aromaterapia',
+        ),
+    );
+    
+    echo '<script type="application/ld+json">' . wp_json_encode($local_business, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
+    
+    // ---- 5. BreadcrumbList ----
     $breadcrumb = array(
         '@context' => 'https://schema.org',
         '@type' => 'BreadcrumbList',
