@@ -127,6 +127,22 @@ class BlingClient:
             _api_logger.log_token_refresh(False)
             return False
 
+    # =========================================================================
+    # LOJAS (Stores/Marketplaces)
+    # =========================================================================
+    
+    def get_lojas(self, **kwargs) -> Any:
+        """
+        Obtém lojas virtuais configuradas.
+        
+        pagina (query): Página
+        limite (query): Limite por página
+        situacao (query): A=Ativa, I=Inativa
+        """
+        url = f"{self.base_url}/lojas"
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self._request('GET', url, params=params)
+
     def get_estoques_saldos_id_deposito(self, idDeposito: str, **kwargs) -> Any:
         """
         Obtém o saldo em estoque de produtos pelo ID do depósito.

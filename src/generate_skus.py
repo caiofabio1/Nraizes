@@ -79,20 +79,35 @@ def generate_skus():
         batch_text = "\n".join([f"ID_{item['id']}: {item['desc']} (Marca: {item['brand']})" for item in batch])
         
         prompt = f"""
-        You are a SKU Generator.
-        Create a SEMANTIC SKU for each product using format: [BRAND_3]-[CAT_3]-[KEYWORD_6]
+        You are a SKU Generator for a Brazilian health products store.
+        Create a SEMANTIC SKU for each product using format: [MARCA_3]-[CAT_3]-[PRODUTO_VARIANTE]
         
         Rules:
-        1. All Uppercase. No spaces. Use hyphens.
-        2. BRAND_3: First 3 letters of Brand. If Brand unknown, infer from Description. If 'Generic', use 'GEN'.
-        3. CAT_3: 3 letter code for Category (e.g., SUP=Supplement, COS=Cosmetic, OIL=Oil, FOO=Food, VIT=Vitamin).
-        4. KEYWORD_6: Main product identifier term, max 6 chars.
+        1. All UPPERCASE. No spaces. Use hyphens to separate sections.
+        2. MARCA_3: First 3 letters of Brand. If Brand unknown, infer from Description. If 'Generic', use 'GEN'.
+        3. CAT_3: 3 letter PORTUGUESE code for Category:
+           - SUP = Suplemento
+           - OLE = Óleo
+           - CHA = Chá
+           - COS = Cosmético
+           - ALI = Alimento
+           - VIT = Vitamina
+           - BEB = Bebê
+           - FIT = Fitness/Esporte
+           - NAT = Natural/Fitoterápico
+           - HIG = Higiene
+        4. PRODUTO_VARIANTE: Main product + variant identifier, max 8 chars total.
+           - Include flavor/color/weight when present. Examples:
+             "Creatina 500g Limao" -> "CREALM" (CREAtina LiMao)
+             "Whey Chocolate 1kg" -> "WHEYCHOC"
+             "Oleo Bergamota 10ml" -> "BERG10"
+        5. Max total SKU length: 15 characters.
         
         Input List:
         {batch_text}
         
         Output JSON:
-        {{ "ID_0": "BRA-CAT-KEYWOR", "ID_1": "..." }}
+        {{ "ID_0": "BRA-CAT-PRODUTO", "ID_1": "..." }}
         """
         
         resp_text = get_gemini_response(prompt)

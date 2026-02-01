@@ -2,6 +2,7 @@
 NRAIZES - Unified Web Dashboard
 Flask server for integrated management with direct Bling API sync.
 """
+
 import os
 import sys
 import json
@@ -25,21 +26,21 @@ app = Flask(__name__)
 
 # CORS Configuration for security
 ALLOWED_ORIGINS = [
-    'http://localhost:5000',
-    'http://127.0.0.1:5000',
+    "http://localhost:5000",
+    "http://127.0.0.1:5000",
 ]
 
 
 def add_cors_headers(response):
     """Add CORS headers to response."""
-    origin = request.headers.get('Origin', '')
+    origin = request.headers.get("Origin", "")
     if origin in ALLOWED_ORIGINS or not origin:
-        response.headers['Access-Control-Allow-Origin'] = origin or '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    response.headers['X-XSS-Protection'] = '1; mode=block'
+        response.headers["Access-Control-Allow-Origin"] = origin or "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
     return response
 
 
@@ -52,8 +53,8 @@ def after_request(response):
 @app.before_request
 def handle_preflight():
     """Handle CORS preflight requests."""
-    if request.method == 'OPTIONS':
-        response = app.make_response('')
+    if request.method == "OPTIONS":
+        response = app.make_response("")
         return add_cors_headers(response)
 
 
@@ -66,64 +67,83 @@ def get_dashboard_data():
     db = VaultDB()
     conn = get_connection()
     cursor = conn.cursor()
-    
+
     # Metrics
     cursor.execute('SELECT COUNT(*) FROM produtos WHERE situacao = "A"')
     total_produtos = cursor.fetchone()[0]
-    
-    cursor.execute('SELECT COUNT(*) FROM produtos WHERE situacao = "A" AND (gtin IS NULL OR gtin = "")')
+
+    cursor.execute(
+        'SELECT COUNT(*) FROM produtos WHERE situacao = "A" AND (gtin IS NULL OR gtin = "")'
+    )
     sem_ean = cursor.fetchone()[0]
-    
+
     cursor.execute('SELECT COUNT(*) FROM propostas_ia WHERE status = "pendente"')
     propostas_pendentes = cursor.fetchone()[0]
-    
-    cursor.execute('SELECT COUNT(DISTINCT id_produto) FROM precos_concorrentes')
+
+    cursor.execute("SELECT COUNT(DISTINCT id_produto) FROM precos_concorrentes")
     com_preco_mercado = cursor.fetchone()[0]
-    
+
     # Enrichment proposals
-    cursor.execute('''
+    cursor.execute("""
         SELECT p.id, p.id_produto, p.tipo, p.conteudo_proposto, pr.nome, pr.codigo
         FROM propostas_ia p
         JOIN produtos pr ON p.id_produto = pr.id_bling
         WHERE p.status = 'pendente'
         ORDER BY pr.nome, p.tipo
         LIMIT 100
-    ''')
+    """)
     propostas = [dict(row) for row in cursor.fetchall()]
-    
+
     # Products with EAN (for sync)
-    cursor.execute('''
+    cursor.execute("""
         SELECT id_bling, nome, gtin, codigo FROM produtos 
         WHERE situacao = 'A' AND gtin IS NOT NULL AND gtin != ''
         LIMIT 100
-    ''')
+    """)
     eans = [dict(row) for row in cursor.fetchall()]
-    
-    # Price recommendations
+
+    # Price recommendations (legacy rule-based)
     try:
         adjuster = PriceAdjuster()
         price_recs = adjuster.analisar_todos()
-        price_recs = [r for r in price_recs if r.acao.name != 'MAINTAIN'][:50]
+        price_recs = [r for r in price_recs if r.acao.name != "MAINTAIN"][:50]
     except Exception as e:
         _logger.error(f"Failed to load price recommendations: {e}")
         price_recs = []
-    
+
+    # Smart Pricing proposals (new approval workflow)
+    try:
+        price_proposals = db.listar_propostas_preco("pendente")
+    except Exception as e:
+        _logger.error(f"Failed to load price proposals: {e}")
+        price_proposals = []
+
+    # Count approved waiting to be applied
+    try:
+        approved_proposals = db.listar_propostas_preco("aprovado")
+    except Exception:
+        approved_proposals = []
+
     conn.close()
-    
+
     return {
-        'metrics': {
-            'total_produtos': total_produtos,
-            'sem_ean': sem_ean,
-            'propostas_pendentes': propostas_pendentes,
-            'com_preco_mercado': com_preco_mercado
+        "metrics": {
+            "total_produtos": total_produtos,
+            "sem_ean": sem_ean,
+            "propostas_pendentes": propostas_pendentes,
+            "com_preco_mercado": com_preco_mercado,
+            "price_proposals_pending": len(price_proposals),
+            "price_proposals_approved": len(approved_proposals),
         },
-        'propostas': propostas,
-        'eans': eans,
-        'price_recs': price_recs
+        "propostas": propostas,
+        "eans": eans,
+        "price_recs": price_recs,
+        "price_proposals": price_proposals,
+        "approved_proposals": approved_proposals,
     }
 
 
-UNIFIED_TEMPLATE = '''
+UNIFIED_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -150,7 +170,7 @@ UNIFIED_TEMPLATE = '''
 
     <!-- KPI Cards -->
     <div class="max-w-7xl mx-auto px-6 py-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-6">
             <div class="bg-gray-800 rounded-lg p-4">
                 <div class="text-3xl font-bold text-blue-400">{{ data.metrics.total_produtos }}</div>
                 <div class="text-sm text-gray-400">Produtos Ativos</div>
@@ -167,16 +187,27 @@ UNIFIED_TEMPLATE = '''
                 <div class="text-3xl font-bold text-green-400">{{ data.metrics.com_preco_mercado }}</div>
                 <div class="text-sm text-gray-400">Com Preço Mercado</div>
             </div>
+            <div class="bg-gray-800 rounded-lg p-4 border border-orange-500/30">
+                <div class="text-3xl font-bold text-orange-400">{{ data.metrics.price_proposals_pending }}</div>
+                <div class="text-sm text-gray-400">Preços Pendentes</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4 border border-green-500/30">
+                <div class="text-3xl font-bold text-green-400">{{ data.metrics.price_proposals_approved }}</div>
+                <div class="text-sm text-gray-400">Preços Aprovados</div>
+            </div>
         </div>
 
         <!-- Tabs -->
         <div class="border-b border-gray-700 mb-6">
             <nav class="flex gap-8">
-                <button class="tab-btn active pb-3 text-lg font-medium" onclick="showTab('enrichment')">
+                <button class="tab-btn active pb-3 text-lg font-medium" onclick="showTab('smart-pricing')">
+                    🧠 Smart Pricing
+                </button>
+                <button class="tab-btn pb-3 text-lg font-medium text-gray-400" onclick="showTab('enrichment')">
                     📝 Enriquecimento
                 </button>
                 <button class="tab-btn pb-3 text-lg font-medium text-gray-400" onclick="showTab('prices')">
-                    💰 Preços
+                    💰 Preços (Regras)
                 </button>
                 <button class="tab-btn pb-3 text-lg font-medium text-gray-400" onclick="showTab('eans')">
                     🏷️ EANs
@@ -187,8 +218,96 @@ UNIFIED_TEMPLATE = '''
             </nav>
         </div>
 
+        <!-- Tab: Smart Pricing (NEW) -->
+        <div id="tab-smart-pricing" class="tab-content active">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h2 class="text-xl font-bold">Propostas de Preço Inteligente ({{ data.price_proposals|length }} pendentes)</h2>
+                    <p class="text-sm text-gray-400 mt-1">Geradas por IA + regras de mercado. Revise e aprove para sincronizar.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="generatePriceProposals()" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg font-medium text-sm">
+                        🧠 Gerar Novas Propostas
+                    </button>
+                    <button onclick="approveAllPriceProposals()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-medium text-sm">
+                        ✅ Aprovar Todas
+                    </button>
+                    <button onclick="applyApprovedPrices()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium text-sm">
+                        🚀 Aplicar Aprovadas ({{ data.approved_proposals|length }})
+                    </button>
+                </div>
+            </div>
+
+            {% if data.price_proposals %}
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-800">
+                        <tr>
+                            <th class="px-3 py-3 text-left">Produto</th>
+                            <th class="px-3 py-3 text-right">Atual</th>
+                            <th class="px-3 py-3 text-right">Sugerido</th>
+                            <th class="px-3 py-3 text-center">Margem</th>
+                            <th class="px-3 py-3 text-center">Acao</th>
+                            <th class="px-3 py-3 text-center">Conf.</th>
+                            <th class="px-3 py-3 text-left">Motivo</th>
+                            <th class="px-3 py-3 text-center">Fonte</th>
+                            <th class="px-3 py-3 text-center">Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-700">
+                        {% for p in data.price_proposals %}
+                        <tr class="hover:bg-gray-800/50" id="pp-{{ p.id }}">
+                            <td class="px-3 py-3">
+                                <div class="font-medium text-blue-300">{{ p.produto_nome[:35] }}{% if p.produto_nome|length > 35 %}...{% endif %}</div>
+                                <div class="text-xs text-gray-500">{{ p.produto_codigo }}</div>
+                            </td>
+                            <td class="px-3 py-3 text-right font-mono">R$ {{ "%.2f"|format(p.preco_atual) }}</td>
+                            <td class="px-3 py-3 text-right font-mono font-bold {% if p.acao == 'increase' %}text-green-400{% else %}text-red-400{% endif %}">
+                                R$ {{ "%.2f"|format(p.preco_sugerido) }}
+                            </td>
+                            <td class="px-3 py-3 text-center text-xs">
+                                {% if p.margem_atual is not none %}
+                                <span class="text-gray-400">{{ "%.0f"|format(p.margem_atual) }}%</span>
+                                <span class="text-gray-600">→</span>
+                                <span class="{% if p.margem_nova and p.margem_nova >= 20 %}text-green-400{% else %}text-yellow-400{% endif %}">{{ "%.0f"|format(p.margem_nova) if p.margem_nova else '?' }}%</span>
+                                {% else %}<span class="text-gray-600">-</span>{% endif %}
+                            </td>
+                            <td class="px-3 py-3 text-center">
+                                <span class="px-2 py-1 rounded text-xs {% if p.acao == 'increase' %}bg-green-900 text-green-300{% else %}bg-red-900 text-red-300{% endif %}">
+                                    {{ p.acao|upper }}
+                                </span>
+                            </td>
+                            <td class="px-3 py-3 text-center">
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="h-2 rounded-full {% if p.confianca >= 0.8 %}bg-green-500{% elif p.confianca >= 0.6 %}bg-yellow-500{% else %}bg-red-500{% endif %}" style="width: {{ (p.confianca * 100)|int }}%"></div>
+                                </div>
+                                <span class="text-xs text-gray-400">{{ "%.0f"|format(p.confianca * 100) }}%</span>
+                            </td>
+                            <td class="px-3 py-3 text-xs text-gray-300 max-w-xs truncate" title="{{ p.motivo }}">{{ p.motivo[:60] }}{% if p.motivo|length > 60 %}...{% endif %}</td>
+                            <td class="px-3 py-3 text-center">
+                                <span class="text-xs px-2 py-1 rounded bg-gray-700 text-gray-300">{{ p.fonte_dados[:15] }}</span>
+                            </td>
+                            <td class="px-3 py-3 text-center">
+                                <div class="flex gap-1">
+                                    <button onclick="approvePriceProposal({{ p.id }})" class="bg-green-600 hover:bg-green-700 px-2 py-1 rounded text-xs" title="Aprovar">✅</button>
+                                    <button onclick="rejectPriceProposal({{ p.id }})" class="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-xs" title="Rejeitar">❌</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="bg-gray-800 rounded-lg p-8 text-center">
+                <div class="text-gray-500 text-lg mb-2">Nenhuma proposta de preco pendente</div>
+                <p class="text-gray-600 text-sm">Clique em "Gerar Novas Propostas" para analisar precos com IA</p>
+            </div>
+            {% endif %}
+        </div>
+
         <!-- Tab: Enrichment -->
-        <div id="tab-enrichment" class="tab-content active">
+        <div id="tab-enrichment" class="tab-content">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-bold">Propostas de Enriquecimento ({{ data.propostas|length }})</h2>
                 <div class="flex gap-2">
@@ -440,153 +559,332 @@ UNIFIED_TEMPLATE = '''
                 log(`❌ Erro: ${e}`, 'error');
             }
         }
+
+        // ============ Smart Pricing Functions ============
+
+        async function approvePriceProposal(id) {
+            log(`Aprovando proposta de preco #${id}...`);
+            try {
+                const res = await fetch('/api/smart-pricing/approve', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    log(`✅ Proposta #${id} aprovada!`, 'success');
+                    const row = document.getElementById('pp-' + id);
+                    if (row) row.classList.add('opacity-30');
+                } else {
+                    log(`❌ Erro: ${data.error}`, 'error');
+                }
+            } catch (e) {
+                log(`❌ Erro: ${e}`, 'error');
+            }
+        }
+
+        async function rejectPriceProposal(id) {
+            log(`Rejeitando proposta de preco #${id}...`);
+            try {
+                const res = await fetch('/api/smart-pricing/reject', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    log(`🚫 Proposta #${id} rejeitada`, 'info');
+                    const row = document.getElementById('pp-' + id);
+                    if (row) row.remove();
+                }
+            } catch (e) {
+                log(`❌ Erro: ${e}`, 'error');
+            }
+        }
+
+        async function approveAllPriceProposals() {
+            if (!confirm('Aprovar TODAS as propostas de preco pendentes?')) return;
+            log('Aprovando todas as propostas de preco...');
+            try {
+                const res = await fetch('/api/smart-pricing/approve-all', { method: 'POST' });
+                const data = await res.json();
+                log(`✅ ${data.count} propostas aprovadas!`, 'success');
+                setTimeout(() => location.reload(), 1000);
+            } catch (e) {
+                log(`❌ Erro: ${e}`, 'error');
+            }
+        }
+
+        async function applyApprovedPrices() {
+            if (!confirm('Aplicar todas as propostas APROVADAS no Bling + WooCommerce?')) return;
+            log('Aplicando propostas aprovadas... (pode demorar)');
+            try {
+                const res = await fetch('/api/smart-pricing/apply', { method: 'POST' });
+                const data = await res.json();
+                if (data.success) {
+                    log(`✅ ${data.success_count} precos aplicados, ${data.error_count} erros`, 'success');
+                    setTimeout(() => location.reload(), 1500);
+                } else {
+                    log(`❌ Erro: ${data.error}`, 'error');
+                }
+            } catch (e) {
+                log(`❌ Erro: ${e}`, 'error');
+            }
+        }
+
+        async function generatePriceProposals() {
+            if (!confirm('Gerar novas propostas de preco? (vai limpar pendentes anteriores)')) return;
+            log('🧠 Gerando propostas com IA + regras... (pode demorar 1-2 min)');
+            try {
+                const res = await fetch('/api/smart-pricing/generate', { method: 'POST' });
+                const data = await res.json();
+                if (data.success) {
+                    log(`✅ ${data.total} propostas geradas (${data.aumentos} aumentos, ${data.reducoes} reducoes)`, 'success');
+                    setTimeout(() => location.reload(), 1500);
+                } else {
+                    log(`❌ Erro: ${data.error}`, 'error');
+                }
+            } catch (e) {
+                log(`❌ Erro: ${e}`, 'error');
+            }
+        }
     </script>
 </body>
 </html>
-'''
+"""
 
 
-@app.route('/')
+@app.route("/")
 def index():
     data = get_dashboard_data()
-    return render_template_string(UNIFIED_TEMPLATE, 
-                                  data=data, 
-                                  now=datetime.now().strftime('%d/%m/%Y %H:%M'))
+    return render_template_string(
+        UNIFIED_TEMPLATE, data=data, now=datetime.now().strftime("%d/%m/%Y %H:%M")
+    )
 
 
 # ============ API Endpoints ============
 
-@app.route('/api/approve-proposal', methods=['POST'])
+
+@app.route("/api/approve-proposal", methods=["POST"])
 def approve_proposal():
     try:
         data = request.json
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute(
+            """
             UPDATE propostas_ia 
             SET status = 'aprovado', reviewed_at = CURRENT_TIMESTAMP
             WHERE id = ?
-        ''', (data['id'],))
+        """,
+            (data["id"],),
+        )
         conn.commit()
         conn.close()
-        return jsonify({'success': True})
+        return jsonify({"success": True})
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-@app.route('/api/reject-proposal', methods=['POST'])
+@app.route("/api/reject-proposal", methods=["POST"])
 def reject_proposal():
     try:
         data = request.json
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute(
+            """
             UPDATE propostas_ia 
             SET status = 'rejeitado', reviewed_at = CURRENT_TIMESTAMP
             WHERE id = ?
-        ''', (data['id'],))
+        """,
+            (data["id"],),
+        )
         conn.commit()
         conn.close()
-        return jsonify({'success': True})
+        return jsonify({"success": True})
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-@app.route('/api/approve-all-proposals', methods=['POST'])
+@app.route("/api/approve-all-proposals", methods=["POST"])
 def approve_all_proposals():
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute("""
             UPDATE propostas_ia 
             SET status = 'aprovado', reviewed_at = CURRENT_TIMESTAMP
             WHERE status = 'pendente'
-        ''')
+        """)
         count = cursor.rowcount
         conn.commit()
         conn.close()
-        return jsonify({'success': True, 'count': count})
+        return jsonify({"success": True, "count": count})
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-@app.route('/api/sync-price', methods=['POST'])
+@app.route("/api/sync-price", methods=["POST"])
 def sync_price():
     try:
         data = request.json
         client = BlingClient()
-        client.put_produtos_id_produto(str(data['id']), {'preco': float(data['price'])})
-        return jsonify({'success': True})
+        client.put_produtos_id_produto(str(data["id"]), {"preco": float(data["price"])})
+        return jsonify({"success": True})
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-@app.route('/api/sync-ean', methods=['POST'])
+@app.route("/api/sync-ean", methods=["POST"])
 def sync_ean():
     try:
         data = request.json
         client = BlingClient()
-        client.put_produtos_id_produto(str(data['id']), {'gtin': data['ean']})
-        return jsonify({'success': True})
+        client.put_produtos_id_produto(str(data["id"]), {"gtin": data["ean"]})
+        return jsonify({"success": True})
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-@app.route('/api/sync-all-prices', methods=['POST'])
+@app.route("/api/sync-all-prices", methods=["POST"])
 def sync_all_prices():
     try:
         adjuster = PriceAdjuster()
         recs = adjuster.analisar_todos()
-        recs = [r for r in recs if r.acao.name != 'MAINTAIN']
-        
+        recs = [r for r in recs if r.acao.name != "MAINTAIN"]
+
         client = BlingClient()
         success = 0
         errors = 0
-        
+
         for r in recs:
             try:
-                client.put_produtos_id_produto(str(r.id_produto), {'preco': float(r.preco_sugerido)})
+                client.put_produtos_id_produto(
+                    str(r.id_produto), {"preco": float(r.preco_sugerido)}
+                )
                 success += 1
             except Exception as e:
                 _logger.error(f"Failed to sync price for product {r.id_produto}: {e}")
                 errors += 1
-        
-        return jsonify({'success': True, 'success_count': success, 'error_count': errors})
+
+        return jsonify(
+            {"success": True, "success_count": success, "error_count": errors}
+        )
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-@app.route('/api/sync-all-eans', methods=['POST'])
+@app.route("/api/sync-all-eans", methods=["POST"])
 def sync_all_eans():
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute("""
             SELECT id_bling, gtin FROM produtos 
             WHERE situacao = 'A' AND gtin IS NOT NULL AND gtin != ''
-        ''')
+        """)
         eans = cursor.fetchall()
         conn.close()
-        
+
         client = BlingClient()
         success = 0
         errors = 0
-        
+
         for e in eans:
             try:
-                client.put_produtos_id_produto(str(e[0]), {'gtin': e[1]})
+                client.put_produtos_id_produto(str(e[0]), {"gtin": e[1]})
                 success += 1
             except Exception as err:
                 _logger.error(f"Failed to sync EAN for product {e[0]}: {err}")
                 errors += 1
-        
-        return jsonify({'success': True, 'success_count': success, 'error_count': errors})
+
+        return jsonify(
+            {"success": True, "success_count": success, "error_count": errors}
+        )
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)})
+        return jsonify({"success": False, "error": str(e)})
 
 
-if __name__ == '__main__':
+# ============ Smart Pricing API Endpoints ============
+
+
+@app.route("/api/smart-pricing/approve", methods=["POST"])
+def smart_pricing_approve():
+    try:
+        data = request.json
+        db = VaultDB()
+        db.aprovar_proposta_preco(data["id"])
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/smart-pricing/reject", methods=["POST"])
+def smart_pricing_reject():
+    try:
+        data = request.json
+        db = VaultDB()
+        db.rejeitar_proposta_preco(data["id"])
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/smart-pricing/approve-all", methods=["POST"])
+def smart_pricing_approve_all():
+    try:
+        db = VaultDB()
+        count = db.aprovar_todas_propostas_preco()
+        return jsonify({"success": True, "count": count})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/smart-pricing/apply", methods=["POST"])
+def smart_pricing_apply():
+    try:
+        from smart_pricing import SmartPricingPipeline
+
+        pipeline = SmartPricingPipeline()
+        result = pipeline.apply_approved(sync_bling=True, sync_woo=True)
+        return jsonify(
+            {
+                "success": True,
+                "success_count": result["success_count"],
+                "error_count": result["error_count"],
+                "total": result["total"],
+            }
+        )
+    except Exception as e:
+        _logger.error(f"Smart pricing apply error: {e}")
+        return jsonify({"success": False, "error": str(e)})
+
+
+@app.route("/api/smart-pricing/generate", methods=["POST"])
+def smart_pricing_generate():
+    try:
+        from smart_pricing import SmartPricingPipeline
+
+        pipeline = SmartPricingPipeline()
+        proposals = pipeline.generate_proposals(use_gemini=True)
+        aumentos = len([p for p in proposals if p.get("acao") == "increase"])
+        reducoes = len([p for p in proposals if p.get("acao") == "decrease"])
+        return jsonify(
+            {
+                "success": True,
+                "total": len(proposals),
+                "aumentos": aumentos,
+                "reducoes": reducoes,
+            }
+        )
+    except Exception as e:
+        _logger.error(f"Smart pricing generate error: {e}")
+        return jsonify({"success": False, "error": str(e)})
+
+
+if __name__ == "__main__":
     _logger.logger.info("Starting NRAIZES Dashboard on http://localhost:5000")
     print("Starting NRAIZES Dashboard...")
     print("Access: http://localhost:5000")
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False)

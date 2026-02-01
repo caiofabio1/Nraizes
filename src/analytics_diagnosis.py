@@ -91,27 +91,39 @@ def diagnose_store():
         ghost_revenue = df_ghost['purchaseRevenue'].sum() # Should be 0 based on filter, but let's see
         
         print(f"   📉 Tráfego Total: {int(total_users):,} usuários")
-        print(f"   👻 Tráfego Fantasma (Bots): {int(ghost_users):,} ({ghost_users/total_users:.1%})")
+        print(f"   👻 Tráfego Fantasma (Bots/Atribuição Errada): {int(ghost_users):,} ({ghost_users/total_users:.1%})")
         print(f"   ✅ Tráfego REAL (Clientes): {int(real_users):,} ({real_users/total_users:.1%})")
         
         print(f"\n   💰 Receita Real: R$ {real_revenue:,.2f}")
         if real_users > 0:
-            real_conversion = (df_real['transactions'].sum() / df_real['sessions'].sum()) * 100
+            # We use sessions for conversion rate as it's more accurate for e-commerce benchmarks
+            total_real_sessions = df_real['sessions'].sum()
+            total_real_transactions = df_real['transactions'].sum()
+            real_conversion = (total_real_transactions / total_real_sessions) * 100 if total_real_sessions > 0 else 0
             print(f"   🛒 Taxa de Conversão REAL: {real_conversion:.2f}% (Média e-commerce: 1.5% - 3.0%)")
+            print(f"   📦 Pedidos Reais: {int(total_real_transactions)}")
         
         print("-" * 60)
+        
+        # ⚠️ ALERTA DE ESTRATÉGIA
+        if ghost_users > total_users * 0.5:
+            print("\n⚠️ ALERTA: Mais de 50% do seu tráfego é 'Fantasma' ou 'Direto sem conversão'.")
+            print("   Isso geralmente indica:")
+            print("   1. Erro de configuração no GTM4WP (o evento de página dispara antes do consentimento).")
+            print("   2. Tráfego de bots massivos no servidor.")
+            print("   3. Falta de filtros de IP interno.")
         
         # 2. ORIGEM DO DINHEIRO (Real Only)
         print("\n💎 2. De onde vem o dinheiro? (Top Fontes Reais)")
         df_sources_real = df_real.groupby('sessionSourceMedium')[['activeUsers', 'purchaseRevenue', 'transactions']].sum().reset_index()
         df_sources_real = df_sources_real.sort_values('purchaseRevenue', ascending=False).head(8)
         
-        # Add ROI approximation (Transaction Value / User)
+        # Add Value per User
         df_sources_real['R$/User'] = df_sources_real['purchaseRevenue'] / df_sources_real['activeUsers']
         
-        print(tabulate(df_sources_real, headers=['Fonte', 'Usuários', 'Receita (R$)', 'Pedidos', 'Ticket/User'], tablefmt='simple', floatfmt=".2f", showindex=False))
+        print(tabulate(df_sources_real, headers=['Fonte', 'Usuários', 'Receita (R$)', 'Pedidos', 'Ticket/User'], tablefmt='pretty', floatfmt=".2f", showindex=False))
 
-    print("\n✅ Relatório Gerado com Sucesso.")
+    print("\n✅ Relatório Gerado com Sucesso em: diagnostic_results.txt")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
