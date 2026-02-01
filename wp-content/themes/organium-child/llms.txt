@@ -1,0 +1,47 @@
+# Novas Raizes - nraizes.com.br
+
+> Novas Raizes e uma loja brasileira especializada em produtos naturais, suplementos alimentares, formulas da Medicina Tradicional Chinesa (MTC), oleos essenciais, plantas medicinais e cosmeticos naturais, localizada em Ribeirao Preto, SP, Brasil.
+
+## Guia de Produtos Naturais e Suplementos
+
+A base de dados de consulta da Novas Raizes contem informacoes cientificas sobre mais de 170 produtos naturais, organizados nas seguintes categorias:
+
+### Formulas da Medicina Tradicional Chinesa (MTC)
+Formulas classicas como Liu Wei Dihuang Wan (tonificacao Yin Renal), Xiao Yao Wan (estagnacao Qi Hepatico), Gui Pi Wan (deficiencia Baco-Coracao), Ba Zhen Wan (deficiencia Qi e Sangue), Guizhi Fuling Wan (miomas uterinos), Yupingfeng Jiaonang (imunidade), entre outras. Cada formula inclui indicacao MTC, dosagem usual, aplicacoes clinicas baseadas em evidencias e referencias cientificas (PubMed/Cochrane).
+
+### Suplementos Alimentares
+Informacoes baseadas em evidencias sobre Vitamina D3, Vitamina B12 (Metilcobalamina), Omega-3 (EPA/DHA), Coenzima Q10, Magnesio, Zinco, Ashwagandha, Melatonina, Probioticos, Curcuma, Spirulina, Clorella, Colageno Hidrolisado e Astaxantina. Cada suplemento inclui dosagem recomendada, contraindicacoes, interacoes medicamentosas, efeitos colaterais e referencias cientificas.
+
+### Plantas Medicinais e Chas
+Alcachofra, Camomila, Gengibre, Cha de Amora, Cha de Alcacuz, e diversas outras plantas com informacoes de uso, beneficios e precaucoes.
+
+### Oleos Essenciais
+Alecrim QT Canfora, Bergamota, Lavanda e outros oleos essenciais com dosagem para difusao e uso topico, contraindicacoes e referencias cientificas.
+
+### Cosmeticos Naturais
+Linha de cosmeticos naturais com informacoes sobre ingredientes, modo de uso e beneficios.
+
+## Informacoes Disponiveis por Produto
+- Nome do produto e nome chines (para formulas MTC)
+- Categoria e nivel de evidencia cientifica (Alta, Moderada, Baixa)
+- Dosagem recomendada e modo de uso
+- Indicacao na Medicina Tradicional Chinesa (quando aplicavel)
+- Aplicacoes clinicas baseadas em evidencias
+- Beneficios comprovados
+- Contraindicacoes
+- Interacoes medicamentosas
+- Efeitos colaterais
+- Alertas de seguranca (gravidez, lactacao, criancas)
+- Ingredientes e principios ativos
+- Armazenamento e origem
+- Certificacoes (organico, vegano, etc.)
+- Referencias cientificas com links para PubMed e DOI
+- Resumo de evidencias cientificas
+- Perguntas frequentes (FAQ) com respostas baseadas em evidencias
+
+## Contato
+- Site: https://nraizes.com.br
+- Localizacao: Ribeirao Preto, SP, Brasil
+
+## Aviso Legal
+As informacoes contidas nesta base de dados tem carater estritamente educativo e informativo. Nao substituem o aconselhamento medico profissional. Consulte sempre um profissional de saude qualificado antes de iniciar qualquer tratamento ou suplementacao.

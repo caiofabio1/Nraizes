@@ -34,6 +34,9 @@ require_once get_stylesheet_directory() . '/inc/cro.php';
 // Analytics: Implementação unificada para corrigir problema de atribuição
 require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
 
+// Consulta de Produtos (GEO-optimized) - Shortcode [nraizes_consulta]
+require_once get_stylesheet_directory() . '/inc/consulta-produtos.php';
+
 // ============================================
 // Adicione suas customizações abaixo
 // ============================================
