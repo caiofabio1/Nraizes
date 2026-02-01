@@ -23,18 +23,93 @@
 /* Reduzir tamanho do título do produto */
 .single-product .product_title,
 .single-product h1.product_title {
-    font-size: 1.8rem !important;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
+  font-size: 1.8rem !important;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
 }
 
 /* Esconder título duplicado (segundo H1 na página) */
-.single-product .summary h1.product_title~h1 {
-    display: none !important;
+.single-product .summary h1.product_title ~ h1 {
+  display: none !important;
 }
 
 /* Se houver outro elemento de título duplicado */
-.single-product .entry-title+.product_title,
-.single-product .product_title+.entry-title {
-    display: none !important;
+.single-product .entry-title + .product_title,
+.single-product .product_title + .entry-title {
+  display: none !important;
+}
+
+/* ============================================
+   MELHORIAS MOBILE (NRAIZES) - 2026-01-19
+   ============================================ */
+
+@media (max-width: 767px) {
+  /* 1. Grade de Produtos: 2 por linha */
+  ul.products.columns-3,
+  ul.products,
+  .woocommerce ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  ul.products li.product,
+  .woocommerce ul.products li.product {
+    width: 100% !important;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* 2. Carrinho Responsivo (Estilo Card) */
+  .woocommerce table.shop_table_responsive tr {
+    display: block;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .woocommerce table.shop_table_responsive td {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .woocommerce table.shop_table_responsive td::before {
+    content: attr(data-title);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  .woocommerce table.shop_table_responsive thead {
+    display: none;
+  }
+
+  /* 3. WhatsApp Button - Ajuste de Posição */
+  a.qlwapp__button {
+    bottom: 90px !important; /* Evita sobrepor footer */
+    right: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+    z-index: 999 !important;
+  }
+
+  /* 4. Header Otimizado */
+  header.organium_header {
+    min-height: auto !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* 5. Botões de Ação Maiores */
+  .single_add_to_cart_button,
+  button.button.alt {
+    min-height: 50px !important;
+    font-size: 16px !important;
+  }
 }

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bling Multi-Store Sync Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --accent: #e94560;
+            --accent-soft: #ff6b8a;
+            --success: #00d9a5;
+            --warning: #ffc857;
+            --woo-purple: #7f54b3;
+            --text: #edf2f7;
+            --text-muted: #a0aec0;
+            --border: #2d3748;
+        }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg-primary); color: var(--text); min-height: 100vh; }
+        .header { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card)); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 1.5rem; background: linear-gradient(90deg, var(--accent), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .status-cards { display: flex; gap: 1rem; }
+        .status-card { background: var(--bg-card); padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; }
+        .status-card .value { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .status-card .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        .status-card.woo .value { color: var(--woo-purple); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .tab { padding: 0.75rem 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px 8px 0 0; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+        .tab:hover, .tab.active { background: var(--bg-card); color: var(--text); border-color: var(--accent); }
+        .filters { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-group { display: flex; flex-direction: column; gap: 0.25rem; }
+        .filter-group label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        select, input[type="text"] { padding: 0.5rem 1rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text); min-width: 200px; }
+        select:focus, input:focus { outline: none; border-color: var(--accent); }
+        .btn { padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: var(--accent-soft); }
+        .btn-success { background: var(--success); color: var(--bg-primary); }
+        .btn-warning { background: var(--warning); color: var(--bg-primary); }
+        .btn-danger { background: #e53e3e; color: white; }
+        .btn-woo { background: var(--woo-purple); color: white; }
+        table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); }
+        tr:hover { background: rgba(233, 69, 96, 0.05); }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+        .badge-synced { background: rgba(0, 217, 165, 0.2); color: var(--success); }
+        .badge-not-synced { background: rgba(233, 69, 96, 0.2); color: var(--accent); }
+        .badge-woo { background: rgba(127, 84, 179, 0.3); color: var(--woo-purple); }
+        .badge-duplicate { background: rgba(233, 69, 96, 0.3); color: #ff8fa3; }
+        .badge-keep { background: rgba(0, 217, 165, 0.3); color: var(--success); border: 2px solid var(--success); }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; overflow-y: auto; padding: 2rem; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--bg-card); border-radius: 12px; padding: 2rem; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; }
+        .modal h2 { margin-bottom: 1.5rem; color: var(--accent); }
+        .product-select { margin: 1rem 0; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: all 0.2s; }
+        .product-select:hover { border-color: var(--border); }
+        .product-select.selected { border-color: var(--success); background: rgba(0, 217, 165, 0.1); }
+        .product-select .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .product-info { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem; }
+        .product-info span { color: var(--text-muted); }
+        .sku-input { margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; }
+        .sku-input label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); }
+        .sku-input input { width: 100%; padding: 0.75rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 1rem; }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; }
+        .loading { text-align: center; padding: 3rem; color: var(--text-muted); }
+        .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .empty-state { text-align: center; padding: 3rem; color: var(--text-muted); }
+        .duplicate-group { background: var(--bg-card); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; border: 1px solid var(--accent); }
+        .duplicate-group-header { background: rgba(233, 69, 96, 0.1); padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .duplicate-group-header h4 { font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .woo-icon { width: 18px; height: 18px; background: var(--woo-purple); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; color: white; }
+        .recommended { color: var(--success); font-size: 0.75rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🔄 Bling + WooCommerce Sync Dashboard</h1>
+        <div class="status-cards" id="statusCards">
+            <div class="status-card">
+                <div class="value" id="totalProdutos">-</div>
+                <div class="label">Produtos</div>
+            </div>
+            <div class="status-card">
+                <div class="value" id="totalLojas">-</div>
+                <div class="label">Lojas</div>
+            </div>
+            <div class="status-card woo">
+                <div class="value" id="totalWoo">-</div>
+                <div class="label">WooCommerce</div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" data-tab="produtos">📦 Produtos</div>
+            <div class="tab" data-tab="duplicados">⚠️ Duplicados</div>
+        </div>
+        
+        <div id="produtosTab">
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Buscar</label>
+                    <input type="text" id="filterSearch" placeholder="Nome ou SKU...">
+                </div>
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-primary" onclick="loadProdutos()">🔍 Filtrar</button>
+                </div>
+            </div>
+            <div id="produtosContent"><div class="loading"><div class="spinner"></div>Carregando...</div></div>
+        </div>
+        
+        <div id="duplicadosTab" style="display: none;">
+            <div style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center;">
+                <button class="btn btn-primary" onclick="loadDuplicados()">🔄 Atualizar</button>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">
+                    <span class="woo-icon">W</span> = Sincronizado com WooCommerce (prioridade para manter)
+                </span>
+            </div>
+            <div id="duplicadosContent"><div class="loading"><div class="spinner"></div>Buscando duplicados...</div></div>
+        </div>
+    </div>
+    
+    <!-- Merge Modal -->
+    <div class="modal-overlay" id="mergeModal">
+        <div class="modal">
+            <h2>🔀 Resolver Duplicados</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Selecione qual produto MANTER. Os outros serão inativados.</p>
+            
+            <div id="productOptions"></div>
+            
+            <div class="sku-input">
+                <label>📝 Escolha qual SKU usar para o produto final:</label>
+                <div id="skuOptions" style="margin: 0.5rem 0;"></div>
+                <div style="margin-top: 0.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                        <input type="radio" name="skuChoice" value="custom" onchange="toggleCustomSku(true)">
+                        <span>Digitar SKU personalizado:</span>
+                    </label>
+                    <input type="text" id="newSkuInput" placeholder="Digite o SKU personalizado..." style="margin-top: 0.5rem;" disabled>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn" onclick="closeMergeModal()">Cancelar</button>
+                <button class="btn btn-danger" id="confirmMergeBtn" onclick="executeMerge()">
+                    ⚠️ Confirmar Merge
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = '';
+        let currentMergeData = null;
+        let selectedKeepId = null;
+        
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const tabName = tab.dataset.tab;
+                document.getElementById('produtosTab').style.display = tabName === 'produtos' ? 'block' : 'none';
+                document.getElementById('duplicadosTab').style.display = tabName === 'duplicados' ? 'block' : 'none';
+                if (tabName === 'duplicados') loadDuplicados();
+            });
+        });
+        
+        async function loadStatus() {
+            try {
+                const res = await fetch(`${API_BASE}/api/status`);
+                const data = await res.json();
+                if (data.success) {
+                    document.getElementById('totalProdutos').textContent = data.status.produtos_ativos || '-';
+                    document.getElementById('totalLojas').textContent = data.status.lojas_configuradas || '-';
+                    document.getElementById('totalWoo').textContent = data.status.woo_synced_sample || '~';
+                }
+            } catch (e) { console.error('Error loading status:', e); }
+        }
+        
+        async function loadProdutos() {
+            const container = document.getElementById('produtosContent');
+            container.innerHTML = '<div class="loading"><div class="spinner"></div>Carregando...</div>';
+            try {
+                const search = document.getElementById('filterSearch').value;
+                const params = new URLSearchParams();
+                if (search) params.append('search', search);
+                
+                const res = await fetch(`${API_BASE}/api/produtos?${params}`);
+                const data = await res.json();
+                
+                if (data.success && data.data.length > 0) {
+                    container.innerHTML = `
+                        <table>
+                            <thead><tr><th>ID</th><th>Nome</th><th>SKU</th><th>Preço</th><th>Status</th></tr></thead>
+                            <tbody>
+                                ${data.data.map(p => `
+                                    <tr>
+                                        <td>${p.id}</td>
+                                        <td>${p.nome}</td>
+                                        <td>${p.codigo || '-'}</td>
+                                        <td>R$ ${(p.preco || 0).toFixed(2)}</td>
+                                        <td>
+                                            ${p.woo_synced ? '<span class="badge badge-woo">🛒 WooCommerce</span>' : ''}
+                                            ${p.loja_count > 0 ? `<span class="badge badge-synced">${p.loja_count} loja(s)</span>` : '<span class="badge badge-not-synced">Sem vínculo</span>'}
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>`;
+                } else {
+                    container.innerHTML = '<div class="empty-state">Nenhum produto encontrado</div>';
+                }
+            } catch (e) { container.innerHTML = `<div class="empty-state">Erro: ${e.message}</div>`; }
+        }
+        
+        async function loadDuplicados() {
+            const container = document.getElementById('duplicadosContent');
+            container.innerHTML = '<div class="loading"><div class="spinner"></div>Buscando duplicados (verificando WooCommerce)...</div>';
+            try {
+                const res = await fetch(`${API_BASE}/api/duplicados`);
+                const data = await res.json();
+                
+                if (data.success && data.data.length > 0) {
+                    container.innerHTML = data.data.map(group => `
+                        <div class="duplicate-group">
+                            <div class="duplicate-group-header">
+                                <h4>
+                                    <span class="badge badge-duplicate">${group.type.toUpperCase()}</span>
+                                    ${group.key}
+                                    ${group.products.some(p => p.woo_synced) ? '<span class="woo-icon">W</span>' : ''}
+                                </h4>
+                                <button class="btn btn-warning" onclick='openMergeModal(${JSON.stringify(group)})'>🔀 Resolver</button>
+                            </div>
+                            <table>
+                                <thead><tr><th>ID</th><th>Nome</th><th>SKU</th><th>Preço</th><th>Status</th></tr></thead>
+                                <tbody>
+                                    ${group.products.map((p, i) => `
+                                        <tr style="${p.id === group.recommended_keep ? 'background: rgba(0,217,165,0.1);' : ''}">
+                                            <td>${p.id} ${p.id === group.recommended_keep ? '<span class="recommended">★ RECOMENDADO</span>' : ''}</td>
+                                            <td>${p.nome}</td>
+                                            <td>${p.codigo || '<span style="color:var(--warning)">SEM SKU</span>'}</td>
+                                            <td>R$ ${(p.preco || 0).toFixed(2)}</td>
+                                            <td>${p.woo_synced ? '<span class="badge badge-woo">🛒 WooCommerce</span>' : '<span style="color:var(--text-muted)">-</span>'}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = '<div class="empty-state">✅ Nenhum duplicado encontrado!</div>';
+                }
+            } catch (e) { container.innerHTML = `<div class="empty-state">Erro: ${e.message}</div>`; }
+        }
+        
+        function openMergeModal(group) {
+            currentMergeData = group;
+            selectedKeepId = group.recommended_keep;
+            
+            const optionsHtml = group.products.map(p => `
+                <div class="product-select ${p.id === selectedKeepId ? 'selected' : ''}" onclick="selectProduct(${p.id})" data-id="${p.id}">
+                    <div class="header-row">
+                        <strong>ID: ${p.id}</strong>
+                        <div>
+                            ${p.woo_synced ? '<span class="badge badge-woo">🛒 WooCommerce</span>' : ''}
+                            ${p.id === group.recommended_keep ? '<span class="badge badge-keep">★ RECOMENDADO</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div><span>Nome:</span> ${p.nome}</div>
+                        <div><span>SKU:</span> ${p.codigo || '<em style="color:var(--warning)">Sem SKU</em>'}</div>
+                        <div><span>Preço:</span> R$ ${(p.preco || 0).toFixed(2)}</div>
+                        <div><span>Situação:</span> ${p.situacao === 'A' ? 'Ativo' : 'Inativo'}</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('productOptions').innerHTML = optionsHtml;
+            
+            // Generate SKU radio options from products that have SKUs
+            updateSkuOptions(group.products, selectedKeepId);
+            
+            document.getElementById('mergeModal').classList.add('active');
+        }
+        
+        function updateSkuOptions(products, selectedId) {
+            const skusMap = new Map();
+            products.forEach(p => {
+                if (p.codigo && p.codigo.trim()) {
+                    skusMap.set(p.codigo, { sku: p.codigo, productId: p.id, isSelected: p.id === selectedId });
+                }
+            });
+            
+            const skuOptionsHtml = Array.from(skusMap.values()).map((item, idx) => `
+                <label style="display: flex; align-items: center; gap: 0.5rem; margin: 0.25rem 0; cursor: pointer; padding: 0.5rem; border-radius: 6px; background: ${item.isSelected ? 'rgba(0,217,165,0.1)' : 'transparent'};">
+                    <input type="radio" name="skuChoice" value="${item.sku}" ${item.isSelected || idx === 0 ? 'checked' : ''} onchange="toggleCustomSku(false)">
+                    <code style="background: var(--bg-primary); padding: 0.25rem 0.5rem; border-radius: 4px;">${item.sku}</code>
+                    <span style="color: var(--text-muted); font-size: 0.85rem;">(de ID ${item.productId})</span>
+                </label>
+            `).join('');
+            
+            document.getElementById('skuOptions').innerHTML = skusMap.size > 0 
+                ? skuOptionsHtml 
+                : '<span style="color: var(--warning);">⚠️ Nenhum produto tem SKU definido</span>';
+            
+            document.getElementById('newSkuInput').disabled = true;
+            document.getElementById('newSkuInput').value = '';
+        }
+        
+        function toggleCustomSku(enable) {
+            const input = document.getElementById('newSkuInput');
+            input.disabled = !enable;
+            if (enable) {
+                input.focus();
+            }
+        }
+        
+        function selectProduct(id) {
+            selectedKeepId = id;
+            document.querySelectorAll('.product-select').forEach(el => {
+                el.classList.toggle('selected', parseInt(el.dataset.id) === id);
+            });
+            
+            // Update SKU radio options to highlight the selected product's SKU
+            updateSkuOptions(currentMergeData.products, id);
+        }
+        
+        function closeMergeModal() {
+            document.getElementById('mergeModal').classList.remove('active');
+            currentMergeData = null;
+            selectedKeepId = null;
+        }
+        
+        async function executeMerge() {
+            if (!currentMergeData || !selectedKeepId) return;
+            
+            const removeIds = currentMergeData.products.filter(p => p.id !== selectedKeepId).map(p => p.id);
+            
+            // Get SKU from radio selection or custom input
+            const selectedRadio = document.querySelector('input[name="skuChoice"]:checked');
+            let newSku = '';
+            if (selectedRadio) {
+                if (selectedRadio.value === 'custom') {
+                    newSku = document.getElementById('newSkuInput').value.trim();
+                } else {
+                    newSku = selectedRadio.value;
+                }
+            }
+            
+            const keepProd = currentMergeData.products.find(p => p.id === selectedKeepId);
+            const msg = `CONFIRMAR MERGE:\n\n` +
+                `✓ MANTER: ID ${selectedKeepId} - ${keepProd.nome}\n` +
+                `${newSku ? `📝 SKU: ${newSku}\n` : ''}` +
+                `✗ INATIVAR: ${removeIds.length} produto(s)\n\n` +
+                `Tem certeza?`;
+            
+            if (!confirm(msg)) return;
+            
+            try {
+                const res = await fetch(`${API_BASE}/api/merge/execute`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        keep_id: selectedKeepId,
+                        remove_ids: removeIds,
+                        new_sku: newSku || null,
+                        confirm: true
+                    })
+                });
+                
+                const data = await res.json();
+                if (data.success) {
+                    alert(`✅ ${data.message}`);
+                    closeMergeModal();
+                    loadDuplicados();
+                    loadStatus();
+                } else {
+                    alert(`❌ Erro: ${data.error}`);
+                }
+            } catch (e) { alert(`❌ Erro: ${e.message}`); }
+        }
+        
+        loadStatus();
+        loadProdutos();
+    </script>
+</body>
+</html>

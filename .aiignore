@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+vendor
+.pnpm-store
+.npm
+venv
+.venv
+__pycache__
+
+# Build outputs
+dist
+build
+out
+
+# Version Control
+.git
+
+# Environment & Secrets
+.env
+*.pem
+
+# Logs
+logs
+*.log
+
+# IDE & System
+.vscode
+.DS_Store

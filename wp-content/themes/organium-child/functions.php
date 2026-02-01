@@ -31,8 +31,8 @@ require_once get_stylesheet_directory() . '/inc/seo.php';
 require_once get_stylesheet_directory() . '/inc/checkout.php';
 require_once get_stylesheet_directory() . '/inc/cro.php';
 
-// Analytics: DESABILITADO - usando GTM4WP para tracking
-// require_once get_stylesheet_directory() . '/inc/analytics.php';
+// Analytics: Implementação unificada para corrigir problema de atribuição
+require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
 
 // ============================================
 // Adicione suas customizações abaixo
