@@ -573,13 +573,28 @@ blockquote.nrc-evidence-block {
     margin: 0;
     overflow: visible;
     position: relative;
+    quotes: none !important;
 }
 
-/* Remove theme decorative quotes on evidence blockquotes */
+/* Remove theme decorative quotes on all blockquotes inside nrc-container */
+.nrc-container blockquote::before,
+.nrc-container blockquote::after,
+.nrc-container blockquote q::before,
+.nrc-container blockquote q::after,
+#nraizes-consulta blockquote::before,
+#nraizes-consulta blockquote::after,
+blockquote.nrc-text-block::before,
+blockquote.nrc-text-block::after,
 blockquote.nrc-evidence-block::before,
 blockquote.nrc-evidence-block::after {
     display: none !important;
     content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
 
 /* References (<ol> with <cite>) */
