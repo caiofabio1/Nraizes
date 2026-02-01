@@ -947,6 +947,113 @@ def expand_scientific_data():
     return expanded + plants
 
 
+def sanitize_legal_terms(text):
+    """Replace profession-specific terms with ANVISA-compliant language.
+
+    Per Brazilian regulations, we use 'profissional de saúde habilitado'
+    instead of listing specific professions.
+    """
+    if not text or not isinstance(text, str):
+        return text
+
+    replacements = [
+        # Specific profession combinations
+        ("médico ou nutricionista", "profissional de saúde habilitado"),
+        ("médico ou farmacêutico", "profissional de saúde habilitado"),
+        ("médico, nutricionista ou farmacêutico", "profissional de saúde habilitado"),
+        ("nutricionista ou médico", "profissional de saúde habilitado"),
+        ("farmacêutico ou médico", "profissional de saúde habilitado"),
+        # "Consulte um/seu médico" patterns
+        ("Consulte um médico", "Consulte um profissional de saúde habilitado"),
+        ("consulte um médico", "consulte um profissional de saúde habilitado"),
+        ("Consulte seu médico", "Consulte um profissional de saúde habilitado"),
+        ("consulte seu médico", "consulte um profissional de saúde habilitado"),
+        ("Consultar médico", "Consultar profissional de saúde habilitado"),
+        ("consultar médico", "consultar profissional de saúde habilitado"),
+        ("consulte o médico", "consulte um profissional de saúde habilitado"),
+        ("Consulte o médico", "Consulte um profissional de saúde habilitado"),
+        # "orientação/acompanhamento/supervisão médica" patterns
+        ("orientação médica", "orientação de profissional de saúde habilitado"),
+        ("acompanhamento médico", "acompanhamento de profissional de saúde habilitado"),
+        ("supervisão médica", "supervisão de profissional de saúde habilitado"),
+        ("prescrição médica", "prescrição de profissional de saúde habilitado"),
+        ("orientação de um médico", "orientação de profissional de saúde habilitado"),
+        # Standalone references
+        ("sob orientação médica", "sob orientação de profissional de saúde habilitado"),
+        ("um nutricionista", "um profissional de saúde habilitado"),
+        ("o nutricionista", "o profissional de saúde habilitado"),
+        ("um farmacêutico", "um profissional de saúde habilitado"),
+        ("o farmacêutico", "o profissional de saúde habilitado"),
+        # "Não substituem tratamento médico"
+        ("tratamento médico", "tratamento com profissional de saúde habilitado"),
+        # Additional patterns found in knowledge base data
+        ("consultar o médico", "consultar profissional de saúde habilitado"),
+        ("consultar um médico", "consultar profissional de saúde habilitado"),
+        ("Consultar um médico", "Consultar profissional de saúde habilitado"),
+        ("um médico antes", "profissional de saúde habilitado antes"),
+        ("um médico devido", "profissional de saúde habilitado devido"),
+        ("um médico ou", "profissional de saúde habilitado ou"),
+        ("o médico antes", "profissional de saúde habilitado antes"),
+        ("o médico devido", "profissional de saúde habilitado devido"),
+        ("ao médico", "a profissional de saúde habilitado"),
+        ("por médico", "por profissional de saúde habilitado"),
+        ("seu médico", "profissional de saúde habilitado"),
+        ("condições médicas", "condições de saúde"),
+        ("consulta médica", "consulta com profissional de saúde habilitado"),
+        ("ou médico", "ou profissional de saúde habilitado"),
+        ("tratamentos médicos", "tratamentos com profissional de saúde habilitado"),
+        ("aconselhamento médico", "aconselhamento de profissional de saúde habilitado"),
+        # Cleanup: patterns that result from partial replacements
+        (
+            "profissional de saúde habilitado ou de nutricionista",
+            "profissional de saúde habilitado",
+        ),
+        (
+            "profissional de saúde habilitado ou nutricionista",
+            "profissional de saúde habilitado",
+        ),
+        ("pediatra ou nutricionista", "profissional de saúde habilitado"),
+        (
+            "orientação de nutricionista",
+            "orientação de profissional de saúde habilitado",
+        ),
+        ("consulte seu nutricionista", "consulte profissional de saúde habilitado"),
+        ("um nutricionista", "profissional de saúde habilitado"),
+        ("de nutricionista", "de profissional de saúde habilitado"),
+    ]
+
+    for old, new in replacements:
+        text = text.replace(old, new)
+
+    return text
+
+
+def sanitize_product(product):
+    """Apply legal term sanitization to all string fields of a product."""
+    sanitized = {}
+    for key, value in product.items():
+        if isinstance(value, str):
+            sanitized[key] = sanitize_legal_terms(value)
+        elif isinstance(value, list):
+            sanitized[key] = [
+                sanitize_legal_terms(item)
+                if isinstance(item, str)
+                else (sanitize_faq(item) if isinstance(item, dict) else item)
+                for item in value
+            ]
+        else:
+            sanitized[key] = value
+    return sanitized
+
+
+def sanitize_faq(faq_item):
+    """Sanitize FAQ dict entries."""
+    return {
+        k: sanitize_legal_terms(v) if isinstance(v, str) else v
+        for k, v in faq_item.items()
+    }
+
+
 def merge_and_export():
     """Merge all data sources and export."""
     print("Loading knowledge base from SQLite...")
@@ -973,6 +1080,10 @@ def merge_and_export():
             seen[norm] = True
             final.append(p)
 
+    # Sanitize legal terms (ANVISA compliance)
+    print("Sanitizing legal terminology (ANVISA compliance)...")
+    final = [sanitize_product(p) for p in final]
+
     # Sort by category then name
     cat_order = {
         "formula_mtc": 0,
@@ -996,11 +1107,11 @@ def merge_and_export():
         categories[cat] = categories.get(cat, 0) + 1
 
     output = {
-        "versao": "2.0",
+        "versao": "2.1",
         "atualizado_em": datetime.now().strftime("%Y-%m-%d"),
         "total_produtos": len(final),
         "categorias": categories,
-        "aviso_legal": "As informações aqui contidas têm caráter estritamente educativo e informativo. Não substituem o aconselhamento médico profissional. Consulte sempre um profissional de saúde qualificado antes de iniciar qualquer tratamento ou suplementação.",
+        "aviso_legal": "As informações aqui contidas têm caráter estritamente educativo e informativo, nos termos da legislação brasileira (RDC 243/2018, IN 28/2018). Não substituem o aconselhamento de profissional de saúde habilitado. Consulte sempre um profissional de saúde habilitado antes de iniciar qualquer suplementação.",
         "produtos": final,
     }
 

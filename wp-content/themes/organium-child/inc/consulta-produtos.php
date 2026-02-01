@@ -432,9 +432,10 @@ function nraizes_consulta_shortcode($atts) {
                 Guia de Produtos Naturais e Suplementos
             </h1>
             <p class="nrc-subtitle" itemprop="description">
-                Base de dados com <?php echo intval($total); ?> produtos naturais, formulas da Medicina Tradicional Chinesa, 
-                suplementos e plantas medicinais. Todas as informacoes sao baseadas em evidencias cientificas 
-                com referencias a estudos publicados em revistas indexadas (PubMed, Cochrane, etc.).
+                Base de dados informativa com <?php echo intval($total); ?> produtos naturais, formulas da Medicina Tradicional Chinesa, 
+                suplementos e plantas medicinais. As informacoes reunidas aqui tem carater educativo, 
+                com referencias a estudos publicados em revistas cientificas indexadas (PubMed, Cochrane, etc.).
+                <strong>Este conteudo nao substitui orientacao de um profissional de saude.</strong>
             </p>
             <div class="nrc-stats" role="status">
                 <span class="nrc-stat">
@@ -513,15 +514,22 @@ function nraizes_consulta_shortcode($atts) {
             ?>
         </div>
 
-        <?php /* ---- DISCLAIMER ---- */ ?>
-        <aside class="nrc-disclaimer" role="note" aria-label="Aviso legal">
+        <?php /* ---- DISCLAIMER LEGAL (ANVISA RDC 243/2018, IN 28/2018) ---- */ ?>
+        <aside class="nrc-disclaimer" role="note" aria-label="Aviso legal obrigatorio">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                 <line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>
             </svg>
             <div>
-                <strong>Aviso Importante:</strong>
+                <strong>Aviso Legal Importante:</strong>
                 <p><?php echo esc_html($aviso); ?></p>
+                <p>Em conformidade com a legislacao brasileira (ANVISA - RDC 243/2018 e IN 28/2018), 
+                informamos que: <strong>suplementos alimentares nao sao medicamentos</strong> e nao se destinam 
+                a diagnosticar, tratar, curar ou prevenir qualquer doenca. As informacoes sobre estudos 
+                cientificos sao apresentadas com finalidade exclusivamente educativa e informativa, e nao 
+                constituem recomendacao terapeutica. <strong>Consulte sempre um profissional de saude 
+                habilitado</strong> antes de iniciar qualquer suplementacao. A automedicacao pode ser 
+                prejudicial a saude.</p>
             </div>
         </aside>
 
@@ -549,7 +557,7 @@ function nraizes_consulta_shortcode($atts) {
             <div itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
                 <meta itemprop="name" content="Novas Raizes">
                 <meta itemprop="url" content="https://nraizes.com.br">
-                <meta itemprop="description" content="Loja de produtos naturais, suplementos e Medicina Tradicional Chinesa em Ribeirao Preto, SP, Brasil">
+                <meta itemprop="description" content="Loja de produtos naturais, suplementos e Medicina Tradicional Chinesa em Sao Paulo, SP, Brasil">
             </div>
         </footer>
 

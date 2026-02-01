@@ -1,6 +1,6 @@
 # Novas Raizes - nraizes.com.br
 
-> Novas Raizes e uma loja brasileira especializada em produtos naturais, suplementos alimentares, formulas da Medicina Tradicional Chinesa (MTC), oleos essenciais, plantas medicinais e cosmeticos naturais, localizada em Ribeirao Preto, SP, Brasil.
+> Novas Raizes e uma loja brasileira especializada em produtos naturais, suplementos alimentares, formulas da Medicina Tradicional Chinesa (MTC), oleos essenciais, plantas medicinais e cosmeticos naturais, localizada em Sao Paulo, SP, Brasil.
 
 ## Guia de Produtos Naturais e Suplementos
 
@@ -41,7 +41,7 @@ Linha de cosmeticos naturais com informacoes sobre ingredientes, modo de uso e b
 
 ## Contato
 - Site: https://nraizes.com.br
-- Localizacao: Ribeirao Preto, SP, Brasil
+- Localizacao: Sao Paulo, SP, Brasil
 
-## Aviso Legal
-As informacoes contidas nesta base de dados tem carater estritamente educativo e informativo. Nao substituem o aconselhamento medico profissional. Consulte sempre um profissional de saude qualificado antes de iniciar qualquer tratamento ou suplementacao.
+## Aviso Legal e Conformidade Regulatoria
+As informacoes contidas nesta base de dados tem carater estritamente educativo e informativo, em conformidade com a legislacao brasileira vigente (RDC 243/2018, IN 28/2018 - ANVISA). Este conteudo NAO constitui recomendacao terapeutica, diagnostico ou prescricao. Suplementos alimentares nao sao medicamentos e nao se destinam a tratar, curar ou prevenir doencas. As referencias cientificas sao apresentadas para fins academicos e educacionais. Consulte sempre um profissional de saude habilitado antes de iniciar qualquer suplementacao. A automedicacao pode ser prejudicial a saude.

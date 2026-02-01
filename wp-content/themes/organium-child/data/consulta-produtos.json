@@ -1,5 +1,5 @@
 {
-  "versao": "2.0",
+  "versao": "2.1",
   "atualizado_em": "2026-02-01",
   "total_produtos": 176,
   "categorias": {
@@ -11,7 +11,7 @@
     "Cosmético Natural": 38,
     "Alimento Natural": 20
   },
-  "aviso_legal": "As informações aqui contidas têm caráter estritamente educativo e informativo. Não substituem o aconselhamento médico profissional. Consulte sempre um profissional de saúde qualificado antes de iniciar qualquer tratamento ou suplementação.",
+  "aviso_legal": "As informações aqui contidas têm caráter estritamente educativo e informativo, nos termos da legislação brasileira (RDC 243/2018, IN 28/2018). Não substituem o aconselhamento de profissional de saúde habilitado. Consulte sempre um profissional de saúde habilitado antes de iniciar qualquer suplementação.",
   "produtos": [
     {
       "nome": "Anshen Jiaonang",
@@ -650,7 +650,7 @@
         "L-Metionina",
         "L-Triptofano"
       ],
-      "modo_uso": "Dissolver 1 sachê (aproximadamente 10g) em cerca de 200ml de água fria ou gelada, ou conforme a orientação de um médico ou nutricionista. Agitar bem até a completa homogeneização.",
+      "modo_uso": "Dissolver 1 sachê (aproximadamente 10g) em cerca de 200ml de água fria ou gelada, ou conforme a orientação de um profissional de saúde habilitado. Agitar bem até a completa homogeneização.",
       "dosagem": "1 sachê ao dia, preferencialmente após a atividade física ou entre as principais refeições.",
       "frequencia": "",
       "beneficios": [
@@ -671,7 +671,7 @@
       "contraindicacoes": [
         "Indivíduos com Fenilcetonúria (contém Fenilalanina)",
         "Pessoas com hipersensibilidade a qualquer componente da fórmula",
-        "Insuficiência renal crônica avançada (requer supervisão médica estrita quanto ao aporte proteico)"
+        "Insuficiência renal crônica avançada (requer supervisão de profissional de saúde habilitado estrita quanto ao aporte proteico)"
       ],
       "interacoes": [
         "Pode competir pela absorção com a Levodopa (medicamento para Parkinson)",
@@ -684,7 +684,7 @@
       "alertas": [
         "Este produto não é um medicamento",
         "Não exceder a recomendação diária de consumo",
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Contém Fenilalanina"
       ],
@@ -761,7 +761,7 @@
       "contraindicacoes": [
         "Pacientes com Fenilcetonúria (devido à presença de L-Fenilalanina)",
         "Hipersensibilidade a qualquer componente da fórmula",
-        "Insuficiência renal crônica avançada (deve ser usado apenas sob supervisão médica rigorosa)"
+        "Insuficiência renal crônica avançada (deve ser usado apenas sob supervisão de profissional de saúde habilitado rigorosa)"
       ],
       "interacoes": [
         "Pode competir pela absorção com outros aminoácidos se ingerido simultaneamente com grandes quantidades de proteínas integrais",
@@ -773,7 +773,7 @@
       ],
       "alertas": [
         "Contém Fenilalanina",
-        "Gestantes e lactantes devem consultar um médico antes do uso",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do uso",
         "Mantenha fora do alcance de crianças",
         "Este produto não substitui uma alimentação equilibrada",
         "Não contém glúten"
@@ -832,7 +832,7 @@
         "Aminoácidos essenciais (EAA - Essential Amino Acids)"
       ],
       "modo_uso": "Adicionar o conteúdo de 1 sachê (10g) em aproximadamente 200ml de água gelada. Misturar com o auxílio de uma colher ou coqueteleira até a homogeneização completa. Consumir imediatamente após o preparo.",
-      "dosagem": "1 sachê (10g) ao dia, preferencialmente em jejum, entre as refeições ou imediatamente após a prática de exercícios físicos, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 sachê (10g) ao dia, preferencialmente em jejum, entre as refeições ou imediatamente após a prática de exercícios físicos, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na síntese proteica muscular",
@@ -862,7 +862,7 @@
         "Náuseas se consumido em doses excessivas"
       ],
       "alertas": [
-        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação médica",
+        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação de profissional de saúde habilitado",
         "Contém Fenilalanina",
         "Não exceder a recomendação diária de consumo"
       ],
@@ -920,7 +920,7 @@
         "Aminoácidos Essenciais (L-Leucina, L-Valina, L-Isoleucina, L-Lisina, L-Fenilalanina, L-Treonina, L-Metionina, L-Triptofano)"
       ],
       "modo_uso": "Diluir o conteúdo de 1 sachê (aprox. 10g) em 200ml a 300ml de água gelada ou bebida de sua preferência. Misturar até a total homogeneização.",
-      "dosagem": "Consumir de 1 a 2 sachês ao dia, preferencialmente em jejum, antes do treino ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "Consumir de 1 a 2 sachês ao dia, preferencialmente em jejum, antes do treino ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na síntese proteica e manutenção da massa magra",
@@ -938,7 +938,7 @@
       ],
       "contraindicacoes": [
         "Pessoas com Fenilcetonúria (contém Fenilalanina)",
-        "Indivíduos com insuficiência renal crônica grave (sem supervisão médica)",
+        "Indivíduos com insuficiência renal crônica grave (sem supervisão de profissional de saúde habilitado)",
         "Hipersensibilidade a qualquer componente da fórmula"
       ],
       "interacoes": [
@@ -950,13 +950,13 @@
         "Náuseas se consumido em jejum absoluto por pessoas sensíveis"
       ],
       "alertas": [
-        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação médica",
+        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação de profissional de saúde habilitado",
         "Contém Fenilalanina",
         "Não excede a recomendação diária de consumo indicada na embalagem",
         "Mantenha fora do alcance de crianças"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar. Após aberto o sachê, consumir imediatamente.",
-      "origem": "Os aminoácidos são obtidos via fermentação de fontes vegetais ou síntese biotecnológica padrão farmacêutico.",
+      "origem": "Os aminoácidos são obtidos via fermentação de fontes vegetais ou síntese biotecnológica padrão profissional de saúde habilitado.",
       "certificacoes": [
         "Livre de Glúten",
         "Livre de Lactose",
@@ -1062,7 +1062,7 @@
         "Astaxantina"
       ],
       "modo_uso": "Ingerir 1 cápsula ao dia, preferencialmente acompanhada de uma refeição que contenha fontes de gordura para otimizar a absorção.",
-      "dosagem": "1 cápsula de 405mg (contendo 4mg de astaxantina pura) por dia, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 cápsula de 405mg (contendo 4mg de astaxantina pura) por dia, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Poderosa ação antioxidante que combate radicais livres",
@@ -1081,7 +1081,7 @@
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia a qualquer componente da fórmula",
         "Crianças",
-        "Gestantes e lactantes sem orientação médica"
+        "Gestantes e lactantes sem orientação de profissional de saúde habilitado"
       ],
       "interacoes": [
         "Pode potencializar o efeito de medicamentos anticoagulantes e antiplaquetários",
@@ -1098,7 +1098,7 @@
         "Este produto não é um medicamento",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Mantenha fora do alcance de crianças",
-        "O uso por gestantes e lactantes deve ser precedido de consulta médica"
+        "O uso por gestantes e lactantes deve ser precedido de consulta com profissional de saúde habilitado"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar. Após aberto, consumir preferencialmente em até 60 dias.",
       "origem": "Microalga Haematococcus pluvialis.",
@@ -1157,7 +1157,7 @@
         "Cobalamina"
       ],
       "modo_uso": "Ingerir as cápsulas com auxílio de água. Recomenda-se o consumo durante ou logo após uma refeição (preferencialmente o café da manhã) para melhor absorção e para evitar possíveis desconfortos gástricos.",
-      "dosagem": "1 cápsula ao dia, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 cápsula ao dia, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxílio no metabolismo energético de carboidratos, proteínas e gorduras",
@@ -1176,7 +1176,7 @@
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia a qualquer componente da fórmula",
         "Indivíduos com hipervitaminose preexistente de vitaminas do complexo B",
-        "Pacientes com insuficiência renal severa sem acompanhamento médico"
+        "Pacientes com insuficiência renal severa sem acompanhamento de profissional de saúde habilitado"
       ],
       "interacoes": [
         "A Vitamina B6 pode reduzir a eficácia da Levodopa (medicamento para Parkinson)",
@@ -1190,7 +1190,7 @@
         "Rubor facial ou formigamento leve (raro, associado à niacina)"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica ou de nutricionista",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Mantenha fora do alcance de crianças",
         "O produto não substitui uma alimentação equilibrada"
@@ -1245,7 +1245,7 @@
         "Tocofenol (Vitamina E)"
       ],
       "modo_uso": "Ingerir as cápsulas inteiras com auxílio de água, preferencialmente antes das principais refeições (almoço ou jantar) para facilitar a absorção dos óleos.",
-      "dosagem": "Recomenda-se a ingestão de 2 cápsulas ao dia, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "Recomenda-se a ingestão de 2 cápsulas ao dia, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia no alívio dos sintomas da Tensão Pré-Menstrual (TPM)",
@@ -1277,7 +1277,7 @@
         "Dor de cabeça"
       ],
       "alertas": [
-        "Gestantes e lactantes não devem consumir este produto sem orientação médica",
+        "Gestantes e lactantes não devem consumir este produto sem orientação de profissional de saúde habilitado",
         "Este produto não é um medicamento e sim um suplemento alimentar",
         "Não exceder a recomendação diária de consumo",
         "Mantenha fora do alcance de crianças"
@@ -1351,7 +1351,7 @@
       "contraindicacoes": [
         "Pessoas com hipersensibilidade a qualquer componente da fórmula",
         "Indivíduos com fenilcetonúria (se contiver fenilalanina)",
-        "Pacientes com insuficiência renal crônica devem consultar o médico devido à carga proteica"
+        "Pacientes com insuficiência renal crônica devem consultar profissional de saúde habilitado devido à carga proteica"
       ],
       "interacoes": [
         "Não há interações medicamentosas severas conhecidas para as doses suplementares de colágeno e vitaminas presentes",
@@ -1363,7 +1363,7 @@
       ],
       "alertas": [
         "Este produto não é um medicamento",
-        "Gestantes e lactantes devem consumir apenas sob orientação médica ou de nutricionista",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo indicada na embalagem"
       ],
@@ -1525,7 +1525,7 @@
       "contraindicacoes": [
         "Pessoas com hipersensibilidade aos componentes da fórmula",
         "Indivíduos com fenilcetonúria (se contiver fenilalanina)",
-        "Pacientes com insuficiência renal crônica grave devem consultar o médico devido à carga proteica"
+        "Pacientes com insuficiência renal crônica grave devem consultar profissional de saúde habilitado devido à carga proteica"
       ],
       "interacoes": [
         "Pode haver competição de absorção com outras proteínas se ingerido junto a refeições pesadas"
@@ -1536,7 +1536,7 @@
         "Náuseas ocasionais"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Produto não indicado para crianças",
         "Alérgicos: pode conter derivados de peixe ou bovinos (origem da proteína)",
         "Este produto não substitui uma alimentação equilibrada"
@@ -1644,7 +1644,7 @@
         "Piperina"
       ],
       "modo_uso": "Ingerir as cápsulas com auxílio de água ou outro líquido de sua preferência. É altamente recomendável consumir junto a uma das principais refeições (almoço ou jantar), pois a curcumina é lipossolúvel e sua absorção é otimizada na presença de gorduras da dieta.",
-      "dosagem": "Recomenda-se a ingestão de 2 cápsulas ao dia, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "Recomenda-se a ingestão de 2 cápsulas ao dia, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Potente ação anti-inflamatória natural",
@@ -1680,7 +1680,7 @@
         "Tontura (raro)"
       ],
       "alertas": [
-        "Gestantes não devem consumir sem orientação médica",
+        "Gestantes não devem consumir sem orientação de profissional de saúde habilitado",
         "Lactantes devem consultar um profissional de saúde antes do uso",
         "Mantenha fora do alcance de crianças",
         "Este produto não é um medicamento",
@@ -1893,7 +1893,7 @@
         "Diarreia em indivíduos sensíveis"
       ],
       "alertas": [
-        "Este produto não deve ser consumido por gestantes e lactantes sem orientação médica",
+        "Este produto não deve ser consumido por gestantes e lactantes sem orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Este produto é um suplemento alimentar, não um medicamento"
@@ -1955,7 +1955,7 @@
         "Vitamina D3"
       ],
       "modo_uso": "Adicione o conteúdo de 1 sachê (8g) em aproximadamente 200ml de água em temperatura ambiente ou gelada. Misture bem até a completa homogeneização e consuma imediatamente.",
-      "dosagem": "1 sachê por dia, preferencialmente pela manhã em jejum, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 sachê por dia, preferencialmente pela manhã em jejum, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na manutenção da barreira intestinal (integridade da mucosa)",
@@ -1974,7 +1974,7 @@
         "Pessoas com hipersensibilidade a qualquer componente da fórmula",
         "Pacientes com insuficiência renal grave",
         "Indivíduos com obstrução intestinal mecânica",
-        "Crianças (salvo sob orientação médica específica)"
+        "Crianças (salvo sob orientação de profissional de saúde habilitado específica)"
       ],
       "interacoes": [
         "A glutamina pode interagir com tratamentos quimioterápicos (consulte o oncologista)",
@@ -1988,7 +1988,7 @@
         "Alteração na consistência das fezes"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica ou de nutricionista",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Este produto não é um medicamento",
         "Não exceder a recomendação diária de consumo indicada na embalagem"
@@ -2051,7 +2051,7 @@
         "Gingerol"
       ],
       "modo_uso": "Dissolver 1 scoop (aproximadamente 8g) em 200ml de água fria ou gelada. Misturar até a total homogeneização e consumir imediatamente.",
-      "dosagem": "1 dose (8g) uma vez ao dia, preferencialmente em jejum ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 dose (8g) uma vez ao dia, preferencialmente em jejum ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxílio na integridade da barreira intestinal (leaky gut)",
@@ -2082,8 +2082,8 @@
         "Flatulência em indivíduos sensíveis no início do uso"
       ],
       "alertas": [
-        "Este produto não deve ser consumido por gestantes sem orientação médica",
-        "Este produto não deve ser consumido por lactantes sem orientação médica",
+        "Este produto não deve ser consumido por gestantes sem orientação de profissional de saúde habilitado",
+        "Este produto não deve ser consumido por lactantes sem orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não contém glúten",
         "Alérgicos: pode conter traços de leite, soja e ovos devido ao processamento industrial"
@@ -2146,7 +2146,7 @@
         "Metilcobalamina (B12 ativa)"
       ],
       "modo_uso": "Adicione 1 scoop (aproximadamente 8g) em 200ml de água ou bebida de sua preferência. Misture bem até a completa homogeneização e consuma imediatamente.",
-      "dosagem": "Consumir 1 porção (8g) uma vez ao dia, preferencialmente em jejum ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "Consumir 1 porção (8g) uma vez ao dia, preferencialmente em jejum ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na manutenção da barreira intestinal (Tight Junctions)",
@@ -2163,7 +2163,7 @@
       ],
       "contraindicacoes": [
         "Indivíduos com hipersensibilidade a qualquer componente da fórmula",
-        "Pessoas com insuficiência renal crônica severa (deve ser avaliado por médico)",
+        "Pessoas com insuficiência renal crônica severa (deve ser avaliado por profissional de saúde habilitado)",
         "Indivíduos com doenças hepáticas graves"
       ],
       "interacoes": [
@@ -2176,7 +2176,7 @@
         "Alteração no trânsito intestinal (devido ao teor de fibras prebióticas)"
       ],
       "alertas": [
-        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação médica",
+        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação de profissional de saúde habilitado",
         "Alérgicos: Pode conter traços de leite e soja devido ao processo de fabricação dos insumos",
         "Mantenha fora do alcance de crianças"
       ],
@@ -2236,7 +2236,7 @@
         "Beta-glucana"
       ],
       "modo_uso": "Diluir 1 colher de medida (scoop de aproximadamente 8g) em 200ml de água, suco ou bebida de sua preferência. Agitar até a completa homogeneização.",
-      "dosagem": "1 porção (8g) uma vez ao dia, preferencialmente em jejum ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 porção (8g) uma vez ao dia, preferencialmente em jejum ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na manutenção da integridade da barreira intestinal (Tight Junctions)",
@@ -2266,7 +2266,7 @@
         "Alteração no trânsito intestinal (gases ou constipação leve)"
       ],
       "alertas": [
-        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação médica",
+        "Este produto não deve ser consumido por gestantes, lactantes e crianças sem orientação de profissional de saúde habilitado",
         "Não exceder a recomendação diária de consumo",
         "Mantenha fora do alcance de crianças",
         "Livre de glúten",
@@ -2316,7 +2316,7 @@
         "Magnésio Bisglicinato",
         "Magnésio Dimaleato"
       ],
-      "modo_uso": "Ingerir as cápsulas acompanhadas de água, preferencialmente antes das refeições ou conforme orientação de um médico ou nutricionista.",
+      "modo_uso": "Ingerir as cápsulas acompanhadas de água, preferencialmente antes das refeições ou conforme orientação de um profissional de saúde habilitado.",
       "dosagem": "3 cápsulas ao dia para adultos (maiores de 19 anos).",
       "frequencia": "",
       "beneficios": [
@@ -2352,7 +2352,7 @@
         "Este produto não é um medicamento",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Mantenha fora do alcance de crianças",
-        "Gestantes, lactantes e crianças devem consumir apenas sob orientação médica",
+        "Gestantes, lactantes e crianças devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Uso adulto (19 anos ou mais)"
       ],
       "armazenamento": "Conservar ao abrigo da luz, calor e umidade. Após aberto, consumir preferencialmente em até 60 dias.",
@@ -2480,7 +2480,7 @@
         },
         {
           "pergunta": "Crianças podem tomar?",
-          "resposta": "Apenas sob orientação médica. Há evidência para uso em crianças com TEA e TDAH, mas a segurança a longo prazo não está totalmente estabelecida."
+          "resposta": "Apenas sob orientação de profissional de saúde habilitado. Há evidência para uso em crianças com TEA e TDAH, mas a segurança a longo prazo não está totalmente estabelecida."
         }
       ],
       "fonte": "base_cientifica"
@@ -2503,7 +2503,7 @@
         "S-alil-cisteína"
       ],
       "modo_uso": "Ingerir as cápsulas preferencialmente antes das principais refeições, com auxílio de água.",
-      "dosagem": "Recomenda-se a ingestão de 3 cápsulas ao dia (conforme padrão para dosagens de 500mg da marca), ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "Recomenda-se a ingestão de 3 cápsulas ao dia (conforme padrão para dosagens de 500mg da marca), ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxílio no controle dos níveis de colesterol (LDL)",
@@ -2538,7 +2538,7 @@
         "Diarreia em altas doses"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes de consumir",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de consumir",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo",
         "Alérgicos: contém derivados de alho e pode conter traços de gelatina animal"
@@ -2587,7 +2587,7 @@
         "Ácido Docosahexaenoico (DHA)"
       ],
       "modo_uso": "As cápsulas devem ser ingeridas com água ou outro líquido de sua preferência. Recomenda-se o consumo junto a uma refeição principal (almoço ou jantar) para facilitar a absorção dos ácidos graxos pelo organismo.",
-      "dosagem": "1 cápsula ao dia para adultos acima de 19 anos, ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 cápsula ao dia para adultos acima de 19 anos, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Contribui para a saúde cerebral e funções cognitivas",
@@ -2604,7 +2604,7 @@
       ],
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia a qualquer componente da fórmula",
-        "Pessoas com problemas de coagulação sanguínea grave (sem supervisão médica)"
+        "Pessoas com problemas de coagulação sanguínea grave (sem supervisão de profissional de saúde habilitado)"
       ],
       "interacoes": [
         "Pode potencializar o efeito de medicamentos anticoagulantes (ex: varfarina, aspirina)",
@@ -2617,7 +2617,7 @@
         "Eructação (arroto) com sabor residual de algas"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Este produto não é um medicamento"
@@ -2723,7 +2723,7 @@
       ],
       "contraindicacoes": [
         "Hipersensibilidade a qualquer componente da fórmula",
-        "Indivíduos com doenças renais graves devem consultar um médico devido ao alto teor proteico"
+        "Indivíduos com doenças renais graves devem consultar profissional de saúde habilitado devido ao alto teor proteico"
       ],
       "interacoes": [
         "Não há interações medicamentosas significativas relatadas para o consumo de proteínas vegetais em doses habituais"
@@ -2797,7 +2797,7 @@
         "Vitamina E"
       ],
       "modo_uso": "Ingerir a cápsula por via oral com auxílio de água. É recomendado tomar preferencialmente junto a uma das principais refeições (almoço ou jantar) para minimizar desconfortos gástricos e otimizar a absorção dos nutrientes lipossolúveis.",
-      "dosagem": "Geralmente recomenda-se o consumo de 1 a 2 cápsulas ao dia, ou conforme orientação de um médico ou nutricionista.",
+      "dosagem": "Geralmente recomenda-se o consumo de 1 a 2 cápsulas ao dia, ou conforme orientação de um profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Fortalecimento da estrutura capilar",
@@ -2816,7 +2816,7 @@
         "Hipersensibilidade ou alergia a qualquer componente da fórmula",
         "Pessoas com insuficiência renal grave",
         "Pessoas com insuficiência hepática grave",
-        "Crianças menores de 12 anos sem orientação médica"
+        "Crianças menores de 12 anos sem orientação de profissional de saúde habilitado"
       ],
       "interacoes": [
         "Antibióticos (podem reduzir a síntese de biotina pela microbiota intestinal)",
@@ -2830,10 +2830,10 @@
         "Raramente reações cutâneas em pessoas sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não exceder a dose diária recomendada",
-        "Se for realizar exames de sangue, informe ao médico o uso de biotina (Pillfood contém biotina)"
+        "Se for realizar exames de sangue, informe a profissional de saúde habilitado o uso de biotina (Pillfood contém biotina)"
       ],
       "armazenamento": "Conservar o produto em sua embalagem original, em local fresco e seco (15°C a 30°C), ao abrigo da luz direta e umidade.",
       "origem": "Os aminoácidos e vitaminas são majoritariamente de origem sintética ou obtidos via processos biotecnológicos de fermentação; o colágeno é de origem animal.",
@@ -2885,7 +2885,7 @@
         "Vitamina E"
       ],
       "modo_uso": "Ingerir as cápsulas com auxílio de água preferencialmente antes das principais refeições (almoço ou jantar) para facilitar a absorção das gorduras e evitar desconfortos gástricos.",
-      "dosagem": "Recomenda-se a ingestão de 2 cápsulas ao dia, ou conforme orientação de nutricionista ou médico.",
+      "dosagem": "Recomenda-se a ingestão de 2 cápsulas ao dia, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na manutenção de níveis saudáveis de triglicerídeos",
@@ -2903,7 +2903,7 @@
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia a peixes e crustáceos",
         "Pessoas com distúrbios de coagulação sanguínea",
-        "Pessoas que serão submetidas a procedimentos cirúrgicos em curto prazo (suspender o uso conforme orientação médica)"
+        "Pessoas que serão submetidas a procedimentos cirúrgicos em curto prazo (suspender o uso conforme orientação de profissional de saúde habilitado)"
       ],
       "interacoes": [
         "Anticoagulantes (varfarina, aspirina, clopidogrel): pode aumentar o risco de sangramento",
@@ -2918,7 +2918,7 @@
       "alertas": [
         "Contém derivados de peixe",
         "Pode conter traços de soja",
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Este produto não é um medicamento"
       ],
@@ -2962,7 +2962,7 @@
         "Magnésio elementar (proveniente de diferentes fontes quelatadas e sais)"
       ],
       "modo_uso": "Ingerir as cápsulas com auxílio de líquido (água), preferencialmente antes de dormir ou entre as principais refeições, para evitar competição de absorção com outros minerais como o cálcio.",
-      "dosagem": "Recomenda-se geralmente a ingestão de 2 a 3 cápsulas ao dia, ou conforme orientação de médico ou nutricionista, não ultrapassando o limite diário de magnésio elementar estabelecido pela ANVISA para suplementos (cerca de 350mg para adultos saudáveis).",
+      "dosagem": "Recomenda-se geralmente a ingestão de 2 a 3 cápsulas ao dia, ou conforme orientação de profissional de saúde habilitado, não ultrapassando o limite diário de magnésio elementar estabelecido pela ANVISA para suplementos (cerca de 350mg para adultos saudáveis).",
       "frequencia": "",
       "beneficios": [
         "Auxílio no funcionamento muscular e neuromuscular",
@@ -2982,7 +2982,7 @@
         "Pessoas com insuficiência renal severa",
         "Pacientes com bloqueio atrioventricular",
         "Hipersensibilidade a qualquer componente da fórmula",
-        "Crianças menores de 3 anos (salvo sob orientação médica)"
+        "Crianças menores de 3 anos (salvo sob orientação de profissional de saúde habilitado)"
       ],
       "interacoes": [
         "Antibióticos (tetraciclinas e quinolonas) - o magnésio pode reduzir a absorção",
@@ -2996,7 +2996,7 @@
         "Náuseas"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes do uso",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do uso",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Este produto não é um medicamento"
@@ -3052,7 +3052,7 @@
         "Cafeína"
       ],
       "modo_uso": "Ingerir as cápsulas preferencialmente de 30 a 45 minutos antes da atividade física. Para evitar a sensação de parestesia (formigamento) característica da beta-alanina, as doses podem ser fracionadas ao longo do dia, mantendo um intervalo de pelo menos 3 horas entre elas.",
-      "dosagem": "4 cápsulas ao dia para adultos (acima de 19 anos), ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "4 cápsulas ao dia para adultos (acima de 19 anos), ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Aumento do foco e concentração durante o treino",
@@ -3119,7 +3119,7 @@
         },
         {
           "pergunta": "O produto quebra o jejum?",
-          "reposta": "As cápsulas possuem valor calórico desprezível e não costumam interferir significativamente na insulina, mas se o jejum for metabólico estrito, consulte seu nutricionista."
+          "reposta": "As cápsulas possuem valor calórico desprezível e não costumam interferir significativamente na insulina, mas se o jejum for metabólico estrito, consulte profissional de saúde habilitado."
         }
       ],
       "fonte": "knowledge_base"
@@ -3160,7 +3160,7 @@
       "alertas": [
         "Cada cepa tem indicações específicas",
         "Refrigeração pode ser necessária",
-        "Não substituem tratamento médico para condições graves"
+        "Não substituem tratamento com profissional de saúde habilitado para condições graves"
       ],
       "referencias": [
         "https://pubmed.ncbi.nlm.nih.gov/28639575/",
@@ -3222,7 +3222,7 @@
       ],
       "contraindicacoes": [
         "Indivíduos com hipersensibilidade ou alergia a qualquer componente da fórmula",
-        "Pacientes com insuficiência renal grave (devem consultar médico devido ao aporte de proteínas)"
+        "Pacientes com insuficiência renal grave (devem consultar profissional de saúde habilitado devido ao aporte de proteínas)"
       ],
       "interacoes": [
         "Pode reduzir a absorção de levodopa se consumido simultaneamente",
@@ -3235,7 +3235,7 @@
       ],
       "alertas": [
         "Gestantes e lactantes devem consultar um profissional de saúde antes de consumir",
-        "Uso pediátrico deve ser acompanhado por pediatra ou nutricionista",
+        "Uso pediátrico deve ser acompanhado por profissional de saúde habilitado",
         "Pode conter traços de soja ou oleaginosas devido ao compartilhamento de maquinário na produção",
         "Este produto não substitui uma alimentação equilibrada"
       ],
@@ -3287,7 +3287,7 @@
         "Vitamina B12"
       ],
       "modo_uso": "Adicionar 1 scoop (aproximadamente 30g) em 300ml de água, leite vegetal ou bebida de sua preferência. Agitar bem em uma coqueteleira ou liquidificador até a completa homogeneização.",
-      "dosagem": "1 porção de 30g por dia, preferencialmente após o treino ou conforme orientação de nutricionista ou médico.",
+      "dosagem": "1 porção de 30g por dia, preferencialmente após o treino ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na formação e manutenção dos músculos",
@@ -3304,7 +3304,7 @@
       ],
       "contraindicacoes": [
         "Indivíduos com alergia comprovada a qualquer componente da fórmula",
-        "Pessoas com insuficiência renal crônica avançada (devem consultar o médico sobre o aporte proteico)"
+        "Pessoas com insuficiência renal crônica avançada (devem consultar profissional de saúde habilitado sobre o aporte proteico)"
       ],
       "interacoes": [
         "Suplementos de proteína podem reduzir a absorção de levodopa (medicamento para Parkinson) se ingeridos simultaneamente",
@@ -3316,7 +3316,7 @@
         "Alteração na consistência das fezes em indivíduos sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir sob orientação médica ou de nutricionista",
+        "Gestantes e lactantes devem consumir sob orientação de profissional de saúde habilitado",
         "Este produto não é um medicamento",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo",
@@ -3372,7 +3372,7 @@
         "Arginina"
       ],
       "modo_uso": "Misturar uma dose (aproximadamente 30g) em 250ml de água, leite vegetal ou em sua receita de preferência (sucos, shakes ou vitaminas). Agitar bem até a completa homogeneização.",
-      "dosagem": "1 porção de 30g por dia, preferencialmente após o treino ou conforme orientação de nutricionista ou médico.",
+      "dosagem": "1 porção de 30g por dia, preferencialmente após o treino ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxílio na síntese proteica e recuperação muscular",
@@ -3389,7 +3389,7 @@
       ],
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia a qualquer componente da fórmula",
-        "Indivíduos com insuficiência renal crônica severa devem consultar um médico antes do consumo de altas doses proteicas"
+        "Indivíduos com insuficiência renal crônica severa devem consultar profissional de saúde habilitado antes do consumo de altas doses proteicas"
       ],
       "interacoes": [
         "O consumo simultâneo com medicamentos que dependem de baixo aporte proteico para absorção (como a Levodopa) pode reduzir a eficácia do medicamento"
@@ -3453,7 +3453,7 @@
         "L-Arginina"
       ],
       "modo_uso": "Adicione o conteúdo de 1 sachê em aproximadamente 200ml a 300ml de água fria ou bebida vegetal de sua preferência. Misture vigorosamente com uma colher, coqueteleira ou mixer até a completa homogeneização.",
-      "dosagem": "Consumir 1 sachê (aproximadamente 30g) uma vez ao dia, preferencialmente após o treino ou conforme orientação de nutricionista ou médico.",
+      "dosagem": "Consumir 1 sachê (aproximadamente 30g) uma vez ao dia, preferencialmente após o treino ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na formação e recuperação muscular",
@@ -3534,7 +3534,7 @@
         "Vitamina K2 (Menaquinona MK-7)"
       ],
       "modo_uso": "Ingerir as gotas diretamente na boca ou diluídas em uma pequena quantidade de água ou suco, preferencialmente junto a uma refeição que contenha gorduras para otimizar a absorção.",
-      "dosagem": "Recomenda-se a ingestão de 1 gota ao dia para adultos (acima de 19 anos), ou conforme orientação específica de um médico ou nutricionista.",
+      "dosagem": "Recomenda-se a ingestão de 1 gota ao dia para adultos (acima de 19 anos), ou conforme orientação específica de um profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia no funcionamento do sistema imune",
@@ -3554,7 +3554,7 @@
         "Pessoas com hipervitaminose A, D, E ou K",
         "Indivíduos com hipersensibilidade a qualquer componente da fórmula",
         "Pacientes com hipercalcemia (excesso de cálcio no sangue)",
-        "Uso concomitante com certos anticoagulantes sem supervisão médica"
+        "Uso concomitante com certos anticoagulantes sem supervisão de profissional de saúde habilitado"
       ],
       "interacoes": [
         "Anticoagulantes cumarínicos como a Varfarina (devido à Vitamina K2)",
@@ -3568,7 +3568,7 @@
         "Risco de toxicidade por acúmulo (hipervitaminose) se consumido em excesso crônico"
       ],
       "alertas": [
-        "Gestantes e nutrizes devem consumir apenas sob orientação médica",
+        "Gestantes e nutrizes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Este produto não é um medicamento"
@@ -3597,7 +3597,7 @@
         },
         {
           "pergunta": "Quem usa anticoagulante pode tomar?",
-          "resposta": "A Vitamina K2 pode interferir na eficácia de anticoagulantes como a Varfarina. Pacientes que utilizam esses medicamentos devem consultar o médico antes de iniciar a suplementação."
+          "resposta": "A Vitamina K2 pode interferir na eficácia de anticoagulantes como a Varfarina. Pacientes que utilizam esses medicamentos devem consultar profissional de saúde habilitado antes de iniciar a suplementação."
         }
       ],
       "fonte": "knowledge_base"
@@ -3630,7 +3630,7 @@
         "L-Metionina",
         "L-Triptofano"
       ],
-      "modo_uso": "Adicionar o conteúdo de 1 sachê (10g) em aproximadamente 200ml de água e misturar até a total homogeneização. Consumir imediatamente após o preparo, preferencialmente seguindo orientação de nutricionista ou médico.",
+      "modo_uso": "Adicionar o conteúdo de 1 sachê (10g) em aproximadamente 200ml de água e misturar até a total homogeneização. Consumir imediatamente após o preparo, preferencialmente seguindo orientação de profissional de saúde habilitado.",
       "dosagem": "1 sachê (10g) ao dia, ou conforme recomendação profissional.",
       "frequencia": "",
       "beneficios": [
@@ -3665,7 +3665,7 @@
         "Este produto não é um medicamento",
         "Não exceder a recomendação diária de consumo",
         "Mantenha fora do alcance de crianças",
-        "Gestantes, lactantes e crianças devem consumir apenas sob orientação médica ou de nutricionista",
+        "Gestantes, lactantes e crianças devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Contém Fenilalanina"
       ],
       "armazenamento": "Conservar o produto em local seco, fresco e ao abrigo da luz solar. Após aberto o sachê, consumir imediatamente.",
@@ -3716,7 +3716,7 @@
         "Proteína isolada de arroz"
       ],
       "modo_uso": "Adicione o conteúdo de 1 sachê (30g) em aproximadamente 300ml de água, suco ou bebida vegetal de sua preferência. Misture bem (em coqueteleira ou liquidificador) até a completa homogeneização.",
-      "dosagem": "1 sachê (30g) ao dia, preferencialmente após o treino ou conforme orientação de médico ou nutricionista.",
+      "dosagem": "1 sachê (30g) ao dia, preferencialmente após o treino ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na síntese e recuperação muscular",
@@ -3733,7 +3733,7 @@
       ],
       "contraindicacoes": [
         "Indivíduos com hipersensibilidade ou alergia a qualquer componente da fórmula",
-        "Indivíduos com insuficiência renal severa devem consultar um médico antes do uso devido ao aporte proteico"
+        "Indivíduos com insuficiência renal severa devem consultar profissional de saúde habilitado antes do uso devido ao aporte proteico"
       ],
       "interacoes": [
         "Não há interações medicamentosas significativas conhecidas para as proteínas de ervilha e arroz em doses suplementares comuns."
@@ -3960,8 +3960,8 @@
         "Erupções cutâneas em indivíduos sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
-        "Crianças devem ser acompanhadas por pediatra ou nutricionista",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
+        "Crianças devem ser acompanhadas por profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "O produto não substitui uma alimentação equilibrada"
       ],
@@ -3982,7 +3982,7 @@
       "faq": [
         {
           "pergunta": "A Spirulina da Ocean Drop contém iodo?",
-          "resposta": "Como a Spirulina é uma cianobactéria de água doce/salobra cultivada em ambiente controlado, o teor de iodo é muito baixo em comparação às algas marinhas, mas pessoas com tireoidite de Hashimoto devem consultar um médico."
+          "resposta": "Como a Spirulina é uma cianobactéria de água doce/salobra cultivada em ambiente controlado, o teor de iodo é muito baixo em comparação às algas marinhas, mas pessoas com tireoidite de Hashimoto devem consultar profissional de saúde habilitado."
         },
         {
           "pergunta": "Qual o melhor horário para tomar?",
@@ -4030,7 +4030,7 @@
       "contraindicacoes": [
         "Pessoas com insuficiência renal severa",
         "Indivíduos com hipersensibilidade a qualquer componente da fórmula",
-        "Pessoas com bloqueio cardíaco ou miastenia gravis (devem consultar um médico antes do uso)"
+        "Pessoas com bloqueio cardíaco ou miastenia gravis (devem consultar profissional de saúde habilitado antes do uso)"
       ],
       "interacoes": [
         "Antibióticos (tetraciclinas e quinolonas) - podem ter a absorção reduzida",
@@ -4047,7 +4047,7 @@
         "Este produto não é um medicamento",
         "Não exceder a recomendação diária de consumo indicada na embalagem",
         "Mantenha fora do alcance de crianças",
-        "Gestantes, lactantes e crianças devem consumir apenas sob orientação de nutricionista ou médico"
+        "Gestantes, lactantes e crianças devem consumir apenas sob orientação de profissional de saúde habilitado"
       ],
       "armazenamento": "Conservar ao abrigo da luz, calor e umidade. Após aberto, manter o frasco bem fechado e consumir preferencialmente em até 60 dias.",
       "origem": "Ingredientes de origem mineral e sintética (processos de quelação e reação controlada).",
@@ -4145,7 +4145,7 @@
       "nome": "Vitamina D3 (Colecalciferol)",
       "categoria": "Suplemento Ocidental",
       "categoria_slug": "suplemento",
-      "dosagem": "1.000-4.000 UI/dia (manutenção); até 10.000 UI sob orientação médica",
+      "dosagem": "1.000-4.000 UI/dia (manutenção); até 10.000 UI sob orientação de profissional de saúde habilitado",
       "indicacao_mtc": "",
       "aplicacoes_clinicas": "Saúde óssea; Imunidade; Depressão sazonal; Prevenção de fraturas; Suporte em doenças autoimunes",
       "beneficios": [
@@ -4180,7 +4180,7 @@
       ],
       "alertas": [
         "Monitorar níveis séricos de 25(OH)D",
-        "Doses acima de 4.000 UI requerem acompanhamento médico",
+        "Doses acima de 4.000 UI requerem acompanhamento de profissional de saúde habilitado",
         "Absorção melhorada com gordura na refeição"
       ],
       "referencias": [
@@ -4219,7 +4219,7 @@
         "Colecalciferol (Vitamina D3)"
       ],
       "modo_uso": "Ingerir a cápsula com auxílio de água, preferencialmente durante ou logo após uma refeição que contenha fontes de gordura para otimizar a absorção.",
-      "dosagem": "1 cápsula ao dia (fornecendo 2000 UI) ou conforme orientação específica de médico ou nutricionista.",
+      "dosagem": "1 cápsula ao dia (fornecendo 2000 UI) ou conforme orientação específica de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Auxilia na formação e manutenção de ossos e dentes",
@@ -4254,7 +4254,7 @@
         "Fadiga ou confusão mental em casos de toxicidade por acúmulo"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Crianças devem ter o uso supervisionado e prescrito por pediatra",
         "Pessoas com problemas renais devem monitorar os níveis de cálcio",
         "Contém derivados de soja (verificar rótulo específico se houver alergia grave)"
@@ -4282,7 +4282,7 @@
         },
         {
           "pergunta": "Posso tomar mais de 2000 UI por dia?",
-          "reposta": "Doses superiores a 2000 UI devem ser ingeridas apenas sob prescrição e acompanhamento médico, baseando-se em exames de sangue laboratoriais."
+          "reposta": "Doses superiores a 2000 UI devem ser ingeridas apenas sob prescrição e acompanhamento de profissional de saúde habilitado, baseando-se em exames de sangue laboratoriais."
         }
       ],
       "fonte": "knowledge_base"
@@ -4384,7 +4384,7 @@
       ],
       "alertas": [
         "Não usar se houver obstrução do ducto biliar",
-        "Consultar médico se houver cálculos biliares"
+        "Consultar profissional de saúde habilitado se houver cálculos biliares"
       ],
       "referencias": [
         "https://pubmed.ncbi.nlm.nih.gov/25776008/",
@@ -4438,7 +4438,7 @@
       ],
       "contraindicacoes": [
         "Obstrução dos ductos biliares",
-        "Cálculos biliares (pedra na vesícula) sem acompanhamento médico",
+        "Cálculos biliares (pedra na vesícula) sem acompanhamento de profissional de saúde habilitado",
         "Hipersensibilidade ou alergia a plantas da família Asteraceae",
         "Insuficiência hepática grave"
       ],
@@ -4457,7 +4457,7 @@
         "Não recomendado durante a gravidez (possível efeito emenagogo)",
         "Não recomendado durante a lactação (pode alterar o sabor do leite e reduzir a secreção láctea)",
         "Uso contraindicado para crianças menores de 12 anos",
-        "Pacientes com doenças hepáticas devem consultar um médico antes do uso"
+        "Pacientes com doenças hepáticas devem consultar profissional de saúde habilitado antes do uso"
       ],
       "armazenamento": "Conservar em embalagem original, ao abrigo da luz, calor e umidade. Após aberto, recomenda-se consumir em até 60 dias.",
       "origem": "Nativa da região do Mediterrâneo; amplamente cultivada em regiões de clima temperado no Brasil.",
@@ -4537,7 +4537,7 @@
         "Possíveis reações alérgicas cutâneas em caso de uso tópico"
       ],
       "alertas": [
-        "O uso não substitui tratamento médico para doenças respiratórias graves",
+        "O uso não substitui tratamento com profissional de saúde habilitado para doenças respiratórias graves",
         "Não exceder a dosagem recomendada",
         "Mantenha fora do alcance de crianças"
       ],
@@ -4619,7 +4619,7 @@
         "Ligeira queda na pressão arterial em indivíduos sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes do consumo",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do consumo",
         "Não recomendado para crianças sem orientação profissional devido à falta de estudos específicos para essa faixa etária",
         "Diabéticos devem conferir o rótulo, embora a marca Brazo geralmente utilize adoçantes de baixo índice glicêmico"
       ],
@@ -4703,7 +4703,7 @@
         },
         {
           "pergunta": "Camomila interfere com medicamentos?",
-          "resposta": "Pode potencializar efeitos de anticoagulantes e sedativos. Se usa warfarina ou benzodiazepínicos, consulte seu médico."
+          "resposta": "Pode potencializar efeitos de anticoagulantes e sedativos. Se usa warfarina ou benzodiazepínicos, consulte um profissional de saúde habilitado."
         }
       ],
       "fonte": "base_cientifica"
@@ -4761,7 +4761,7 @@
         "Diarreia leve em pessoas sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes de consumir devido ao gengibre",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de consumir devido ao gengibre",
         "Não recomendado para crianças pequenas sem orientação profissional",
         "Contém alto índice glicêmico"
       ],
@@ -4844,7 +4844,7 @@
         "Tontura (raro)"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes do uso",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do uso",
         "Não recomendado para crianças sem orientação de um profissional de saúde",
         "Diabéticos devem monitorar a glicemia devido à presença de Mulberry (Amora)",
         "Suspender o uso em caso de reações adversas"
@@ -4931,7 +4931,7 @@
         "Queda excessiva de glicose em diabéticos se não monitorado"
       ],
       "alertas": [
-        "Este produto é um suplemento alimentar e não substitui tratamentos médicos",
+        "Este produto é um suplemento alimentar e não substitui tratamentos com profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Interrompa o uso em caso de reações alérgicas cutâneas"
       ],
@@ -4959,7 +4959,7 @@
         },
         {
           "pergunta": "Quem tem diabetes pode tomar?",
-          "resposta": "A amora e o goji berry podem reduzir os níveis de açúcar no sangue. Diabéticos devem consultar um médico e monitorar a glicemia ao consumir o chá regularmente."
+          "resposta": "A amora e o goji berry podem reduzir os níveis de açúcar no sangue. Diabéticos devem consultar profissional de saúde habilitado e monitorar a glicemia ao consumir o chá regularmente."
         }
       ],
       "fonte": "knowledge_base"
@@ -5018,7 +5018,7 @@
         "Aumento da motilidade intestinal"
       ],
       "alertas": [
-        "Este produto é um fitoterápico/chá e não substitui tratamentos médicos para ansiedade crônica",
+        "Este produto é um fitoterápico/chá e não substitui tratamentos com profissional de saúde habilitado para ansiedade crônica",
         "Suspenda o uso 15 dias antes de cirurgias",
         "Contém substâncias aromáticas potentes que podem causar sensibilidade em pessoas com rinite alérgica"
       ],
@@ -5178,7 +5178,7 @@
         "Lactação",
         "Crianças menores de 12 anos",
         "Indivíduos com obstrução intestinal ou doenças inflamatórias intestinais (Crohn, colite)",
-        "Pessoas com insuficiência cardíaca ou renal grave sem orientação médica",
+        "Pessoas com insuficiência cardíaca ou renal grave sem orientação de profissional de saúde habilitado",
         "Indivíduos com pressão arterial muito baixa (hipotensão)"
       ],
       "interacoes": [
@@ -5198,7 +5198,7 @@
       ],
       "alertas": [
         "O uso prolongado de Cássia pode causar dependência intestinal e perda de tônus muscular no cólon",
-        "A presença de Espinheiro pode alterar a frequência cardíaca; consulte um médico se já utiliza medicação para o coração",
+        "A presença de Espinheiro pode alterar a frequência cardíaca; consulte um profissional de saúde habilitado se já utiliza medicação para o coração",
         "Suspender o uso em caso de reações alérgicas ou dores abdominais intensas"
       ],
       "armazenamento": "Manter em embalagem original, ao abrigo da luz, calor e umidade. Após aberto, consumir preferencialmente em até 60 dias.",
@@ -5287,7 +5287,7 @@
       ],
       "alertas": [
         "Gestantes devem evitar o consumo (o hibisco pode ter efeitos emenagogos e interferir nos níveis de estrogênio)",
-        "Lactantes devem consultar um médico antes do uso",
+        "Lactantes devem consultar profissional de saúde habilitado antes do uso",
         "Não recomendado para crianças menores de 3 anos sem orientação profissional",
         "Pessoas que fazem uso de medicação contínua para pressão devem monitorar os níveis pressóricos"
       ],
@@ -5456,8 +5456,8 @@
         "Desconforto gástrico se consumido em jejum por pessoas sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes de consumir (o hibisco pode influenciar níveis estrogênicos)",
-        "Não recomendado para crianças sem orientação de um nutricionista ou pediatra",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de consumir (o hibisco pode influenciar níveis estrogênicos)",
+        "Não recomendado para crianças sem orientação de um profissional de saúde habilitado ou pediatra",
         "A acidez natural pode afetar o esmalte dos dentes se consumido em excesso e por longos períodos"
       ],
       "armazenamento": "Conservar em embalagem original, ao abrigo da luz, calor e umidade. Após aberto, consumir preferencialmente em até 60 dias para manter as propriedades sensoriais.",
@@ -5525,7 +5525,7 @@
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia à planta",
         "Indivíduos com hipoglicemia (açúcar baixo no sangue)",
-        "Pessoas com problemas renais ou hepáticos graves sem orientação médica"
+        "Pessoas com problemas renais ou hepáticos graves sem orientação de profissional de saúde habilitado"
       ],
       "interacoes": [
         "Medicamentos antidiabéticos (insulina, metformina, glibenclamida), pois pode potencializar o efeito hipoglicemiante",
@@ -5538,7 +5538,7 @@
         "Desconforto gástrico em pessoas sensíveis"
       ],
       "alertas": [
-        "Não recomendado para gestantes sem orientação médica (falta de estudos de segurança)",
+        "Não recomendado para gestantes sem orientação de profissional de saúde habilitado (falta de estudos de segurança)",
         "Não recomendado para lactantes",
         "Pode interferir na absorção de glicose, exigindo monitoramento por diabéticos",
         "Manter fora do alcance de crianças"
@@ -5626,9 +5626,9 @@
         "Sangramento nasal (em altas doses devido ao efeito anticoagulante)"
       ],
       "alertas": [
-        "Gestantes e lactantes não devem consumir sem orientação médica",
+        "Gestantes e lactantes não devem consumir sem orientação de profissional de saúde habilitado",
         "Uso pediátrico não recomendado sem supervisão de um profissional de saúde",
-        "Pessoas com condições médicas pré-existentes devem consultar um fitoterapeuta ou médico",
+        "Pessoas com condições de saúde pré-existentes devem consultar um fitoterapeuta ou profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar direta. Manter a embalagem bem fechada após o uso para preservar o aroma e as propriedades medicinais.",
@@ -5712,7 +5712,7 @@
         "Aumento da diurese"
       ],
       "alertas": [
-        "Gestantes e lactantes devem limitar o consumo devido ao teor de cafeína e consultar orientação médica",
+        "Gestantes e lactantes devem limitar o consumo devido ao teor de cafeína e consultar orientação de profissional de saúde habilitado",
         "Não recomendado para crianças menores de 12 anos",
         "Evitar o consumo excessivo para prevenir irritabilidade e nervosismo"
       ],
@@ -5799,7 +5799,7 @@
         "Leve desconforto gástrico se ingerido em jejum"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico devido ao teor de cafeína",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado devido ao teor de cafeína",
         "Não recomendado para crianças pequenas",
         "Evitar o consumo próximo ao horário de dormir",
         "Pessoas com anemia devem consumir o chá longe das principais refeições"
@@ -5869,7 +5869,7 @@
         "Hipersensibilidade ou alergia a fungos ou plantas da família Rhamnaceae",
         "Obstrução intestinal",
         "Casos de diarreia crônica ou severa",
-        "Pacientes com edema por insuficiência renal ou cardíaca sem orientação médica"
+        "Pacientes com edema por insuficiência renal ou cardíaca sem orientação de profissional de saúde habilitado"
       ],
       "interacoes": [
         "Pode potencializar o efeito de sedativos, hipnóticos e ansiolíticos (ex: benzodiazepínicos)",
@@ -5882,7 +5882,7 @@
         "Boca seca em casos raros"
       ],
       "alertas": [
-        "Não recomendado para gestantes e lactantes sem orientação médica",
+        "Não recomendado para gestantes e lactantes sem orientação de profissional de saúde habilitado",
         "Não deve ser administrado a crianças pequenas sem supervisão profissional",
         "Evite dirigir veículos ou operar máquinas pesadas após o consumo devido ao efeito sedativo"
       ],
@@ -5950,7 +5950,7 @@
       ],
       "contraindicacoes": [
         "Obstrução dos dutos biliares",
-        "Cálculos biliares (pedras na vesícula) sem acompanhamento médico",
+        "Cálculos biliares (pedras na vesícula) sem acompanhamento de profissional de saúde habilitado",
         "Gastrite e úlcera péptica",
         "Insuficiência renal grave",
         "Hipersensibilidade a plantas da família Asteraceae"
@@ -5970,7 +5970,7 @@
         "Reações alérgicas cutâneas"
       ],
       "alertas": [
-        "Não recomendado para gestantes e lactantes sem orientação médica",
+        "Não recomendado para gestantes e lactantes sem orientação de profissional de saúde habilitado",
         "Não indicado para crianças menores de 12 anos",
         "Pessoas com diabetes devem monitorar a glicemia, pois pode haver efeito hipoglicemiante",
         "Interromper o uso antes de procedimentos cirúrgicos devido ao efeito no sangue"
@@ -6057,7 +6057,7 @@
         "Desconforto gástrico em casos de consumo excessivo por conta da acidez das frutas"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes de consumir grandes quantidades de extratos herbais",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de consumir grandes quantidades de extratos herbais",
         "Não contém glúten",
         "Mantenha fora do alcance de crianças pequenas para evitar acidentes com a lata"
       ],
@@ -6085,7 +6085,7 @@
         },
         {
           "pergunta": "Pode ser consumido por diabéticos?",
-          "reposta": "Como o produto utiliza sucos de frutas concentrados (que possuem frutose natural) e extratos, diabéticos devem verificar o rótulo para checar o teor de carboidratos totais e consultar um nutricionista."
+          "reposta": "Como o produto utiliza sucos de frutas concentrados (que possuem frutose natural) e extratos, diabéticos devem verificar o rótulo para checar o teor de carboidratos totais e consultar um profissional de saúde habilitado."
         }
       ],
       "fonte": "knowledge_base"
@@ -6140,7 +6140,7 @@
         "Desconforto abdominal em pessoas sensíveis a bebidas gaseificadas"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes do consumo frequente devido às propriedades fitoterápicas do capim-limão",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do consumo frequente devido às propriedades fitoterápicas do capim-limão",
         "Não contém glúten",
         "Produto sem adição de açúcares",
         "Crianças devem consumir sob supervisão"
@@ -6227,8 +6227,8 @@
       ],
       "alertas": [
         "O hibisco pode interferir na fertilidade e em níveis estrogênicos, devendo ser evitado por quem está tentando engravidar",
-        "Não recomendado para crianças sem orientação médica",
-        "Consulte um médico se você faz uso de remédios controlados para o coração"
+        "Não recomendado para crianças sem orientação de profissional de saúde habilitado",
+        "Consulte um profissional de saúde habilitado se você faz uso de remédios controlados para o coração"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar. Após aberto, recomenda-se o consumo imediato para manter a gaseificação e frescor.",
       "origem": "Ingredientes de origem vegetal, processados e fabricados no Brasil pela marca Brazo.",
@@ -6314,7 +6314,7 @@
       ],
       "alertas": [
         "Contém cafeína natural da erva-mate",
-        "Gestantes e lactantes devem consultar um médico devido ao teor de cafeína",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado devido ao teor de cafeína",
         "Crianças devem consumir com moderação",
         "Não contém glúten"
       ],
@@ -6402,7 +6402,7 @@
       ],
       "alertas": [
         "Contém cafeína",
-        "Gestantes e lactantes devem consultar um médico antes do consumo regular devido à cafeína",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do consumo regular devido à cafeína",
         "Não substitui o consumo de água pura",
         "Verificar a presença de açúcares adicionais no rótulo específico do lote (embora a linha Brazo foque em versões saudáveis)"
       ],
@@ -6576,7 +6576,7 @@
         "Possível irritação gástrica se tomado em jejum absoluto por pessoas sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes do consumo",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do consumo",
         "Pode conter traços de glúten (devido à palha de aveia, dependendo do processamento)",
         "Mantenha fora do alcance de crianças"
       ],
@@ -6668,9 +6668,9 @@
         "Boca seca"
       ],
       "alertas": [
-        "Não recomendado para gestantes e lactantes sem orientação médica",
+        "Não recomendado para gestantes e lactantes sem orientação de profissional de saúde habilitado",
         "Uso não indicado para crianças",
-        "Consulte um médico se possuir doenças autoimunes",
+        "Consulte um profissional de saúde habilitado se possuir doenças autoimunes",
         "Contém cafeína natural do chá preto"
       ],
       "armazenamento": "Manter a embalagem original fechada, em local seco, fresco e ao abrigo da luz solar. Após aberto, consumir preferencialmente em até 60 dias.",
@@ -6845,7 +6845,7 @@
         "Manter fora do alcance de crianças",
         "Deve ser aplicado exclusivamente por um adulto",
         "Evitar contato com os olhos e mucosas",
-        "Em caso de irritação, suspender o uso e procurar orientação médica",
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado",
         "Produto formulado para minimizar o risco de alergia"
       ],
       "armazenamento": "Conservar em local fresco, seco, ao abrigo da luz solar direta e em temperatura ambiente.",
@@ -7032,7 +7032,7 @@
         "Má digestão e perda de apetite",
         "Dores musculares e articulares",
         "Sintomas de gripes e resfriados",
-        "Náuseas matinais na gravidez (sob orientação médica)"
+        "Náuseas matinais na gravidez (sob orientação de profissional de saúde habilitado)"
       ],
       "contraindicacoes": [
         "Pessoas com cálculos biliares (pedra na vesícula)",
@@ -7052,7 +7052,7 @@
         "Desconforto abdominal"
       ],
       "alertas": [
-        "Gestantes: Devem consultar um médico antes do uso (limite sugerido de 1g de raiz seca por dia)",
+        "Gestantes: Devem consultar profissional de saúde habilitado antes do uso (limite sugerido de 1g de raiz seca por dia)",
         "Lactação: Consulte um profissional de saúde",
         "Crianças: Não recomendado para menores de 2 anos",
         "Hipertensos: Devem monitorar a pressão arterial ao consumir regularmente"
@@ -7077,7 +7077,7 @@
         },
         {
           "pergunta": "Quem tem pressão alta pode consumir?",
-          "reposta": "Em quantidades moderadas (como tempero), geralmente é seguro, mas como suplemento ou chá concentrado, pode interagir com medicamentos ou alterar a pressão. Recomenda-se acompanhamento médico."
+          "reposta": "Em quantidades moderadas (como tempero), geralmente é seguro, mas como suplemento ou chá concentrado, pode interagir com medicamentos ou alterar a pressão. Recomenda-se acompanhamento de profissional de saúde habilitado."
         },
         {
           "pergunta": "Posso ferver a raiz?",
@@ -7486,7 +7486,7 @@
         "Desconforto abdominal em pessoas sensíveis"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico (devido ao teor de cafeína)",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado (devido ao teor de cafeína)",
         "Não recomendado para crianças",
         "Contém cafeína natural",
         "Pode conter traços de glúten ou leite dependendo do local de processamento"
@@ -7650,7 +7650,7 @@
         "PRODUTO FOTOTÓXICO: Não se exponha ao sol ou luz UV por até 12 a 24 horas após o uso tópico",
         "Manter fora do alcance de crianças e animais domésticos",
         "Gestantes e lactantes devem consultar um profissional de saúde antes do uso",
-        "Uso externo apenas; não ingerir sem orientação médica"
+        "Uso externo apenas; não ingerir sem orientação de profissional de saúde habilitado"
       ],
       "armazenamento": "Conservar em frasco de vidro âmbar original, bem fechado, em local fresco, seco e ao abrigo da luz direta e calor excessivo.",
       "origem": "Brasil (Cultivo Nacional/Processamento Laszlo)",
@@ -7676,7 +7676,7 @@
         },
         {
           "pergunta": "Posso ingerir este óleo?",
-          "reposta": "Embora óleos essenciais puros possam ser usados internamente em contextos específicos, a ingestão só deve ser feita sob orientação de um aromaterapeuta clínico ou médico qualificado."
+          "reposta": "Embora óleos essenciais puros possam ser usados internamente em contextos específicos, a ingestão só deve ser feita sob orientação de um aromaterapeuta clínico ou profissional de saúde habilitado qualificado."
         }
       ],
       "fonte": "knowledge_base"
@@ -7783,7 +7783,7 @@
         "Campeno",
         "Borneol"
       ],
-      "modo_uso": "Pode ser utilizado em difusores ultrassônicos (5 a 10 gotas), inalação direta (1 a 2 gotas em um lenço), ou diluído em óleo vegetal para massagens e aplicações tópicas. Não deve ser ingerido sem orientação médica.",
+      "modo_uso": "Pode ser utilizado em difusores ultrassônicos (5 a 10 gotas), inalação direta (1 a 2 gotas em um lenço), ou diluído em óleo vegetal para massagens e aplicações tópicas. Não deve ser ingerido sem orientação de profissional de saúde habilitado.",
       "dosagem": "Para uso tópico, diluir a uma concentração de 1% a 3% (aproximadamente 2 a 6 gotas de óleo essencial para cada 10ml de óleo carreador). No difusor, utilizar por períodos de 30 minutos a 1 hora.",
       "frequencia": "",
       "beneficios": [
@@ -7905,7 +7905,7 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Não ingerir sem orientação médica ou de aromaterapeuta qualificado",
+        "Não ingerir sem orientação de profissional de saúde habilitado ou de aromaterapeuta qualificado",
         "Realizar teste de sensibilidade no antebraço antes do uso",
         "Evitar contato com olhos e mucosas"
       ],
@@ -8064,7 +8064,7 @@
       ],
       "efeitos_colaterais": [],
       "alertas": [
-        "Uso externo; não ingerir sem orientação médica",
+        "Uso externo; não ingerir sem orientação de profissional de saúde habilitado",
         "Gestantes e lactantes devem consultar um profissional antes de usar",
         "Manter fora do alcance de crianças e animais domésticos",
         "Realizar teste de sensibilidade no antebraço antes do uso tópico extensivo",
@@ -8090,7 +8090,7 @@
         },
         {
           "pergunta": "Posso ingerir este óleo essencial?",
-          "reposta": "A ingestão de óleos essenciais é uma prática complexa e não recomendada sem a supervisão direta de um aromaterapeuta clínico ou médico especializado, devido ao risco de toxicidade hepática e gástrica."
+          "reposta": "A ingestão de óleos essenciais é uma prática complexa e não recomendada sem a supervisão direta de um aromaterapeuta clínico ou profissional de saúde habilitado especializado, devido ao risco de toxicidade hepática e gástrica."
         },
         {
           "pergunta": "Ele ajuda a dormir?",
@@ -8147,7 +8147,7 @@
       "alertas": [
         "Uso estritamente externo; não ingerir sem orientação profissional",
         "Mantenha longe do alcance de crianças e animais de estimação",
-        "Gestantes e lactantes devem consultar um médico antes do uso",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do uso",
         "Não aplicar próximo ao rosto e nariz de crianças pequenas",
         "Realizar teste de sensibilidade no antebraço antes do uso tópico extensivo"
       ],
@@ -8253,7 +8253,7 @@
         },
         {
           "pergunta": "Posso ingerir este óleo essencial?",
-          "resposta": "Não é recomendada a ingestão de óleos essenciais sem a orientação direta de um aromaterapeuta clínico ou médico especializado, devido ao risco de toxicidade hepática e renal."
+          "resposta": "Não é recomendada a ingestão de óleos essenciais sem a orientação direta de um aromaterapeuta clínico ou profissional de saúde habilitado especializado, devido ao risco de toxicidade hepática e renal."
         },
         {
           "pergunta": "Por que o código menciona (85/90)?",
@@ -8404,7 +8404,7 @@
       "alertas": [
         "Produto dermo-cáustico se usado puro; sempre diluir",
         "Evitar contato com olhos e membranas mucosas",
-        "Uso externo; a ingestão requer acompanhamento médico ou de aromaterapeuta clínico",
+        "Uso externo; a ingestão requer acompanhamento de profissional de saúde habilitado ou de aromaterapeuta clínico",
         "Mantenha fora do alcance de crianças e animais domésticos"
       ],
       "armazenamento": "Conservar em frasco de vidro âmbar bem fechado, em local fresco, seco e protegido da luz solar direta.",
@@ -8468,7 +8468,7 @@
       ],
       "contraindicacoes": [
         "Hipersensibilidade ou alergia ao óleo de lavanda",
-        "Primeiro trimestre de gestação (consultar médico)",
+        "Primeiro trimestre de gestação (consultar profissional de saúde habilitado)",
         "Uso sobre pele lesionada ou irritada sem diluição"
       ],
       "interacoes": [
@@ -8512,7 +8512,7 @@
         },
         {
           "pergunta": "Este óleo pode ser ingerido?",
-          "reposta": "O óleo é 100% puro, porém a ingestão de óleos essenciais é uma prática complexa que só deve ser feita sob orientação estrita de um aromaterapeuta clínico ou médico capacitado."
+          "reposta": "O óleo é 100% puro, porém a ingestão de óleos essenciais é uma prática complexa que só deve ser feita sob orientação estrita de um aromaterapeuta clínico ou profissional de saúde habilitado capacitado."
         }
       ],
       "fonte": "knowledge_base"
@@ -8562,7 +8562,7 @@
         "Náuseas (raro e geralmente associado à ingestão indevida ou inalação excessiva)"
       ],
       "alertas": [
-        "Uso externo; não ingerir sem orientação médica",
+        "Uso externo; não ingerir sem orientação de profissional de saúde habilitado",
         "Gestantes e lactantes devem consultar um profissional antes do uso",
         "Manter fora do alcance de crianças e animais domésticos",
         "Evitar exposição solar na região aplicada se houver sensibilidade",
@@ -8717,7 +8717,7 @@
       ],
       "contraindicacoes": [
         "Hipersensibilidade à resina de Croton lechleri",
-        "Uso interno sem orientação médica",
+        "Uso interno sem orientação de profissional de saúde habilitado",
         "Aplicação em mucosas oculares"
       ],
       "interacoes": [
@@ -8729,7 +8729,7 @@
         "Pode manchar tecidos e roupas permanentemente"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes do uso",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do uso",
         "Uso externo predominante",
         "Mantenha fora do alcance de crianças",
         "Realize um teste de sensibilidade no antebraço antes do primeiro uso"
@@ -8812,7 +8812,7 @@
       ],
       "alertas": [
         "Uso externo",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Apesar de conter filtros físicos, este produto não substitui o protetor solar em caso de exposição prolongada ao sol sem teste de FPS específico"
       ],
@@ -8986,7 +8986,7 @@
         "Uso externo",
         "Manter fora do alcance de crianças",
         "Em caso de contato com os olhos, enxaguar abundantemente",
-        "Em caso de irritação, suspender o uso e procurar orientação médica"
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Evitar exposição a calor excessivo para manter a integridade da barra sólida.",
       "origem": "Vegetal e Mineral",
@@ -9068,7 +9068,7 @@
       "alertas": [
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "A proteção solar é física; certifique-se de cobrir todas as áreas expostas",
         "Seguro para gestantes e lactantes (cosmético natural)"
       ],
@@ -9150,7 +9150,7 @@
       "alertas": [
         "Uso externo",
         "Manter fora do alcance de crianças",
-        "Em caso de irritação, suspender o uso e procurar orientação médica",
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado",
         "Não aplicar sobre a pele irritada ou lesionada"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Por ser um produto sólido à base de ceras e manteigas, deve-se evitar a exposição ao calor excessivo para manter a integridade da consistência.",
@@ -9234,7 +9234,7 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Em caso de irritação, suspender o uso e procurar orientação médica",
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado",
         "Manter fora do alcance de crianças",
         "Evitar contato direto com os olhos"
       ],
@@ -9322,7 +9322,7 @@
       "alertas": [
         "Uso externo apenas",
         "Manter fora do alcance de crianças",
-        "Em caso de irritação, suspender o uso e procurar orientação médica",
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado",
         "Apesar de conter óxido de zinco, não substitui o uso de protetor solar específico em casos de exposição prolongada",
         "Livre de parabenos, fragrâncias sintéticas e corantes artificiais"
       ],
@@ -9497,7 +9497,7 @@
       "alertas": [
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Seguro para gestantes e lactantes por não conter parabenos, metais pesados tóxicos ou fragrâncias sintéticas"
       ],
       "armazenamento": "Conservar em local seco, fresco e protegido da luz solar direta. Evitar exposição ao calor excessivo para manter a integridade da consistência sólida.",
@@ -9576,7 +9576,7 @@
       "alertas": [
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Evite contato direto com os olhos"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar direta. Por ser um produto sólido à base de óleos e ceras, evite exposição ao calor excessivo para não alterar sua consistência.",
@@ -9655,7 +9655,7 @@
       "alertas": [
         "Uso externo",
         "Mantenha fora do alcance de crianças",
-        "Em caso de sensibilização, interrompa o uso e consulte um médico",
+        "Em caso de sensibilização, interrompa o uso e consulte um profissional de saúde habilitado",
         "Embora contenha minerais que refletem luz, não substitui o protetor solar de uso diário"
       ],
       "armazenamento": "Conservar em local fresco, seco, longe do calor excessivo e da luz solar direta. Manter a embalagem bem fechada.",
@@ -9735,7 +9735,7 @@
       "alertas": [
         "Uso externo",
         "Manter fora do alcance de crianças",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Produto natural sujeito a variações de textura conforme a temperatura"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar direta. Por ser uma base sólida à base de ceras e manteigas, pode amolecer em temperaturas acima de 35°C ou endurecer no frio intenso.",
@@ -9819,7 +9819,7 @@
       "alertas": [
         "Uso externo",
         "Mantenha fora do alcance de crianças",
-        "Em caso de sensibilização, interrompa o uso e procure orientação médica",
+        "Em caso de sensibilização, interrompa o uso e procure orientação de profissional de saúde habilitado",
         "Embora contenha filtros físicos, não substitui o uso de protetor solar específico em casos de exposição solar intensa"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz direta. Por ser um produto natural e sólido, pode sofrer variações de consistência em temperaturas extremas.",
@@ -9900,7 +9900,7 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Em caso de irritação, suspenda o uso e consulte um médico",
+        "Em caso de irritação, suspenda o uso e consulte um profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Embora contenha filtros físicos, este produto não substitui o protetor solar de alto FPS em casos de exposição solar intensa e prolongada"
       ],
@@ -9983,7 +9983,7 @@
       ],
       "alertas": [
         "Uso externo",
-        "Em caso de irritação, suspender o uso e procurar orientação médica",
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Seguro para gestantes e lactantes (produto livre de parabenos, metais pesados e disruptores endócrinos)"
       ],
@@ -10062,7 +10062,7 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Suspender o uso em caso de irritação e procurar orientação médica",
+        "Suspender o uso em caso de irritação e procurar orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Apesar de natural, recomenda-se teste de contato em crianças e gestantes"
       ],
@@ -10145,7 +10145,7 @@
       ],
       "alertas": [
         "Mantenha fora do alcance de crianças",
-        "Em caso de sensibilização, interrompa o uso e procure orientação médica",
+        "Em caso de sensibilização, interrompa o uso e procure orientação de profissional de saúde habilitado",
         "Uso externo",
         "Livre de metais pesados e corantes sintéticos nocivos"
       ],
@@ -10231,7 +10231,7 @@
       "alertas": [
         "Mantenha fora do alcance de crianças",
         "Uso externo apenas",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Por ser um produto natural, pode apresentar pequenas variações de cor e textura entre lotes"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar direta. Evite exposição a calor excessivo para manter a consistência da cera.",
@@ -10321,7 +10321,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Evite contato com os olhos",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Produto inflamável (Deo Parfum)"
       ],
       "armazenamento": "Conservar em local fresco, seco, ao abrigo da luz direta e do calor excessivo.",
@@ -10403,7 +10403,7 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Produto natural, mas recomenda-se teste de sensibilidade em uma pequena área antes do primeiro uso"
       ],
@@ -10491,8 +10491,8 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Evite contato com os olhos e mucosas",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
-        "Gestantes e lactantes podem usar, porém recomenda-se consultar o médico devido à fragrância e óleos essenciais"
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
+        "Gestantes e lactantes podem usar, porém recomenda-se consultar profissional de saúde habilitado devido à fragrância e óleos essenciais"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Manter a embalagem bem fechada após o uso.",
       "origem": "Ingredientes de origem vegetal (Maracujá e Lima) combinados com base cosmética sintética.",
@@ -10568,7 +10568,7 @@
       ],
       "alertas": [
         "Uso externo",
-        "Gestantes e lactantes devem consultar um médico antes do uso devido à presença de óleos essenciais (Lavanda e Gerânio)",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes do uso devido à presença de óleos essenciais (Lavanda e Gerânio)",
         "Em caso de irritação, suspender o uso e enxaguar com água abundante",
         "Mantenha fora do alcance de crianças"
       ],
@@ -10651,7 +10651,7 @@
       ],
       "contraindicacoes": [
         "Pessoas com hipersensibilidade ou alergia a qualquer componente da fórmula",
-        "Pele com lesões abertas ou feridas graves sem orientação médica"
+        "Pele com lesões abertas ou feridas graves sem orientação de profissional de saúde habilitado"
       ],
       "interacoes": [],
       "efeitos_colaterais": [
@@ -10663,7 +10663,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, lavar com água em abundância",
-        "Suspender o uso em caso de irritação e procurar orientação médica",
+        "Suspender o uso em caso de irritação e procurar orientação de profissional de saúde habilitado",
         "Seguro para uso infantil e em gestantes, dado seu caráter hipoalergênico e pH balanceado"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Manter a embalagem do refil bem fechada até o momento da transferência para o frasco original.",
@@ -10742,7 +10742,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, enxágue imediatamente com água",
-        "Suspenda o uso em caso de irritação e procure orientação médica"
+        "Suspenda o uso em caso de irritação e procure orientação de profissional de saúde habilitado"
       ],
       "armazenamento": "Conservar o produto em local fresco, seco, ao abrigo da luz solar direta e em temperatura ambiente.",
       "origem": "Ingredientes de origem sintética e vegetal (extratos naturais).",
@@ -10820,9 +10820,9 @@
       "alertas": [
         "Uso externo",
         "Evitar contato direto com os olhos",
-        "Em caso de irritação, suspender o uso e procurar orientação médica",
+        "Em caso de irritação, suspender o uso e procurar orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
-        "Gestantes devem consultar o médico sobre o uso de óleos essenciais (Melaleuca/Alecrim)"
+        "Gestantes devem consultar profissional de saúde habilitado sobre o uso de óleos essenciais (Melaleuca/Alecrim)"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar direta. Após o uso, mantenha o sabonete em saboneteira que não acumule água para evitar que o produto amoleça ou perca durabilidade.",
       "origem": "Ingredientes de origem vegetal e mineral, fabricado no Brasil.",
@@ -10895,7 +10895,7 @@
       ],
       "contraindicacoes": [
         "Hipersensibilidade conhecida a qualquer componente da formulação",
-        "Pele com feridas abertas ou infecções cutâneas graves sem orientação médica"
+        "Pele com feridas abertas ou infecções cutâneas graves sem orientação de profissional de saúde habilitado"
       ],
       "interacoes": [],
       "efeitos_colaterais": [
@@ -10906,7 +10906,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, lave-os com água em abundância",
-        "Se ocorrer irritação, suspenda o uso e procure orientação médica",
+        "Se ocorrer irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Dermatologicamente testado"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar direta. Recomenda-se utilizar uma saboneteira que permita o escoamento da água para prolongar a vida útil da barra.",
@@ -10993,7 +10993,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, lavar com água em abundância",
-        "Suspender o uso se observar irritação e procurar orientação médica"
+        "Suspender o uso se observar irritação e procurar orientação de profissional de saúde habilitado"
       ],
       "armazenamento": "Manter em local seco, fresco e ao abrigo da luz solar direta. Recomenda-se o uso de saboneteira que não acumule água para maior durabilidade do produto.",
       "origem": "Brasil (Fabricado pela Granado/Phebo)",
@@ -11075,7 +11075,7 @@
         "Evitar contato com os olhos; em caso de contato, lavar com água em abundância",
         "Mantenha fora do alcance de crianças",
         "Suspender o uso se observar irritação",
-        "Gestantes e lactantes podem usar, pois é um produto de uso tópico e enxaguável, mas devem consultar médico se houver sensibilidade a fragrâncias fortes"
+        "Gestantes e lactantes podem usar, pois é um produto de uso tópico e enxaguável, mas devem consultar profissional de saúde habilitado se houver sensibilidade a fragrâncias fortes"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Manter a embalagem bem fechada após o uso.",
       "origem": "Brasil (Marca Avatim, Ilhéus-BA)",
@@ -11153,7 +11153,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, lavar com água em abundância",
-        "Suspender o uso se observar irritação e procurar orientação médica",
+        "Suspender o uso se observar irritação e procurar orientação de profissional de saúde habilitado",
         "Não ingerir"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Manter a embalagem bem fechada após o uso.",
@@ -11304,7 +11304,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Evite o contato com os olhos; em caso de contato, lave com água imediatamente",
-        "Em caso de irritação, suspenda o uso e procure orientação médica"
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado"
       ],
       "armazenamento": "Conservar em local fresco, seco, ao abrigo da luz solar direta e em temperatura ambiente.",
       "origem": "Ingredientes de base sintética segura combinados com extratos botânicos naturais.",
@@ -11328,7 +11328,7 @@
         },
         {
           "pergunta": "Pode ser usado por gestantes?",
-          "resposta": "Sim, o uso tópico de sabonetes com extrato de lavanda é considerado seguro durante a gestação, mas em caso de sensibilidade olfativa ou cutânea aumentada, consulte seu médico."
+          "resposta": "Sim, o uso tópico de sabonetes com extrato de lavanda é considerado seguro durante a gestação, mas em caso de sensibilidade olfativa ou cutânea aumentada, consulte um profissional de saúde habilitado."
         }
       ],
       "fonte": "knowledge_base"
@@ -11468,7 +11468,7 @@
       "alertas": [
         "Uso externo apenas",
         "Evitar contato direto com os olhos",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Manter fora do alcance de crianças"
       ],
       "armazenamento": "Conservar em local seco e arejado. Recomenda-se o uso de saboneteira que não acumule água para prolongar a durabilidade do produto artesanal.",
@@ -11552,8 +11552,8 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Gestantes e lactantes devem consultar o médico devido à presença de óleos essenciais (Mirra e Olíbano)",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado devido à presença de óleos essenciais (Mirra e Olíbano)",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz direta e calor excessivo. Manter o frasco sempre bem fechado para evitar a oxidação dos óleos vegetais.",
@@ -11636,8 +11636,8 @@
       ],
       "alertas": [
         "Uso externo apenas",
-        "Em caso de irritação, suspenda o uso e procure orientação médica",
-        "Gestantes e lactantes devem consultar o médico antes de iniciar novos dermocosméticos",
+        "Em caso de irritação, suspenda o uso e procure orientação de profissional de saúde habilitado",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de iniciar novos dermocosméticos",
         "Mantenha fora do alcance de crianças",
         "Evite contato direto com os olhos"
       ],
@@ -11727,8 +11727,8 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, lavar com água em abundância",
-        "Suspender o uso em caso de irritação e procurar orientação médica",
-        "Gestantes e lactantes podem utilizar, pois é um produto de uso tópico e enxaguável, mas recomenda-se consultar o médico em caso de dúvidas sobre sensibilidade olfativa"
+        "Suspender o uso em caso de irritação e procurar orientação de profissional de saúde habilitado",
+        "Gestantes e lactantes podem utilizar, pois é um produto de uso tópico e enxaguável, mas recomenda-se consultar profissional de saúde habilitado em caso de dúvidas sobre sensibilidade olfativa"
       ],
       "armazenamento": "Conservar em local fresco, seco e ao abrigo da luz solar direta. Manter a embalagem devidamente fechada após o uso.",
       "origem": "Extrato de Açaí proveniente da Amazônia (Brasil) e Óleo de Jojoba extraído de sementes da planta Simmondsia chinensis.",
@@ -11813,7 +11813,7 @@
         "Uso externo apenas",
         "Mantenha fora do alcance de crianças",
         "Em caso de contato com os olhos, lave com água em abundância",
-        "Gestantes e lactantes podem usar, mas devem consultar seu médico devido à presença de óleos essenciais",
+        "Gestantes e lactantes podem usar, mas devem consultar profissional de saúde habilitado devido à presença de óleos essenciais",
         "Suspenda o uso se observar qualquer irritação no couro cabeludo"
       ],
       "armazenamento": "Conservar em local fresco, seco, longe da luz solar direta e do calor excessivo. Manter a embalagem bem fechada após o uso.",
@@ -11898,7 +11898,7 @@
       "alertas": [
         "Evitar o contato com os olhos, ouvidos e mucosas do animal",
         "Manter fora do alcance de crianças e animais domésticos",
-        "Em caso de ingestão acidental, procure orientação médica",
+        "Em caso de ingestão acidental, procure orientação de profissional de saúde habilitado",
         "Suspender o uso em caso de irritação cutânea e consultar um veterinário"
       ],
       "armazenamento": "Conservar em local fresco e seco, ao abrigo da luz solar direta e em temperatura ambiente. Manter a embalagem bem fechada após o uso.",
@@ -11980,7 +11980,7 @@
         "Tremores leves"
       ],
       "alertas": [
-        "Gestantes e lactantes devem limitar o consumo conforme orientação médica (geralmente máximo 200mg/dia)",
+        "Gestantes e lactantes devem limitar o consumo conforme orientação de profissional de saúde habilitado (geralmente máximo 200mg/dia)",
         "Não recomendado para crianças devido ao sistema nervoso em desenvolvimento",
         "Pode elevar temporariamente a pressão arterial em indivíduos sensíveis"
       ],
@@ -12068,7 +12068,7 @@
         "Aumento da frequência urinária"
       ],
       "alertas": [
-        "Gestantes e lactantes devem limitar o consumo de cafeína a, no máximo, 200mg por dia (consulte seu médico)",
+        "Gestantes e lactantes devem limitar o consumo de cafeína a, no máximo, 200mg por dia (consulte um profissional de saúde habilitado)",
         "Pode elevar temporariamente a pressão arterial em indivíduos sensíveis",
         "O consumo excessivo e crônico pode levar à dependência leve e dores de cabeça em caso de interrupção abrupta",
         "Evitar o consumo no período noturno para não prejudicar a arquitetura do sono"
@@ -12161,7 +12161,7 @@
         "Leve desconforto gastrointestinal em estômagos sensíveis"
       ],
       "alertas": [
-        "Não recomendado para gestantes e lactantes sem orientação médica",
+        "Não recomendado para gestantes e lactantes sem orientação de profissional de saúde habilitado",
         "Não recomendado para crianças",
         "Contém cafeína",
         "Pode conter traços de leite e soja devido ao compartilhamento de equipamentos de envase"
@@ -12245,7 +12245,7 @@
         "Pessoas com hipersensibilidade à cafeína",
         "Indivíduos com histórico de arritmia cardíaca",
         "Pessoas com úlceras gástricas severas ou gastrite aguda",
-        "Menores de 18 anos (salvo orientação médica)"
+        "Menores de 18 anos (salvo orientação de profissional de saúde habilitado)"
       ],
       "interacoes": [
         "Pode potencializar o efeito de outros estimulantes",
@@ -12260,7 +12260,7 @@
       ],
       "alertas": [
         "Contém cafeína",
-        "Gestantes e lactantes devem consumir apenas sob orientação médica",
+        "Gestantes e lactantes devem consumir apenas sob orientação de profissional de saúde habilitado",
         "Mantenha fora do alcance de crianças",
         "Não substitui uma alimentação equilibrada"
       ],
@@ -12346,7 +12346,7 @@
         "Raras reações alérgicas cutâneas associadas ao cogumelo"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar orientação médica antes do consumo devido à presença de cogumelos funcionais",
+        "Gestantes e lactantes devem consultar orientação de profissional de saúde habilitado antes do consumo devido à presença de cogumelos funcionais",
         "Crianças devem consumir sob supervisão ou orientação nutricional",
         "Este produto não substitui uma dieta equilibrada",
         "Pode conter traços de amendoim e oleaginosas"
@@ -12735,7 +12735,7 @@
       ],
       "alertas": [
         "PROIBIDO PARA CRIANÇAS MENORES DE 1 ANO",
-        "Diabéticos devem consumir apenas sob orientação médica ou de nutricionista",
+        "Diabéticos devem consumir apenas sob orientação de profissional de saúde habilitado",
         "A cristalização é um processo natural; se ocorrer, pode ser revertido em banho-maria a no máximo 40°C"
       ],
       "armazenamento": "Conservar em local seco, fresco e ao abrigo da luz solar. Não é necessário refrigerar.",
@@ -12818,7 +12818,7 @@
         "Agitação ou nervosismo"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar orientação médica antes do consumo",
+        "Gestantes e lactantes devem consultar orientação de profissional de saúde habilitado antes do consumo",
         "Não recomendado para crianças devido ao teor de cafeína",
         "Diabéticos devem verificar a presença de maltodextrina no lote específico",
         "Contém cafeína"
@@ -12837,7 +12837,7 @@
       "faq": [
         {
           "pergunta": "O Milkshake da Amazônia substitui uma refeição principal?",
-          "reposta": "Não. Ele é um complemento alimentar indicado para lanches ou como suporte energético, não devendo substituir almoço ou jantar sem orientação de nutricionista."
+          "reposta": "Não. Ele é um complemento alimentar indicado para lanches ou como suporte energético, não devendo substituir almoço ou jantar sem orientação de profissional de saúde habilitado."
         },
         {
           "pergunta": "Contém glúten ou lactose?",
@@ -13113,7 +13113,7 @@
       ],
       "contraindicacoes": [
         "Pessoas com alergia específica ao fruto do açaí",
-        "Pacientes com restrição severa de potássio (insuficiência renal grave) devem consultar médico",
+        "Pacientes com restrição severa de potássio (insuficiência renal grave) devem consultar profissional de saúde habilitado",
         "Indivíduos com doença de Chagas em fase aguda (apenas se a polpa não for pasteurizada)"
       ],
       "interacoes": [
@@ -13210,7 +13210,7 @@
         "Desconforto gástrico (raro)"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar um médico antes de usar",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de usar",
         "Mantenha fora do alcance de crianças",
         "Realize um teste de sensibilidade aplicando uma gota na pele antes do primeiro uso"
       ],
@@ -13265,7 +13265,7 @@
         "Ácido Glutâmico"
       ],
       "modo_uso": "Misturar a dose recomendada em aproximadamente 200ml a 300ml de água gelada ou bebida de sua preferência. Agitar vigorosamente em uma coqueteleira até a completa homogeneização.",
-      "dosagem": "Consumir 1 porção (geralmente entre 30g e 40g, conforme o dosador incluso) imediatamente após a atividade física, ou conforme orientação de nutricionista ou médico.",
+      "dosagem": "Consumir 1 porção (geralmente entre 30g e 40g, conforme o dosador incluso) imediatamente após a atividade física, ou conforme orientação de profissional de saúde habilitado.",
       "frequencia": "",
       "beneficios": [
         "Aceleração da recuperação muscular pós-esforço",
@@ -13282,7 +13282,7 @@
       ],
       "contraindicacoes": [
         "Pessoas com alergia severa à proteína do leite de vaca (APLV)",
-        "Indivíduos com insuficiência renal crônica grave sem acompanhamento médico",
+        "Indivíduos com insuficiência renal crônica grave sem acompanhamento de profissional de saúde habilitado",
         "Pessoas com intolerância severa à lactose (exceto se a versão for isolada/hidrolisada)",
         "Portadores de fenilcetonúria (caso contenha fenilalanina)"
       ],
@@ -13462,7 +13462,7 @@
       "contraindicacoes": [
         "Alergia a amendoim e castanhas",
         "Sensibilidade a cogumelos",
-        "Indivíduos com doenças autoimunes severas (sem orientação médica)",
+        "Indivíduos com doenças autoimunes severas (sem orientação de profissional de saúde habilitado)",
         "Pessoas com restrição severa de fibras na dieta"
       ],
       "interacoes": [
@@ -13474,7 +13474,7 @@
         "Leve alteração no trânsito intestinal"
       ],
       "alertas": [
-        "Gestantes e lactantes devem consultar médico ou nutricionista antes de consumir",
+        "Gestantes e lactantes devem consultar profissional de saúde habilitado antes de consumir",
         "Produto sem glúten, mas conferir rótulo para possíveis contaminações cruzadas se for celíaco",
         "Pode conter traços de soja e leite",
         "Não substitui uma refeição completa"
