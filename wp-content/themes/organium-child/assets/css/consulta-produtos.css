@@ -347,10 +347,6 @@
 .nrc-card-icon--planta::before { content: "\1F33F"; }
 .nrc-card-icon--oleo_essencial { background: #e8d5f5; }
 .nrc-card-icon--oleo_essencial::before { content: "\1F4A7"; }
-.nrc-card-icon--cosmetico { background: #fde8e8; }
-.nrc-card-icon--cosmetico::before { content: "\2728"; }
-.nrc-card-icon--alimento { background: #fff3cd; }
-.nrc-card-icon--alimento::before { content: "\1F34E"; }
 .nrc-card-icon--outro { background: #e2e3e5; }
 .nrc-card-icon--outro::before { content: "\1F4CB"; }
 
@@ -525,18 +521,6 @@ h5.nrc-subsection-title {
     border: 1px solid var(--nrc-border);
 }
 
-.nrc-tag--benefit {
-    background: #e8f5ee;
-    border-color: #c3e6cb;
-    color: #155724;
-}
-
-.nrc-tag--indication {
-    background: #e3f2fd;
-    border-color: #b6d4fe;
-    color: #084298;
-}
-
 .nrc-tag--warning {
     background: #fff3cd;
     border-color: #ffeeba;
@@ -587,6 +571,15 @@ h5.nrc-subsection-title {
 
 blockquote.nrc-evidence-block {
     margin: 0;
+    overflow: visible;
+    position: relative;
+}
+
+/* Remove theme decorative quotes on evidence blockquotes */
+blockquote.nrc-evidence-block::before,
+blockquote.nrc-evidence-block::after {
+    display: none !important;
+    content: none !important;
 }
 
 /* References (<ol> with <cite>) */

@@ -135,8 +135,6 @@ function nraizes_render_product_card($p, $index) {
     $armazen     = $p['armazenamento'] ?? '';
     $origem      = $p['origem'] ?? '';
     
-    $beneficios      = $p['beneficios'] ?? [];
-    $indicacoes      = $p['indicacoes'] ?? [];
     $contraindicacoes = $p['contraindicacoes'] ?? [];
     $interacoes      = $p['interacoes'] ?? [];
     $efeitos_col     = $p['efeitos_colaterais'] ?? [];
@@ -156,7 +154,7 @@ function nraizes_render_product_card($p, $index) {
     
     // Build searchable text for JS filtering (data attribute)
     $search_parts = array($nome, $nome_cn, $categoria, $ind_mtc, $aplicacoes, $modo_uso, $dosagem, $estudos, $origem);
-    foreach (array($beneficios, $indicacoes, $ingredientes, $princ_ativos, $contraindicacoes, $alertas, $certificacoes) as $arr) {
+    foreach (array($ingredientes, $princ_ativos, $contraindicacoes, $alertas, $certificacoes) as $arr) {
         if (is_array($arr)) $search_parts[] = implode(' ', $arr);
     }
     if (is_array($faq)) {
@@ -235,23 +233,7 @@ function nraizes_render_product_card($p, $index) {
                 </section>
                 <?php endif; ?>
 
-                <?php /* --- Beneficios --- */ ?>
-                <?php if (!empty($beneficios)) : ?>
-                <section class="nrc-section" aria-label="Beneficios">
-                    <h4 class="nrc-section-title">Beneficios</h4>
-                    <?php echo nraizes_render_tags($beneficios, 'benefit'); ?>
-                </section>
-                <?php endif; ?>
-
-                <?php /* --- Indicacoes --- */ ?>
-                <?php if (!empty($indicacoes)) : ?>
-                <section class="nrc-section" aria-label="Indicacoes">
-                    <h4 class="nrc-section-title">Indicacoes</h4>
-                    <?php echo nraizes_render_tags($indicacoes, 'indication'); ?>
-                </section>
-                <?php endif; ?>
-
-                <?php /* --- Aplicacoes Clinicas (MTC) --- */ ?>
+                <?php /* --- Aplicacoes Clinicas Baseadas em Evidencias --- */ ?>
                 <?php if ($aplicacoes) : ?>
                 <section class="nrc-section" aria-label="Aplicacoes clinicas">
                     <h4 class="nrc-section-title">Aplicacoes Clinicas Baseadas em Evidencias</h4>
@@ -432,9 +414,10 @@ function nraizes_consulta_shortcode($atts) {
                 Guia de Produtos Naturais e Suplementos
             </h1>
             <p class="nrc-subtitle" itemprop="description">
-                Base de dados informativa com <?php echo intval($total); ?> produtos naturais, formulas da Medicina Tradicional Chinesa, 
-                suplementos e plantas medicinais. As informacoes reunidas aqui tem carater educativo, 
-                com referencias a estudos publicados em revistas cientificas indexadas (PubMed, Cochrane, etc.).
+                Base de dados curada com <?php echo intval($total); ?> produtos naturais, formulas da Medicina Tradicional Chinesa, 
+                suplementos, plantas medicinais e oleos essenciais. Cada produto apresenta um resumo baseado 
+                exclusivamente no que os estudos cientificos referenciam e embasam, com citacoes de revistas 
+                indexadas (PubMed, Cochrane, etc.).
                 <strong>Este conteudo nao substitui orientacao de um profissional de saude.</strong>
             </p>
             <div class="nrc-stats" role="status">
@@ -457,7 +440,7 @@ function nraizes_consulta_shortcode($atts) {
                 <input type="search" 
                        id="nrc-search" 
                        class="nrc-search-input" 
-                       placeholder="Buscar por nome, ingrediente, indicacao ou beneficio..."
+                       placeholder="Buscar por nome, ingrediente, estudo ou aplicacao..."
                        autocomplete="off"
                        aria-describedby="nrc-search-help">
                 <span id="nrc-search-help" class="screen-reader-text">
@@ -541,18 +524,19 @@ function nraizes_consulta_shortcode($atts) {
             <p class="nrc-geo-text">
                 Esta base de dados e mantida pela <strong>Novas Raizes</strong> (nraizes.com.br), 
                 loja especializada em produtos naturais, suplementos alimentares, formulas da 
-                Medicina Tradicional Chinesa (MTC), oleos essenciais e cosmeticos naturais. 
+                Medicina Tradicional Chinesa (MTC), plantas medicinais e oleos essenciais. 
                 As informacoes sao compiladas a partir de estudos cientificos publicados em 
                 revistas indexadas como PubMed, Cochrane Library e bases de dados de fitoterapia 
-                baseada em evidencias. Cada produto inclui dosagem recomendada, contraindicacoes, 
+                baseada em evidencias. Cada produto apresenta exclusivamente o que os estudos 
+                referenciam e embasam, com dosagem recomendada, contraindicacoes, 
                 interacoes medicamentosas e referencias cientificas verificaveis.
             </p>
             <p class="nrc-geo-text">
                 Categorias disponiveis: Formulas da Medicina Tradicional Chinesa (como Liu Wei Dihuang Wan, 
                 Xiao Yao Wan, Gui Pi Wan), Suplementos (Vitamina D3, Omega-3, Coenzima Q10, Ashwagandha, 
                 Melatonina, Magnesio, Zinco, Colageno, Probioticos, Curcuma, Spirulina, Clorella), 
-                Plantas Medicinais (Alcachofra, Camomila, Gengibre), Oleos Essenciais (Alecrim, Bergamota, 
-                Lavanda) e Cosmeticos Naturais.
+                Plantas Medicinais (Alcachofra, Camomila, Gengibre) e Oleos Essenciais (Alecrim, Bergamota, 
+                Lavanda).
             </p>
             <div itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
                 <meta itemprop="name" content="Novas Raizes">
@@ -646,7 +630,7 @@ function nraizes_consulta_structured_data() {
         '@type' => 'Dataset',
         '@id' => $page_url . '#dataset',
         'name' => 'Base de Dados de Produtos Naturais e Suplementos - Novas Raizes',
-        'description' => 'Base de dados com informacoes cientificas de ' . count($produtos) . ' produtos incluindo formulas da Medicina Tradicional Chinesa (MTC), suplementos alimentares, plantas medicinais, oleos essenciais e cosmeticos naturais. Cada registro inclui dosagem, contraindicacoes, interacoes medicamentosas, beneficios e referencias cientificas (PubMed/Cochrane).',
+        'description' => 'Base de dados com informacoes cientificas de ' . count($produtos) . ' produtos incluindo formulas da Medicina Tradicional Chinesa (MTC), suplementos alimentares, plantas medicinais e oleos essenciais. Cada registro inclui dosagem, contraindicacoes, interacoes medicamentosas, resumo de evidencias e referencias cientificas (PubMed/Cochrane).',
         'url' => $page_url,
         'license' => 'https://creativecommons.org/licenses/by-nc/4.0/',
         'inLanguage' => 'pt-BR',
@@ -660,7 +644,7 @@ function nraizes_consulta_structured_data() {
         ),
         'variableMeasured' => array(
             'dosagem recomendada', 'nivel de evidencia cientifica',
-            'contraindicacoes', 'interacoes medicamentosas', 'beneficios',
+            'contraindicacoes', 'interacoes medicamentosas', 'resumo de evidencias',
         ),
         'measurementTechnique' => 'Revisao de literatura cientifica (PubMed, Cochrane, CNKI)',
         'size' => count($produtos) . ' produtos',
@@ -848,10 +832,9 @@ function nraizes_consulta_api_handler($request) {
         $produtos = array_filter($produtos, function($p) use ($busca_lower) {
             $searchable = mb_strtolower(
                 ($p['nome'] ?? '') . ' ' .
-                implode(' ', $p['beneficios'] ?? []) . ' ' .
-                implode(' ', $p['indicacoes'] ?? []) . ' ' .
                 implode(' ', $p['ingredientes'] ?? []) . ' ' .
                 ($p['estudos_resumo'] ?? '') . ' ' .
+                ($p['aplicacoes_clinicas'] ?? '') . ' ' .
                 ($p['indicacao_mtc'] ?? '') . ' ' .
                 ($p['nome_chines'] ?? '')
             );
