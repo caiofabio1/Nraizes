@@ -1,11 +1,11 @@
 /*
  Theme Name:   Organium Child
- Description:  Organium Child Theme
+ Description:  Organium Child Theme - Novas Raizes
  Theme URI:    https://organium.artureanec.com
  Author:       Artureanec
  Author URI:   https://demo.artureanec.com
  Template:     organium
- Version:      1.1.0
+ Version:      2.0.0
  License: GNU  General Public License version 3.0
  License URI:  http://www.gnu.org/licenses/gpl-3.0.html
  Text Domain:  organium-child
@@ -14,13 +14,59 @@
 /* =Theme customization starts here
 ------------------------------------------------------- */
 
-/* CI/CD Test - Deploy triggered: 2025-12-19 */
-
 /* ============================================
-   PRODUTO - TÍTULO
+   CSS CUSTOM PROPERTIES
    ============================================ */
 
-/* Reduzir tamanho do título do produto */
+:root {
+  --nr-primary: #4a7c59;
+  --nr-primary-dark: #3a6247;
+  --nr-primary-light: #e8f0eb;
+  --nr-accent: #f4a261;
+  --nr-text: #2d3131;
+  --nr-text-muted: #666;
+  --nr-bg: #ffffff;
+  --nr-bg-light: #f9fafb;
+  --nr-border: #e5e7eb;
+  --nr-success: #28a800;
+  --nr-warning: #f28100;
+  --nr-danger: #e23636;
+  --nr-radius: 8px;
+  --nr-radius-lg: 12px;
+  --nr-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --nr-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --nr-transition: 0.2s ease;
+}
+
+/* ============================================
+   GLOBAL FIXES
+   ============================================ */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better image defaults */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   PRODUTO - TITULO
+   ============================================ */
+
+/* Reduzir tamanho do titulo do produto */
 .single-product .product_title,
 .single-product h1.product_title {
   font-size: 1.8rem !important;
@@ -28,45 +74,374 @@
   margin-bottom: 0.5rem;
 }
 
-/* Esconder título duplicado (segundo H1 na página) */
+/* Esconder titulo duplicado (segundo H1 na pagina) */
 .single-product .summary h1.product_title ~ h1 {
   display: none !important;
 }
 
-/* Se houver outro elemento de título duplicado */
+/* Se houver outro elemento de titulo duplicado */
 .single-product .entry-title + .product_title,
 .single-product .product_title + .entry-title {
   display: none !important;
 }
 
 /* ============================================
-   MELHORIAS MOBILE (NRAIZES) - 2026-01-19
+   SHIPPING BAR (Frete Gratis Progress)
+   ============================================ */
+
+.nraizes-shipping-bar {
+  padding: 12px 16px;
+  border-radius: var(--nr-radius);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.nraizes-shipping-bar p {
+  margin: 0 0 8px 0;
+}
+
+.nraizes-shipping-bar--progress {
+  background: linear-gradient(135deg, #fff8f0, #fff3e0);
+  border: 1px solid #ffe0b2;
+  color: var(--nr-text);
+}
+
+.nraizes-shipping-bar--complete {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 1px solid #a5d6a7;
+  color: #2e7d32;
+}
+
+.nraizes-shipping-bar__track {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.nraizes-shipping-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nr-accent), #e76f51);
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nraizes-shipping-bar--complete .nraizes-shipping-bar__track {
+  display: none;
+}
+
+/* ============================================
+   TRUST BADGES (Checkout)
+   ============================================ */
+
+.nraizes-trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  background: var(--nr-bg-light);
+  border: 1px solid var(--nr-border);
+  border-radius: var(--nr-radius);
+}
+
+.nraizes-trust-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--nr-text-muted);
+  white-space: nowrap;
+}
+
+/* ============================================
+   STICKY ADD-TO-CART (Mobile)
+   ============================================ */
+
+.nraizes-sticky-cart {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--nr-bg);
+  border-top: 1px solid var(--nr-border);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(0);
+  transition: transform var(--nr-transition);
+}
+
+.nraizes-sticky-cart__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.nraizes-sticky-cart__name {
+  font-size: 0.8rem;
+  color: var(--nr-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nraizes-sticky-cart__price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--nr-text);
+}
+
+.nraizes-sticky-cart__price del {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--nr-text-muted);
+}
+
+.nraizes-sticky-cart__price ins {
+  text-decoration: none;
+  color: var(--nr-primary-dark);
+}
+
+.nraizes-sticky-cart__btn {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  background: var(--nr-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--nr-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--nr-transition);
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nraizes-sticky-cart__btn:hover,
+.nraizes-sticky-cart__btn:active {
+  background: var(--nr-primary-dark);
+}
+
+/* ============================================
+   CROSS-SELLS / RELATED PRODUCTS
+   ============================================ */
+
+.nraizes-cart-crosssells,
+.nraizes-smart-related {
+  margin-top: 2rem;
+}
+
+.nraizes-cart-crosssells h2,
+.nraizes-smart-related h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   WOOCOMMERCE - PRODUCT CARDS IMPROVEMENTS
+   ============================================ */
+
+.woocommerce ul.products li.product {
+  transition: transform var(--nr-transition), box-shadow var(--nr-transition);
+}
+
+.woocommerce ul.products li.product:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--nr-shadow);
+}
+
+.woocommerce ul.products li.product .price {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.woocommerce ul.products li.product .price del {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.woocommerce ul.products li.product .price ins {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--nr-primary-dark);
+}
+
+/* Sale badge */
+.woocommerce span.onsale {
+  background: var(--nr-danger);
+  border-radius: var(--nr-radius);
+  padding: 4px 10px;
+  min-height: auto;
+  min-width: auto;
+  line-height: 1.4;
+}
+
+/* ============================================
+   WOOCOMMERCE - SINGLE PRODUCT
+   ============================================ */
+
+.single-product .woocommerce-product-gallery {
+  margin-bottom: 1.5rem;
+}
+
+.single-product .product_meta {
+  font-size: 0.85rem;
+  color: var(--nr-text-muted);
+}
+
+.single-product .single_add_to_cart_button {
+  transition: background var(--nr-transition), transform var(--nr-transition);
+}
+
+.single-product .single_add_to_cart_button:active {
+  transform: scale(0.98);
+}
+
+/* ============================================
+   MELHORIAS MOBILE - 320px a 767px
    ============================================ */
 
 @media (max-width: 767px) {
-  /* 1. Grade de Produtos: 2 por linha */
+
+  /* --- Layout & Spacing --- */
+  .site-content,
+  .woocommerce,
+  .page-content {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* --- 1. Grade de Produtos: 2 por linha --- */
   ul.products.columns-3,
+  ul.products.columns-4,
   ul.products,
   .woocommerce ul.products {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
+    padding: 0 !important;
   }
 
   ul.products li.product,
   .woocommerce ul.products li.product {
     width: 100% !important;
     margin: 0 !important;
-    margin-bottom: 20px !important;
+    padding: 8px;
+    border-radius: var(--nr-radius);
+    background: var(--nr-bg);
   }
 
-  /* 2. Carrinho Responsivo (Estilo Card) */
+  /* Product card content */
+  .woocommerce ul.products li.product .woocommerce-loop-product__title,
+  ul.products li.product h2 {
+    font-size: 0.85rem !important;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .woocommerce ul.products li.product .price {
+    font-size: 0.9rem;
+  }
+
+  .woocommerce ul.products li.product .button,
+  .woocommerce ul.products li.product .add_to_cart_button {
+    font-size: 0.8rem !important;
+    padding: 8px 12px !important;
+    min-height: 44px;
+    width: 100%;
+    text-align: center;
+    border-radius: var(--nr-radius) !important;
+  }
+
+  /* Product image aspect ratio */
+  .woocommerce ul.products li.product img,
+  ul.products li.product img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: var(--nr-radius);
+    width: 100%;
+  }
+
+  /* Sale badge mobile */
+  .woocommerce span.onsale {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    top: 4px;
+    right: 4px;
+    left: auto;
+  }
+
+  /* --- 2. Single Product Page --- */
+  .single-product .product_title,
+  .single-product h1.product_title {
+    font-size: 1.3rem !important;
+    line-height: 1.3;
+  }
+
+  .single-product .woocommerce-product-gallery {
+    margin-bottom: 1rem;
+  }
+
+  .single-product .summary {
+    padding: 0 4px;
+  }
+
+  .single-product .woocommerce-tabs {
+    margin-top: 1.5rem;
+  }
+
+  .single-product .woocommerce-tabs ul.tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding: 0;
+    gap: 0;
+  }
+
+  .single-product .woocommerce-tabs ul.tabs li {
+    flex-shrink: 0;
+  }
+
+  .single-product .woocommerce-tabs ul.tabs li a {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* --- 3. Carrinho Responsivo (Estilo Card) --- */
+  .woocommerce table.shop_table {
+    border: none !important;
+  }
+
+  .woocommerce table.shop_table_responsive thead {
+    display: none;
+  }
+
   .woocommerce table.shop_table_responsive tr {
     display: block;
-    border: 1px solid #eee;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
+    border: 1px solid var(--nr-border);
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: var(--nr-radius);
+    background: var(--nr-bg);
+    box-shadow: var(--nr-shadow-sm);
   }
 
   .woocommerce table.shop_table_responsive td {
@@ -76,40 +451,520 @@
     text-align: right !important;
     padding: 8px 0 !important;
     border-bottom: 1px solid #f5f5f5;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  .woocommerce table.shop_table_responsive td:last-child {
+    border-bottom: none;
   }
 
   .woocommerce table.shop_table_responsive td::before {
     content: attr(data-title);
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    color: #555;
+    font-size: 0.8rem;
+    color: var(--nr-text-muted);
+    letter-spacing: 0.02em;
   }
 
-  .woocommerce table.shop_table_responsive thead {
-    display: none;
+  /* Cart item image */
+  .woocommerce table.cart td.product-thumbnail {
+    justify-content: center !important;
   }
 
-  /* 3. WhatsApp Button - Ajuste de Posição */
-  a.qlwapp__button {
-    bottom: 90px !important; /* Evita sobrepor footer */
-    right: 15px !important;
-    width: 50px !important;
-    height: 50px !important;
-    z-index: 999 !important;
+  .woocommerce table.cart td.product-thumbnail img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--nr-radius);
   }
 
-  /* 4. Header Otimizado */
-  header.organium_header {
+  /* Cart quantity */
+  .woocommerce table.cart .quantity {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .woocommerce table.cart .quantity .qty {
+    width: 60px;
+    min-height: 44px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: var(--nr-radius);
+    border: 1px solid var(--nr-border);
+  }
+
+  /* Cart actions */
+  .woocommerce .cart-collaterals,
+  .woocommerce-page .cart-collaterals {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .woocommerce .cart-collaterals .cart_totals {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .woocommerce .cart-collaterals .cart_totals table {
+    border: none;
+  }
+
+  /* Coupon form */
+  .woocommerce .cart .coupon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .woocommerce .cart .coupon #coupon_code {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  .woocommerce .cart .coupon button {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  /* Update cart button */
+  .woocommerce button[name="update_cart"] {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 8px;
+  }
+
+  /* Proceed to checkout */
+  .woocommerce .wc-proceed-to-checkout {
+    padding: 0;
+  }
+
+  .woocommerce .wc-proceed-to-checkout a.checkout-button {
+    font-size: 1.1rem;
+    padding: 16px 24px;
+    min-height: 54px;
+    border-radius: var(--nr-radius);
+  }
+
+  /* --- 4. Checkout Mobile --- */
+  .woocommerce-checkout .col2-set {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woocommerce-checkout .col2-set .col-1,
+  .woocommerce-checkout .col2-set .col-2 {
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    margin-bottom: 20px;
+  }
+
+  .woocommerce form .form-row {
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    margin-bottom: 12px;
+  }
+
+  .woocommerce form .form-row-first,
+  .woocommerce form .form-row-last {
+    width: 100% !important;
+  }
+
+  .woocommerce-checkout #payment {
+    border-radius: var(--nr-radius);
+  }
+
+  .woocommerce-checkout #place_order {
+    font-size: 1.1rem;
+    padding: 16px 24px;
+    min-height: 54px;
+    width: 100%;
+    border-radius: var(--nr-radius);
+  }
+
+  /* Trust badges mobile */
+  .nraizes-trust-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .nraizes-trust-badges span {
+    font-size: 0.8rem;
+  }
+
+  /* --- 5. Shipping Bar Mobile --- */
+  .nraizes-shipping-bar {
+    margin: 12px 0;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .nraizes-shipping-bar__track {
+    height: 6px;
+  }
+
+  /* --- 6. Header Otimizado --- */
+  header.organium_header,
+  .organium_header {
     min-height: auto !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
   }
 
-  /* 5. Botões de Ação Maiores */
+  /* Header logo size */
+  .organium_header .logo img,
+  .site-header .custom-logo {
+    max-height: 40px;
+    width: auto;
+  }
+
+  /* Header search */
+  .organium_header .search-form input[type="search"],
+  .header-search input {
+    font-size: 16px; /* Prevents iOS zoom */
+    min-height: 44px;
+  }
+
+  /* --- 7. Botoes de Acao --- */
   .single_add_to_cart_button,
-  button.button.alt {
+  button.button.alt,
+  .woocommerce a.button,
+  .woocommerce button.button,
+  .woocommerce input.button {
     min-height: 50px !important;
     font-size: 16px !important;
+    padding: 12px 20px !important;
+    border-radius: var(--nr-radius) !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* --- 8. WhatsApp Button --- */
+  a.qlwapp__button,
+  .qlwapp-toggle {
+    bottom: 80px !important;
+    right: 12px !important;
+    width: 50px !important;
+    height: 50px !important;
+    z-index: 998 !important;
+  }
+
+  /* When sticky cart is visible, move WhatsApp higher */
+  .nraizes-sticky-cart ~ a.qlwapp__button,
+  .nraizes-sticky-cart ~ .qlwapp-toggle {
+    bottom: 140px !important;
+  }
+
+  /* --- 9. Cross-sells Mobile --- */
+  .nraizes-cart-crosssells ul.products,
+  .nraizes-smart-related ul.products,
+  .cross-sells ul.products,
+  .related.products ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* --- 10. Footer Mobile --- */
+  footer .widget {
+    margin-bottom: 20px;
+  }
+
+  /* Give space for sticky cart */
+  body.single-product {
+    padding-bottom: 70px;
+  }
+
+  /* --- 11. WooCommerce Messages/Notices --- */
+  .woocommerce-message,
+  .woocommerce-error,
+  .woocommerce-info {
+    padding: 12px 16px !important;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .woocommerce-message a.button,
+  .woocommerce-error a.button,
+  .woocommerce-info a.button {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    float: none !important;
+  }
+
+  /* --- 12. Pagination --- */
+  .woocommerce nav.woocommerce-pagination ul {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .woocommerce nav.woocommerce-pagination ul li a,
+  .woocommerce nav.woocommerce-pagination ul li span {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    border-radius: var(--nr-radius) !important;
+  }
+
+  /* --- 13. Breadcrumb --- */
+  .woocommerce .woocommerce-breadcrumb {
+    font-size: 0.8rem;
+    padding: 8px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* --- 14. My Account Mobile --- */
+  .woocommerce-MyAccount-navigation {
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 20px;
+  }
+
+  .woocommerce-MyAccount-navigation ul {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .woocommerce-MyAccount-navigation ul li {
+    flex-shrink: 0;
+  }
+
+  .woocommerce-MyAccount-navigation ul li a {
+    display: block;
+    padding: 10px 16px;
+    min-height: 44px;
+    white-space: nowrap;
+    border-radius: var(--nr-radius);
+    font-size: 0.85rem;
+  }
+
+  .woocommerce-MyAccount-content {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  /* --- 15. Search Results --- */
+  .search-results .woocommerce ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* --- 16. Category Page Header --- */
+  .woocommerce-products-header {
+    padding: 12px 0;
+  }
+
+  .woocommerce-products-header__title {
+    font-size: 1.3rem !important;
+  }
+
+  /* --- 17. Ordering/Filtering --- */
+  .woocommerce-ordering {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .woocommerce-ordering select {
+    width: 100%;
+    min-height: 44px;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: var(--nr-radius);
+    border: 1px solid var(--nr-border);
+    background: var(--nr-bg);
+  }
+
+  .woocommerce-result-count {
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  /* --- 18. Sidebar/Widgets on Mobile --- */
+  .widget-area,
+  aside.sidebar {
+    width: 100% !important;
+    float: none !important;
+    margin-top: 2rem;
+  }
+
+  /* --- 19. Wishlist Mobile --- */
+  .yith-wcwl-add-to-wishlist {
+    margin: 8px 0;
+  }
+
+  .yith-wcwl-add-to-wishlist a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ============================================
+   TABLET (768px - 1024px)
+   ============================================ */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* 3 columns for products on tablet */
+  ul.products,
+  .woocommerce ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  ul.products li.product,
+  .woocommerce ul.products li.product {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Single product side-by-side layout */
+  .single-product .woocommerce-product-gallery {
+    width: 50% !important;
+    float: left !important;
+  }
+
+  .single-product .summary {
+    width: 48% !important;
+    float: right !important;
+  }
+
+  /* Cart - keep table but improve */
+  .woocommerce table.cart td.product-thumbnail img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  /* Checkout 2-column */
+  .woocommerce-checkout .col2-set .col-1,
+  .woocommerce-checkout .col2-set .col-2 {
+    width: 48% !important;
+  }
+
+  /* Cross-sells 3 columns */
+  .cross-sells ul.products,
+  .related.products ul.products,
+  .nraizes-cart-crosssells ul.products,
+  .nraizes-smart-related ul.products {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* ============================================
+   SMALL PHONES (< 375px)
+   ============================================ */
+
+@media (max-width: 374px) {
+
+  /* Single column for very small screens */
+  ul.products,
+  .woocommerce ul.products {
+    grid-template-columns: 1fr !important;
+  }
+
+  .single-product .product_title,
+  .single-product h1.product_title {
+    font-size: 1.1rem !important;
+  }
+
+  /* Smaller sticky cart */
+  .nraizes-sticky-cart {
+    padding: 8px 12px;
+  }
+
+  .nraizes-sticky-cart__btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Trust badges stack */
+  .nraizes-trust-badges span {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   LANDSCAPE PHONE
+   ============================================ */
+
+@media (max-width: 767px) and (orientation: landscape) {
+
+  /* 3 columns in landscape */
+  ul.products,
+  .woocommerce ul.products {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Hide sticky cart in landscape */
+  .nraizes-sticky-cart {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .nraizes-sticky-cart,
+  .qlwapp__button,
+  .qlwapp-toggle,
+  .nraizes-shipping-bar,
+  .nraizes-trust-badges {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION (Accessibility)
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+
+@media (prefers-contrast: high) {
+  .nraizes-sticky-cart {
+    border-top: 2px solid #000;
+  }
+
+  .nraizes-trust-badges {
+    border: 2px solid #000;
+  }
+
+  .woocommerce ul.products li.product {
+    border: 1px solid #000;
   }
 }

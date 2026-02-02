@@ -23,10 +23,10 @@ function nraizes_simplify_checkout($fields) {
 add_action('woocommerce_review_order_before_payment', 'nraizes_add_trust_badges');
 function nraizes_add_trust_badges() {
     ?>
-    <div class="nraizes-trust-badges">
-        <span>🔒 Pagamento Seguro</span>
-        <span>🚚 Entrega Rastreável</span>
-        <span>✅ Satisfação Garantida</span>
+    <div class="nraizes-trust-badges" role="complementary" aria-label="Garantias de compra">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pagamento Seguro</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Entrega Rastreavel</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Satisfacao Garantida</span>
     </div>
     <?php
 }

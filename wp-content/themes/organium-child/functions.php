@@ -31,6 +31,9 @@ require_once get_stylesheet_directory() . '/inc/seo.php';
 require_once get_stylesheet_directory() . '/inc/checkout.php';
 require_once get_stylesheet_directory() . '/inc/cro.php';
 
+// Mobile UX Enhancements
+require_once get_stylesheet_directory() . '/inc/mobile.php';
+
 // Analytics: Implementação unificada para corrigir problema de atribuição
 require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
 
