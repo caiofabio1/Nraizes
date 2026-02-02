@@ -1143,16 +1143,6 @@ img {
   outline: none;
 }
 
-/* Grid de produtos: 3 colunas no desktop */
-@media (min-width: 1025px) {
-  .woocommerce ul.products.columns-4,
-  .woocommerce ul.products.columns-3 {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px;
-  }
-}
-
 /* Product cards refinados */
 .woocommerce ul.products li.product {
   border: 1px solid var(--nr-border);
@@ -1170,19 +1160,25 @@ img {
 
 /* Product images consistentes */
 .woocommerce ul.products li.product img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: calc(var(--nr-radius) - 2px);
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* Product titles - fonte menor para não cortar */
+/* Product titles */
 .woocommerce ul.products li.product .woocommerce-loop-product__title,
 .woocommerce ul.products li.product h2 {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.4;
   color: var(--nr-text);
   margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Botão adicionar ao carrinho no grid */
