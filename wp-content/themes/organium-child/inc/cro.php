@@ -58,15 +58,15 @@ function nraizes_inject_crosssells_fallback() {
     // Renderizar seção
     echo '<div class="nraizes-cart-crosssells" style="margin-top: 2rem;">';
     echo '<h2>Você também pode gostar</h2>';
-    echo '<ul class="products columns-4">';
+    echo '<ul class="products columns-2">';
     
     foreach ($cross_sell_ids as $product_id) {
         $product = wc_get_product($product_id);
         if (!$product) continue;
         
-        echo '<li class="product">';
+        echo '<li class="product" style="width:100%;margin:0">';
         echo '<a href="' . esc_url($product->get_permalink()) . '">';
-        echo $product->get_image('woocommerce_thumbnail');
+        echo $product->get_image('woocommerce_thumbnail', array('style' => 'max-width:100%;height:auto'));
         echo '<h2 class="woocommerce-loop-product__title">' . esc_html($product->get_name()) . '</h2>';
         echo '<span class="price">' . $product->get_price_html() . '</span>';
         echo '</a>';

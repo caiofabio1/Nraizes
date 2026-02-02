@@ -221,19 +221,29 @@ function nraizes_critical_css() {
     <style id="critical-css">
         /* Critical path CSS - inline for FCP */
         *{box-sizing:border-box}
-        body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+        body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
         img{max-width:100%;height:auto}
         .site-header{background:#fff;position:sticky;top:0;z-index:999}
         .woocommerce-products-header{padding:1rem}
         .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
-        
+
         /* CLS Prevention - Reserve space */
-        .woocommerce-product-gallery{min-height:300px;aspect-ratio:1/1}
+        .woocommerce-product-gallery{aspect-ratio:1/1}
         .woocommerce-product-gallery__image{aspect-ratio:1/1}
         .products .product img{aspect-ratio:1/1;object-fit:cover;width:100%;height:auto}
         .site-header,.organium_header{min-height:60px}
         .widget_shopping_cart{min-height:40px}
-        
+
+        /* Mobile: 2 columns, prevent overflow */
+        @media(max-width:767px){
+            .products{grid-template-columns:repeat(2,1fr)!important;gap:10px}
+            .woocommerce-product-gallery{aspect-ratio:auto;min-height:auto}
+            .site-header,.organium_header{min-height:auto}
+        }
+        @media(max-width:374px){
+            .products{grid-template-columns:1fr!important}
+        }
+
         /* Font swap to prevent FOIT */
         @font-face{font-display:swap}
     </style>
