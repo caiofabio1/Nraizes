@@ -67,6 +67,36 @@ img {
 }
 
 /* ============================================
+   ELEMENTOR - OVERFLOW & MOBILE FIXES
+   ============================================ */
+
+/* Prevent Elementor sections from overflowing */
+.elementor-section,
+.elementor-container,
+.elementor-row,
+.elementor-column-wrap,
+.elementor-widget-wrap,
+.elementor-widget,
+.elementor-element {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Fix Elementor decorative elements that cause left/right overflow */
+.elementor-shape,
+.elementor-background-overlay,
+.elementor-section > .elementor-background-overlay {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Elementor columns: prevent negative margins from causing overflow */
+.elementor-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* ============================================
    PRODUTO - TITULO
    ============================================ */
 
@@ -702,18 +732,79 @@ img {
 
   /* --- 8. WhatsApp Button --- */
   a.qlwapp__button,
-  .qlwapp-toggle {
+  .qlwapp-toggle,
+  .qlwapp-box,
+  #qlwapp {
     bottom: 80px !important;
     right: 12px !important;
+    max-width: 60px !important;
+    z-index: 998 !important;
+  }
+
+  /* WhatsApp expanded box */
+  .qlwapp.qlwapp-open .qlwapp-box,
+  .qlwapp .qlwapp-box {
+    max-width: calc(100vw - 24px) !important;
+    right: 12px !important;
+  }
+
+  a.qlwapp__button,
+  .qlwapp-toggle {
     width: 50px !important;
     height: 50px !important;
-    z-index: 998 !important;
   }
 
   /* When sticky cart is visible, move WhatsApp higher */
   .nraizes-sticky-cart ~ a.qlwapp__button,
-  .nraizes-sticky-cart ~ .qlwapp-toggle {
+  .nraizes-sticky-cart ~ .qlwapp-toggle,
+  .nraizes-sticky-cart ~ #qlwapp {
     bottom: 140px !important;
+  }
+
+  /* --- 8b. Elementor Mobile Fixes --- */
+  .elementor-section {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  .elementor-section-wrap,
+  .elementor-inner {
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+
+  /* Fix Elementor columns with negative margins */
+  .elementor-container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Prevent decorative Elementor shapes from causing overflow */
+  .elementor-shape,
+  .elementor-section::before,
+  .elementor-section::after {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  /* Fix Elementor images */
+  .elementor-image img,
+  .elementor-widget-image img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Fix Elementor columns not stacking */
+  .elementor-section .elementor-container {
+    flex-wrap: wrap !important;
+  }
+
+  .elementor-column {
+    width: 100% !important;
+    flex-basis: 100% !important;
   }
 
   /* --- 9. Cross-sells Mobile --- */
