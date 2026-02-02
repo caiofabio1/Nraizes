@@ -366,7 +366,7 @@ function nraizes_render_product_card($p, $index) {
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.66 0-3.203-.508-4.484-1.375l-.316-.191-2.828.84.84-2.828-.191-.316A7.953 7.953 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
                         Consultar disponibilidade
                     </a>
-                    <a href="https://maps.app.goo.gl/YourMapLink" 
+                    <a href="https://www.google.com/maps/search/R.+Dr.+Nicolau+de+Sousa+Queir%C3%B3s,+34+-+Vila+Mariana,+S%C3%A3o+Paulo+-+SP" 
                        class="nrc-cta-btn nrc-cta-btn--map" target="_blank" rel="noopener noreferrer"
                        aria-label="Ver localização da loja no mapa">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -573,7 +573,7 @@ function nraizes_consulta_shortcode($atts) {
                 </p>
             </div>
             <div class="nrc-store-cta-actions">
-                <a href="https://www.google.com/maps/place/Novas+Ra%C3%ADzes+%26+Mivegan/@-23.5714,-46.635,17z/" 
+                <a href="https://www.google.com/maps/search/R.+Dr.+Nicolau+de+Sousa+Queir%C3%B3s,+34+-+Vila+Mariana,+S%C3%A3o+Paulo+-+SP" 
                    class="nrc-cta-btn nrc-cta-btn--map" target="_blank" rel="noopener noreferrer"
                    aria-label="Ver localização no Google Maps">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -816,7 +816,7 @@ function nraizes_consulta_structured_data() {
         'sameAs' => array(
             'https://www.instagram.com/nraizes',
         ),
-        'hasMap' => 'https://www.google.com/maps/place/Novas+Ra%C3%ADzes+%26+Mivegan/',
+        'hasMap' => 'https://www.google.com/maps/search/R.+Dr.+Nicolau+de+Sousa+Queir%C3%B3s,+34+-+Vila+Mariana,+S%C3%A3o+Paulo+-+SP',
         'knowsAbout' => array(
             'Produtos Naturais', 'Suplementos Alimentares', 'Medicina Tradicional Chinesa',
             'Óleos Essenciais', 'Plantas Medicinais', 'Fitoterapia', 'Aromaterapia',
