@@ -43,7 +43,7 @@ function nraizes_free_shipping_bar() {
         return;
     }
 
-    $current   = (float) WC()->cart->subtotal;
+    $current   = (float) WC()->cart->get_cart_contents_total();
     $remaining = $min_amount - $current;
     $percent   = $min_amount > 0 ? min( ( $current / $min_amount ) * 100, 100 ) : 0;
 
@@ -53,18 +53,18 @@ function nraizes_free_shipping_bar() {
              role="region"
              aria-label="<?php esc_attr_e( 'Progresso para frete grátis', 'organium-child' ); ?>"
              aria-live="polite">
-            <p>
+            <p id="shipping-progress-text">
                 <span aria-hidden="true">🚚</span>
                 Faltam <strong>R$ <?php echo esc_html( number_format( $remaining, 2, ',', '.' ) ); ?></strong>
                 para <strong>FRETE GRÁTIS!</strong>
             </p>
             <div class="nraizes-shipping-bar__track"
                  role="progressbar"
-                 aria-valuenow="<?php echo esc_attr( round( $percent ) ); ?>"
+                 aria-valuenow="<?php echo esc_attr( $percent ); ?>"
                  aria-valuemin="0"
                  aria-valuemax="100"
-                 aria-label="<?php echo esc_attr( round( $percent ) ); ?>% do valor mínimo para frete grátis">
-                <div class="nraizes-shipping-bar__fill" style="width:<?php echo esc_attr( round( $percent, 1 ) ); ?>%;"></div>
+                 aria-labelledby="shipping-progress-text">
+                <div class="nraizes-shipping-bar__fill" style="width:<?php echo esc_attr( $percent ); ?>%;"></div>
             </div>
         </div>
         <?php
