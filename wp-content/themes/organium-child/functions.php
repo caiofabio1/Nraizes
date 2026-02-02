@@ -8,10 +8,11 @@
 
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
 function enqueue_theme_styles() {
+    $css_version = filemtime( get_stylesheet_directory() . '/style.css' );
     if (class_exists('WooCommerce')) {
-        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style', 'organium-woocommerce') );
+        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style', 'organium-woocommerce'), $css_version );
     } else {
-        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style') );
+        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style'), $css_version );
     }
 }
 

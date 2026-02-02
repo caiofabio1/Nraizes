@@ -452,6 +452,22 @@ img {
     display: block !important;
   }
 
+  /* Slick product slider: limit card height on mobile */
+  ul.products.slick-initialized .slick-slide .attachment-woocommerce_wrapper img,
+  ul.products.slick-initialized .slick-slide .woocommerce-loop-product__wrapper img {
+    max-height: 250px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto;
+    display: block;
+  }
+
+  ul.products.slick-initialized .slick-slide .woocommerce-loop-product__wrapper {
+    max-height: 450px;
+    overflow: hidden;
+    text-align: center;
+  }
+
   ul.products:not(.slick-initialized) li.product,
   .woocommerce ul.products:not(.slick-initialized) li.product {
     width: 100% !important;
