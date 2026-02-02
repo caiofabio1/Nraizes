@@ -553,9 +553,9 @@ function nraizes_consulta_shortcode($atts) {
             <meta itemprop="openingHours" content="Mo-Sa 09:00-18:30">
             <span class="nrc-store-cta-icon" aria-hidden="true">&#x1F3EA;</span>
             <div class="nrc-store-cta-body">
-                <h3 class="nrc-store-cta-title">Visite nossa loja na Aclimação</h3>
+                <h3 class="nrc-store-cta-title">Visite nossa loja na Vila Mariana</h3>
                 <p class="nrc-store-cta-address" itemprop="description">
-                    R. Dr. Nicolau de Sousa Queirós, 34 - Aclimação, São Paulo - SP
+                    R. Dr. Nicolau de Sousa Queirós, 34 - Vila Mariana, São Paulo - SP
                 </p>
                 <p class="nrc-store-cta-hours">
                     <?php
@@ -614,20 +614,20 @@ function nraizes_consulta_shortcode($atts) {
                 Ginseng, Ginkgo, Equinacea, Rhodiola, Saw Palmetto, Cardo-mariano) e 
                 Oleos Essenciais (Lavanda, Melaleuca, Eucalipto, Alecrim, Hortela-pimenta, 
                 Limao, Laranja-doce, Ylang Ylang, Copaiba, Incenso/Olibano).
-                Loja fisica na Aclimacao, Sao Paulo - SP. Seg-Sab 09:00 as 18:30.
+                Loja fisica na Vila Mariana, Sao Paulo - SP. Seg-Sab 09:00 as 18:30.
             </p>
             <div itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
                 <meta itemprop="name" content="Novas Raizes & Mivegan">
                 <meta itemprop="url" content="https://nraizes.com.br">
                 <meta itemprop="telephone" content="+5511999927588">
-                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e oleos essenciais na Aclimacao, Sao Paulo - SP. Seg-Sab 09:00-18:30.">
+                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e oleos essenciais na Vila Mariana, Sao Paulo - SP. Seg-Sab 09:00-18:30.">
                 <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                     <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queiros, 34">
                     <meta itemprop="addressLocality" content="Sao Paulo">
                     <meta itemprop="addressRegion" content="SP">
                     <meta itemprop="postalCode" content="04105-000">
                     <meta itemprop="addressCountry" content="BR">
-                    <meta itemprop="neighborhood" content="Aclimacao">
+                    <meta itemprop="neighborhood" content="Vila Mariana">
                 </div>
             </div>
         </footer>
@@ -787,7 +787,7 @@ function nraizes_consulta_structured_data() {
         '@type' => array('LocalBusiness', 'HealthAndBeautyBusiness'),
         '@id' => 'https://nraizes.com.br/#localbusiness',
         'name' => 'Novas Raízes & Mivegan',
-        'description' => 'Loja de produtos naturais, suplementos alimentares, Medicina Tradicional Chinesa, óleos essenciais e plantas medicinais na Aclimação, São Paulo.',
+        'description' => 'Loja de produtos naturais, suplementos alimentares, Medicina Tradicional Chinesa, óleos essenciais e plantas medicinais na Vila Mariana, São Paulo.',
         'url' => 'https://nraizes.com.br',
         'telephone' => '+5511999927588',
         'priceRange' => '$$',
