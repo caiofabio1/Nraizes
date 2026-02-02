@@ -221,6 +221,26 @@ img {
   display: none;
 }
 
+/* Reduced motion: disable progress bar animation */
+@media (prefers-reduced-motion: reduce) {
+  .nraizes-shipping-bar__fill {
+    transition: none;
+  }
+}
+
+/* High contrast: ensure bar borders are visible */
+@media (forced-colors: active) {
+  .nraizes-shipping-bar {
+    border: 2px solid ButtonText;
+  }
+  .nraizes-shipping-bar__track {
+    border: 1px solid ButtonText;
+  }
+  .nraizes-shipping-bar__fill {
+    background: Highlight;
+  }
+}
+
 /* ============================================
    TRUST BADGES (Checkout)
    ============================================ */

@@ -38,25 +38,45 @@ add_action('woocommerce_before_cart', 'nraizes_free_shipping_bar');
 add_action('woocommerce_before_checkout_form', 'nraizes_free_shipping_bar');
 function nraizes_free_shipping_bar() {
     $min_amount = 500;
-    $current = WC()->cart->subtotal;
+
+    if ( ! WC()->cart ) {
+        return;
+    }
+
+    $current   = (float) WC()->cart->subtotal;
     $remaining = $min_amount - $current;
-    
-    if ($remaining > 0) {
-        $percent = ($current / $min_amount) * 100;
+    $percent   = $min_amount > 0 ? min( ( $current / $min_amount ) * 100, 100 ) : 0;
+
+    if ( $remaining > 0 ) {
         ?>
-        <div class="nraizes-shipping-bar nraizes-shipping-bar--progress">
+        <div class="nraizes-shipping-bar nraizes-shipping-bar--progress"
+             role="region"
+             aria-label="<?php esc_attr_e( 'Progresso para frete grátis', 'organium-child' ); ?>"
+             aria-live="polite">
             <p>
-                🚚 Faltam <strong>R$ <?php echo number_format($remaining, 2, ',', '.'); ?></strong> para <strong>FRETE GRÁTIS!</strong>
+                <span aria-hidden="true">🚚</span>
+                Faltam <strong>R$ <?php echo esc_html( number_format( $remaining, 2, ',', '.' ) ); ?></strong>
+                para <strong>FRETE GRÁTIS!</strong>
             </p>
-            <div class="nraizes-shipping-bar__track">
-                <div class="nraizes-shipping-bar__fill" style="width:<?php echo min($percent, 100); ?>%;"></div>
+            <div class="nraizes-shipping-bar__track"
+                 role="progressbar"
+                 aria-valuenow="<?php echo esc_attr( round( $percent ) ); ?>"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-label="<?php echo esc_attr( round( $percent ) ); ?>% do valor mínimo para frete grátis">
+                <div class="nraizes-shipping-bar__fill" style="width:<?php echo esc_attr( round( $percent, 1 ) ); ?>%;"></div>
             </div>
         </div>
         <?php
     } else {
         ?>
-        <div class="nraizes-shipping-bar nraizes-shipping-bar--complete">
-            <p>🎉 Parabéns! Você ganhou <strong>FRETE GRÁTIS!</strong></p>
+        <div class="nraizes-shipping-bar nraizes-shipping-bar--complete"
+             role="status"
+             aria-live="polite">
+            <p>
+                <span aria-hidden="true">🎉</span>
+                Parabéns! Você ganhou <strong>FRETE GRÁTIS!</strong>
+            </p>
         </div>
         <?php
     }
