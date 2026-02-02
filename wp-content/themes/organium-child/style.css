@@ -1159,6 +1159,20 @@ img {
   outline: none;
 }
 
+/* Shop grid: 3 colunas no desktop */
+ul.products,
+.woocommerce ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+}
+
+ul.products li.product,
+.woocommerce ul.products li.product {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
 /* Product cards refinados */
 .woocommerce ul.products li.product {
   border: 1px solid var(--nr-border);
@@ -1186,13 +1200,13 @@ img {
 /* Product titles */
 .woocommerce ul.products li.product .woocommerce-loop-product__title,
 .woocommerce ul.products li.product h2 {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.4;
   color: var(--nr-text);
   margin-bottom: 6px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
