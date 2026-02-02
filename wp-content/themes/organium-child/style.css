@@ -51,7 +51,6 @@ html {
 /* Prevent horizontal scroll */
 html, body {
   overflow-x: hidden;
-  max-width: 100vw;
 }
 
 body {
@@ -117,13 +116,10 @@ img {
    ELEMENTOR - OVERFLOW & MOBILE FIXES
    ============================================ */
 
-/* Prevent Elementor sections from overflowing (preserve slider functionality) */
-.elementor-section,
+/* Prevent Elementor inner elements from overflowing (preserve slider functionality) */
 .elementor-container,
-.elementor-row,
 .elementor-column-wrap,
-.elementor-widget-wrap,
-.elementor-element {
+.elementor-widget-wrap {
   max-width: 100%;
   overflow: hidden;
 }
