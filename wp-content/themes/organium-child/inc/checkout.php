@@ -37,18 +37,27 @@ function nraizes_add_trust_badges() {
 add_action('woocommerce_before_cart', 'nraizes_free_shipping_bar');
 add_action('woocommerce_before_checkout_form', 'nraizes_free_shipping_bar');
 function nraizes_free_shipping_bar() {
+    if (!WC()->cart) {
+        return;
+    }
+
     $min_amount = 500;
-    $current = WC()->cart->subtotal;
+    $current = WC()->cart->get_cart_contents_total();
     $remaining = $min_amount - $current;
     
     if ($remaining > 0) {
         $percent = ($current / $min_amount) * 100;
         ?>
         <div class="nraizes-shipping-bar nraizes-shipping-bar--progress">
-            <p>
+            <p id="shipping-progress-text">
                 🚚 Faltam <strong>R$ <?php echo number_format($remaining, 2, ',', '.'); ?></strong> para <strong>FRETE GRÁTIS!</strong>
             </p>
-            <div class="nraizes-shipping-bar__track">
+            <div class="nraizes-shipping-bar__track"
+                 role="progressbar"
+                 aria-valuenow="<?php echo round(min($percent, 100)); ?>"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-labelledby="shipping-progress-text">
                 <div class="nraizes-shipping-bar__fill" style="width:<?php echo min($percent, 100); ?>%;"></div>
             </div>
         </div>
