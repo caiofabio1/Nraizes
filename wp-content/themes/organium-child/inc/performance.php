@@ -238,11 +238,12 @@ function nraizes_critical_css() {
         .site-header,.organium_header{min-height:60px}
         .widget_shopping_cart{min-height:40px}
 
-        /* Mobile: 2 columns, prevent overflow */
+        /* Mobile: 2 columns, prevent overflow (exclude sliders) */
         @media(max-width:767px){
-            .products{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-ms-flex-wrap:wrap!important;flex-wrap:wrap!important;gap:10px}
-            @supports(display:grid){.products{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px}}
-            .products li.product{-webkit-box-flex:0;-ms-flex:0 0 calc(50% - 5px);flex:0 0 calc(50% - 5px)}
+            .products:not(.swiper-wrapper .products){display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-ms-flex-wrap:wrap!important;flex-wrap:wrap!important;gap:10px}
+            @supports(display:grid){.products:not(.swiper-wrapper .products){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px}}
+            .products:not(.swiper-wrapper .products) li.product{-webkit-box-flex:0;-ms-flex:0 0 calc(50% - 5px);flex:0 0 calc(50% - 5px)}
+            .swiper-wrapper .products,.swiper-slide .products{display:flex!important;flex-wrap:nowrap!important}
             .woocommerce-product-gallery{min-height:auto}
             @supports(aspect-ratio:1/1){.woocommerce-product-gallery{aspect-ratio:auto}}
             .site-header,.organium_header{min-height:auto}

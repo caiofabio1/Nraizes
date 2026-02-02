@@ -117,15 +117,26 @@ img {
    ELEMENTOR - OVERFLOW & MOBILE FIXES
    ============================================ */
 
-/* Prevent Elementor sections from overflowing */
+/* Prevent Elementor sections from overflowing (preserve slider functionality) */
 .elementor-section,
 .elementor-container,
 .elementor-row,
 .elementor-column-wrap,
 .elementor-widget-wrap,
-.elementor-widget,
 .elementor-element {
   max-width: 100%;
+  overflow: hidden;
+}
+
+/* Allow overflow on slider/carousel widgets so swiper works properly */
+.elementor-widget-wc-products,
+.elementor-widget-woocommerce-products,
+.elementor-widget-product-related,
+.elementor-widget[data-widget_type*="product"] {
+  overflow: visible;
+}
+.elementor-widget-wc-products .swiper-container,
+.elementor-widget-woocommerce-products .swiper-container {
   overflow: hidden;
 }
 
@@ -423,15 +434,24 @@ img {
     word-break: break-all;
   }
 
-  /* --- 1. Grade de Produtos: 2 por linha --- */
-  ul.products.columns-3,
-  ul.products.columns-4,
-  ul.products,
-  .woocommerce ul.products {
+  /* --- 1. Grade de Produtos: 2 por linha (exceto dentro de sliders) --- */
+  ul.products.columns-3:not(.swiper-wrapper ul.products),
+  ul.products.columns-4:not(.swiper-wrapper ul.products),
+  .woocommerce ul.products:not(.swiper-wrapper ul.products) {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
     padding: 0 !important;
+  }
+
+  /* Elementor product widget sliders: let swiper control layout */
+  .elementor-widget-wc-products ul.products,
+  .elementor-widget-woocommerce-products ul.products,
+  .swiper-wrapper ul.products,
+  .swiper-container ul.products {
+    display: flex !important;
+    grid-template-columns: none !important;
+    flex-wrap: nowrap !important;
   }
 
   ul.products li.product,
@@ -846,14 +866,38 @@ img {
     height: auto !important;
   }
 
-  /* Fix Elementor columns not stacking */
-  .elementor-section .elementor-container {
+  /* Fix Elementor columns not stacking (exclude sliders/carousels) */
+  .elementor-section:not(.elementor-widget-wc-products):not(.swiper-container) .elementor-container {
     flex-wrap: wrap !important;
   }
 
-  .elementor-column {
+  .elementor-column:not(.swiper-slide) {
     width: 100% !important;
     flex-basis: 100% !important;
+  }
+
+  /* Let Elementor sliders/carousels manage their own layout */
+  .elementor-widget-wc-products .swiper-slide,
+  .elementor-widget-product-related .swiper-slide,
+  .elementor-swiper .swiper-slide,
+  .elementor-widget-woocommerce-product-images .swiper-slide {
+    width: auto !important;
+    flex-basis: auto !important;
+  }
+
+  /* Products inside Elementor sliders: full width per slide */
+  .swiper-slide ul.products,
+  .swiper-slide .product,
+  .elementor-swiper ul.products,
+  .swiper-wrapper ul.products {
+    display: block !important;
+    grid-template-columns: none !important;
+  }
+
+  .swiper-slide ul.products li.product,
+  .swiper-slide .product {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   /* --- 9. Cross-sells Mobile --- */
