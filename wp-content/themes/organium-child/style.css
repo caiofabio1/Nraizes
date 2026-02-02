@@ -411,6 +411,13 @@ img {
     overflow-x: hidden;
   }
 
+  /* Elementor pages: remove extra padding since Elementor manages its own */
+  .elementor-page .site-content,
+  .elementor-page .page-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   /* Prevent any element from causing overflow (exclude Slick internals) */
   .woocommerce *:not(.slick-track):not(.slick-list):not(.slick-slider),
   .site-content *:not(.slick-track):not(.slick-list):not(.slick-slider) {
@@ -883,7 +890,14 @@ img {
     flex-basis: 100% !important;
   }
 
-  /* Organium product slider widget: preserve Slick carousel layout */
+  /* Organium product slider widget: full-width on mobile */
+  .elementor-widget-organium_products {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
   .elementor-widget-organium_products .slick-track {
     display: flex !important;
   }
