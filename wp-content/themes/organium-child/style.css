@@ -447,34 +447,18 @@ img {
     padding: 0 !important;
   }
 
-  /* Slick slider: preserve Slick's own layout */
-  ul.products.slick-slider,
-  .organium_products_widget.is_slider ul.products {
+  /* Slick slider: don't interfere - let Slick JS manage layout */
+  ul.products.slick-initialized {
     display: block !important;
-    grid-template-columns: none !important;
-    width: 100% !important;
   }
 
-  .organium_products_widget.is_slider ul.products .slick-slide {
-    width: 100% !important;
-  }
-
-  .organium_products_widget.is_slider .slick-list {
-    overflow: hidden !important;
-  }
-
-  ul.products:not(.slick-slider) li.product,
-  .woocommerce ul.products:not(.slick-slider) li.product {
+  ul.products:not(.slick-initialized) li.product,
+  .woocommerce ul.products:not(.slick-initialized) li.product {
     width: 100% !important;
     margin: 0 !important;
     padding: 8px;
     border-radius: var(--nr-radius);
     background: var(--nr-bg);
-  }
-
-  /* Slick slider products: let Slick control width, just add padding */
-  ul.products.slick-slider li.product {
-    padding: 8px;
   }
 
   /* Product card content */
@@ -814,33 +798,38 @@ img {
   }
 
   /* --- 8. WhatsApp Button --- */
-  a.qlwapp__button,
-  .qlwapp-toggle,
-  .qlwapp-box,
   #qlwapp {
     bottom: 80px !important;
     right: 12px !important;
-    max-width: 60px !important;
     z-index: 998 !important;
   }
 
-  /* WhatsApp expanded box */
-  .qlwapp.qlwapp-open .qlwapp-box,
-  .qlwapp .qlwapp-box {
-    max-width: calc(100vw - 24px) !important;
-    right: 12px !important;
-  }
-
+  /* Circular button only */
   a.qlwapp__button,
   .qlwapp-toggle {
     width: 50px !important;
     height: 50px !important;
+    bottom: 80px !important;
+    right: 12px !important;
+  }
+
+  /* Chat box when opened */
+  .qlwapp .qlwapp-box {
+    max-width: calc(100vw - 24px) !important;
+    right: 12px !important;
+    bottom: 140px !important;
+  }
+
+  /* Hide WhatsApp label text on mobile - show icon only */
+  .qlwapp .qlwapp__text,
+  .qlwapp__text {
+    display: none !important;
   }
 
   /* When sticky cart is visible, move WhatsApp higher */
+  .nraizes-sticky-cart ~ #qlwapp,
   .nraizes-sticky-cart ~ a.qlwapp__button,
-  .nraizes-sticky-cart ~ .qlwapp-toggle,
-  .nraizes-sticky-cart ~ #qlwapp {
+  .nraizes-sticky-cart ~ .qlwapp-toggle {
     bottom: 140px !important;
   }
 
@@ -890,20 +879,9 @@ img {
     flex-basis: 100% !important;
   }
 
-  /* Organium product slider widget: full-width on mobile */
+  /* Organium product slider widget: let Slick handle everything */
   .elementor-widget-organium_products {
-    width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-    padding: 0 12px;
-    box-sizing: border-box;
-  }
-
-  .elementor-widget-organium_products .slick-track {
-    display: flex !important;
-  }
-
-  .elementor-widget-organium_products .slick-slide {
-    float: left;
+    overflow: visible !important;
   }
 
   /* --- 9. Cross-sells Mobile --- */
