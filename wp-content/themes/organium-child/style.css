@@ -67,6 +67,53 @@ img {
 }
 
 /* ============================================
+   CROSS-BROWSER COMPATIBILITY
+   ============================================ */
+
+/* Fallback for browsers without aspect-ratio support */
+@supports not (aspect-ratio: 1/1) {
+  .woocommerce-product-gallery,
+  .woocommerce-product-gallery__image,
+  .products .product img {
+    position: relative;
+  }
+  .woocommerce-product-gallery::before,
+  .woocommerce-product-gallery__image::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* 1:1 fallback */
+  }
+  .products .product img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+/* Ensure grid fallback for older browsers */
+@supports not (display: grid) {
+  ul.products,
+  .woocommerce ul.products {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  ul.products li.product,
+  .woocommerce ul.products li.product {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 48%;
+    flex: 0 0 48%;
+    margin: 1%;
+  }
+}
+
+/* Webkit/Blink prefix for smooth scrolling */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
    ELEMENTOR - OVERFLOW & MOBILE FIXES
    ============================================ */
 
@@ -426,7 +473,9 @@ img {
   .woocommerce ul.products li.product img,
   ul.products li.product img {
     aspect-ratio: 1/1;
+    -o-object-fit: cover;
     object-fit: cover;
+    border-radius: 8px;
     border-radius: var(--nr-radius);
     width: 100%;
   }
