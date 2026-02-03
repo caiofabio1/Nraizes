@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-02-01T23-07-52",
+  "baseUrl": "https://nraizes.com.br",
+  "lighthouse": [],
+  "pages": [
+    "//"
+  ],
+  "devices": [
+    "iPhone-14",
+    "Pixel-7",
+    "Galaxy-S21"
+  ]
+}

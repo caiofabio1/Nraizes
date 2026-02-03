@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-02-02T00-23-20",
+  "baseUrl": "https://nraizes.com.br",
+  "lighthouse": [],
+  "pages": [
+    "/",
+    "/loja/",
+    "/base-de-dados/"
+  ],
+  "devices": [
+    "iPhone-14",
+    "Pixel-7",
+    "Galaxy-S21"
+  ]
+}
