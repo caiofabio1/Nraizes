@@ -1,0 +1,99 @@
+/**
+ * NRaizes Frete Grátis - Barra de Progresso
+ *
+ * Utiliza custom properties do tema quando disponíveis,
+ * com fallbacks para funcionar independentemente.
+ */
+
+.nraizes-fg-bar-wrapper {
+    margin-bottom: 20px;
+}
+
+.nraizes-fg-bar {
+    padding: 12px 16px;
+    border-radius: var(--nr-radius, 8px);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.nraizes-fg-bar__text {
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.nraizes-fg-bar__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+/* --- Estado: progresso --- */
+.nraizes-fg-bar--progress {
+    background: linear-gradient(135deg, #fff8f0, #fff3e0);
+    border: 1px solid #ffe0b2;
+    color: var(--nr-text, #2d3131);
+}
+
+/* --- Estado: completo --- */
+.nraizes-fg-bar--complete {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border: 1px solid #a5d6a7;
+    color: #2e7d32;
+}
+
+.nraizes-fg-bar--complete .nraizes-fg-bar__text {
+    margin-bottom: 0;
+}
+
+/* --- Track e Fill --- */
+.nraizes-fg-bar__track {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.nraizes-fg-bar__fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--nr-accent, #f4a261), #e76f51);
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nraizes-fg-bar--complete .nraizes-fg-bar__track {
+    display: none;
+}
+
+/* --- Acessibilidade --- */
+@media (prefers-reduced-motion: reduce) {
+    .nraizes-fg-bar__fill {
+        transition: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .nraizes-fg-bar {
+        border: 2px solid ButtonText;
+    }
+    .nraizes-fg-bar__track {
+        border: 1px solid ButtonText;
+    }
+    .nraizes-fg-bar__fill {
+        background: Highlight;
+    }
+}
+
+/* --- Mobile --- */
+@media (max-width: 767px) {
+    .nraizes-fg-bar {
+        margin: 12px 0;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+    .nraizes-fg-bar__track {
+        height: 6px;
+    }
+}

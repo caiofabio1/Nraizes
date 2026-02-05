@@ -32,52 +32,59 @@ function nraizes_add_trust_badges() {
 }
 
 /**
- * Free shipping progress bar
+ * Free shipping progress bar.
+ *
+ * Se o plugin NRaizes Frete Grátis estiver ativo, a barra é
+ * gerenciada por ele (com valor configurável no admin).
+ * Caso contrário, mantém o fallback com valor fixo.
  */
-add_action('woocommerce_before_cart', 'nraizes_free_shipping_bar');
-add_action('woocommerce_before_checkout_form', 'nraizes_free_shipping_bar');
-function nraizes_free_shipping_bar() {
-    $min_amount = 500;
+if ( ! class_exists( 'NRaizes_FG_Progress_Bar' ) ) {
+    add_action( 'woocommerce_before_cart', 'nraizes_free_shipping_bar' );
+    add_action( 'woocommerce_before_checkout_form', 'nraizes_free_shipping_bar' );
 
-    if ( ! WC()->cart ) {
-        return;
-    }
+    function nraizes_free_shipping_bar() {
+        $min_amount = 500;
 
-    $current   = (float) WC()->cart->get_cart_contents_total();
-    $remaining = $min_amount - $current;
-    $percent   = $min_amount > 0 ? min( ( $current / $min_amount ) * 100, 100 ) : 0;
+        if ( ! WC()->cart ) {
+            return;
+        }
 
-    if ( $remaining > 0 ) {
-        ?>
-        <div class="nraizes-shipping-bar nraizes-shipping-bar--progress"
-             role="region"
-             aria-label="<?php esc_attr_e( 'Progresso para frete grátis', 'organium-child' ); ?>"
-             aria-live="polite">
-            <p id="shipping-progress-text">
-                <span aria-hidden="true">🚚</span>
-                Faltam <strong>R$ <?php echo esc_html( number_format( $remaining, 2, ',', '.' ) ); ?></strong>
-                para <strong>FRETE GRÁTIS!</strong>
-            </p>
-            <div class="nraizes-shipping-bar__track"
-                 role="progressbar"
-                 aria-valuenow="<?php echo esc_attr( $percent ); ?>"
-                 aria-valuemin="0"
-                 aria-valuemax="100"
-                 aria-labelledby="shipping-progress-text">
-                <div class="nraizes-shipping-bar__fill" style="width:<?php echo esc_attr( $percent ); ?>%;"></div>
+        $current   = (float) WC()->cart->get_displayed_subtotal();
+        $remaining = max( 0, $min_amount - $current );
+        $percent   = $min_amount > 0 ? min( ( $current / $min_amount ) * 100, 100 ) : 0;
+
+        if ( $remaining > 0 ) {
+            ?>
+            <div class="nraizes-shipping-bar nraizes-shipping-bar--progress"
+                 role="region"
+                 aria-label="<?php esc_attr_e( 'Progresso para frete grátis', 'organium-child' ); ?>"
+                 aria-live="polite">
+                <p id="shipping-progress-text">
+                    <span aria-hidden="true">🚚</span>
+                    Faltam <strong>R$ <?php echo esc_html( number_format( $remaining, 2, ',', '.' ) ); ?></strong>
+                    para <strong>FRETE GRÁTIS!</strong>
+                </p>
+                <div class="nraizes-shipping-bar__track"
+                     role="progressbar"
+                     aria-valuenow="<?php echo esc_attr( round( $percent ) ); ?>"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     aria-labelledby="shipping-progress-text">
+                    <div class="nraizes-shipping-bar__fill" style="width:<?php echo esc_attr( $percent ); ?>%;"></div>
+                </div>
             </div>
-        </div>
-        <?php
-    } else {
-        ?>
-        <div class="nraizes-shipping-bar nraizes-shipping-bar--complete"
-             role="status"
-             aria-live="polite">
-            <p>
-                <span aria-hidden="true">🎉</span>
-                Parabéns! Você ganhou <strong>FRETE GRÁTIS!</strong>
-            </p>
-        </div>
-        <?php
+            <?php
+        } else {
+            ?>
+            <div class="nraizes-shipping-bar nraizes-shipping-bar--complete"
+                 role="status"
+                 aria-live="polite">
+                <p>
+                    <span aria-hidden="true">🎉</span>
+                    Parabéns! Você ganhou <strong>FRETE GRÁTIS!</strong>
+                </p>
+            </div>
+            <?php
+        }
     }
 }

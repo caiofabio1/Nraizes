@@ -13,7 +13,8 @@ wp-content/upgrade-temp-backup/
 # Temas e plugins de terceiros (instalar via painel)
 wp-content/themes/organium/
 wp-content/themes/twentytwentyfour/
-wp-content/plugins/
+wp-content/plugins/*
+!wp-content/plugins/nraizes-frete-gratis/
 
 # Ambiente
 .env
