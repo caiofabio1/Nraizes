@@ -15,6 +15,7 @@ wp-content/themes/organium/
 wp-content/themes/twentytwentyfour/
 wp-content/plugins/*
 !wp-content/plugins/nraizes-frete-gratis/
+!wp-content/plugins/wc-infinitepay-hpos/
 
 # Ambiente
 .env
