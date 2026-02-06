@@ -11,5 +11,19 @@
  Text Domain:  organium-child
 */
 
-/* Child theme: herda 100% do visual do Organium pai */
-/* CSS customizado será adicionado após validar que o tema base funciona */
+/* Fix: slider image preenche 100% da altura da seção */
+.organium_content_slide_wrapper .organium_content_container .organium_content_wrapper_1 {
+    background-color: transparent;
+}
+.organium_content_slide_wrapper .organium_content_wrapper_1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fix: limpa backgrounds indesejados de HTML colado (ChatGPT wrappers) */
+.organium_content_slider_promo_text .dark,
+.organium_content_slider_promo_text .prose {
+    background: transparent !important;
+    color: inherit !important;
+}
