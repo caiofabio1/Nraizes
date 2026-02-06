@@ -21,6 +21,6 @@ add_filter( 'loop_shop_columns', function() { return 3; } );
 // Módulos (descomente um por um para testar)
 // ============================================
 require_once get_stylesheet_directory() . '/inc/security.php';
-// require_once get_stylesheet_directory() . '/inc/performance.php';
+require_once get_stylesheet_directory() . '/inc/performance.php';
 // require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
 // require_once get_stylesheet_directory() . '/inc/seo.php';
