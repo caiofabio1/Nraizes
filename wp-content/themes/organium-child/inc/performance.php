@@ -118,8 +118,6 @@ function nraizes_defer_all_scripts($tag, $handle, $src) {
         'wp-consent-api', 'wc-consent-api-integration',
         'gtm4wp-ecommerce-generic', 'gtm4wp-woocommerce',
         'mailchimp-for-wp-forms', 'mc4wp-forms',
-        'wp-hooks', 'wp-i18n', 'wp-element', 'wp-escape-html',
-        'react', 'react-dom',
     );
     
     // Padrões de handle para defer automático
