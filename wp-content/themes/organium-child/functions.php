@@ -1,11 +1,11 @@
 <?php
 /**
- * Organium Child Theme — Minimal Bootstrap
+ * Organium Child Theme
  * 
- * Só carrega o CSS do tema pai. Nenhum módulo extra.
- * Ative o child theme e confirme que funciona antes de adicionar módulos.
+ * Módulos vitais apenas — sem alterações visuais.
  */
 
+// Enqueue child style após parent
 add_action( 'wp_enqueue_scripts', 'organium_child_enqueue' );
 function organium_child_enqueue() {
     wp_enqueue_style(
@@ -14,4 +14,21 @@ function organium_child_enqueue() {
         array( 'organium-style' ),
         wp_get_theme()->get( 'Version' )
     );
+}
+
+// ============================================
+// Módulos vitais (carregamento seguro)
+// ============================================
+
+$nraizes_modules = array(
+    'security.php',            // XML-RPC desabilitado
+    'performance.php',         // Core Web Vitals (preload, defer, cleanup)
+    'analytics_unified.php',   // GA4 + GTM (rastreamento de vendas)
+);
+
+foreach ( $nraizes_modules as $module ) {
+    $path = get_stylesheet_directory() . '/inc/' . $module;
+    if ( file_exists( $path ) ) {
+        require_once $path;
+    }
 }
