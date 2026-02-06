@@ -17,9 +17,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Configuration
-define('NRAIZES_GA4_ID', 'G-448522931');
-define('NRAIZES_GTM_ID', 'GTM-N8LSL5RN');
+// Configuration (protege contra redefinição se analytics.php antigo ainda existir)
+if (!defined('NRAIZES_GA4_ID')) {
+    define('NRAIZES_GA4_ID', 'G-448522931');
+}
+if (!defined('NRAIZES_GTM_ID')) {
+    define('NRAIZES_GTM_ID', 'GTM-N8LSL5RN');
+}
 
 /**
  * Remove conflicting analytics implementations

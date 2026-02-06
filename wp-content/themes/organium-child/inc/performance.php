@@ -377,10 +377,7 @@ function nraizes_remove_jquery_migrate($scripts) {
 // SECURITY + MISC
 // ============================================
 
-/**
- * Disable XML-RPC (security + performance)
- */
-add_filter('xmlrpc_enabled', '__return_false');
+// XML-RPC já desabilitado em security.php
 
 /**
  * Remove WordPress version from head

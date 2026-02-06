@@ -2,50 +2,85 @@
 /**
  * Organium Child Theme Functions
  * 
+ * Carrega módulos de forma segura — se um módulo falhar,
+ * o site continua funcionando com o tema pai.
+ * 
  * @package Organium-Child
- * @version 1.1.0
+ * @version 2.1.0
  */
 
-add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
-function enqueue_theme_styles() {
-    $css_version = filemtime( get_stylesheet_directory() . '/style.css' );
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Enqueue child theme stylesheet after parent
+ */
+add_action('wp_enqueue_scripts', 'nraizes_enqueue_child_styles');
+function nraizes_enqueue_child_styles() {
+    $parent_deps = array('organium-theme', 'organium-style');
+    
     if (class_exists('WooCommerce')) {
-        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style', 'organium-woocommerce'), $css_version );
-    } else {
-        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('organium-theme', 'organium-style'), $css_version );
+        $parent_deps[] = 'organium-woocommerce';
+    }
+    
+    wp_enqueue_style(
+        'organium-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        $parent_deps,
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
+}
+
+/**
+ * Carrega um módulo de forma segura.
+ * Se der erro, loga mas não quebra o site.
+ */
+function nraizes_load_module($file, $label = '') {
+    $path = get_stylesheet_directory() . '/inc/' . $file;
+    
+    if (!file_exists($path)) {
+        error_log("[NRaizes] Módulo não encontrado: {$file}");
+        return false;
+    }
+    
+    try {
+        require_once $path;
+        return true;
+    } catch (\Throwable $e) {
+        error_log("[NRaizes] Erro ao carregar {$file}: " . $e->getMessage());
+        return false;
     }
 }
 
 // ============================================
-// Carregar módulos de otimização
+// Carregar módulos (ordem importa)
 // ============================================
 
-// Segurança e Performance
-require_once get_stylesheet_directory() . '/inc/security.php';
-require_once get_stylesheet_directory() . '/inc/performance.php';
-require_once get_stylesheet_directory() . '/inc/cache.php';
+// 1. Performance e Cache (sempre)
+nraizes_load_module('performance.php');
+nraizes_load_module('cache.php');
 
-// SEO (complementar ao Yoast)
-require_once get_stylesheet_directory() . '/inc/seo.php';
+// 2. SEO (complementar ao Yoast)
+nraizes_load_module('seo.php');
 
-// Checkout e Conversão
-require_once get_stylesheet_directory() . '/inc/checkout.php';
-require_once get_stylesheet_directory() . '/inc/cro.php';
+// 3. WooCommerce (só se WooCommerce estiver ativo)
+if (class_exists('WooCommerce')) {
+    nraizes_load_module('checkout.php');
+    nraizes_load_module('cro.php');
+}
 
-// Mobile UX Enhancements
-require_once get_stylesheet_directory() . '/inc/mobile.php';
+// 4. Mobile UX
+nraizes_load_module('mobile.php');
 
-// Analytics: Implementação unificada para corrigir problema de atribuição
-require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
+// 5. Analytics unificado (substitui analytics.php antigo)
+nraizes_load_module('analytics_unified.php');
 
-// Consulta de Produtos (GEO-optimized) - Shortcode [nraizes_consulta]
-require_once get_stylesheet_directory() . '/inc/consulta-produtos.php';
+// 6. Consulta de Produtos - Shortcode [nraizes_consulta]
+nraizes_load_module('consulta-produtos.php');
 
-// ============================================
-// Adicione suas customizações abaixo
-// ============================================
-
-// Ferramentas de Admin (disponível em Ferramentas > Novas Raízes)
+// 7. Admin tools (só no painel)
 if (is_admin()) {
-    require_once get_stylesheet_directory() . '/inc/admin-tools.php';
+    nraizes_load_module('admin-tools.php');
 }
