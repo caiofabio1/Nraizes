@@ -32,14 +32,12 @@ function nraizes_copy_parent_customizer() {
         }
     }
 }
-// Também rodar agora caso o tema já esteja ativo
-if ( get_option( 'stylesheet' ) === 'organium-child' ) {
-    $child_mods = get_option( 'theme_mods_organium-child' );
-    if ( ! $child_mods || ! is_array( $child_mods ) || count( $child_mods ) < 3 ) {
-        $parent_mods = get_option( 'theme_mods_organium' );
-        if ( $parent_mods && is_array( $parent_mods ) ) {
-            update_option( 'theme_mods_organium-child', $parent_mods );
-        }
+// Forçar cópia do Customizer do pai (roda uma vez, depois remover)
+if ( get_option( 'stylesheet' ) === 'organium-child' && ! get_option( 'nraizes_mods_copied' ) ) {
+    $parent_mods = get_option( 'theme_mods_organium' );
+    if ( $parent_mods && is_array( $parent_mods ) ) {
+        update_option( 'theme_mods_organium-child', $parent_mods );
+        update_option( 'nraizes_mods_copied', true );
     }
 }
 
