@@ -1,8 +1,6 @@
 <?php
 /**
  * Organium Child Theme
- * 
- * Módulos vitais apenas — sem alterações visuais.
  */
 
 // Enqueue child style após parent
@@ -20,19 +18,9 @@ function organium_child_enqueue() {
 add_filter( 'loop_shop_columns', function() { return 3; } );
 
 // ============================================
-// Módulos vitais (carregamento seguro)
+// Módulos (descomente um por um para testar)
 // ============================================
-
-$nraizes_modules = array(
-    'security.php',            // XML-RPC desabilitado
-    'performance.php',         // Core Web Vitals (preload, defer, cleanup)
-    'analytics_unified.php',   // GA4 + GTM (rastreamento de vendas)
-    'seo.php',                 // Robots.txt, feeds (complementar ao Yoast)
-);
-
-foreach ( $nraizes_modules as $module ) {
-    $path = get_stylesheet_directory() . '/inc/' . $module;
-    if ( file_exists( $path ) ) {
-        require_once $path;
-    }
-}
+require_once get_stylesheet_directory() . '/inc/security.php';
+// require_once get_stylesheet_directory() . '/inc/performance.php';
+// require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
+// require_once get_stylesheet_directory() . '/inc/seo.php';
