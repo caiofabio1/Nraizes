@@ -18,6 +18,32 @@ function organium_child_enqueue() {
 add_filter( 'loop_shop_columns', function() { return 3; } );
 
 // ============================================
+// Copiar Customizer do tema pai (roda uma vez)
+// ============================================
+add_action( 'after_switch_theme', 'nraizes_copy_parent_customizer' );
+function nraizes_copy_parent_customizer() {
+    $parent_mods = get_option( 'theme_mods_organium' );
+    if ( $parent_mods && is_array( $parent_mods ) ) {
+        $child_slug = get_option( 'stylesheet' );
+        $child_mods = get_option( 'theme_mods_' . $child_slug );
+        // Só copia se o child ainda não tem configurações
+        if ( ! $child_mods || ! is_array( $child_mods ) || count( $child_mods ) < 3 ) {
+            update_option( 'theme_mods_' . $child_slug, $parent_mods );
+        }
+    }
+}
+// Também rodar agora caso o tema já esteja ativo
+if ( get_option( 'stylesheet' ) === 'organium-child' ) {
+    $child_mods = get_option( 'theme_mods_organium-child' );
+    if ( ! $child_mods || ! is_array( $child_mods ) || count( $child_mods ) < 3 ) {
+        $parent_mods = get_option( 'theme_mods_organium' );
+        if ( $parent_mods && is_array( $parent_mods ) ) {
+            update_option( 'theme_mods_organium-child', $parent_mods );
+        }
+    }
+}
+
+// ============================================
 // Módulos (descomente um por um para testar)
 // ============================================
 require_once get_stylesheet_directory() . '/inc/security.php';

@@ -209,13 +209,8 @@ function nraizes_remove_unnecessary_scripts() {
     wp_dequeue_style('sbistyles');
     wp_deregister_style('sbistyles');
     
-    // Remove wp-components CSS (editor de blocos) no frontend
-    if (!is_admin()) {
-        wp_dequeue_style('wp-components');
-    }
-    
-    // Remove classic-theme-styles (desnecessário com theme customizado)
-    wp_dequeue_style('classic-theme-styles');
+    // wp-components e classic-theme-styles: NÃO remover
+    // Blocos Gutenberg/Elementor na homepage dependem deles
 }
 
 /**
