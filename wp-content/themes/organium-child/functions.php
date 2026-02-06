@@ -16,6 +16,9 @@ function organium_child_enqueue() {
     );
 }
 
+// Loja: 3 colunas (mesmo que o tema pai)
+add_filter( 'loop_shop_columns', function() { return 3; } );
+
 // ============================================
 // Módulos vitais (carregamento seguro)
 // ============================================
