@@ -1,0 +1,168 @@
+/**
+ * NRaizes Checkout Upsell
+ *
+ * Usa custom properties do tema com fallbacks.
+ * Desktop: cards lado a lado. Mobile: layout horizontal compacto.
+ */
+
+.nraizes-checkout-upsell {
+    margin: 20px 0;
+    padding: 16px;
+    background: var(--nr-bg-light, #f9fafb);
+    border: 1px solid var(--nr-border, #e5e7eb);
+    border-radius: var(--nr-radius, 8px);
+}
+
+.nraizes-checkout-upsell:empty {
+    display: none;
+}
+
+.nraizes-checkout-upsell__heading {
+    margin: 0 0 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--nr-text, #2d3131);
+}
+
+.nraizes-checkout-upsell__grid {
+    display: flex;
+    gap: 12px;
+}
+
+/* --- Card do produto --- */
+.nraizes-checkout-upsell__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--nr-bg, #fff);
+    border: 1px solid var(--nr-border, #e5e7eb);
+    border-radius: var(--nr-radius, 8px);
+    padding: 10px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.nraizes-checkout-upsell__img {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+}
+
+.nraizes-checkout-upsell__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.nraizes-checkout-upsell__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.nraizes-checkout-upsell__name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--nr-text, #2d3131);
+    line-height: 1.3;
+}
+
+.nraizes-checkout-upsell__price {
+    font-size: 0.8rem;
+    color: var(--nr-text-muted, #666);
+}
+
+/* --- Botão Adicionar --- */
+.nraizes-checkout-upsell__btn {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--nr-radius, 8px);
+    background: var(--nr-primary, #4a7c59);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    min-height: 44px; /* WCAG touch target */
+}
+
+.nraizes-checkout-upsell__btn:hover,
+.nraizes-checkout-upsell__btn:focus-visible {
+    background: var(--nr-primary-dark, #3a6247);
+    outline: none;
+}
+
+.nraizes-checkout-upsell__btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--nr-primary-light, #e8f0eb);
+}
+
+.nraizes-checkout-upsell__btn.is-loading {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.nraizes-checkout-upsell__btn.is-added {
+    background: var(--nr-success, #28a800);
+}
+
+/* --- Acessibilidade --- */
+@media (prefers-reduced-motion: reduce) {
+    .nraizes-checkout-upsell__item,
+    .nraizes-checkout-upsell__btn {
+        transition: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .nraizes-checkout-upsell {
+        border: 2px solid ButtonText;
+    }
+    .nraizes-checkout-upsell__item {
+        border: 1px solid ButtonText;
+    }
+    .nraizes-checkout-upsell__btn {
+        border: 1px solid ButtonText;
+    }
+}
+
+/* --- Mobile: layout horizontal compacto --- */
+@media (max-width: 767px) {
+    .nraizes-checkout-upsell {
+        padding: 12px;
+    }
+
+    .nraizes-checkout-upsell__grid {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nraizes-checkout-upsell__item {
+        flex-direction: row;
+        text-align: left;
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .nraizes-checkout-upsell__img {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0;
+    }
+
+    .nraizes-checkout-upsell__info {
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    .nraizes-checkout-upsell__btn {
+        width: auto;
+        flex-shrink: 0;
+        padding: 8px 16px;
+    }
+}
