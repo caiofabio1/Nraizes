@@ -283,8 +283,8 @@ function nraizes_critical_css() {
         .site-header{background:#fff;position:-webkit-sticky;position:sticky;top:0;z-index:999}
         .woocommerce-products-header{padding:1rem}
         .products{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:1rem}
-        @supports(display:grid){.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}}
-        .products li.product{-webkit-box-flex:0;-ms-flex:0 0 calc(25% - 1rem);flex:0 0 calc(25% - 1rem)}
+        @supports(display:grid){.products{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}}
+        .products li.product{-webkit-box-flex:0;-ms-flex:0 0 calc(33.333% - 1rem);flex:0 0 calc(33.333% - 1rem)}
 
         /* CLS Prevention - Reserve space */
         .woocommerce-product-gallery{min-height:300px}
