@@ -56,20 +56,12 @@ function nraizes_remove_feed_links() {
     remove_action('wp_head', 'feed_links_extra', 3);
 }
 
-// Redirect comment feeds to content
+// Redirect ONLY comment feeds (preserva RSS principal, categorias e tags)
 add_action('template_redirect', 'nraizes_redirect_comment_feeds', 5);
 function nraizes_redirect_comment_feeds() {
-    if (is_feed()) {
-        if (is_singular()) {
-            wp_redirect(get_permalink(), 301);
-            exit;
-        } elseif (is_tax() || is_category() || is_tag()) {
-            wp_redirect(get_term_link(get_queried_object()), 301);
-            exit;
-        } else {
-            wp_redirect(home_url(), 301);
-            exit;
-        }
+    if ( is_feed() && is_singular() && is_comment_feed() ) {
+        wp_redirect( get_permalink(), 301 );
+        exit;
     }
 }
 

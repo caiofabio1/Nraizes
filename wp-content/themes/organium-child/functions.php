@@ -24,6 +24,7 @@ $nraizes_modules = array(
     'security.php',            // XML-RPC desabilitado
     'performance.php',         // Core Web Vitals (preload, defer, cleanup)
     'analytics_unified.php',   // GA4 + GTM (rastreamento de vendas)
+    'seo.php',                 // Robots.txt, feeds (complementar ao Yoast)
 );
 
 foreach ( $nraizes_modules as $module ) {
