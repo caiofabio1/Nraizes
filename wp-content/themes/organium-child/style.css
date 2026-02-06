@@ -11,17 +11,21 @@
  Text Domain:  organium-child
 */
 
-/* Fix: slider image preenche 100% da altura da seção */
-.organium_content_slide_wrapper .organium_content_container .organium_content_wrapper_1 {
-    background-color: transparent;
+/* Fix: imagem do slider preenche 100% do slide */
+.organium_content_slide .active_image {
+    height: 100%;
 }
-.organium_content_slide_wrapper .organium_content_wrapper_1 img {
+.organium_content_slide .active_image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+/* Fix: fundo do slide transparente (evita area preta) */
+.organium_content_slide {
+    background-color: transparent;
+}
 
-/* Fix: limpa backgrounds indesejados de HTML colado (ChatGPT wrappers) */
+/* Fix: limpa HTML colado do ChatGPT */
 .organium_content_slider_promo_text .dark,
 .organium_content_slider_promo_text .prose {
     background: transparent !important;
