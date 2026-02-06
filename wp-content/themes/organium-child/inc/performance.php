@@ -25,7 +25,17 @@ function nraizes_preload_lcp_image() {
             }
         }
     }
-    // Homepage/shop LCP - only preload on shop page (not front page which uses Elementor)
+    // Homepage LCP - Elementor hero slider image
+    // Atualize a URL se trocar a imagem do slider principal
+    if (is_front_page()) {
+        $lcp_url = apply_filters('nraizes_homepage_lcp_url',
+            'https://nraizes.com.br/wp-content/uploads/2025/02/Produto-Aromaterapia-e-Cosmeticos.avif'
+        );
+        if ($lcp_url) {
+            echo '<link rel="preload" as="image" href="' . esc_url($lcp_url) . '" fetchpriority="high">';
+        }
+    }
+    // Shop LCP - first product image
     if (is_shop() && !is_front_page()) {
         $args = array(
             'post_type' => 'product',
@@ -99,7 +109,23 @@ function nraizes_defer_all_scripts($tag, $handle, $src) {
         'gtm4wp', 'google_gtagjs', 'google-recaptcha',
         'directorist-main-script', 'directorist-select2',
         'sbi-scripts', 'instagram-feed', 'prettyPhoto',
-        'yith-wcwl-main', 'jquery-selectBox'
+        'yith-wcwl-main', 'jquery-selectBox',
+        // Scripts que escapavam do defer anterior
+        'jquery-blockui', 'jquery-cookie',
+        'fa-v4-shims', 'font-awesome-4-shim',
+        'isotope', 'isotope-pkgd',
+        'sourcebuster', 'order-attribution',
+        'wp-consent-api', 'wc-consent-api-integration',
+        'gtm4wp-ecommerce-generic', 'gtm4wp-woocommerce',
+        'mailchimp-for-wp-forms', 'mc4wp-forms',
+        'wp-hooks', 'wp-i18n', 'wp-element', 'wp-escape-html',
+        'react', 'react-dom',
+    );
+    
+    // Padrões de handle para defer automático
+    $defer_patterns = array(
+        'elementor', 'directorist', 'organium',
+        'googlesitekit', 'google-listings', 'qlwapp',
     );
     
     // Skip if already has defer/async
@@ -112,9 +138,16 @@ function nraizes_defer_all_scripts($tag, $handle, $src) {
         return $tag;
     }
     
-    // Defer known heavy scripts
-    if (in_array($handle, $defer) || strpos($handle, 'elementor') !== false || strpos($handle, 'directorist') !== false) {
+    // Defer scripts na lista explícita
+    if (in_array($handle, $defer)) {
         return str_replace(' src=', ' defer src=', $tag);
+    }
+    
+    // Defer scripts que batem com padrões de handle
+    foreach ($defer_patterns as $pattern) {
+        if (strpos($handle, $pattern) !== false) {
+            return str_replace(' src=', ' defer src=', $tag);
+        }
     }
     
     return $tag;
@@ -170,6 +203,38 @@ function nraizes_remove_unnecessary_scripts() {
         wp_dequeue_style('woocommerce_prettyPhoto_css');
         wp_dequeue_script('prettyPhoto');
         wp_dequeue_script('prettyPhoto-init');
+    }
+    
+    // Remove Instagram Feed CSS duplicado (sbi_styles carrega 2x)
+    wp_dequeue_style('sbistyles');
+    wp_deregister_style('sbistyles');
+    
+    // Remove wp-components CSS (editor de blocos) no frontend
+    if (!is_admin()) {
+        wp_dequeue_style('wp-components');
+    }
+    
+    // Remove classic-theme-styles (desnecessário com theme customizado)
+    wp_dequeue_style('classic-theme-styles');
+}
+
+/**
+ * Segundo passe para remover CSS/JS que plugins re-enfileiram após prioridade 999
+ * Hook wp_print_styles roda depois de wp_enqueue_scripts
+ */
+add_action('wp_print_styles', 'nraizes_late_dequeue_styles', 999);
+function nraizes_late_dequeue_styles() {
+    // Instagram Feed duplicado
+    wp_dequeue_style('sbistyles');
+    
+    // prettyPhoto fora de páginas de produto
+    if (function_exists('is_product') && !is_product()) {
+        wp_dequeue_style('woocommerce_prettyPhoto_css');
+    }
+    
+    // Stripe settings CSS (só necessário no checkout)
+    if (function_exists('is_checkout') && !is_checkout()) {
+        wp_dequeue_style('stripe-main-styles');
     }
 }
 
