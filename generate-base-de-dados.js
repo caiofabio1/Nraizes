@@ -263,9 +263,9 @@ function renderProductCard(p, index) {
             <div class="nrc-card-content" itemprop="articleBody">
 `;
 
-    // --- Dosagem / Modo de Uso / Indicacao MTC ---
+    // --- Dosagem / Modo de Uso / Indicação MTC ---
     if (dosagem || modo_uso || ind_mtc) {
-        html += `                <section class="nrc-section" aria-label="Informacoes de uso">
+        html += `                <section class="nrc-section" aria-label="Informações de uso">
                     <dl class="nrc-dl-grid">`;
 
         if (dosagem) {
@@ -285,7 +285,7 @@ function renderProductCard(p, index) {
         if (ind_mtc) {
             html += `
                         <div class="nrc-dl-item">
-                            <dt>Indicacao na Medicina Tradicional Chinesa</dt>
+                            <dt>Indicação na Medicina Tradicional Chinesa</dt>
                             <dd class="nrc-text-block">${escHtml(ind_mtc)}</dd>
                         </div>`;
         }
@@ -296,32 +296,32 @@ function renderProductCard(p, index) {
 `;
     }
 
-    // --- Aplicacoes Clinicas ---
+    // --- Aplicações Clínicas ---
     if (aplicacoes) {
-        html += `                <section class="nrc-section" aria-label="Aplicacoes clinicas">
-                    <h4 class="nrc-section-title">Aplicacoes Clinicas Baseadas em Evidencias</h4>
+        html += `                <section class="nrc-section" aria-label="Aplicações clínicas">
+                    <h4 class="nrc-section-title">Aplicações Clínicas Baseadas em Evidências</h4>
                     <p class="nrc-text-block">${escHtml(aplicacoes)}</p>
                 </section>
 `;
     }
 
-    // --- Seguranca ---
+    // --- Segurança ---
     if (contraindicacoes.length || interacoes.length || efeitos_col.length || alertas.length) {
-        html += `                <section class="nrc-section nrc-safety" aria-label="Seguranca e precaucoes">
-                    <h4 class="nrc-section-title">Seguranca e Precaucoes</h4>
+        html += `                <section class="nrc-section nrc-safety" aria-label="Segurança e precauções">
+                    <h4 class="nrc-section-title">Segurança e Precauções</h4>
                     <div class="nrc-section-grid">`;
 
         if (contraindicacoes.length) {
             html += `
                         <div>
-                            <h5 class="nrc-subsection-title">Contraindicacoes</h5>
+                            <h5 class="nrc-subsection-title">Contraindicações</h5>
                             ${renderTags(contraindicacoes, 'danger')}
                         </div>`;
         }
         if (interacoes.length) {
             html += `
                         <div>
-                            <h5 class="nrc-subsection-title">Interacoes Medicamentosas</h5>
+                            <h5 class="nrc-subsection-title">Interações Medicamentosas</h5>
                             ${renderTags(interacoes, 'interaction')}
                         </div>`;
         }
@@ -346,10 +346,10 @@ function renderProductCard(p, index) {
 `;
     }
 
-    // --- Evidencia Cientifica ---
+    // --- Evidência Científica ---
     if (estudos) {
-        html += `                <section class="nrc-section" aria-label="Evidencia cientifica">
-                    <h4 class="nrc-section-title">Evidencia Cientifica</h4>
+        html += `                <section class="nrc-section" aria-label="Evidência científica">
+                    <h4 class="nrc-section-title">Evidência Científica</h4>
                     <blockquote class="nrc-text-block nrc-evidence-block" cite="https://pubmed.ncbi.nlm.nih.gov/">
                         <p>${escHtml(estudos)}</p>
                     </blockquote>
@@ -357,10 +357,10 @@ function renderProductCard(p, index) {
 `;
     }
 
-    // --- Ingredientes / Principios Ativos ---
+    // --- Ingredientes / Princípios Ativos ---
     if (ingredientes.length || princ_ativos.length) {
-        html += `                <section class="nrc-section" aria-label="Composicao">
-                    <h4 class="nrc-section-title">Composicao</h4>
+        html += `                <section class="nrc-section" aria-label="Composição">
+                    <h4 class="nrc-section-title">Composição</h4>
                     <div class="nrc-section-grid">`;
 
         if (ingredientes.length) {
@@ -373,7 +373,7 @@ function renderProductCard(p, index) {
         if (princ_ativos.length) {
             html += `
                         <div>
-                            <h5 class="nrc-subsection-title">Principios Ativos</h5>
+                            <h5 class="nrc-subsection-title">Princípios Ativos</h5>
                             ${renderTags(princ_ativos, '')}
                         </div>`;
         }
@@ -384,9 +384,9 @@ function renderProductCard(p, index) {
 `;
     }
 
-    // --- Armazenamento / Origem / Certificacoes ---
+    // --- Armazenamento / Origem / Certificações ---
     if (armazen || origem || certificacoes.length) {
-        html += `                <section class="nrc-section" aria-label="Informacoes adicionais">
+        html += `                <section class="nrc-section" aria-label="Informações adicionais">
                     <dl class="nrc-dl-grid">`;
 
         if (armazen) {
@@ -409,7 +409,7 @@ function renderProductCard(p, index) {
 
         if (certificacoes.length) {
             html += `
-                        <h5 class="nrc-subsection-title">Certificacoes</h5>
+                        <h5 class="nrc-subsection-title">Certificações</h5>
                         ${renderTags(certificacoes, 'cert')}`;
         }
 
@@ -418,10 +418,10 @@ function renderProductCard(p, index) {
 `;
     }
 
-    // --- Referencias Cientificas ---
+    // --- Referências Científicas ---
     if (referencias.length) {
-        html += `                <section class="nrc-section nrc-references-section" aria-label="Referencias cientificas">
-                    <h4 class="nrc-section-title">Referencias Cientificas</h4>
+        html += `                <section class="nrc-section nrc-references-section" aria-label="Referências científicas">
+                    <h4 class="nrc-section-title">Referências Científicas</h4>
                     <ol class="nrc-references">
 `;
         for (const ref of referencias) {
@@ -469,9 +469,9 @@ function renderProductCard(p, index) {
                     </a>
                 </div>
 
-                <meta itemprop="author" content="Novas Raizes - nraizes.com.br">
+                <meta itemprop="author" content="Novas Raízes - nraizes.com.br">
                 <meta itemprop="datePublished" content="${escAttr(todayISO())}">
-                <meta itemprop="publisher" content="Novas Raizes">
+                <meta itemprop="publisher" content="Novas Raízes">
 
             </div><!-- .nrc-card-content -->
         </details>
@@ -520,25 +520,25 @@ const medicalPage = {
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
     '@id': pageUrl + '#webpage',
-    'name': 'Guia de Produtos Naturais e Suplementos - Novas Raizes',
-    'description': 'Base de dados com ' + total + ' produtos naturais, formulas da Medicina Tradicional Chinesa, suplementos e plantas medicinais com informacoes baseadas em evidencias cientificas e referencias a PubMed.',
+    'name': 'Guia de Produtos Naturais e Suplementos - Novas Raízes',
+    'description': 'Base de dados com ' + total + ' produtos naturais, fórmulas da Medicina Tradicional Chinesa, suplementos e plantas medicinais com informações baseadas em evidências científicas e referências a PubMed.',
     'url': pageUrl,
     'inLanguage': 'pt-BR',
     'lastReviewed': updated,
-    'reviewedBy': { '@type': 'Organization', 'name': 'Novas Raizes', 'url': 'https://nraizes.com.br' },
+    'reviewedBy': { '@type': 'Organization', 'name': 'Novas Raízes', 'url': 'https://nraizes.com.br' },
     'specialty': { '@type': 'MedicalSpecialty', 'name': 'Medicina Integrativa' },
     'medicalAudience': { '@type': 'MedicalAudience', 'audienceType': 'Patient' },
     'about': [
         { '@type': 'MedicalTherapy', 'name': 'Fitoterapia' },
         { '@type': 'MedicalTherapy', 'name': 'Medicina Tradicional Chinesa' },
-        { '@type': 'MedicalTherapy', 'name': 'Suplementacao Nutricional' },
+        { '@type': 'MedicalTherapy', 'name': 'Suplementação Nutricional' },
     ],
     'mainEntity': { '@type': 'Dataset', '@id': pageUrl + '#dataset' },
     'speakable': { '@type': 'SpeakableSpecification', 'cssSelector': ['.nrc-title', '.nrc-subtitle', '.nrc-geo-text'] },
     'publisher': {
         '@type': 'Organization',
         '@id': 'https://nraizes.com.br/#organization',
-        'name': 'Novas Raizes',
+        'name': 'Novas Raízes',
         'url': 'https://nraizes.com.br',
         'logo': { '@type': 'ImageObject', 'url': 'https://nraizes.com.br/wp-content/uploads/logo-novas-raizes.png' },
         'sameAs': ['https://www.instagram.com/nraizes'],
@@ -555,8 +555,8 @@ const dataset = {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     '@id': pageUrl + '#dataset',
-    'name': 'Base de Dados de Produtos Naturais e Suplementos - Novas Raizes',
-    'description': 'Base de dados com informacoes cientificas de ' + total + ' produtos incluindo formulas da Medicina Tradicional Chinesa (MTC), suplementos alimentares, plantas medicinais e oleos essenciais. Cada registro inclui dosagem, contraindicacoes, interacoes medicamentosas, resumo de evidencias e referencias cientificas (PubMed/Cochrane).',
+    'name': 'Base de Dados de Produtos Naturais e Suplementos - Novas Raízes',
+    'description': 'Base de dados com informações científicas de ' + total + ' produtos incluindo fórmulas da Medicina Tradicional Chinesa (MTC), suplementos alimentares, plantas medicinais e óleos essenciais. Cada registro inclui dosagem, contraindicações, interações medicamentosas, resumo de evidências e referências científicas (PubMed/Cochrane).',
     'url': pageUrl,
     'license': 'https://creativecommons.org/licenses/by-nc/4.0/',
     'inLanguage': 'pt-BR',
@@ -564,18 +564,18 @@ const dataset = {
     'datePublished': '2025-01-01',
     'keywords': [
         'produtos naturais', 'suplementos alimentares', 'medicina tradicional chinesa',
-        'MTC', 'fitoterapia', 'oleos essenciais', 'plantas medicinais',
-        'evidencias cientificas', 'PubMed', 'contraindicacoes', 'dosagem',
-        'Novas Raizes', 'saude integrativa', 'medicina natural',
+        'MTC', 'fitoterapia', 'óleos essenciais', 'plantas medicinais',
+        'evidências científicas', 'PubMed', 'contraindicações', 'dosagem',
+        'Novas Raízes', 'saúde integrativa', 'medicina natural',
     ],
     'variableMeasured': [
-        'dosagem recomendada', 'nivel de evidencia cientifica',
-        'contraindicacoes', 'interacoes medicamentosas', 'resumo de evidencias',
+        'dosagem recomendada', 'nível de evidência científica',
+        'contraindicações', 'interações medicamentosas', 'resumo de evidências',
     ],
-    'measurementTechnique': 'Revisao de literatura cientifica (PubMed, Cochrane, CNKI)',
+    'measurementTechnique': 'Revisão de literatura científica (PubMed, Cochrane, CNKI)',
     'size': total + ' produtos',
     'distribution': { '@type': 'DataDownload', 'encodingFormat': 'text/html', 'contentUrl': pageUrl },
-    'creator': { '@type': 'Organization', 'name': 'Novas Raizes', 'url': 'https://nraizes.com.br' },
+    'creator': { '@type': 'Organization', 'name': 'Novas Raízes', 'url': 'https://nraizes.com.br' },
 };
 
 // 3. FAQPage
@@ -598,7 +598,7 @@ const faqSchema = faqItems.length ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     'name': 'Perguntas Frequentes sobre Produtos Naturais e Suplementos',
-    'description': 'Respostas baseadas em evidencias cientificas para perguntas frequentes sobre suplementos, formulas MTC, plantas medicinais e produtos naturais.',
+    'description': 'Respostas baseadas em evidências científicas para perguntas frequentes sobre suplementos, fórmulas MTC, plantas medicinais e produtos naturais.',
     'mainEntity': faqItems.slice(0, 100),
 } : null;
 
@@ -641,7 +641,7 @@ const breadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://nraizes.com.br/' },
+        { '@type': 'ListItem', 'position': 1, 'name': 'Início', 'item': 'https://nraizes.com.br/' },
         { '@type': 'ListItem', 'position': 2, 'name': 'Guia de Produtos Naturais', 'item': pageUrl },
     ],
 };
@@ -695,7 +695,7 @@ if (productSchemas.length) {
     itemsListSchema = {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        'name': 'Produtos Naturais com Evidencia Cientifica',
+        'name': 'Produtos Naturais com Evidência Científica',
         'numberOfItems': productSchemas.length,
         'itemListElement': productSchemas.map((item, idx) => ({
             '@type': 'ListItem',
@@ -744,14 +744,14 @@ const fullHtml = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base de Dados - Novas Ra\u00edzes</title>
-    <meta name="citation_title" content="Guia de Produtos Naturais e Suplementos - Novas Raizes">
-    <meta name="citation_author" content="Novas Raizes">
+    <title>Base de Dados - Novas Raízes</title>
+    <meta name="citation_title" content="Guia de Produtos Naturais e Suplementos - Novas Raízes">
+    <meta name="citation_author" content="Novas Raízes">
     <meta name="citation_publication_date" content="${escAttr(updated)}">
     <meta name="dc.title" content="Guia de Produtos Naturais e Suplementos">
-    <meta name="dc.creator" content="Novas Raizes">
-    <meta name="dc.subject" content="Produtos Naturais; Suplementos; Medicina Tradicional Chinesa; Fitoterapia; Evidencias Cientificas">
-    <meta name="dc.description" content="Base de dados com ${total} produtos naturais e suplementos com dosagem, contraindicacoes e referencias cientificas">
+    <meta name="dc.creator" content="Novas Raízes">
+    <meta name="dc.subject" content="Produtos Naturais; Suplementos; Medicina Tradicional Chinesa; Fitoterapia; Evidências Científicas">
+    <meta name="dc.description" content="Base de dados com ${total} produtos naturais e suplementos com dosagem, contraindicações e referências científicas">
     <meta name="dc.language" content="pt-BR">
     <meta name="dc.type" content="Dataset">
     ${jsonLd(medicalPage)}
@@ -775,11 +775,11 @@ ${itemsListSchema ? jsonLd(itemsListSchema) : ''}
                 Guia de Produtos Naturais e Suplementos
             </h1>
             <p class="nrc-subtitle" itemprop="description">
-                Base de dados curada com ${total} produtos naturais, formulas da Medicina Tradicional Chinesa,
-                suplementos, plantas medicinais e oleos essenciais. Cada produto apresenta um resumo baseado
-                exclusivamente no que os estudos cientificos referenciam e embasam, com citacoes de revistas
+                Base de dados curada com ${total} produtos naturais, fórmulas da Medicina Tradicional Chinesa,
+                suplementos, plantas medicinais e óleos essenciais. Cada produto apresenta um resumo baseado
+                exclusivamente no que os estudos científicos referenciam e embasam, com citações de revistas
                 indexadas (PubMed, Cochrane, etc.).
-                <strong>Este conteudo nao substitui orientacao de um profissional de saude.</strong>
+                <strong>Este conteúdo não substitui orientação de um profissional de saúde.</strong>
             </p>
             <div class="nrc-stats" role="status">
                 <span class="nrc-stat">
@@ -800,11 +800,11 @@ ${itemsListSchema ? jsonLd(itemsListSchema) : ''}
                 <input type="search"
                        id="nrc-search"
                        class="nrc-search-input"
-                       placeholder="Buscar por nome, ingrediente, estudo ou aplicacao..."
+                       placeholder="Buscar por nome, ingrediente, estudo ou aplicação..."
                        autocomplete="off"
                        aria-describedby="nrc-search-help">
                 <span id="nrc-search-help" class="screen-reader-text">
-                    Digite para filtrar entre ${total} produtos naturais, suplementos e formulas
+                    Digite para filtrar entre ${total} produtos naturais, suplementos e fórmulas
                 </span>
                 <button id="nrc-clear-search" class="nrc-clear-btn" style="display:none;" aria-label="Limpar busca">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -819,8 +819,8 @@ ${itemsListSchema ? jsonLd(itemsListSchema) : ''}
                 </button>
 ${categoryButtonsHtml}            </div>
 
-            <div class="nrc-evidence-filters" role="group" aria-label="Filtrar por nivel de evidencia">
-                <span class="nrc-evidence-label">Nivel de Evidencia:</span>
+            <div class="nrc-evidence-filters" role="group" aria-label="Filtrar por nível de evidência">
+                <span class="nrc-evidence-label">Nível de Evidência:</span>
                 <button class="nrc-evidence-btn nrc-active" data-nivel="todos" aria-pressed="true">Todos</button>
                 <button class="nrc-evidence-btn" data-nivel="alta" aria-pressed="false">
                     <span class="nrc-dot nrc-dot-alta" aria-hidden="true"></span> Alta
@@ -842,7 +842,7 @@ ${categoryButtonsHtml}            </div>
         <div id="nrc-results" class="nrc-results" role="feed" aria-label="Resultados da consulta">
 ${productCardsHtml}        </div>
 
-        <aside class="nrc-disclaimer" role="note" aria-label="Aviso legal obrigatorio">
+        <aside class="nrc-disclaimer" role="note" aria-label="Aviso legal obrigatório">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                 <line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -850,13 +850,13 @@ ${productCardsHtml}        </div>
             <div>
                 <strong>Aviso Legal Importante:</strong>
                 <p>${escHtml(aviso)}</p>
-                <p>Em conformidade com a legislacao brasileira (ANVISA - RDC 243/2018 e IN 28/2018),
-                informamos que: <strong>suplementos alimentares nao sao medicamentos</strong> e nao se destinam
-                a diagnosticar, tratar, curar ou prevenir qualquer doenca. As informacoes sobre estudos
-                cientificos sao apresentadas com finalidade exclusivamente educativa e informativa, e nao
-                constituem recomendacao terapeutica. <strong>Consulte sempre um profissional de saude
-                habilitado</strong> antes de iniciar qualquer suplementacao. A automedicacao pode ser
-                prejudicial a saude.</p>
+                <p>Em conformidade com a legislação brasileira (ANVISA - RDC 243/2018 e IN 28/2018),
+                informamos que: <strong>suplementos alimentares não são medicamentos</strong> e não se destinam
+                a diagnosticar, tratar, curar ou prevenir qualquer doença. As informações sobre estudos
+                científicos são apresentadas com finalidade exclusivamente educativa e informativa, e não
+                constituem recomendação terapêutica. <strong>Consulte sempre um profissional de saúde
+                habilitado</strong> antes de iniciar qualquer suplementação. A automedicação pode ser
+                prejudicial à saúde.</p>
             </div>
         </aside>
 
@@ -906,39 +906,39 @@ ${productCardsHtml}        </div>
 
         <footer class="nrc-geo-footer" aria-label="Sobre esta base de dados">
             <div itemprop="about" itemscope itemtype="https://schema.org/MedicalCondition">
-                <meta itemprop="name" content="Saude Integrativa e Medicina Natural">
+                <meta itemprop="name" content="Saúde Integrativa e Medicina Natural">
             </div>
             <p class="nrc-geo-text">
-                Esta base de dados e mantida pela <strong>Novas Raizes</strong> (nraizes.com.br),
-                loja especializada em produtos naturais, suplementos alimentares, formulas da
-                Medicina Tradicional Chinesa (MTC), plantas medicinais e oleos essenciais.
-                As informacoes sao compiladas a partir de estudos cientificos publicados em
+                Esta base de dados é mantida pela <strong>Novas Raízes</strong> (nraizes.com.br),
+                loja especializada em produtos naturais, suplementos alimentares, fórmulas da
+                Medicina Tradicional Chinesa (MTC), plantas medicinais e óleos essenciais.
+                As informações são compiladas a partir de estudos científicos publicados em
                 revistas indexadas como PubMed, Cochrane Library e bases de dados de fitoterapia
-                baseada em evidencias. Cada produto apresenta exclusivamente o que os estudos
-                referenciam e embasam, com dosagem recomendada, contraindicacoes,
-                interacoes medicamentosas e referencias cientificas verificaveis.
+                baseada em evidências. Cada produto apresenta exclusivamente o que os estudos
+                referenciam e embasam, com dosagem recomendada, contraindicações,
+                interações medicamentosas e referências científicas verificáveis.
             </p>
             <p class="nrc-geo-text">
-                Categorias disponiveis: Formulas da Medicina Tradicional Chinesa (Liu Wei Dihuang Wan,
+                Categorias disponíveis: Fórmulas da Medicina Tradicional Chinesa (Liu Wei Dihuang Wan,
                 Xiao Yao Wan, Gui Pi Wan, Ba Zhen Wan, Guizhi Fuling Wan), Suplementos (Vitamina D3,
-                Vitamina C, Vitamina B12, Omega-3, CoQ10, Ashwagandha, Melatonina, Magnesio, Zinco,
-                Colageno, Probioticos, Curcuma, Spirulina, Clorella, Propolis, Creatina, Biotina,
-                Calcio + K2, Triptofano/5-HTP, Selenio, NAC, Ferro Quelado, Glutamina),
+                Vitamina C, Vitamina B12, Omega-3, CoQ10, Ashwagandha, Melatonina, Magnésio, Zinco,
+                Colágeno, Probióticos, Cúrcuma, Spirulina, Clorella, Própolis, Creatina, Biotina,
+                Cálcio + K2, Triptofano/5-HTP, Selênio, NAC, Ferro Quelado, Glutamina),
                 Plantas Medicinais (Camomila, Gengibre, Valeriana, Passiflora, Melissa, Boldo,
-                Cavalinha, Espinheira-santa, Hibisco, Hortela-pimenta, Guaco, Unha-de-gato,
-                Ginseng, Ginkgo, Equinacea, Rhodiola, Saw Palmetto, Cardo-mariano) e
-                Oleos Essenciais (Lavanda, Melaleuca, Eucalipto, Alecrim, Hortela-pimenta,
-                Limao, Laranja-doce, Ylang Ylang, Copaiba, Incenso/Olibano).
-                Loja fisica na Vila Mariana, Sao Paulo - SP. Seg-Sab 09:00 as 18:30.
+                Cavalinha, Espinheira-santa, Hibisco, Hortelã-pimenta, Guaco, Unha-de-gato,
+                Ginseng, Ginkgo, Equinácea, Rhodiola, Saw Palmetto, Cardo-mariano) e
+                Óleos Essenciais (Lavanda, Melaleuca, Eucalipto, Alecrim, Hortelã-pimenta,
+                Limão, Laranja-doce, Ylang Ylang, Copaíba, Incenso/Olibano).
+                Loja física na Vila Mariana, São Paulo - SP. Seg-Sáb 09:00 às 18:30.
             </p>
             <div itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
-                <meta itemprop="name" content="Novas Raizes & Mivegan">
+                <meta itemprop="name" content="Novas Raízes & Mivegan">
                 <meta itemprop="url" content="https://nraizes.com.br">
                 <meta itemprop="telephone" content="+5511999927588">
-                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e oleos essenciais na Vila Mariana, Sao Paulo - SP. Seg-Sab 09:00-18:30.">
+                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e óleos essenciais na Vila Mariana, São Paulo - SP. Seg-Sáb 09:00-18:30.">
                 <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                    <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queiros, 34">
-                    <meta itemprop="addressLocality" content="Sao Paulo">
+                    <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queirós, 34">
+                    <meta itemprop="addressLocality" content="São Paulo">
                     <meta itemprop="addressRegion" content="SP">
                     <meta itemprop="postalCode" content="04105-000">
                     <meta itemprop="addressCountry" content="BR">

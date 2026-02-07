@@ -1,13 +1,13 @@
 <?php
 /**
- * Ferramenta de Consulta de Produtos - Novas Raizes
+ * Ferramenta de Consulta de Produtos - Novas Raízes
  * 
  * GEO-Optimized (Generative Engine Optimization)
- * - Server-side rendering completo (LLMs nao executam JS)
- * - HTML5 semantico (article, section, details/summary, cite, dl/dt/dd)
+ * - Server-side rendering completo (LLMs não executam JS)
+ * - HTML5 semântico (article, section, details/summary, cite, dl/dt/dd)
  * - JSON-LD rico (MedicalWebPage, Dataset, FAQPage, DietarySupplement)
  * - Speakable markup para assistentes de voz
- * - Citacoes cientificas com <cite> para confiabilidade
+ * - Citações científicas com <cite> para confiabilidade
  * 
  * Shortcode: [nraizes_consulta]
  * 
@@ -209,7 +209,7 @@ function nraizes_render_product_card($p, $index) {
 
                 <?php /* --- Dosagem / Modo de Uso / Indicacao MTC --- */ ?>
                 <?php if ($dosagem || $modo_uso || $ind_mtc) : ?>
-                <section class="nrc-section" aria-label="Informacoes de uso">
+                <section class="nrc-section" aria-label="Informações de uso">
                     <dl class="nrc-dl-grid">
                         <?php if ($dosagem) : ?>
                         <div class="nrc-dl-item">
@@ -225,7 +225,7 @@ function nraizes_render_product_card($p, $index) {
                         <?php endif; ?>
                         <?php if ($ind_mtc) : ?>
                         <div class="nrc-dl-item">
-                            <dt>Indicacao na Medicina Tradicional Chinesa</dt>
+                            <dt>Indicação na Medicina Tradicional Chinesa</dt>
                             <dd class="nrc-text-block"><?php echo esc_html($ind_mtc); ?></dd>
                         </div>
                         <?php endif; ?>
@@ -233,28 +233,28 @@ function nraizes_render_product_card($p, $index) {
                 </section>
                 <?php endif; ?>
 
-                <?php /* --- Aplicacoes Clinicas Baseadas em Evidencias --- */ ?>
+                <?php /* --- Aplicações Clínicas Baseadas em Evidências --- */ ?>
                 <?php if ($aplicacoes) : ?>
-                <section class="nrc-section" aria-label="Aplicacoes clinicas">
-                    <h4 class="nrc-section-title">Aplicacoes Clinicas Baseadas em Evidencias</h4>
+                <section class="nrc-section" aria-label="Aplicações clínicas">
+                    <h4 class="nrc-section-title">Aplicações Clínicas Baseadas em Evidências</h4>
                     <p class="nrc-text-block"><?php echo esc_html($aplicacoes); ?></p>
                 </section>
                 <?php endif; ?>
 
                 <?php /* --- Seguranca --- */ ?>
                 <?php if (!empty($contraindicacoes) || !empty($interacoes) || !empty($efeitos_col) || !empty($alertas)) : ?>
-                <section class="nrc-section nrc-safety" aria-label="Seguranca e precaucoes">
-                    <h4 class="nrc-section-title">Seguranca e Precaucoes</h4>
+                <section class="nrc-section nrc-safety" aria-label="Segurança e precauções">
+                    <h4 class="nrc-section-title">Segurança e Precauções</h4>
                     <div class="nrc-section-grid">
                         <?php if (!empty($contraindicacoes)) : ?>
                         <div>
-                            <h5 class="nrc-subsection-title">Contraindicacoes</h5>
+                            <h5 class="nrc-subsection-title">Contraindicações</h5>
                             <?php echo nraizes_render_tags($contraindicacoes, 'danger'); ?>
                         </div>
                         <?php endif; ?>
                         <?php if (!empty($interacoes)) : ?>
                         <div>
-                            <h5 class="nrc-subsection-title">Interacoes Medicamentosas</h5>
+                            <h5 class="nrc-subsection-title">Interações Medicamentosas</h5>
                             <?php echo nraizes_render_tags($interacoes, 'interaction'); ?>
                         </div>
                         <?php endif; ?>
@@ -274,10 +274,10 @@ function nraizes_render_product_card($p, $index) {
                 </section>
                 <?php endif; ?>
 
-                <?php /* --- Evidencia Cientifica --- */ ?>
+                <?php /* --- Evidência Científica --- */ ?>
                 <?php if ($estudos) : ?>
-                <section class="nrc-section" aria-label="Evidencia cientifica">
-                    <h4 class="nrc-section-title">Evidencia Cientifica</h4>
+                <section class="nrc-section" aria-label="Evidência científica">
+                    <h4 class="nrc-section-title">Evidência Científica</h4>
                     <blockquote class="nrc-text-block nrc-evidence-block" cite="https://pubmed.ncbi.nlm.nih.gov/">
                         <p><?php echo esc_html($estudos); ?></p>
                     </blockquote>
@@ -286,8 +286,8 @@ function nraizes_render_product_card($p, $index) {
 
                 <?php /* --- Ingredientes / Principios Ativos --- */ ?>
                 <?php if (!empty($ingredientes) || !empty($princ_ativos)) : ?>
-                <section class="nrc-section" aria-label="Composicao">
-                    <h4 class="nrc-section-title">Composicao</h4>
+                <section class="nrc-section" aria-label="Composição">
+                    <h4 class="nrc-section-title">Composição</h4>
                     <div class="nrc-section-grid">
                         <?php if (!empty($ingredientes)) : ?>
                         <div>
@@ -297,7 +297,7 @@ function nraizes_render_product_card($p, $index) {
                         <?php endif; ?>
                         <?php if (!empty($princ_ativos)) : ?>
                         <div>
-                            <h5 class="nrc-subsection-title">Principios Ativos</h5>
+                            <h5 class="nrc-subsection-title">Princípios Ativos</h5>
                             <?php echo nraizes_render_tags($princ_ativos, ''); ?>
                         </div>
                         <?php endif; ?>
@@ -307,7 +307,7 @@ function nraizes_render_product_card($p, $index) {
 
                 <?php /* --- Armazenamento / Origem / Certificacoes --- */ ?>
                 <?php if ($armazen || $origem || !empty($certificacoes)) : ?>
-                <section class="nrc-section" aria-label="Informacoes adicionais">
+                <section class="nrc-section" aria-label="Informações adicionais">
                     <dl class="nrc-dl-grid">
                         <?php if ($armazen) : ?>
                         <div class="nrc-dl-item">
@@ -323,7 +323,7 @@ function nraizes_render_product_card($p, $index) {
                         <?php endif; ?>
                     </dl>
                     <?php if (!empty($certificacoes)) : ?>
-                        <h5 class="nrc-subsection-title">Certificacoes</h5>
+                        <h5 class="nrc-subsection-title">Certificações</h5>
                         <?php echo nraizes_render_tags($certificacoes, 'cert'); ?>
                     <?php endif; ?>
                 </section>
@@ -331,8 +331,8 @@ function nraizes_render_product_card($p, $index) {
 
                 <?php /* --- Referencias Cientificas --- */ ?>
                 <?php if (!empty($referencias)) : ?>
-                <section class="nrc-section nrc-references-section" aria-label="Referencias cientificas">
-                    <h4 class="nrc-section-title">Referencias Cientificas</h4>
+                <section class="nrc-section nrc-references-section" aria-label="Referências científicas">
+                    <h4 class="nrc-section-title">Referências Científicas</h4>
                     <ol class="nrc-references">
                         <?php foreach ($referencias as $ref) : ?>
                             <?php echo nraizes_render_reference($ref); ?>
@@ -374,9 +374,9 @@ function nraizes_render_product_card($p, $index) {
                     </a>
                 </div>
 
-                <meta itemprop="author" content="Novas Raizes - nraizes.com.br">
+                <meta itemprop="author" content="Novas Raízes - nraizes.com.br">
                 <meta itemprop="datePublished" content="<?php echo esc_attr(date('Y-m-d')); ?>">
-                <meta itemprop="publisher" content="Novas Raizes">
+                <meta itemprop="publisher" content="Novas Raízes">
 
             </div><!-- .nrc-card-content -->
         </details>
@@ -397,7 +397,7 @@ function nraizes_consulta_shortcode($atts) {
     
     $data = nraizes_get_consultation_data();
     if (!$data) {
-        return '<div class="nrc-error" role="alert">Dados de consulta nao disponiveis no momento.</div>';
+        return '<div class="nrc-error" role="alert">Dados de consulta não disponíveis no momento.</div>';
     }
     
     $produtos = $data['produtos'] ?? [];
@@ -430,11 +430,11 @@ function nraizes_consulta_shortcode($atts) {
                 Guia de Produtos Naturais e Suplementos
             </h1>
             <p class="nrc-subtitle" itemprop="description">
-                Base de dados curada com <?php echo intval($total); ?> produtos naturais, formulas da Medicina Tradicional Chinesa, 
-                suplementos, plantas medicinais e oleos essenciais. Cada produto apresenta um resumo baseado 
-                exclusivamente no que os estudos cientificos referenciam e embasam, com citacoes de revistas 
+                Base de dados curada com <?php echo intval($total); ?> produtos naturais, fórmulas da Medicina Tradicional Chinesa, 
+                suplementos, plantas medicinais e óleos essenciais. Cada produto apresenta um resumo baseado 
+                exclusivamente no que os estudos científicos referenciam e embasam, com citações de revistas 
                 indexadas (PubMed, Cochrane, etc.).
-                <strong>Este conteudo nao substitui orientacao de um profissional de saude.</strong>
+                <strong>Este conteúdo não substitui orientação de um profissional de saúde.</strong>
             </p>
             <div class="nrc-stats" role="status">
                 <span class="nrc-stat">
@@ -456,11 +456,11 @@ function nraizes_consulta_shortcode($atts) {
                 <input type="search" 
                        id="nrc-search" 
                        class="nrc-search-input" 
-                       placeholder="Buscar por nome, ingrediente, estudo ou aplicacao..."
+                       placeholder="Buscar por nome, ingrediente, estudo ou aplicação..."
                        autocomplete="off"
                        aria-describedby="nrc-search-help">
                 <span id="nrc-search-help" class="screen-reader-text">
-                    Digite para filtrar entre <?php echo intval($total); ?> produtos naturais, suplementos e formulas
+                    Digite para filtrar entre <?php echo intval($total); ?> produtos naturais, suplementos e fórmulas
                 </span>
                 <button id="nrc-clear-search" class="nrc-clear-btn" style="display:none;" aria-label="Limpar busca">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -483,8 +483,8 @@ function nraizes_consulta_shortcode($atts) {
                 <?php endforeach; ?>
             </div>
 
-            <div class="nrc-evidence-filters" role="group" aria-label="Filtrar por nivel de evidencia">
-                <span class="nrc-evidence-label">Nivel de Evidencia:</span>
+            <div class="nrc-evidence-filters" role="group" aria-label="Filtrar por nível de evidência">
+                <span class="nrc-evidence-label">Nível de Evidência:</span>
                 <button class="nrc-evidence-btn nrc-active" data-nivel="todos" aria-pressed="true">Todos</button>
                 <button class="nrc-evidence-btn" data-nivel="alta" aria-pressed="false">
                     <span class="nrc-dot nrc-dot-alta" aria-hidden="true"></span> Alta
@@ -514,7 +514,7 @@ function nraizes_consulta_shortcode($atts) {
         </div>
 
         <?php /* ---- DISCLAIMER LEGAL (ANVISA RDC 243/2018, IN 28/2018) ---- */ ?>
-        <aside class="nrc-disclaimer" role="note" aria-label="Aviso legal obrigatorio">
+        <aside class="nrc-disclaimer" role="note" aria-label="Aviso legal obrigatório">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                 <line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -522,13 +522,13 @@ function nraizes_consulta_shortcode($atts) {
             <div>
                 <strong>Aviso Legal Importante:</strong>
                 <p><?php echo esc_html($aviso); ?></p>
-                <p>Em conformidade com a legislacao brasileira (ANVISA - RDC 243/2018 e IN 28/2018), 
-                informamos que: <strong>suplementos alimentares nao sao medicamentos</strong> e nao se destinam 
-                a diagnosticar, tratar, curar ou prevenir qualquer doenca. As informacoes sobre estudos 
-                cientificos sao apresentadas com finalidade exclusivamente educativa e informativa, e nao 
-                constituem recomendacao terapeutica. <strong>Consulte sempre um profissional de saude 
-                habilitado</strong> antes de iniciar qualquer suplementacao. A automedicacao pode ser 
-                prejudicial a saude.</p>
+                <p>Em conformidade com a legislação brasileira (ANVISA - RDC 243/2018 e IN 28/2018), 
+                informamos que: <strong>suplementos alimentares não são medicamentos</strong> e não se destinam 
+                a diagnosticar, tratar, curar ou prevenir qualquer doença. As informações sobre estudos 
+                científicos são apresentadas com finalidade exclusivamente educativa e informativa, e não 
+                constituem recomendação terapêutica. <strong>Consulte sempre um profissional de saúde 
+                habilitado</strong> antes de iniciar qualquer suplementação. A automedicação pode ser 
+                prejudicial à saúde.</p>
             </div>
         </aside>
 
@@ -591,39 +591,39 @@ function nraizes_consulta_shortcode($atts) {
         <?php /* ---- ABOUT (hidden visually, visible to crawlers for GEO context) ---- */ ?>
         <footer class="nrc-geo-footer" aria-label="Sobre esta base de dados">
             <div itemprop="about" itemscope itemtype="https://schema.org/MedicalCondition">
-                <meta itemprop="name" content="Saude Integrativa e Medicina Natural">
+                <meta itemprop="name" content="Saúde Integrativa e Medicina Natural">
             </div>
             <p class="nrc-geo-text">
-                Esta base de dados e mantida pela <strong>Novas Raizes</strong> (nraizes.com.br), 
-                loja especializada em produtos naturais, suplementos alimentares, formulas da 
-                Medicina Tradicional Chinesa (MTC), plantas medicinais e oleos essenciais. 
-                As informacoes sao compiladas a partir de estudos cientificos publicados em 
+                Esta base de dados é mantida pela <strong>Novas Raízes</strong> (nraizes.com.br), 
+                loja especializada em produtos naturais, suplementos alimentares, fórmulas da 
+                Medicina Tradicional Chinesa (MTC), plantas medicinais e óleos essenciais. 
+                As informações são compiladas a partir de estudos científicos publicados em 
                 revistas indexadas como PubMed, Cochrane Library e bases de dados de fitoterapia 
-                baseada em evidencias. Cada produto apresenta exclusivamente o que os estudos 
-                referenciam e embasam, com dosagem recomendada, contraindicacoes, 
-                interacoes medicamentosas e referencias cientificas verificaveis.
+                baseada em evidências. Cada produto apresenta exclusivamente o que os estudos 
+                referenciam e embasam, com dosagem recomendada, contraindicações, 
+                interações medicamentosas e referências científicas verificáveis.
             </p>
             <p class="nrc-geo-text">
-                Categorias disponiveis: Formulas da Medicina Tradicional Chinesa (Liu Wei Dihuang Wan, 
+                Categorias disponíveis: Fórmulas da Medicina Tradicional Chinesa (Liu Wei Dihuang Wan, 
                 Xiao Yao Wan, Gui Pi Wan, Ba Zhen Wan, Guizhi Fuling Wan), Suplementos (Vitamina D3, 
-                Vitamina C, Vitamina B12, Omega-3, CoQ10, Ashwagandha, Melatonina, Magnesio, Zinco, 
-                Colageno, Probioticos, Curcuma, Spirulina, Clorella, Propolis, Creatina, Biotina, 
-                Calcio + K2, Triptofano/5-HTP, Selenio, NAC, Ferro Quelado, Glutamina), 
+                Vitamina C, Vitamina B12, Omega-3, CoQ10, Ashwagandha, Melatonina, Magnésio, Zinco, 
+                Colágeno, Probióticos, Cúrcuma, Spirulina, Clorella, Própolis, Creatina, Biotina, 
+                Cálcio + K2, Triptofano/5-HTP, Selênio, NAC, Ferro Quelado, Glutamina), 
                 Plantas Medicinais (Camomila, Gengibre, Valeriana, Passiflora, Melissa, Boldo, 
-                Cavalinha, Espinheira-santa, Hibisco, Hortela-pimenta, Guaco, Unha-de-gato, 
-                Ginseng, Ginkgo, Equinacea, Rhodiola, Saw Palmetto, Cardo-mariano) e 
-                Oleos Essenciais (Lavanda, Melaleuca, Eucalipto, Alecrim, Hortela-pimenta, 
-                Limao, Laranja-doce, Ylang Ylang, Copaiba, Incenso/Olibano).
-                Loja fisica na Vila Mariana, Sao Paulo - SP. Seg-Sab 09:00 as 18:30.
+                Cavalinha, Espinheira-santa, Hibisco, Hortelã-pimenta, Guaco, Unha-de-gato, 
+                Ginseng, Ginkgo, Equinácea, Rhodiola, Saw Palmetto, Cardo-mariano) e 
+                Óleos Essenciais (Lavanda, Melaleuca, Eucalipto, Alecrim, Hortelã-pimenta, 
+                Limão, Laranja-doce, Ylang Ylang, Copaíba, Incenso/Olibano).
+                Loja física na Vila Mariana, São Paulo - SP. Seg-Sáb 09:00 às 18:30.
             </p>
             <div itemscope itemtype="https://schema.org/Organization" itemprop="publisher">
-                <meta itemprop="name" content="Novas Raizes & Mivegan">
+                <meta itemprop="name" content="Novas Raízes & Mivegan">
                 <meta itemprop="url" content="https://nraizes.com.br">
                 <meta itemprop="telephone" content="+5511999927588">
-                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e oleos essenciais na Vila Mariana, Sao Paulo - SP. Seg-Sab 09:00-18:30.">
+                <meta itemprop="description" content="Loja de produtos naturais, suplementos, Medicina Tradicional Chinesa e óleos essenciais na Vila Mariana, São Paulo - SP. Seg-Sáb 09:00-18:30.">
                 <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                    <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queiros, 34">
-                    <meta itemprop="addressLocality" content="Sao Paulo">
+                    <meta itemprop="streetAddress" content="R. Dr. Nicolau de Sousa Queirós, 34">
+                    <meta itemprop="addressLocality" content="São Paulo">
                     <meta itemprop="addressRegion" content="SP">
                     <meta itemprop="postalCode" content="04105-000">
                     <meta itemprop="addressCountry" content="BR">
@@ -658,14 +658,14 @@ function nraizes_consulta_structured_data() {
         '@context' => 'https://schema.org',
         '@type' => 'MedicalWebPage',
         '@id' => $page_url . '#webpage',
-        'name' => 'Guia de Produtos Naturais e Suplementos - Novas Raizes',
-        'description' => 'Base de dados com ' . count($produtos) . ' produtos naturais, formulas da Medicina Tradicional Chinesa, suplementos e plantas medicinais com informacoes baseadas em evidencias cientificas e referencias a PubMed.',
+        'name' => 'Guia de Produtos Naturais e Suplementos - Novas Raízes',
+        'description' => 'Base de dados com ' . count($produtos) . ' produtos naturais, fórmulas da Medicina Tradicional Chinesa, suplementos e plantas medicinais com informações baseadas em evidências científicas e referências a PubMed.',
         'url' => $page_url,
         'inLanguage' => 'pt-BR',
         'lastReviewed' => $updated,
         'reviewedBy' => array(
             '@type' => 'Organization',
-            'name' => 'Novas Raizes',
+            'name' => 'Novas Raízes',
             'url' => 'https://nraizes.com.br',
         ),
         'specialty' => array(
@@ -679,7 +679,7 @@ function nraizes_consulta_structured_data() {
         'about' => array(
             array('@type' => 'MedicalTherapy', 'name' => 'Fitoterapia'),
             array('@type' => 'MedicalTherapy', 'name' => 'Medicina Tradicional Chinesa'),
-            array('@type' => 'MedicalTherapy', 'name' => 'Suplementacao Nutricional'),
+            array('@type' => 'MedicalTherapy', 'name' => 'Suplementação Nutricional'),
         ),
         'mainEntity' => array(
             '@type' => 'Dataset',
@@ -692,7 +692,7 @@ function nraizes_consulta_structured_data() {
         'publisher' => array(
             '@type' => 'Organization',
             '@id' => 'https://nraizes.com.br/#organization',
-            'name' => 'Novas Raizes',
+            'name' => 'Novas Raízes',
             'url' => 'https://nraizes.com.br',
             'logo' => array(
                 '@type' => 'ImageObject',
@@ -716,8 +716,8 @@ function nraizes_consulta_structured_data() {
         '@context' => 'https://schema.org',
         '@type' => 'Dataset',
         '@id' => $page_url . '#dataset',
-        'name' => 'Base de Dados de Produtos Naturais e Suplementos - Novas Raizes',
-        'description' => 'Base de dados com informacoes cientificas de ' . count($produtos) . ' produtos incluindo formulas da Medicina Tradicional Chinesa (MTC), suplementos alimentares, plantas medicinais e oleos essenciais. Cada registro inclui dosagem, contraindicacoes, interacoes medicamentosas, resumo de evidencias e referencias cientificas (PubMed/Cochrane).',
+        'name' => 'Base de Dados de Produtos Naturais e Suplementos - Novas Raízes',
+        'description' => 'Base de dados com informações científicas de ' . count($produtos) . ' produtos incluindo fórmulas da Medicina Tradicional Chinesa (MTC), suplementos alimentares, plantas medicinais e óleos essenciais. Cada registro inclui dosagem, contraindicações, interações medicamentosas, resumo de evidências e referências científicas (PubMed/Cochrane).',
         'url' => $page_url,
         'license' => 'https://creativecommons.org/licenses/by-nc/4.0/',
         'inLanguage' => 'pt-BR',
@@ -725,15 +725,15 @@ function nraizes_consulta_structured_data() {
         'datePublished' => '2025-01-01',
         'keywords' => array(
             'produtos naturais', 'suplementos alimentares', 'medicina tradicional chinesa',
-            'MTC', 'fitoterapia', 'oleos essenciais', 'plantas medicinais',
-            'evidencias cientificas', 'PubMed', 'contraindicacoes', 'dosagem',
-            'Novas Raizes', 'saude integrativa', 'medicina natural',
+            'MTC', 'fitoterapia', 'óleos essenciais', 'plantas medicinais',
+            'evidências científicas', 'PubMed', 'contraindicações', 'dosagem',
+            'Novas Raízes', 'saúde integrativa', 'medicina natural',
         ),
         'variableMeasured' => array(
-            'dosagem recomendada', 'nivel de evidencia cientifica',
-            'contraindicacoes', 'interacoes medicamentosas', 'resumo de evidencias',
+            'dosagem recomendada', 'nível de evidência científica',
+            'contraindicações', 'interações medicamentosas', 'resumo de evidências',
         ),
-        'measurementTechnique' => 'Revisao de literatura cientifica (PubMed, Cochrane, CNKI)',
+        'measurementTechnique' => 'Revisão de literatura científica (PubMed, Cochrane, CNKI)',
         'size' => count($produtos) . ' produtos',
         'distribution' => array(
             '@type' => 'DataDownload',
@@ -742,7 +742,7 @@ function nraizes_consulta_structured_data() {
         ),
         'creator' => array(
             '@type' => 'Organization',
-            'name' => 'Novas Raizes',
+            'name' => 'Novas Raízes',
             'url' => 'https://nraizes.com.br',
         ),
     );
@@ -774,7 +774,7 @@ function nraizes_consulta_structured_data() {
             '@context' => 'https://schema.org',
             '@type' => 'FAQPage',
             'name' => 'Perguntas Frequentes sobre Produtos Naturais e Suplementos',
-            'description' => 'Respostas baseadas em evidencias cientificas para perguntas frequentes sobre suplementos, formulas MTC, plantas medicinais e produtos naturais.',
+            'description' => 'Respostas baseadas em evidências científicas para perguntas frequentes sobre suplementos, fórmulas MTC, plantas medicinais e produtos naturais.',
             'mainEntity' => array_slice($faq_items, 0, 100),
         );
         
@@ -833,7 +833,7 @@ function nraizes_consulta_structured_data() {
             array(
                 '@type' => 'ListItem',
                 'position' => 1,
-                'name' => 'Inicio',
+                'name' => 'Início',
                 'item' => home_url('/'),
             ),
             array(
@@ -905,7 +905,7 @@ function nraizes_consulta_structured_data() {
         $items_list = array(
             '@context' => 'https://schema.org',
             '@type' => 'ItemList',
-            'name' => 'Produtos Naturais com Evidencia Cientifica',
+            'name' => 'Produtos Naturais com Evidência Científica',
             'numberOfItems' => count($product_schemas),
             'itemListElement' => array_map(function($item, $idx) {
                 return array(
@@ -942,7 +942,7 @@ add_action('rest_api_init', 'nraizes_consulta_rest_api');
 
 function nraizes_consulta_api_handler($request) {
     $data = nraizes_get_consultation_data();
-    if (!$data) return new WP_Error('no_data', 'Dados nao disponiveis', array('status' => 500));
+    if (!$data) return new WP_Error('no_data', 'Dados não disponíveis', array('status' => 500));
     
     $busca      = sanitize_text_field($request->get_param('busca'));
     $categoria  = sanitize_text_field($request->get_param('categoria'));
@@ -1017,13 +1017,13 @@ function nraizes_geo_meta_tags() {
     $data = nraizes_get_consultation_data();
     $total = $data ? count($data['produtos'] ?? []) : 0;
     
-    echo '<meta name="citation_title" content="Guia de Produtos Naturais e Suplementos - Novas Raizes">' . "\n";
-    echo '<meta name="citation_author" content="Novas Raizes">' . "\n";
+    echo '<meta name="citation_title" content="Guia de Produtos Naturais e Suplementos - Novas Raízes">' . "\n";
+    echo '<meta name="citation_author" content="Novas Raízes">' . "\n";
     echo '<meta name="citation_publication_date" content="' . esc_attr($data['atualizado_em'] ?? date('Y-m-d')) . '">' . "\n";
     echo '<meta name="dc.title" content="Guia de Produtos Naturais e Suplementos">' . "\n";
-    echo '<meta name="dc.creator" content="Novas Raizes">' . "\n";
-    echo '<meta name="dc.subject" content="Produtos Naturais; Suplementos; Medicina Tradicional Chinesa; Fitoterapia; Evidencias Cientificas">' . "\n";
-    echo '<meta name="dc.description" content="Base de dados com ' . intval($total) . ' produtos naturais e suplementos com dosagem, contraindicacoes e referencias cientificas">' . "\n";
+    echo '<meta name="dc.creator" content="Novas Raízes">' . "\n";
+    echo '<meta name="dc.subject" content="Produtos Naturais; Suplementos; Medicina Tradicional Chinesa; Fitoterapia; Evidências Científicas">' . "\n";
+    echo '<meta name="dc.description" content="Base de dados com ' . intval($total) . ' produtos naturais e suplementos com dosagem, contraindicações e referências científicas">' . "\n";
     echo '<meta name="dc.language" content="pt-BR">' . "\n";
     echo '<meta name="dc.type" content="Dataset">' . "\n";
     
