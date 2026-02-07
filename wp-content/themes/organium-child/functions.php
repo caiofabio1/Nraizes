@@ -14,8 +14,8 @@ function organium_child_enqueue() {
     );
 }
 
-// Loja: 3 colunas (mesmo que o tema pai)
-add_filter( 'loop_shop_columns', function() { return 3; } );
+// Loja: 3 colunas (mesmo que o tema pai) — prioridade 999 para sobrescrever
+add_filter( 'loop_shop_columns', function() { return 3; }, 999 );
 
 // ============================================
 // Copiar Customizer do tema pai (roda uma vez)
@@ -42,9 +42,14 @@ if ( get_option( 'stylesheet' ) === 'organium-child' && ! get_option( 'nraizes_m
 }
 
 // ============================================
-// Módulos (descomente um por um para testar)
+// Módulos ativos
 // ============================================
 require_once get_stylesheet_directory() . '/inc/security.php';
 require_once get_stylesheet_directory() . '/inc/performance.php';
-// require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
-// require_once get_stylesheet_directory() . '/inc/seo.php';
+require_once get_stylesheet_directory() . '/inc/yoast-config.php';
+
+// ============================================
+// Módulos desabilitados (Yoast SEO Premium assume)
+// ============================================
+// require_once get_stylesheet_directory() . '/inc/seo.php';           // Substituído por yoast-config.php
+// require_once get_stylesheet_directory() . '/inc/analytics_unified.php'; // Configurar via GTM/Site Kit
