@@ -174,10 +174,10 @@ def init_database():
         CREATE TABLE IF NOT EXISTS propostas_ia (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             id_produto INTEGER NOT NULL,
-            tipo TEXT NOT NULL,  -- 'descricao_curta', 'descricao_complementar', 'seo'
+            tipo TEXT NOT NULL,  -- 'descricao_curta', 'descricao_complementar', 'seo', 'titulo_ml', 'descricao_curta_ml', 'descricao_ml', 'ficha_tecnica_ml'
             conteudo_original TEXT,
             conteudo_proposto TEXT NOT NULL,
-            status TEXT DEFAULT 'pendente',  -- 'pendente', 'aprovado', 'rejeitado'
+            status TEXT DEFAULT 'pendente',  -- 'pendente', 'aprovado', 'rejeitado', 'aplicado'
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             reviewed_at TIMESTAMP,
             FOREIGN KEY (id_produto) REFERENCES produtos(id_bling)
