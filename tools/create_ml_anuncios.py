@@ -1,18 +1,32 @@
 """
 Create ML anuncios (Bronze, frete ML, sem garantia) for all eligible products.
+
+Inclui automaticamente:
+- Atributos ML (marca, formato, sabor, tipo, classe)
+- Atributos de embalagem (SELLER_PACKAGE_WIDTH/LENGTH/HEIGHT/WEIGHT)
+- Dimensões estimadas por tipo de produto
+- Preço ML = preço Bling * 1.15 (multiplicador global)
+
+Uso:
+    python tools/create_ml_anuncios.py              # Dry-run
+    python tools/create_ml_anuncios.py --executar   # Cria anúncios de verdade
 """
 
 import requests, os, json, sys, time, re
 from dotenv import load_dotenv
 
 load_dotenv(".credentials/woo_api_tokens.env")
-sys.path.insert(0, "src")
+sys.path.insert(
+    0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src")
+)
 from bling_client import BlingClient
 
 woo_key = os.getenv("WOO_CONSUMER_KEY")
 woo_secret = os.getenv("WOO_CONSUMER_SECRET")
 client = BlingClient()
 ML_STORE = 205294269
+ML_MULTIPLIER = 1.15
+executar = "--executar" in sys.argv
 
 # ============================================================
 # 1. Get all remaining ML links
@@ -39,6 +53,7 @@ for l in links:
     ext_imgs = d.get("midia", {}).get("imagens", {}).get("externas", [])
     ext_urls = [e.get("link", "") for e in ext_imgs if e.get("link")]
 
+    dim = d.get("dimensoes", {})
     products.append(
         {
             "pid": pid,
@@ -46,9 +61,15 @@ for l in links:
             "nome": nome,
             "marca": marca,
             "preco_ml": preco_ml,
+            "preco_bling": d.get("preco", 0) or 0,
             "estoque": estoque,
             "desc": desc_comp if desc_comp else desc_curta,
             "bling_imgs": ext_urls,
+            "gtin": d.get("gtin", "") or "",
+            "pesoBruto": d.get("pesoBruto", 0) or 0,
+            "largura": dim.get("largura", 0) or 0,
+            "altura": dim.get("altura", 0) or 0,
+            "profundidade": dim.get("profundidade", 0) or 0,
         }
     )
     time.sleep(0.15)
@@ -191,7 +212,76 @@ def clean_desc(desc):
 
 
 # ============================================================
-# 6. CREATE ANUNCIOS
+# 6. Helper: classify package dimensions (cm/kg)
+# ============================================================
+def classify_dimensions(nome):
+    """Retorna (largura, altura, profundidade, pesoBruto) baseado no nome."""
+    n = nome.lower()
+    if any(x in n for x in ["serum", "sérum", "facial"]):
+        return (6, 6, 14, 0.12)
+    if any(x in n for x in ["sachê", "sache", "sachés", "saches", "display"]):
+        if "90g" in n:
+            return (12, 8, 18, 0.20)
+        return (18, 12, 22, 0.60)
+    if "miya" in n and ("colag" in n or "10 unid" in n):
+        return (20, 10, 12, 0.45)
+    if any(x in n for x in ["840g", "1kg"]):
+        return (16, 16, 24, 1.10)
+    if any(x in n for x in ["600g", "500g", "450g", "420g"]):
+        return (14, 14, 20, 0.80)
+    if any(x in n for x in ["220g", "240g", "300g", "360g"]):
+        return (12, 12, 18, 0.45)
+    if "150g" in n:
+        return (10, 10, 15, 0.30)
+    if "proteina vegetal" in n or "proteína vegetal" in n:
+        return (14, 14, 20, 0.70)
+    if "creatina" in n:
+        return (14, 14, 20, 0.70)
+    if "180" in n and ("capsul" in n or "cápsul" in n):
+        return (9, 9, 16, 0.35)
+    if "120" in n and ("capsul" in n or "cápsul" in n):
+        return (8, 8, 14, 0.25)
+    if "90" in n and ("capsul" in n or "cápsul" in n):
+        return (8, 8, 13, 0.22)
+    if "60" in n and ("capsul" in n or "cápsul" in n):
+        return (7, 7, 12, 0.18)
+    if any(x in n for x in ["pré-treino", "pre-treino", "pre treino", "pretreino"]):
+        return (12, 12, 18, 0.50)
+    if any(x in n for x in ["chá", "cha ", "café", "cafe", "leite em po"]):
+        return (12, 12, 18, 0.40)
+    if any(x in n for x in ["vitamina", "capsul", "cápsul"]):
+        return (7, 7, 12, 0.18)
+    return (12, 12, 16, 0.35)
+
+
+def get_package_attrs(p):
+    """Retorna atributos SELLER_PACKAGE_* para o anúncio ML."""
+    # Usa dimensões do produto Bling, ou estima pelo nome
+    if (
+        p["largura"] > 0
+        and p["altura"] > 0
+        and p["profundidade"] > 0
+        and p["pesoBruto"] > 0.05
+    ):
+        larg, alt, prof, peso = (
+            p["largura"],
+            p["altura"],
+            p["profundidade"],
+            p["pesoBruto"],
+        )
+    else:
+        larg, alt, prof, peso = classify_dimensions(p["nome"])
+    peso_g = int(peso * 1000)
+    return [
+        {"id_externo": "SELLER_PACKAGE_WIDTH", "valor": f"{larg} cm"},
+        {"id_externo": "SELLER_PACKAGE_LENGTH", "valor": f"{prof} cm"},
+        {"id_externo": "SELLER_PACKAGE_HEIGHT", "valor": f"{alt} cm"},
+        {"id_externo": "SELLER_PACKAGE_WEIGHT", "valor": f"{peso_g} g"},
+    ]
+
+
+# ============================================================
+# 7. CREATE ANUNCIOS
 # ============================================================
 print(f"\n=== CRIANDO ANUNCIOS BRONZE ===")
 
@@ -227,6 +317,27 @@ for p in eligible:
         desc = f"{p['nome']} - Produto natural de alta qualidade. N Raizes, Vila Mariana SP."
 
     fmt, flavor, stype, sclass = classify(p["nome"])
+    pkg_attrs = get_package_attrs(p)
+
+    # Preço ML: usar o do vínculo, ou calcular 1.15x
+    preco_ml = (
+        p["preco_ml"]
+        if p["preco_ml"] > 0
+        else round(p["preco_bling"] * ML_MULTIPLIER, 2)
+    )
+
+    atributos = [
+        {"id_externo": "BRAND", "valor": p["marca"] or "Genérico"},
+        {"id_externo": "SUPPLEMENT_FORMAT", "valor": fmt},
+        {"id_externo": "FLAVOR", "valor": flavor},
+        {"id_externo": "SUPPLEMENT_TYPE", "valor": stype},
+        {"id_externo": "SUPPLEMENT_CLASS", "valor": sclass},
+    ]
+    # GTIN se disponível
+    if p["gtin"]:
+        atributos.append({"id_externo": "GTIN", "valor": p["gtin"]})
+    # Embalagem (obrigatório para ML)
+    atributos.extend(pkg_attrs)
 
     body = {
         "produto": {"id": p["pid"]},
@@ -234,24 +345,23 @@ for p in eligible:
         "loja": {"id": ML_STORE},
         "nome": titulo,
         "descricao": desc,
-        "preco": {"valor": p["preco_ml"]},
+        "preco": {"valor": preco_ml},
         "categoria": {"id": "MLB264201"},
-        "atributos": [
-            {"id": "BRAND", "valor": p["marca"] or "Genérico"},
-            {"id": "SUPPLEMENT_FORMAT", "valor": fmt},
-            {"id": "FLAVOR", "valor": flavor},
-            {"id": "SUPPLEMENT_TYPE", "valor": stype},
-            {"id": "SUPPLEMENT_CLASS", "valor": sclass},
-        ],
+        "atributos": atributos,
         "mercadoLivre": {"modalidade": "bronze", "frete": {"gratis": False, "tipo": 2}},
         "imagens": [{"url": url, "ordem": i + 1} for i, url in enumerate(img_urls[:6])],
     }
+
+    if not executar:
+        print(f"  DRY | R$ {preco_ml:.2f} | {titulo[:50]}")
+        success += 1
+        continue
 
     try:
         resp = client.post_anuncios(body)
         aid = resp.get("data", {}).get("id", "?")
         success += 1
-        print(f"  OK | {aid} | R$ {p['preco_ml']:.2f} | {titulo[:50]}")
+        print(f"  OK | {aid} | R$ {preco_ml:.2f} | {titulo[:50]}")
     except Exception as e:
         failed += 1
         err = str(e)[:80]
