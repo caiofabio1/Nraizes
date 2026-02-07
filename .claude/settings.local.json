@@ -37,7 +37,15 @@
       "Bash(git checkout:*)",
       "Bash(git merge:*)",
       "Bash(php:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(tree:*)",
+      "Bash(powershell:*)",
+      "Bash(grep:*)",
+      "mcp__0f25fb8e-2ddb-429c-9c64-3106d319d6cc__dynamic_space",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(where:*)",
+      "Bash(npx --yes sharp-cli:*)"
     ]
   }
 }
