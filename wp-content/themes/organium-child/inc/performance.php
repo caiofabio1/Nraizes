@@ -98,6 +98,11 @@ function nraizes_shop_first_images($image, $product = null, $size = '', $attr = 
  */
 add_filter('script_loader_tag', 'nraizes_defer_all_scripts', 10, 3);
 function nraizes_defer_all_scripts($tag, $handle, $src) {
+    // Não deferir scripts no admin/editor (Elementor, Gutenberg, etc.)
+    if (is_admin()) {
+        return $tag;
+    }
+    
     // Critical scripts that should NOT be deferred
     $critical = array('jquery-core', 'jquery');
     
