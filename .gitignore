@@ -17,6 +17,7 @@ wp-content/plugins/*
 !wp-content/plugins/nraizes-frete-gratis/
 !wp-content/plugins/wc-infinitepay-hpos/
 !wp-content/plugins/nraizes-checkout-upsell/
+!wp-content/plugins/nraizes-floating-shop/
 
 # Ambiente
 .env
