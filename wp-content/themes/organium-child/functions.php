@@ -47,9 +47,10 @@ if ( get_option( 'stylesheet' ) === 'organium-child' && ! get_option( 'nraizes_m
 require_once get_stylesheet_directory() . '/inc/security.php';
 require_once get_stylesheet_directory() . '/inc/performance.php';
 require_once get_stylesheet_directory() . '/inc/yoast-config.php';
+require_once get_stylesheet_directory() . '/inc/analytics_unified.php';
 
 // ============================================
-// Módulos desabilitados (Yoast SEO Premium assume)
+// Módulos desabilitados
 // ============================================
-// require_once get_stylesheet_directory() . '/inc/seo.php';           // Substituído por yoast-config.php
-// require_once get_stylesheet_directory() . '/inc/analytics_unified.php'; // Configurar via GTM/Site Kit
+// require_once get_stylesheet_directory() . '/inc/seo.php';       // Substituído por yoast-config.php
+// require_once get_stylesheet_directory() . '/inc/analytics.php'; // Substituído por analytics_unified.php
